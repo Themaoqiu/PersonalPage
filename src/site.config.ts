@@ -87,7 +87,7 @@ export const theme: ThemeUserConfig = {
     /** Domain configuration */
     domains: {
       main: 'xingjianwang.com',
-      // githubPages: '',
+      githubPages: 'xingjianwang.github.io',
       // cloudflare: '',
       // friendCircle: '',
     },

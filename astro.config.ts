@@ -31,8 +31,8 @@ import {
 import config from './src/site.config.ts'
 
 const platform = process.env.DEPLOYMENT_PLATFORM || 'vercel'
-const isCloudflare = platform === 'cloudflare'
 const isGithubPages = platform === 'github'
+const isCloudflare = platform === 'cloudflare'
 
 // https://astro.build/config
 export default defineConfig({
