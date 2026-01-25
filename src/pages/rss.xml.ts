@@ -8,13 +8,13 @@ import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import { unified } from 'unified'
 import { visit } from 'unist-util-visit'
+import config from '@/site-config'
 
-import { getBlogCollection, sortMDByDate } from 'astro-pure/server'
-import config from 'virtual:config'
+import { getBlogCollection, sortMDByDate } from '@/server'
 
 // Get dynamic import of images as a map collection
 const imagesGlob = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/content/blog/**/*.{jpeg,jpg,png,gif,avif,webp}' // add more image formats if needed
+  '/src/content/blogs/**/*.{jpeg,jpg,png,gif}' // add more image formats if needed
 )
 
 const renderContent = async (post: CollectionEntry<'blog'>, site: URL) => {
@@ -23,13 +23,13 @@ const renderContent = async (post: CollectionEntry<'blog'>, site: URL) => {
     /**
      * @param {Root} tree
      */
-    return async (tree: Root) => {
+    return async function (tree: Root) {
       const promises: Promise<void>[] = []
       visit(tree, 'image', (node) => {
         if (node.url.startsWith('/images')) {
           node.url = `${site}${node.url.replace('/', '')}`
         } else {
-          const imagePathPrefix = `/src/content/blog/${post.id}/${node.url.replace('./', '')}`
+          const imagePathPrefix = `/src/content/blogs/${post.id}/${node.url.replace('./', '')}`
           const promise = imagesGlob[imagePathPrefix]?.().then(async (res) => {
             const imagePath = res?.default
             if (imagePath) {
@@ -65,7 +65,7 @@ const GET = async (context: AstroGlobal) => {
 
     // Contents
     title: config.title,
-    description: config.description,
+    description: config.description || 'A blog built with Astro',
     site: import.meta.env.SITE,
     items: await Promise.all(
       allPostsByDate.map(async (post) => ({

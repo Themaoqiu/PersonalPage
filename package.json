@@ -27,18 +27,27 @@
     "@waline/client": "^3.8.0",
     "astro": "^5.16.6",
     "astro-pure": "1.4.0",
+    "date-fns": "^4.1.0",
     "katex": "^0.16.27",
+    "rehype-external-links": "^3.0.0",
     "rehype-katex": "^7.0.1",
+    "remark-gfm": "^4.0.1",
     "remark-math": "^6.0.0",
     "sharp": "^0.34.5",
-    "typescript": "^5.9.3"
+    "simple-icons": "^16.6.0",
+    "tailwind-merge": "^3.4.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.53.1"
   },
   "devDependencies": {
+    "@astrojs/tailwind": "^6.0.2",
     "@ianvs/prettier-plugin-sort-imports": "^4.7.0",
+    "@tailwindcss/typography": "^0.5.19",
     "@typescript-eslint/parser": "^8.51.0",
     "eslint": "^9.39.2",
     "eslint-plugin-astro": "^1.5.0",
     "prettier": "^3.7.4",
-    "prettier-plugin-astro": "^0.14.1"
+    "prettier-plugin-astro": "^0.14.1",
+    "tailwindcss": "^3.4.19"
   }
 }

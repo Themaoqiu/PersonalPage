@@ -1,7 +1,7 @@
 ---
-import { PostPreview } from 'astro-pure/components/pages'
-import { getBlogCollection, groupCollectionsByYear, sortMDByDate } from 'astro-pure/server'
-import { Button } from 'astro-pure/user'
+import { PostPreview } from '@/components/pages'
+import { getBlogCollection, groupCollectionsByYear, sortMDByDate } from '@/server'
+import { Button } from '@/components/user'
 import PageLayout from '@/layouts/BaseLayout.astro'
 
 export const prerender = true
@@ -17,7 +17,7 @@ const meta = {
 ---
 
 <PageLayout {meta}>
-  <Button title='Back' href='/blog' variant='back' />
+  <Button title='Back' href='/' style='back' />
 
   <main class='mt-6 lg:mt-10'>
     <div id='content-header' class='animate'>
@@ -31,8 +31,8 @@ const meta = {
         allPostsByYear.map(([year, posts]) => (
           <div class='relative mt-20'>
             <h2
-              class='absolute -start-6 -top-16 z-0 text-9xl font-bold text-transparent opacity-12 dark:opacity-25'
-              style='-webkit-text-stroke-width:2px;-webkit-text-stroke-color:hsl(var(--foreground)/var(--un-text-opacity))'
+              class='absolute -start-6 -top-16 z-0 text-9xl font-bold text-transparent opacity-10'
+              style='-webkit-text-stroke-width:2px;-webkit-text-stroke-color:hsl(var(--foreground)/var(--tw-text-opacity))'
             >
               <samp>{year}</samp>
             </h2>

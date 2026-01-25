@@ -1,17 +1,18 @@
-import type { CardListData, Config, IntegrationUserConfig, ThemeUserConfig } from 'astro-pure/types'
+import type { CardListData, Config, IntegrationUserConfig, ThemeUserConfig } from './types'
 
 export const theme: ThemeUserConfig = {
-  // [Basic]
+  // === Basic configuration ===
   /** Title for your website. Will be used in metadata and as browser tab title. */
-  title: 'Astro Theme Pure',
+  title: "Xingjian Wang",
   /** Will be used in index page & copyright declaration */
-  author: 'Pure Lab',
+  author: '猫柒-',
+  author_en: 'Xingjian Wang',
   /** Description metadata for your website. Can be used in page metadata. */
-  description: 'Stay hungry, stay foolish',
+  description: 'Xingjian Wang Personal Page',
+  description_en: 'Xingjian Wang Personal Page',
   /** The default favicon for your site which should be a path to an image in the `public/` directory. */
-  favicon: '/favicon/favicon.ico',
-  /** The default social card image for your site which should be a path to an image in the `public/` directory. */
-  socialCard: '/images/social-card.png',
+  // Use ASCII filename to avoid encoding issues in deploys
+  favicon: '/favicon/bluecat.svg',
   /** Specify the default language for this site. */
   locale: {
     lang: 'en-US',
@@ -26,130 +27,108 @@ export const theme: ThemeUserConfig = {
   },
   /** Set a logo image to show in the homepage. */
   logo: {
-    src: '/src/assets/avatar.png',
+    src: 'src/assets/avatar.png',
     alt: 'Avatar'
   },
 
+  // === Global configuration ===
   titleDelimiter: '•',
-  prerender: true, // pagefind search is not supported with prerendering disabled
+  prerender: true,
   npmCDN: 'https://cdn.jsdelivr.net/npm',
 
-  // Still in test
-  head: [
-    /* Telegram channel */
-    // {
-    //   tag: 'meta',
-    //   attrs: { name: 'telegram:channel', content: '@cworld0_cn' },
-    //   content: ''
-    // }
-  ],
+  // in test
+  head: [],
   customCss: [],
 
   /** Configure the header of your site. */
   header: {
     menu: [
-      { title: 'Blog', link: '/blog' },
-      { title: 'Docs', link: '/docs' },
-      { title: 'Projects', link: '/projects' },
-      { title: 'Links', link: '/links' },
+      // { title: 'Blog', link: '/blog/research' },
+      { title: 'Academic', link: '/academic' },
+      // { title: 'Projects', link: '/projects' },
+      // { title: 'Links', link: '/links' },
       { title: 'About', link: '/about' }
     ]
   },
 
   /** Configure the footer of your site. */
   footer: {
-    // Year format
-    year: `© ${new Date().getFullYear()}`,
-    // year: `© 2019 - ${new Date().getFullYear()}`,
-    links: [
-      // Registration link
-      {
-        title: 'Moe ICP 114514',
-        link: 'https://icp.gov.moe/?keyword=114514',
-        style: 'text-sm' // Uno/TW CSS class
-      },
-      // Privacy Policy link
-      {
-        title: 'Site Policy',
-        link: '/terms/list',
-        pos: 2 // position set to 2 will be appended to copyright line
-      }
-    ],
-    /** Enable displaying a “Astro & Pure theme powered” link in your site’s footer. */
+    /** Copyright start year */
+    year: '2026',
+    // Registration information for ICP (optional)
+    registration: {
+      // url: '',
+      // text: '',
+      // website: '' // only show ICP if url === website
+    },
+    /** Enable displaying a "Astro & Axi theme powered" link in your site's footer. */
     credits: true,
     /** Optional details about the social media accounts for this site. */
-    social: { github: 'https://github.com/cworld1/astro-theme-pure' }
+    social: { github: 'https://github.com/Themaoqiu' }
   },
 
-  // [Content]
   content: {
-    /** External links configuration */
     externalLinks: {
-      content: ' ↗',
-      /** Properties for the external links element */
-      properties: {
-        style: 'user-select:none'
-      }
+      content: ' ↗'
     },
     /** Blog page size for pagination (optional) */
-    blogPageSize: 8,
+    blogPageSize: 15,
     // Currently support weibo, x, bluesky
     share: ['weibo', 'x', 'bluesky']
+  },
+
+  /** Personal information configuration */
+  personal: {
+    /** Your location */
+    location: 'China',
+    /** Your GitHub username */
+    githubUsername: 'Themaoqiu',
+    /** Your email address */
+    email: 'themaoqiu@gmail.com',
+    /** Your Google Scholar profile URL */
+    googleScholar: 'https://scholar.google.com/citations?hl=zh-CN&view_op=list_works&gmla=APjjwua0dmD0ADWhSNrFrYPB8OvMlA58FQJu7YQO-LaH9C1s-Y4eTkXe7wpVB3qOgckZzf30N-Wvz6FGPSDyRdDInvie2SpIetPYacWVG9Rb8BEGlgfoRdjsNlBIt6dTp9E&user=xJF5Uc4AAAAJ',
+    /** Blog start date for statistics */
+    blogStartDate: '2025-05-26',
+    /** Domain configuration */
+    domains: {
+      main: 'xingjianwang.com',
+      // githubPages: '',
+      // cloudflare: '',
+      // friendCircle: '',
+    },
   }
 }
 
 export const integ: IntegrationUserConfig = {
-  // [Links]
-  // https://astro-pure.js.org/docs/integrations/links
   links: {
-    // Friend logbook
     logbook: [
-      { date: '2025-03-16', content: 'Is there a leakage?' },
-      { date: '2025-03-16', content: 'A leakage of what?' },
-      { date: '2025-03-16', content: 'I have a full seat of water, like, full of water!' },
-      { date: '2025-03-16', content: 'Must be the water.' },
-      { date: '2025-03-16', content: "Let's add that to the words of wisdom." }
     ],
     // Yourself link info
     applyTip: [
       { name: 'Name', val: theme.title },
       { name: 'Desc', val: theme.description || 'Null' },
-      { name: 'Link', val: 'https://astro-pure.js.org/' },
-      { name: 'Avatar', val: 'https://astro-pure.js.org/favicon/favicon.ico' }
-    ],
-    // Cache avatars in `public/avatars/` to improve user experience.
-    cacheAvatar: false
+      { name: 'Link', val: `https://${theme.personal?.domains?.main || 'example.com'}` },
+      { name: 'Avatar', val: `https://${theme.personal?.domains?.main || 'example.com'}/avatar/avatar.png` }
+    ]
   },
-  // [Search]
+  // Enable page search function
   pagefind: true,
   // Add a random quote to the footer (default on homepage footer)
-  // See: https://astro-pure.js.org/docs/integrations/advanced#web-content-render
-  // [Quote]
   quote: {
-    // - Hitokoto
     // https://developer.hitokoto.cn/sentence/#%E8%AF%B7%E6%B1%82%E5%9C%B0%E5%9D%80
     // server: 'https://v1.hitokoto.cn/?c=i',
-    // target: `(data) => (data.hitokoto || 'Error')`
-    // - Quoteable
+    // target: (data) => (data as { hitokoto: string }).hitokoto || 'Error'
     // https://github.com/lukePeavey/quotable
-    // server: 'http://api.quotable.io/quotes/random?maxLength=60',
-    // target: `(data) => data[0].content || 'Error'`
-    // - DummyJSON
-    server: 'https://dummyjson.com/quotes/random',
-    target: `(data) => (data.quote.length > 80 ? \`\${data.quote.slice(0, 80)}...\` : data.quote || 'Error')`
+    server: '',
+    target: `(data) => data[0].content || 'Error'`
   },
-  // [Typography]
-  // https://unocss.dev/presets/typography
+  // Tailwindcss typography
   typography: {
-    class: 'prose text-base',
-    // The style of blockquote font `normal` / `italic` (default to italic in typography)
-    blockquoteStyle: 'italic',
-    // The style of inline code block `code` / `modern` (default to code in typography)
-    inlineCodeBlockStyle: 'modern'
+    // https://github.com/tailwindlabs/tailwindcss-typography
+    class:
+      'break-words prose prose-axi dark:prose-invert dark:prose-axi prose-headings:font-medium'
   },
-  // [Lightbox]
   // A lightbox library that can add zoom effect
-  // https://astro-pure.js.org/docs/integrations/others#medium-zoom
   mediumZoom: {
     enable: true, // disable it will not load the whole library
     selector: '.prose .zoomable',
@@ -161,9 +140,7 @@ export const integ: IntegrationUserConfig = {
   waline: {
     enable: true,
     // Server service link
-    server: 'https://astro-theme-pure-waline.arthals.ink/',
-    // Show meta info for comments
-    showMeta: false,
+    server: 'https://waline.example.com/',
     // Refer https://waline.js.org/en/guide/features/emoji.html
     emoji: ['bmoji', 'weibo'],
     // Refer https://waline.js.org/en/reference/client/props.html
