@@ -3,21 +3,13 @@ import PageLayout from '@/layouts/CommonPage.astro'
 import ProjectSection from '@/components/projects/ProjectSection.astro'
 import config from '@/site-config'
 
-import { Button, Icon } from '@/components/user'
-
 const headings = [
-  { depth: 2, slug: 'projects', text: 'Projects' },
-  { depth: 2, slug: 'sponsorship', text: 'Sponsorship' }
+  { depth: 2, slug: 'projects', text: 'Projects' }
 ]
 ---
 
 <PageLayout title='Projects' {headings} info={{ slug: '/projects', hideComment: true }}>
-  <div class='mb-8 flex items-center justify-between'>
-    <p class='text-muted-foreground'>如果你觉得我的项目还不错，可以赞助我，让我有动力继续做下去。</p>
-    <Button title='Checkout sponsorship' class='w-fit' href='#sponsorship'>
-      <Icon class='size-5' name='receive-money' slot='before' />
-    </Button>
-  </div>
+  <!-- Sponsorship section removed -->
 
   <h2 id='projects' class='mb-8 text-2xl font-semibold'>Projects</h2>
   <ProjectSection
@@ -40,9 +32,7 @@ const headings = [
     ]}
   />
 
-  <!-- sponsorship -->
-  <h2 id='sponsorship'>Sponsorship</h2>
-  <p>感谢你对我的支持！如果有兴趣赞助我的项目，欢迎联系我。</p>
+  <!-- Sponsorship section removed -->
 </PageLayout>
 
 <script
