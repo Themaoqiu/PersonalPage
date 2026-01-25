@@ -53,8 +53,6 @@ export const theme: ThemeUserConfig = {
 
   /** Configure the footer of your site. */
   footer: {
-    /** Copyright start year */
-    year: '2026',
     // Registration information for ICP (optional)
     registration: {
       // url: '',
@@ -68,9 +66,6 @@ export const theme: ThemeUserConfig = {
   },
 
   content: {
-    externalLinks: {
-      content: ' ↗'
-    },
     /** Blog page size for pagination (optional) */
     blogPageSize: 15,
     // Currently support weibo, x, bluesky

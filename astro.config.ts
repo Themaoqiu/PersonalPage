@@ -111,12 +111,12 @@ export default defineConfig({
         dark: 'github-dark'
       },
       transformers: [
-        transformerNotationDiff(),
-        transformerNotationHighlight(),
-        updateStyle(),
-        addTitle(),
-        addLanguage(),
-        addCopyButton(2000)
+        transformerNotationDiff() as any,
+        transformerNotationHighlight() as any,
+        updateStyle() as any,
+        addTitle() as any,
+        addLanguage() as any,
+        addCopyButton(2000) as any
       ]
     }
   },
