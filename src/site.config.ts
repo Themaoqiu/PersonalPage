@@ -87,7 +87,7 @@ export const theme: ThemeUserConfig = {
     /** Domain configuration */
     domains: {
       main: 'xingjianwang.com',
-      githubPages: 'xingjianwang.github.io',
+      githubPages: 'themaoqiu.github.io',
       // cloudflare: '',
       // friendCircle: '',
     },
@@ -100,6 +100,7 @@ export const integ: IntegrationUserConfig = {
     ],
     // Yourself link info
     applyTip: [
+      
       { name: 'Name', val: theme.title },
       { name: 'Desc', val: theme.description || 'Null' },
       { name: 'Link', val: `https://${theme.personal?.domains?.main || 'example.com'}` },
