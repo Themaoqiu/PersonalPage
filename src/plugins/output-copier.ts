@@ -45,7 +45,15 @@ export const outputCopier = (
 async function sitemapCopier(logger: AstroIntegrationLogger) {
   logger.info('[sitemap] Copying XML files to .vercel/output/static')
   try {
-    const files = await readdir('./dist/client')
+    // Try to read from dist/client first (server mode), then dist (static mode)
+    let distDir = './dist/client'
+    try {
+      await readdir(distDir)
+    } catch {
+      distDir = './dist'
+    }
+
+    const files = await readdir(distDir)
     const xmlFiles = files.filter(
       (file) =>
         path.extname(file).toLowerCase() === '.xml' &&
@@ -54,7 +62,7 @@ async function sitemapCopier(logger: AstroIntegrationLogger) {
     logger.info(xmlFiles.join(', '))
     await Promise.all(
       xmlFiles.map(async (file) => {
-        const sourcePath = path.join('./dist/client', file)
+        const sourcePath = path.join(distDir, file)
         const destPath = path.join('./.vercel/output/static', file)
         await cp(sourcePath, destPath)
       })
@@ -66,8 +74,16 @@ async function sitemapCopier(logger: AstroIntegrationLogger) {
 
 async function pagefindCopier(logger: AstroIntegrationLogger) {
   logger.info('[pagefind] Copying pagefind folder to .vercel/output/static')
-  const sourcePath = './dist/client/pagefind'
-  const destPath = './.vercel/output/static/pagefind'
+  // Try to find pagefind in dist/client first (server mode), then dist (static mode)
+  let sourcePath = './dist/client/pagefind'
+  let destPath = './.vercel/output/static/pagefind'
+  
+  try {
+    await readdir(sourcePath)
+  } catch {
+    sourcePath = './dist/pagefind'
+  }
+
   try {
     await cp(sourcePath, destPath, { recursive: true })
   } catch (error) {

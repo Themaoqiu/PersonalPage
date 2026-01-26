@@ -33,11 +33,20 @@ import config from './src/site.config.ts'
 const platform = process.env.DEPLOYMENT_PLATFORM || 'vercel'
 const isGithubPages = platform === 'github'
 const isCloudflare = platform === 'cloudflare'
+// const isVercel = platform === 'vercel'
+
+// Determine site URL based on deployment platform
+let siteUrl = `https://${config.personal?.domains?.main || 'example.com'}/`
+if (isGithubPages) {
+  siteUrl = `https://${config.personal?.domains?.githubPages || 'example.github.io'}/`
+} else if (isCloudflare) {
+  siteUrl = `https://${config.personal?.domains?.cloudflare || 'example.pages.dev'}/`
+}
 
 // https://astro.build/config
 export default defineConfig({
   // Top-Level Options
-  site: isGithubPages ? `https://${config.personal?.domains?.githubPages || 'example.github.io'}/` : (isCloudflare ? `https://${config.personal?.domains?.cloudflare || 'example.pages.dev'}/` : `https://${config.personal?.domains?.main || 'example.com'}/`),
+  site: siteUrl,
   // base: '/docs',
   trailingSlash: 'never',
 
@@ -50,8 +59,8 @@ export default defineConfig({
     }
   },
 
-  adapter: isGithubPages ? undefined : (vercel()),
-  output: isGithubPages ? 'static' : (isCloudflare ? 'static' : 'server'),
+  adapter: isCloudflare ? undefined : vercel(),
+  output: 'static',
 
   image: {
     service: {
