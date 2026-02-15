@@ -12,7 +12,7 @@ BLUE='\033[0;34m'
 RED='\033[0;31m'
 NC='\033[0m' # No Color
 
-SOURCE_DIR="/Users/themaoqiu/CodeRepo/web/pure/Xingjian Wang"
+SOURCE_DIR="/Users/themaoqiu/CodeRepo/web/pure/Xingjian_Wang"
 TARGET_DIR="/Users/themaoqiu/CodeRepo/web/themaoqiu.github.io"
 
 echo -e "${BLUE}Starting GitHub Pages deployment...${NC}"
@@ -41,7 +41,7 @@ echo -e "${GREEN}Target directory cleaned!${NC}"
 
 # Step 3: Copy new files
 echo -e "${BLUE}Step 3: Copying new files from dist...${NC}"
-cp -r "$SOURCE_DIR/dist/"* "$TARGET_DIR/"
+cp -r "$SOURCE_DIR/dist/"* "$SOURCE_DIR/dist/".* "$TARGET_DIR/" 2>/dev/null || true
 
 echo -e "${GREEN}Files copied!${NC}"
 
