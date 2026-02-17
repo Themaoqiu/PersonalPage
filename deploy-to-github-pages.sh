@@ -12,7 +12,7 @@ BLUE='\033[0;34m'
 RED='\033[0;31m'
 NC='\033[0m' # No Color
 
-SOURCE_DIR="/Users/themaoqiu/CodeRepo/web/pure/Xingjian_Wang"
+SOURCE_DIR="/Users/themaoqiu/CodeRepo/web/website/Xingjian_Wang"
 TARGET_DIR="/Users/themaoqiu/CodeRepo/web/themaoqiu.github.io"
 
 echo -e "${BLUE}Starting GitHub Pages deployment...${NC}"
