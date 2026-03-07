@@ -1,0 +1,68 @@
+---
+import { cn } from '@/utils'
+
+interface Props {
+  class?: string
+  items: Array<{
+    role: string
+    course: string
+    level?: string
+    note?: string
+  }>
+}
+
+const { class: className, items } = Astro.props
+---
+
+<div class={cn('not-prose grid grid-cols-1 gap-4', className)}>
+  {
+    items.map((item, index) => (
+      <article
+        class='teaching-card group relative overflow-hidden rounded-xl border border-border bg-card p-5 transition-all duration-300 hover:-translate-y-1 hover:border-foreground/25 hover:shadow-md'
+        style={`--teach-delay: ${index * 90}ms;`}
+      >
+        <div class='relative flex items-start gap-4'>
+          <div class='mt-0.5 inline-flex min-w-12 items-center justify-center rounded-lg bg-primary/10 px-2 py-1 text-xs font-semibold tracking-wide text-primary transition-colors group-hover:bg-primary/20'>
+            {item.role}
+          </div>
+          <div class='min-w-0 flex-1'>
+            <p class='text-base font-semibold leading-snug text-foreground transition-colors group-hover:text-primary sm:text-lg'>
+              {item.course}
+            </p>
+            {item.note && <p class='mt-1 text-sm text-muted-foreground'>{item.note}</p>}
+            {item.level && (
+              <span class='mt-3 inline-flex rounded-full border border-border/80 bg-muted/60 px-2.5 py-1 text-xs font-medium uppercase tracking-wide text-muted-foreground'>
+                {item.level}
+              </span>
+            )}
+          </div>
+        </div>
+      </article>
+    ))
+  }
+</div>
+
+<style>
+  .teaching-card {
+    animation: teach-in 520ms ease-out both;
+    animation-delay: var(--teach-delay, 0ms);
+  }
+
+  @keyframes teach-in {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .teaching-card {
+      animation: none;
+      transition: none;
+    }
+  }
+</style>

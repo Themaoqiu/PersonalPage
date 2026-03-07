@@ -5,13 +5,15 @@ import {
   Icon,
   PublicationSection,
   ResearchProjectSection,
-  SimpleIcon
+  SimpleIcon,
+  TeachingSection
 } from '@/components/user'
 import config from '@/site-config'
 
 const headings = [
   { depth: 2, slug: 'about-me', text: 'About Me' },
   { depth: 2, slug: 'research-interests', text: 'Research Interests' },
+  { depth: 2, slug: 'teaching', text: 'Teaching' },
   { depth: 2, slug: 'publications', text: 'Publications' },
   { depth: 2, slug: 'open-source-projects', text: 'Open-source Projects' }
 ]
@@ -80,6 +82,16 @@ const headings = [
       ))
     }
   </div>
+  <h2 id='teaching'>Teaching<a class='anchor' href='#teaching'>#</a></h2>
+  <TeachingSection
+    items={[
+      {
+        role: 'TA',
+        course: 'FIT5226: Multi agent systems and collective behaviour',
+        level: 'grad'
+      }
+    ]}
+  />
   <h2 id='publications'>Publications<a class='anchor' href='#publications'>#</a></h2>
   <PublicationSection
     publications={[
