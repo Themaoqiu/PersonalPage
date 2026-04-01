@@ -32,3 +32,9 @@ error: script "papers:daily" was terminated by signal SIGTERM (Polite quit reque
 [papers] ===== 2026-04-02 00:14:26 run start =====
 [papers] PATH=/Users/themaoqiu/.bun/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/opt/pkg/env/active/bin:/opt/pmk/env/global/bin:/Library/Apple/usr/bin:/opt/homebrew/bin
 [papers] skip: now=00:14 outside auto window [09:10, 12:00]
+[papers] ===== 2026-04-02 00:24:26 run start =====
+[papers] PATH=/Users/themaoqiu/.bun/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/opt/pkg/env/active/bin:/opt/pmk/env/global/bin:/Library/Apple/usr/bin:/opt/homebrew/bin
+[papers] skip: now=00:24 outside auto window [09:10, 12:00]
+[papers] ===== 2026-04-02 00:34:26 run start =====
+[papers] PATH=/Users/themaoqiu/.bun/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/opt/pkg/env/active/bin:/opt/pmk/env/global/bin:/Library/Apple/usr/bin:/opt/homebrew/bin
+[papers] skip: now=00:34 outside auto window [09:10, 12:00]

@@ -457,7 +457,7 @@ function renderMdx(date, groups, config) {
 
   return `---
 title: ${title}
-description: "Auto-generated paper collection."
+description: "吾能观之数千而面色如故"
 publishDate: ${date}
 updatedDate: ${date}
 tags: [${tags.map((x) => `'${x}'`).join(', ')}]
