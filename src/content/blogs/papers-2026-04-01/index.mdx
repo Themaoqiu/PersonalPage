@@ -1,0 +1,77 @@
+---
+title: Papers - 2026-04-01
+description: "Auto-generated paper collection."
+publishDate: 2026-04-01
+updatedDate: 2026-04-01
+tags: ['paper reading', 'agent', 'visual reasoning']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## Thinking with Images
+
+<div class="space-y-4">
+<PaperCard
+  title={"GEditBench v2: A Human-Aligned Benchmark for General Image Editing"}
+  arxivUrl={"https://arxiv.org/abs/2603.28547"}
+  hjfyUrl={"https://hjfy.top/arxiv/2603.28547"}
+  summary={"GEditBench v2提出一个覆盖23类任务、1200条真实用户查询的图像编辑基准，并增设开放集类别以涵盖未知指令。为更好衡量视觉一致性，作者设计PVC-Judge模型，并通过两种区域解耦偏好数据合成训练，使其能够学习更细粒度的成像偏好。VCReward-Bench由专家标注的偏好对组成，用于评估PVC-Judge与人类判断的对齐程度。实验证明PVC-Judge在开源模型中达成最优表现，平均甚至超过GPT-5.1，并通过评测16个前沿编辑模型揭露当前系统在细节保持与开放指令上的显著不足。"}
+/>
+
+<PaperCard
+  title={"ImagenWorld: Stress-Testing Image Generation Models with Explainable Human Evaluation on Open-ended Real-World Tasks"}
+  arxivUrl={"https://arxiv.org/abs/2603.27862"}
+  hjfyUrl={"https://hjfy.top/arxiv/2603.27862"}
+  summary={"ImagenWorld构建3.6K个条件集，涵盖生成与编辑、单/多参考等六大核心任务以及艺术、真实感、信息图、文本图、计算机图形和截图等六类域。该基准配备2万条精细人类注释与可解释评估规范，可追踪局部对象与片段级错误，弥补纯自动度量的盲点。对14个模型的大规模评测揭示：编辑任务尤其是局部编辑更具挑战，符号/文字密集场景如截图表现普遍不足，且定向数据策划（如Qwen-Image）能缩小与闭源系统的差距。现有VLM度量虽在Kendall准确率上接近0.79，但仍无法捕捉细粒度错误，ImagenWorld同时提供诊断工具推动更健壮的图像生成。"}
+/>
+
+<PaperCard
+  title={"On-the-fly Repulsion in the Contextual Space for Rich Diversity in Diffusion Transformers"}
+  arxivUrl={"https://arxiv.org/abs/2603.28762"}
+  hjfyUrl={"https://hjfy.top/arxiv/2603.28762"}
+  summary={"本文在Contextual Space提出即时排斥机制，以解决扩散Transformer在特定提示下生成结果多样性不足的问题。方法通过在多模态注意力通道、文本条件与图像结构信息融合后但组合尚未固定前加入排斥干预，使采样路径重新导向，扩展视觉构图多样性同时避免破坏已成型结构。实验证明该策略在视觉保真与语义一致性不降低的前提下显著丰富输出，并在Turbo或蒸馏模型上仍保持高效且有效。"}
+/>
+</div>
+
+## Multimodal Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"Gen-Searcher: Reinforcing Agentic Search for Image Generation"}
+  arxivUrl={"https://arxiv.org/abs/2603.28767"}
+  hjfyUrl={"https://hjfy.top/arxiv/2603.28767"}
+  summary={"Gen-Searcher是首个面向图像生成的搜索增强智能体，利用多跳推理和搜索收集生成所需的文本知识与参考图像。作者构建了支撑管道并策划了Gen-Searcher-SFT-10k与Gen-Searcher-RL-6k两套多样化搜索密集提示与真实合成图像数据集，还提出KnowGen基准以衡量搜索依赖型生成。训练流程先做SFT再进行带文本/图像双重奖励的智能体强化学习，确保GRPO收敛更稳定并融合跨模态信号。实验表明，Gen-Searcher使Qwen-Image在KnowGen上提升约16分，在WISE上提升约15分，显著提高了知识驱动生成能力。"}
+/>
+
+<PaperCard
+  title={"MuSEAgent: A Multimodal Reasoning Agent with Stateful Experiences"}
+  arxivUrl={"https://arxiv.org/abs/2603.27813"}
+  hjfyUrl={"https://hjfy.top/arxiv/2603.27813"}
+  summary={"MuSEAgent提出基于状态化经验的多模态推理机制，将交互数据通过后见推理抽象为离散的决策经验，并以质量过滤后的经验库支持推理。推理阶段辅以广深搜索策略，使系统能够在多样化复合语义视角下灵活检索并复用经验指导，从而突破轨迹级检索的局限。大量实验表明MuSEAgent在细粒度视觉感知与复杂跨模态推理任务上均优于强轨迹经验基线，验证状态化经验建模的有效性。"}
+/>
+</div>
+
+## 3D/Space Reasoning
+
+<div class="space-y-4">
+<PaperCard
+  title={"Make Geometry Matter for Spatial Reasoning"}
+  arxivUrl={"https://arxiv.org/abs/2603.26639"}
+  hjfyUrl={"https://hjfy.top/arxiv/2603.26639"}
+  summary={"GeoSR旨在推动几何信息在视觉-语言模型空间推理中的实际作用，而不是被2D线索掩盖。它通过Geometry-Unleashing Masking在训练时策略性遮蔽部分2D令牌以削弱非几何捷径，并引入Geometry-Guided Fusion的门控路由让模型在几何证据关键的区域更积极调动几何令牌。两者协同激活几何表示，使模型在静态与动态图像空间推理基准上多次刷新SOTA表现，证明几何信息被有效利用。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"Towards a Medical AI Scientist"}
+  arxivUrl={"https://arxiv.org/abs/2603.28589"}
+  hjfyUrl={"https://hjfy.top/arxiv/2603.28589"}
+  summary={"Medical AI Scientist介绍首个面向临床的自主科研框架，意在让模型在医学证据与多模态数据下开展科研。它通过临床-工程协同推理机制将大量文献转化为可执行的证据，并用结构化的医学撰写规范和伦理策略指导手稿生成。架构包含三种研究模式：论文复现、文献启发创新和任务驱动探索，分别对应不同自治水平。通过171个案例、19个临床任务与6个数据模态的评估，人类与LLM专家都认为它提出的想法质量明显优于商用大模型并拥有更高的可执行实验成功率。双盲评审显示生成文章已接近MICCAI水平，并持续胜过ISBI和BIBM作品。"}
+/>
+</div>

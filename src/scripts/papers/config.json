@@ -1,0 +1,55 @@
+{
+  "email": {
+    "imapHost": "imap.qq.com",
+    "imapPort": 993,
+    "secure": true,
+    "userEnv": "QQ_EMAIL",
+    "passEnv": "QQ_IMAP_AUTH_CODE",
+    "timezone": "Asia/Shanghai",
+    "fromContains": "huggingface",
+    "subjectKeywords": ["daily", "paper"],
+    "waitForTodayMail": false,
+    "pollIntervalMinutes": 15,
+    "waitUntilLocal": "12:00"
+  },
+  "classification": {
+    "provider": "openai",
+    "model": "gpt-5.4-mini",
+    "reviewWithCodex": false,
+    "reviewModel": "gpt-5.3-codex"
+  },
+  "translation": {
+    "provider": "huanjue",
+    "endpointEnv": "HUANJUE_TRANSLATE_API_URL",
+    "apiKeyEnv": "HUANJUE_TRANSLATE_API_KEY",
+    "fallbackModel": "gpt-5.4-mini"
+  },
+  "publishing": {
+    "gitAutoPush": true,
+    "deployAfterPush": true,
+    "deployScript": "./deploy-to-github-pages.sh"
+  },
+  "papers": {
+    "heroImageUrl": "https://cdn.someacg.top/graph/origin/142795457_p0.jpg"
+  },
+  "interests": [
+    {
+      "id": "video-world-model",
+      "name": "Multimodal World model",
+      "tag": "multimodal-world-model",
+      "description": "video generation, world model, multimodal dynamics, long video reasoning"
+    },
+    {
+      "id": "visual-reasoning",
+      "name": "Visual Reasoning",
+      "tag": "visual-reasoning",
+      "description": "thinking with images, visual grounding, segmentation, tracking, chart reasoning"
+    },
+    {
+      "id": "general-agent",
+      "name": "Agent",
+      "tag": "agent",
+      "description": "general-purpose agent frameworks, self-improvement, planner-executor, multi-agent/sub-agent systems"
+    }
+  ]
+}

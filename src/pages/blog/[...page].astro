@@ -1,0 +1,127 @@
+---
+import type { GetStaticPaths, Page } from 'astro'
+import type { CollectionEntry } from 'astro:content'
+
+import { CollectionPreview, Paginator, PostPreview } from '@/components/pages'
+import {
+  getBlogCollection,
+  getPostCollections,
+  getUniqueCategories,
+  getUniqueTags,
+  sortMDByDate
+} from '@/server'
+import { Button } from '@/components/user'
+import PageLayout from '@/layouts/BaseLayout.astro'
+import config from '@/site-config'
+
+export const prerender = true
+
+export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
+  const allPosts = await getBlogCollection()
+  const allPostsByDate = sortMDByDate(allPosts)
+  const uniqueTags = getUniqueTags(allPostsByDate)
+  const uniqueCategories = getUniqueCategories(allPostsByDate)
+
+  return paginate(allPostsByDate, {
+    pageSize: config.content?.blogPageSize || 8,
+    props: { uniqueTags, uniqueCategories }
+  })
+}
+
+interface Props {
+  page: Page<CollectionEntry<'blog'>>
+  uniqueTags: string[]
+  uniqueCategories: string[]
+}
+
+const { page, uniqueTags, uniqueCategories } = Astro.props as Props
+
+const categoryMap: Record<string, string> = {
+  tech: 'Technical',
+  daily: 'Daily Life',
+  research: 'Research',
+  journal: 'Month Journal'
+}
+
+const categoryOrder = ['research', 'tech', 'daily', 'journal']
+const sortedCategories = categoryOrder.filter((cat) => uniqueCategories.includes(cat))
+const postCollections = await getPostCollections()
+
+const meta = {
+  description: 'All blog posts',
+  title: 'Blog'
+}
+---
+
+<PageLayout {meta}>
+  <Button title='Back' href='/' style='back' />
+  <main class='mt-6 lg:mt-10'>
+    <div id='content-header' class='animate'>
+      <h1 class='mb-6 text-3xl font-medium'>Blog</h1>
+    </div>
+    {
+      page.data.length === 0 ? (
+        <p>No posts yet.</p>
+      ) : (
+        <div class='grid gap-y-16 sm:grid-cols-[3fr_1fr] sm:gap-x-8'>
+          <section aria-label='Blog posts list' class='animate' id='content'>
+            <ul class='flex flex-col gap-y-4 text-start'>
+              {page.data.map((post) => (
+                <PostPreview {post} detailed />
+              ))}
+            </ul>
+            <Paginator currentPage={page.currentPage} lastPage={page.lastPage} url={page.url} />
+          </section>
+
+          {(!!sortedCategories.length || !!uniqueTags.length || !!postCollections.length) && (
+            <aside class='animate' id='sidebar'>
+              {!!postCollections.length && (
+                <div class='mb-8'>
+                  <h2 class='mb-4 text-lg font-semibold'>Collections</h2>
+                  <ul class='flex flex-col gap-2'>
+                    {postCollections.slice(0, 5).map((collection) => (
+                      <CollectionPreview {collection} minimal />
+                    ))}
+                  </ul>
+                  <span class='mt-4 block sm:text-end'>
+                    <a aria-label='View all collections' href='/collection' data-astro-prefetch>
+                      View all →
+                    </a>
+                  </span>
+                </div>
+              )}
+              {!!sortedCategories.length && (
+                <div class='mb-8'>
+                  <h2 class='mb-4 text-lg font-semibold'>Categories</h2>
+                  <ul class='flex flex-wrap gap-2'>
+                    {sortedCategories.map((category) => (
+                      <li>
+                        <Button
+                          title={categoryMap[category] || category}
+                          href={`/blog/${category}`}
+                          style='pill'
+                        />
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {!!uniqueTags.length && (
+                <div>
+                  <h2 class='mb-4 text-lg font-semibold'>Tags</h2>
+                  <ul class='text-bgColor flex flex-wrap gap-2'>
+                    {uniqueTags.map((tag) => (
+                      <li>
+                        <Button title={tag} href={`/tags/${tag}`} style='pill' />
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </aside>
+          )}
+        </div>
+      )
+    }
+  </main>
+</PageLayout>

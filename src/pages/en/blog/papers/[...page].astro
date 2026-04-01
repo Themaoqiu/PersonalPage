@@ -1,0 +1,57 @@
+---
+import type { GetStaticPaths, Page } from 'astro'
+import type { CollectionEntry } from 'astro:content'
+
+import { Paginator, PostPreview } from '@/components/pages'
+import { Button } from '@/components/user'
+import { getBlogCollectionEn, sortMDByDate } from '@/server'
+import PageLayout from '@/layouts/BaseLayout.astro'
+import config from '@/site-config'
+
+export const prerender = true
+
+export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
+  const allPosts = await getBlogCollectionEn()
+  const paperPosts = sortMDByDate(allPosts).filter((post) => post.data.tags.includes('papers'))
+
+  return paginate(paperPosts, {
+    pageSize: config.content?.blogPageSize || 8
+  })
+}
+
+interface Props {
+  page: Page<CollectionEntry<'blogEn'>>
+}
+
+const { page } = Astro.props as Props
+
+const meta = {
+  description: 'Daily paper digest posts',
+  title: 'Research Papers'
+}
+---
+
+<PageLayout {meta}>
+  <Button title='Back' href='/en/blog' style='back' />
+  <main class='mt-6 lg:mt-10'>
+    <div id='content-header' class='animate'>
+      <h1 class='mb-3 text-3xl font-medium'>Research Papers</h1>
+      <p class='text-muted-foreground'>One post per day.</p>
+    </div>
+
+    {
+      page.data.length === 0 ? (
+        <p class='mt-6'>No paper digests yet.</p>
+      ) : (
+        <section aria-label='Paper digest list' class='animate' id='content'>
+          <ul class='flex flex-col gap-y-4 text-start'>
+            {page.data.map((post) => (
+              <PostPreview {post} detailed />
+            ))}
+          </ul>
+          <Paginator currentPage={page.currentPage} lastPage={page.lastPage} url={page.url} />
+        </section>
+      )
+    }
+  </main>
+</PageLayout>

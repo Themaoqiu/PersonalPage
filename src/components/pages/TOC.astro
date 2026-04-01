@@ -42,19 +42,23 @@ const toc = generateToc(headings)
     headings: HTMLElement[] = []
     tocLinks: TOCLink[] = []
     headingProgress: Record<string, HeadingProgress> = {}
+    intervalId: number | null = null
 
     constructor() {
       super()
 
-      // Initialize the headings and tocLinks
-      this.headings = Array.from(
-        document.querySelectorAll('article h2, article h3, article h4, article h5, article h6')
-      )
+      // Initialize tocLinks first
       this.tocLinks = Array.from(this.querySelectorAll('a[href^="#"]')).map((link) => ({
         element: link as HTMLAnchorElement,
         progressBar: link.previousElementSibling as HTMLElement,
         slug: (link.getAttribute('href') || '').substring(1)
       }))
+
+      // Only track headings that are actually present in TOC,
+      // avoiding unrelated headings (e.g. headings inside paper cards).
+      this.headings = this.tocLinks
+        .map(({ slug }) => document.getElementById(slug))
+        .filter((el): el is HTMLElement => el instanceof HTMLElement)
     }
 
     updatePositionAndStyle = () => {
@@ -78,19 +82,21 @@ const toc = generateToc(headings)
       })
 
       this.tocLinks.forEach(({ element: el, progressBar: bar, slug }, i) => {
-        const { inView, progress } = this.headingProgress[slug]
-        if (this.headingProgress[slug]) {
+        const state = this.headingProgress[slug]
+        if (state) {
+          const { inView, progress } = state
           el.classList.toggle('highlight', inView)
           el.classList.toggle('highlight-bg-translucent', inView)
           el.classList.toggle(
             'rounded-t-2xl',
-            inView && (i == 0 || !this.headingProgress[this.tocLinks[i - 1]?.slug].inView)
+            inView &&
+              (i == 0 || !this.headingProgress[this.tocLinks[i - 1]?.slug]?.inView)
           )
           el.classList.toggle(
             'rounded-b-2xl',
             inView &&
               (i == this.tocLinks.length - 1 ||
-                !this.headingProgress[this.tocLinks[i + 1]?.slug].inView)
+                !this.headingProgress[this.tocLinks[i + 1]?.slug]?.inView)
           )
           bar.classList.toggle('readed', !inView && progress == 1)
           bar.classList.toggle('highlight-bg', inView)
@@ -121,8 +127,16 @@ const toc = generateToc(headings)
       })
 
       // Initial first and listen to scroll event
-      setInterval(this.updatePositionAndStyle, 100)
+      this.intervalId = window.setInterval(this.updatePositionAndStyle, 100)
       window.addEventListener('scroll', this.updatePositionAndStyle)
+      this.updatePositionAndStyle()
+    }
+
+    disconnectedCallback() {
+      if (this.intervalId !== null) {
+        window.clearInterval(this.intervalId)
+      }
+      window.removeEventListener('scroll', this.updatePositionAndStyle)
     }
   }
 

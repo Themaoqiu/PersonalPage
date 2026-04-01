@@ -18,7 +18,8 @@
     "lint": "eslint --fix 'src/**/*.{js,ts,jsx,tsx,astro}'",
     "yijiansilian": "bun lint && bun sync && bun check && bun format",
     "clean": "rm -rf .astro .vercel dist",
-    "cache:avatars": "tsx preset/scripts/cacheAvatars.ts"
+    "cache:avatars": "tsx preset/scripts/cacheAvatars.ts",
+    "papers:daily": "node src/scripts/papers/daily.mjs"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.6",
@@ -29,6 +30,8 @@
     "astro-pure": "1.4.0",
     "date-fns": "^4.1.0",
     "katex": "^0.16.27",
+    "imapflow": "^1.0.181",
+    "mailparser": "^3.7.4",
     "rehype-external-links": "^3.0.0",
     "rehype-katex": "^7.0.1",
     "remark-gfm": "^4.0.1",

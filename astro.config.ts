@@ -63,6 +63,7 @@ export default defineConfig({
   output: 'static',
 
   image: {
+    domains: ['cdn.someacg.top', 'i.pximg.net'],
     service: {
       entrypoint: 'astro/assets/services/sharp'
     }
