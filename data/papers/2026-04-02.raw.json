@@ -1,0 +1,302 @@
+{
+  "date": "2026-04-02",
+  "mailCount": 1,
+  "paperCount": 12,
+  "keptCount": 8,
+  "droppedCount": 4,
+  "maxPapersPerDay": 15,
+  "papers": [
+    {
+      "title": "CARLA-Air: Fly Drones Inside a CARLA World -- A Unified Infrastructure for Air-Ground Embodied Intelligence (227 ▲ )",
+      "url": "https://huggingface.co/papers/2603.28032"
+    },
+    {
+      "title": "FIPO: Eliciting Deep Reasoning with Future-KL Influenced Policy Optimization (144 ▲ )",
+      "url": "https://huggingface.co/papers/2603.19835"
+    },
+    {
+      "title": "LongCat-Next: Lexicalizing Modalities as Discrete Tokens (74 ▲ )",
+      "url": "https://huggingface.co/papers/2603.27538"
+    },
+    {
+      "title": "Lingshu-Cell: A generative cellular world model for transcriptome modeling toward virtual cells (71 ▲ )",
+      "url": "https://huggingface.co/papers/2603.25240"
+    },
+    {
+      "title": "GEMS: Agent-Native Multimodal Generation with Memory and Skills (58 ▲ )",
+      "url": "https://huggingface.co/papers/2603.28088"
+    },
+    {
+      "title": "VGGRPO: Towards World-Consistent Video Generation with 4D Latent Reward (44 ▲ )",
+      "url": "https://huggingface.co/papers/2603.26599"
+    },
+    {
+      "title": "Project Imaging-X: A Survey of 1000+ Open-Access Medical Imaging Datasets for Foundation Model Development (36 ▲ )",
+      "url": "https://huggingface.co/papers/2603.27460"
+    },
+    {
+      "title": "Unify-Agent: A Unified Multimodal Agent for World-Grounded Image Synthesis (33 ▲ )",
+      "url": "https://huggingface.co/papers/2603.29620"
+    },
+    {
+      "title": "CutClaw: Agentic Hours-Long Video Editing via Music Synchronization (28 ▲ )",
+      "url": "https://huggingface.co/papers/2603.29664"
+    },
+    {
+      "title": "Think Anywhere in Code Generation (14 ▲ )",
+      "url": "https://huggingface.co/papers/2603.29957"
+    },
+    {
+      "title": "Extend3D: Town-Scale 3D Generation (14 ▲ )",
+      "url": "https://huggingface.co/papers/2603.29387"
+    },
+    {
+      "title": "FlowPIE: Test-Time Scientific Idea Evolution with Flow-Guided Literature Exploration (11 ▲ )",
+      "url": "https://huggingface.co/papers/2603.29557"
+    }
+  ],
+  "enriched": [
+    {
+      "title": "CARLA-Air: Fly Drones Inside a CARLA World -- A Unified Infrastructure for Air-Ground Embodied Intelligence",
+      "url": "https://huggingface.co/papers/2603.28032",
+      "category_id": "general-agent",
+      "summary_zh": "The convergence of low-altitude economies, embodied intelligence, and air-ground cooperative systems creates growing demand for simulation infrastructure capable of jointly modeling aerial and ground agents within a single physically coherent environment. Existing open-source platforms remain domain-segregated: driving simulators lack aerial dynamics, while multirotor simulators lack realistic ground scenes. Bridge-based co-simulation introduces synchronization overhead and cannot guarantee strict spatial-temporal consistency. We present CARLA-Air, an open-source infrastructure that unifies high-fidelity urban driving and physics-accurate multirotor flight within a single Unreal Engine process. The platform preserves both CARLA and AirSim native Python APIs and ROS 2 interfaces, enabling zero-modification code reuse. Within a shared physics tick and rendering pipeline, CARLA-Air delivers photorealistic environments with rule-compliant traffic, socially-aware pedestrians, and aerodynamically consistent UAV dynamics, synchronously capturing up to 18 sensor modalities across all platforms at each tick. The platform supports representative air-ground embodied intelligence workloads spanning cooperation, embodied navigation and vision-language action, multi-modal perception and dataset construction, and reinforcement-learning-based policy training. An extensible asset pipeline allows integration of custom robot platforms into the shared world. By inheriting AirSim's aerial capabilities -- whose upstream development has been archived -- CARLA-Air ensures this widely adopted flight stack continues to evolve within a modern infrastructure. Released with prebuilt binaries and full source: https://github.com/louiszengCN/CarlaAir",
+      "summary_en": "The convergence of low-altitude economies, embodied intelligence, and air-ground cooperative systems creates growing demand for simulation infrastructure capable of jointly modeling aerial and ground agents within a single physically coherent environment. Existing open-source platforms remain domain-segregated: driving simulators lack aerial dynamics, while multirotor simulators lack realistic ground scenes. Bridge-based co-simulation introduces synchronization overhead and cannot guarantee strict spatial-temporal consistency. We present CARLA-Air, an open-source infrastructure that unifies high-fidelity urban driving and physics-accurate multirotor flight within a single Unreal Engine process. The platform preserves both CARLA and AirSim native Python APIs and ROS 2 interfaces, enabling zero-modification code reuse. Within a shared physics tick and rendering pipeline, CARLA-Air delivers photorealistic environments with rule-compliant traffic, socially-aware pedestrians, and aerodynamically consistent UAV dynamics, synchronously capturing up to 18 sensor modalities across all platforms at each tick. The platform supports representative air-ground embodied intelligence workloads spanning cooperation, embodied navigation and vision-language action, multi-modal perception and dataset construction, and reinforcement-learning-based policy training. An extensible asset pipeline allows integration of custom robot platforms into the shared world. By inheriting AirSim's aerial capabilities -- whose upstream development has been archived -- CARLA-Air ensures this widely adopted flight stack continues to evolve within a modern infrastructure. Released with prebuilt binaries and full source: https://github.com/louiszengCN/CarlaAir",
+      "section_id": "general-agent:embodied-agent",
+      "summary_display": "CARLA-Air 提供一个统一的基础设施，在单个 Unreal Engine 进程中将高保真城市驾驶和物理精确的多旋翼飞行结合，为低空经济与空地协同任务建模。该平台保留 CARLA 与 AirSim 原生 Python API 和 ROS 2 接口，通过统一的物理刻度与渲染管线同步捕获多达 18 种传感器模态，实现光线写实环境、合规交通以及流畅的社会感知行人。研究者可以用零改动重用已有的飞行与地面代码，且支持定制机器人平台与多模态感知、导航与 RL 策略训练等典型的空地体现智能工作负载。继承 AirSim 的飞行堆栈同时增加可扩展资源管线，让用户继续在现代基础设施中维护已广泛采用的空中能力。该平台已开源并提供预编译二进制与完整源码，便于社区构建完整的空地协同实验环境。"
+    },
+    {
+      "title": "FIPO: Eliciting Deep Reasoning with Future-KL Influenced Policy Optimization",
+      "url": "https://huggingface.co/papers/2603.19835",
+      "category_id": "general-agent",
+      "summary_zh": "We present Future-KL Influenced Policy Optimization (FIPO), a reinforcement learning algorithm designed to overcome reasoning bottlenecks in large language models. While GRPO style training scales effectively, it typically relies on outcome-based rewards (ORM) that distribute a global advantage uniformly across every token in a trajectory. We argue that this coarse-grained credit assignment imposes a performance ceiling by failing to distinguish critical logical pivots from trivial tokens. FIPO addresses this by incorporating discounted future-KL divergence into the policy update, creating a dense advantage formulation that re-weights tokens based on their influence on subsequent trajectory behavior. Empirically, FIPO enables models to break through the length stagnation seen in standard baselines. Evaluated on Qwen2.5-32B, FIPO extends the average chain-of-thought length from roughly 4,000 to over 10,000 tokens and increases AIME 2024 Pass@1 accuracy from 50.0% to a peak of 58.0% (converging at approximately 56.0\\%). This outperforms both DeepSeek-R1-Zero-Math-32B (around 47.0%) and o1-mini (approximately 56.0%). Our results suggest that establishing dense advantage formulations is a vital path for evolving ORM-based algorithms to unlock the full reasoning potential of base models. We open-source our training system, built on the verl framework.",
+      "summary_en": "We present Future-KL Influenced Policy Optimization (FIPO), a reinforcement learning algorithm designed to overcome reasoning bottlenecks in large language models. While GRPO style training scales effectively, it typically relies on outcome-based rewards (ORM) that distribute a global advantage uniformly across every token in a trajectory. We argue that this coarse-grained credit assignment imposes a performance ceiling by failing to distinguish critical logical pivots from trivial tokens. FIPO addresses this by incorporating discounted future-KL divergence into the policy update, creating a dense advantage formulation that re-weights tokens based on their influence on subsequent trajectory behavior. Empirically, FIPO enables models to break through the length stagnation seen in standard baselines. Evaluated on Qwen2.5-32B, FIPO extends the average chain-of-thought length from roughly 4,000 to over 10,000 tokens and increases AIME 2024 Pass@1 accuracy from 50.0% to a peak of 58.0% (converging at approximately 56.0\\%). This outperforms both DeepSeek-R1-Zero-Math-32B (around 47.0%) and o1-mini (approximately 56.0%). Our results suggest that establishing dense advantage formulations is a vital path for evolving ORM-based algorithms to unlock the full reasoning potential of base models. We open-source our training system, built on the verl framework.",
+      "section_id": "general-agent:agent-training-evaluation",
+      "summary_display": "FIPO（Future-KL Influenced Policy Optimization）针对大语言模型在推理过程中因粗粒度奖励导致的瓶颈，提出基于未来 KL 散度增强的稠密优势函数。该方法通过对策略更新引入衰减的未来 KL，令关键逻辑词元在策略更新中获得更大权重，从而区分高影响与低影响词元。与传统的经验奖励（ORM）相比，FIPO 形成了一套密集优势的训练机制，显著延展模型在长链式思维任务中的长度上限。实验以 Qwen2.5-32B 为基座，平均链式思维长度从约 4,000 提升至 10,000 以上，AIME 2024 Pass@1 准确率峰值达 58.0%，收敛时约 56.0%。该表现分别优于 DeepSeek-R1-Zero-Math-32B（约 47.0%）与 o1-mini（约 56.0%），凸显稠密优势在提升 ORM 式训练中的潜力。"
+    },
+    {
+      "title": "LongCat-Next: Lexicalizing Modalities as Discrete Tokens",
+      "url": "https://huggingface.co/papers/2603.27538",
+      "category_id": "visual-reasoning",
+      "summary_zh": "The prevailing Next-Token Prediction (NTP) paradigm has driven the success of large language models through discrete autoregressive modeling. However, contemporary multimodal systems remain language-centric, often treating non-linguistic modalities as external attachments, leading to fragmented architectures and suboptimal integration. To transcend this limitation, we introduce Discrete Native Autoregressive (DiNA), a unified framework that represents multimodal information within a shared discrete space, enabling a consistent and principled autoregressive modeling across modalities. A key innovation is the Discrete Native Any-resolution Visual Transformer (dNaViT), which performs tokenization and de-tokenization at arbitrary resolutions, transforming continuous visual signals into hierarchical discrete tokens. Building on this foundation, we develop LongCat-Next, a native multimodal model that processes text, vision, and audio under a single autoregressive objective with minimal modality-specific design. As an industrial-strength foundation model, it excels at seeing, painting, and talking within a single framework, achieving strong performance across a wide range of multimodal benchmarks. In particular, LongCat-Next addresses the long-standing performance ceiling of discrete vision modeling on understanding tasks and provides a unified approach to effectively reconcile the conflict between understanding and generation. As an attempt toward native multimodality, we open-source the LongCat-Next and its tokenizers, hoping to foster further research and development in the community. GitHub: https://github.com/meituan-longcat/LongCat-Next",
+      "summary_en": "The prevailing Next-Token Prediction (NTP) paradigm has driven the success of large language models through discrete autoregressive modeling. However, contemporary multimodal systems remain language-centric, often treating non-linguistic modalities as external attachments, leading to fragmented architectures and suboptimal integration. To transcend this limitation, we introduce Discrete Native Autoregressive (DiNA), a unified framework that represents multimodal information within a shared discrete space, enabling a consistent and principled autoregressive modeling across modalities. A key innovation is the Discrete Native Any-resolution Visual Transformer (dNaViT), which performs tokenization and de-tokenization at arbitrary resolutions, transforming continuous visual signals into hierarchical discrete tokens. Building on this foundation, we develop LongCat-Next, a native multimodal model that processes text, vision, and audio under a single autoregressive objective with minimal modality-specific design. As an industrial-strength foundation model, it excels at seeing, painting, and talking within a single framework, achieving strong performance across a wide range of multimodal benchmarks. In particular, LongCat-Next addresses the long-standing performance ceiling of discrete vision modeling on understanding tasks and provides a unified approach to effectively reconcile the conflict between understanding and generation. As an attempt toward native multimodality, we open-source the LongCat-Next and its tokenizers, hoping to foster further research and development in the community. GitHub: https://github.com/meituan-longcat/LongCat-Next",
+      "section_id": "visual-reasoning:thinking-with-images",
+      "summary_display": "LongCat-Next 引入 Discrete Native Autoregressive（DiNA）框架，将文本、视觉与音频统一映射到共享离散空间，实现单一自回归目标下的多模态建模。核心组件 dNaViT 能在任意分辨率下完成视觉信号的层级离散化与反离散化，使连续图像信息可在统一离散令牌上建模。整个模型尽量减少模态专用设计，通过统一接词与生成机制，在理解与生成两类任务间找到平衡。实验结果表明，LongCat-Next 在多个多模态基准上表现强劲，尤其在离散视觉理解任务上突破以往性能天花板。模型与分词器已开源，为原生多模态研究与工业应用提供基础设施。"
+    },
+    {
+      "title": "GEMS: Agent-Native Multimodal Generation with Memory and Skills",
+      "url": "https://huggingface.co/papers/2603.28088",
+      "category_id": "visual-reasoning",
+      "summary_zh": "Recent multimodal generation models have achieved remarkable progress on general-purpose generation tasks, yet continue to struggle with complex instructions and specialized downstream tasks. Inspired by the success of advanced agent frameworks such as Claude Code, we propose \\textbf{GEMS} (Agent-Native Multimodal \\textbf{GE}neration with \\textbf{M}emory and \\textbf{S}kills), a framework that pushes beyond the inherent limitations of foundational models on both general and downstream tasks. GEMS is built upon three core components. Agent Loop introduces a structured multi-agent framework that iteratively improves generation quality through closed-loop optimization. Agent Memory provides a persistent, trajectory-level memory that hierarchically stores both factual states and compressed experiential summaries, enabling a global view of the optimization process while reducing redundancy. Agent Skill offers an extensible collection of domain-specific expertise with on-demand loading, allowing the system to effectively handle diverse downstream applications. Across five mainstream tasks and four downstream tasks, evaluated on multiple generative backends, GEMS consistently achieves significant performance gains. Most notably, it enables the lightweight 6B model Z-Image-Turbo to surpass the state-of-the-art Nano Banana 2 on GenEval2, demonstrating the effectiveness of agent harness in extending model capabilities beyond their original limits.",
+      "summary_en": "Recent multimodal generation models have achieved remarkable progress on general-purpose generation tasks, yet continue to struggle with complex instructions and specialized downstream tasks. Inspired by the success of advanced agent frameworks such as Claude Code, we propose \\textbf{GEMS} (Agent-Native Multimodal \\textbf{GE}neration with \\textbf{M}emory and \\textbf{S}kills), a framework that pushes beyond the inherent limitations of foundational models on both general and downstream tasks. GEMS is built upon three core components. Agent Loop introduces a structured multi-agent framework that iteratively improves generation quality through closed-loop optimization. Agent Memory provides a persistent, trajectory-level memory that hierarchically stores both factual states and compressed experiential summaries, enabling a global view of the optimization process while reducing redundancy. Agent Skill offers an extensible collection of domain-specific expertise with on-demand loading, allowing the system to effectively handle diverse downstream applications. Across five mainstream tasks and four downstream tasks, evaluated on multiple generative backends, GEMS consistently achieves significant performance gains. Most notably, it enables the lightweight 6B model Z-Image-Turbo to surpass the state-of-the-art Nano Banana 2 on GenEval2, demonstrating the effectiveness of agent harness in extending model capabilities beyond their original limits.",
+      "section_id": "visual-reasoning:multimodal-agent",
+      "summary_display": "GEMS（Agent-Native Multimodal Generation with Memory and Skills）通过代理循环、记忆与技能三大组件，克服基础模型处理复杂指令与专业任务的局限。Agent Loop 采用结构化多代理闭环优化，反复改进生成质量；Agent Memory 保存轨迹级别的事实与压缩经验，保证全局视角并消减冗余；Agent Skill 则以可按需加载的领域专长扩展能力，适应多样下游场景。该框架在五个主流任务与四个下游任务上评估，跨不同生成后端均显著提升性能。尤其在 GenEval2 上，轻量级的 6B 模型 Z-Image-Turbo 在 GEMS 驱动下超越了 Nano Banana 2，验证代理化机制能将模型能力拓展到原始极限之外。"
+    },
+    {
+      "title": "VGGRPO: Towards World-Consistent Video Generation with 4D Latent Reward",
+      "url": "https://huggingface.co/papers/2603.26599",
+      "category_id": "video-world-model",
+      "summary_zh": "Large-scale video diffusion models achieve impressive visual quality, yet often fail to preserve geometric consistency. Prior approaches improve consistency either by augmenting the generator with additional modules or applying geometry-aware alignment. However, architectural modifications can compromise the generalization of internet-scale pretrained models, while existing alignment methods are limited to static scenes and rely on RGB-space rewards that require repeated VAE decoding, incurring substantial compute overhead and failing to generalize to highly dynamic real-world scenes. To preserve the pretrained capacity while improving geometric consistency, we propose VGGRPO (Visual Geometry GRPO), a latent geometry-guided framework for geometry-aware video post-training. VGGRPO introduces a Latent Geometry Model (LGM) that stitches video diffusion latents to geometry foundation models, enabling direct decoding of scene geometry from the latent space. By constructing LGM from a geometry model with 4D reconstruction capability, VGGRPO naturally extends to dynamic scenes, overcoming the static-scene limitations of prior methods. Building on this, we perform latent-space Group Relative Policy Optimization with two complementary rewards: a camera motion smoothness reward that penalizes jittery trajectories, and a geometry reprojection consistency reward that enforces cross-view geometric coherence. Experiments on both static and dynamic benchmarks show that VGGRPO improves camera stability, geometry consistency, and overall quality while eliminating costly VAE decoding, making latent-space geometry-guided reinforcement an efficient and flexible approach to world-consistent video generation.",
+      "summary_en": "Large-scale video diffusion models achieve impressive visual quality, yet often fail to preserve geometric consistency. Prior approaches improve consistency either by augmenting the generator with additional modules or applying geometry-aware alignment. However, architectural modifications can compromise the generalization of internet-scale pretrained models, while existing alignment methods are limited to static scenes and rely on RGB-space rewards that require repeated VAE decoding, incurring substantial compute overhead and failing to generalize to highly dynamic real-world scenes. To preserve the pretrained capacity while improving geometric consistency, we propose VGGRPO (Visual Geometry GRPO), a latent geometry-guided framework for geometry-aware video post-training. VGGRPO introduces a Latent Geometry Model (LGM) that stitches video diffusion latents to geometry foundation models, enabling direct decoding of scene geometry from the latent space. By constructing LGM from a geometry model with 4D reconstruction capability, VGGRPO naturally extends to dynamic scenes, overcoming the static-scene limitations of prior methods. Building on this, we perform latent-space Group Relative Policy Optimization with two complementary rewards: a camera motion smoothness reward that penalizes jittery trajectories, and a geometry reprojection consistency reward that enforces cross-view geometric coherence. Experiments on both static and dynamic benchmarks show that VGGRPO improves camera stability, geometry consistency, and overall quality while eliminating costly VAE decoding, making latent-space geometry-guided reinforcement an efficient and flexible approach to world-consistent video generation.",
+      "section_id": "video-world-model:world-models",
+      "summary_display": "VGGRPO旨在在保持预训练视频扩散模型能力的前提下提升几何一致性，以提供世界级连续的视频生成。方法通过引入Latent Geometry Model，将潜在视频特征与几何基础模型对齐，从潜在空间直接解码四维重建信息，并在此基础上用Group Relative Policy Optimization优化两个补充奖励：相机运动平滑性和几何重投影一致性，从而增强跨视角的几何连贯性。该方法能扩展到动态场景，避免频繁的VAE解码开销，并通过潜在空间的几何引导强化学习实现高效训练。实验在静态与动态基准上均证明VGGRPO在相机稳定性、几何一致性和整体质量上的提升，验证了其处理复杂场景的能力。"
+    },
+    {
+      "title": "Unify-Agent: A Unified Multimodal Agent for World-Grounded Image Synthesis",
+      "url": "https://huggingface.co/papers/2603.29620",
+      "category_id": "visual-reasoning",
+      "summary_zh": "Unified multimodal models provide a natural and promising architecture for understanding diverse and complex real-world knowledge while generating high-quality images. However, they still rely primarily on frozen parametric knowledge, which makes them struggle with real-world image generation involving long-tail and knowledge-intensive concepts. Inspired by the broad success of agents on real-world tasks, we explore agentic modeling to address this limitation. Specifically, we present Unify-Agent, a unified multimodal agent for world-grounded image synthesis, which reframes image generation as an agentic pipeline consisting of prompt understanding, multimodal evidence searching, grounded recaptioning, and final synthesis. To train our model, we construct a tailored multimodal data pipeline and curate 143K high-quality agent trajectories for world-grounded image synthesis, enabling effective supervision over the full agentic generation process. We further introduce FactIP, a benchmark covering 12 categories of culturally significant and long-tail factual concepts that explicitly requires external knowledge grounding. Extensive experiments show that our proposed Unify-Agent substantially improves over its base unified model across diverse benchmarks and real world generation tasks, while approaching the world knowledge capabilities of the strongest closed-source models. As an early exploration of agent-based modeling for world-grounded image synthesis, our work highlights the value of tightly coupling reasoning, searching, and generation for reliable open-world agentic image synthesis.",
+      "summary_en": "Unified multimodal models provide a natural and promising architecture for understanding diverse and complex real-world knowledge while generating high-quality images. However, they still rely primarily on frozen parametric knowledge, which makes them struggle with real-world image generation involving long-tail and knowledge-intensive concepts. Inspired by the broad success of agents on real-world tasks, we explore agentic modeling to address this limitation. Specifically, we present Unify-Agent, a unified multimodal agent for world-grounded image synthesis, which reframes image generation as an agentic pipeline consisting of prompt understanding, multimodal evidence searching, grounded recaptioning, and final synthesis. To train our model, we construct a tailored multimodal data pipeline and curate 143K high-quality agent trajectories for world-grounded image synthesis, enabling effective supervision over the full agentic generation process. We further introduce FactIP, a benchmark covering 12 categories of culturally significant and long-tail factual concepts that explicitly requires external knowledge grounding. Extensive experiments show that our proposed Unify-Agent substantially improves over its base unified model across diverse benchmarks and real world generation tasks, while approaching the world knowledge capabilities of the strongest closed-source models. As an early exploration of agent-based modeling for world-grounded image synthesis, our work highlights the value of tightly coupling reasoning, searching, and generation for reliable open-world agentic image synthesis.",
+      "section_id": "visual-reasoning:multimodal-agent",
+      "summary_display": "Unify-Agent提出了一个面向世界级图像合成的统一多模态智能体框架，把生成过程拆解为提示理解、多模态证据检索、落地重述和最终合成四个agentic步骤。为此构建了专门的数据管道，收集了143K条agent轨迹用于训练整条流水线，并引入FactIP基准涵盖12类文化意义和长尾知识点，评估生成与外部知识一致性。结果显示在多项公开与现实任务上，Unify-Agent相比基线模型有明显提升，并在知识丰富性上接近最强闭源大模型，说明紧耦合搜索、推理与合成有助于开放世界图像生成。该工作验证了agent式建模在知识密集图像合成场景中的价值。"
+    },
+    {
+      "title": "CutClaw: Agentic Hours-Long Video Editing via Music Synchronization",
+      "url": "https://huggingface.co/papers/2603.29664",
+      "category_id": "visual-reasoning",
+      "summary_zh": "Editing the video content with audio alignment forms a digital human-made art in current social media. However, the time-consuming and repetitive nature of manual video editing has long been a challenge for filmmakers and professional content creators alike. In this paper, we introduce CutClaw, an autonomous multi-agent framework designed to edit hours-long raw footage into meaningful short videos that leverages the capabilities of multiple Multimodal Language Models~(MLLMs) as an agent system. It produces videos with synchronized music, followed by instructions, and a visually appealing appearance. In detail, our approach begins by employing a hierarchical multimodal decomposition that captures both fine-grained details and global structures across visual and audio footage. Then, to ensure narrative consistency, a Playwriter Agent orchestrates the whole storytelling flow and structures the long-term narrative, anchoring visual scenes to musical shifts. Finally, to construct a short edited video, Editor and Reviewer Agents collaboratively optimize the final cut via selecting fine-grained visual content based on rigorous aesthetic and semantic criteria. We conduct detailed experiments to demonstrate that CutClaw significantly outperforms state-of-the-art baselines in generating high-quality, rhythm-aligned videos. The code is available at: https://github.com/GVCLab/CutClaw.",
+      "summary_en": "Editing the video content with audio alignment forms a digital human-made art in current social media. However, the time-consuming and repetitive nature of manual video editing has long been a challenge for filmmakers and professional content creators alike. In this paper, we introduce CutClaw, an autonomous multi-agent framework designed to edit hours-long raw footage into meaningful short videos that leverages the capabilities of multiple Multimodal Language Models~(MLLMs) as an agent system. It produces videos with synchronized music, followed by instructions, and a visually appealing appearance. In detail, our approach begins by employing a hierarchical multimodal decomposition that captures both fine-grained details and global structures across visual and audio footage. Then, to ensure narrative consistency, a Playwriter Agent orchestrates the whole storytelling flow and structures the long-term narrative, anchoring visual scenes to musical shifts. Finally, to construct a short edited video, Editor and Reviewer Agents collaboratively optimize the final cut via selecting fine-grained visual content based on rigorous aesthetic and semantic criteria. We conduct detailed experiments to demonstrate that CutClaw significantly outperforms state-of-the-art baselines in generating high-quality, rhythm-aligned videos. The code is available at: https://github.com/GVCLab/CutClaw.",
+      "section_id": "visual-reasoning:multimodal-agent",
+      "summary_display": "CutClaw构建一个多agent框架，用于自动将数小时素材剪辑成与音乐节奏同步的短视频艺术作品。它首先通过层级多模态分解捕捉视觉与音频的细节与全局结构，再由Playwriter Agent统筹叙事节奏、把视觉场景与音乐变化对齐，最后Editor和Reviewer Agents协作依据美学与语义标准筛选画面优化剪辑。实验表明CutClaw在生成节奏感强、叙事一致的视频方面显著优于现有最先进方法，验证了agent协作策略在长视频剪辑中的有效性。"
+    },
+    {
+      "title": "Extend3D: Town-Scale 3D Generation",
+      "url": "https://huggingface.co/papers/2603.29387",
+      "category_id": "general-agent",
+      "summary_zh": "In this paper, we propose Extend3D, a training-free pipeline for 3D scene generation from a single image, built upon an object-centric 3D generative model. To overcome the limitations of fixed-size latent spaces in object-centric models for representing wide scenes, we extend the latent space in the $x$ and $y$ directions. Then, by dividing the extended latent space into overlapping patches, we apply the object-centric 3D generative model to each patch and couple them at each time step. Since patch-wise 3D generation with image conditioning requires strict spatial alignment between image and latent patches, we initialize the scene using a point cloud prior from a monocular depth estimator and iteratively refine occluded regions through SDEdit. We discovered that treating the incompleteness of 3D structure as noise during 3D refinement enables 3D completion via a concept, which we term under-noising. Furthermore, to address the sub-optimality of object-centric models for sub-scene generation, we optimize the extended latent during denoising, ensuring that the denoising trajectories remain consistent with the sub-scene dynamics. To this end, we introduce 3D-aware optimization objectives for improved geometric structure and texture fidelity. We demonstrate that our method yields better results than prior methods, as evidenced by human preference and quantitative experiments.",
+      "summary_en": "In this paper, we propose Extend3D, a training-free pipeline for 3D scene generation from a single image, built upon an object-centric 3D generative model. To overcome the limitations of fixed-size latent spaces in object-centric models for representing wide scenes, we extend the latent space in the $x$ and $y$ directions. Then, by dividing the extended latent space into overlapping patches, we apply the object-centric 3D generative model to each patch and couple them at each time step. Since patch-wise 3D generation with image conditioning requires strict spatial alignment between image and latent patches, we initialize the scene using a point cloud prior from a monocular depth estimator and iteratively refine occluded regions through SDEdit. We discovered that treating the incompleteness of 3D structure as noise during 3D refinement enables 3D completion via a concept, which we term under-noising. Furthermore, to address the sub-optimality of object-centric models for sub-scene generation, we optimize the extended latent during denoising, ensuring that the denoising trajectories remain consistent with the sub-scene dynamics. To this end, we introduce 3D-aware optimization objectives for improved geometric structure and texture fidelity. We demonstrate that our method yields better results than prior methods, as evidenced by human preference and quantitative experiments.",
+      "section_id": "general-agent:3d-agent",
+      "summary_display": "Extend3D 提出一个无需训练的 3D 场景生成流水线，基于面向对象的 3D 生成模型，通过在 x、y 方向扩展隐空间并将其分块，允许对镇级规模的图像进行重建。为实现图像与局部隐空间严格对齐，作者以单目深度估计生成点云先验初始化场景，再通过 SDEdit 反复优化遮挡区域，并提出将结构不完整视为噪声的“欠噪”概念以完成推理。为了避免对象中心模型在子场景上的效果退化，扩展隐变量在去噪阶段被优化，并引入多项 3D 感知的几何与纹理一致性目标。实验证明在几何与纹理质量上均优于之前的方法，并通过人类偏好与定量指标验证了更高的泛化表现。"
+    }
+  ],
+  "dropped": [
+    {
+      "title": "Lingshu-Cell: A generative cellular world model for transcriptome modeling toward virtual cells",
+      "url": "https://huggingface.co/papers/2603.25240",
+      "category_id": "video-world-model",
+      "summary_zh": "Modeling cellular states and predicting their responses to perturbations are central challenges in computational biology and the development of virtual cells. Existing foundation models for single-cell transcriptomics provide powerful static representations, but they do not explicitly model the distribution of cellular states for generative simulation. Here, we introduce Lingshu-Cell, a masked discrete diffusion model that learns transcriptomic state distributions and supports conditional simulation under perturbation. By operating directly in a discrete token space that is compatible with the sparse, non-sequential nature of single-cell transcriptomic data, Lingshu-Cell captures complex transcriptome-wide expression dependencies across approximately 18,000 genes without relying on prior gene selection, such as filtering by high variability or ranking by expression level. Across diverse tissues and species, Lingshu-Cell accurately reproduces transcriptomic distributions, marker-gene expression patterns and cell-subtype proportions, demonstrating its ability to capture complex cellular heterogeneity. Moreover, by jointly embedding cell type or donor identity with perturbation, Lingshu-Cell can predict whole-transcriptome expression changes for novel combinations of identity and perturbation. It achieves leading performance on the Virtual Cell Challenge H1 genetic perturbation benchmark and in predicting cytokine-induced responses in human PBMCs. Together, these results establish Lingshu-Cell as a flexible cellular world model for in silico simulation of cell states and perturbation responses, laying the foundation for a new paradigm in biological discovery and perturbation screening.",
+      "summary_en": "Modeling cellular states and predicting their responses to perturbations are central challenges in computational biology and the development of virtual cells. Existing foundation models for single-cell transcriptomics provide powerful static representations, but they do not explicitly model the distribution of cellular states for generative simulation. Here, we introduce Lingshu-Cell, a masked discrete diffusion model that learns transcriptomic state distributions and supports conditional simulation under perturbation. By operating directly in a discrete token space that is compatible with the sparse, non-sequential nature of single-cell transcriptomic data, Lingshu-Cell captures complex transcriptome-wide expression dependencies across approximately 18,000 genes without relying on prior gene selection, such as filtering by high variability or ranking by expression level. Across diverse tissues and species, Lingshu-Cell accurately reproduces transcriptomic distributions, marker-gene expression patterns and cell-subtype proportions, demonstrating its ability to capture complex cellular heterogeneity. Moreover, by jointly embedding cell type or donor identity with perturbation, Lingshu-Cell can predict whole-transcriptome expression changes for novel combinations of identity and perturbation. It achieves leading performance on the Virtual Cell Challenge H1 genetic perturbation benchmark and in predicting cytokine-induced responses in human PBMCs. Together, these results establish Lingshu-Cell as a flexible cellular world model for in silico simulation of cell states and perturbation responses, laying the foundation for a new paradigm in biological discovery and perturbation screening.",
+      "drop_reason": "Dropped by codex"
+    },
+    {
+      "title": "Project Imaging-X: A Survey of 1000+ Open-Access Medical Imaging Datasets for Foundation Model Development",
+      "url": "https://huggingface.co/papers/2603.27460",
+      "category_id": "visual-reasoning",
+      "summary_zh": "Foundation models have demonstrated remarkable success across diverse domains and tasks, primarily due to the thrive of large-scale, diverse, and high-quality datasets. However, in the field of medical imaging, the curation and assembling of such medical datasets are highly challenging due to the reliance on clinical expertise and strict ethical and privacy constraints, resulting in a scarcity of large-scale unified medical datasets and hindering the development of powerful medical foundation models. In this work, we present the largest survey to date of medical image datasets, covering over 1,000 open-access datasets with a systematic catalog of their modalities, tasks, anatomies, annotations, limitations, and potential for integration. Our analysis exposes a landscape that is modest in scale, fragmented across narrowly scoped tasks, and unevenly distributed across organs and modalities, which in turn limits the utility of existing medical image datasets for developing versatile and robust medical foundation models. To turn fragmentation into scale, we propose a metadata-driven fusion paradigm (MDFP) that integrates public datasets with shared modalities or tasks, thereby transforming multiple small data silos into larger, more coherent resources. Building on MDFP, we release an interactive discovery portal that enables end-to-end, automated medical image dataset integration, and compile all surveyed datasets into a unified, structured table that clearly summarizes their key characteristics and provides reference links, offering the community an accessible and comprehensive repository. By charting the current terrain and offering a principled path to dataset consolidation, our survey provides a practical roadmap for scaling medical imaging corpora, supporting faster data discovery, more principled dataset creation, and more capable medical foundation models.",
+      "summary_en": "Foundation models have demonstrated remarkable success across diverse domains and tasks, primarily due to the thrive of large-scale, diverse, and high-quality datasets. However, in the field of medical imaging, the curation and assembling of such medical datasets are highly challenging due to the reliance on clinical expertise and strict ethical and privacy constraints, resulting in a scarcity of large-scale unified medical datasets and hindering the development of powerful medical foundation models. In this work, we present the largest survey to date of medical image datasets, covering over 1,000 open-access datasets with a systematic catalog of their modalities, tasks, anatomies, annotations, limitations, and potential for integration. Our analysis exposes a landscape that is modest in scale, fragmented across narrowly scoped tasks, and unevenly distributed across organs and modalities, which in turn limits the utility of existing medical image datasets for developing versatile and robust medical foundation models. To turn fragmentation into scale, we propose a metadata-driven fusion paradigm (MDFP) that integrates public datasets with shared modalities or tasks, thereby transforming multiple small data silos into larger, more coherent resources. Building on MDFP, we release an interactive discovery portal that enables end-to-end, automated medical image dataset integration, and compile all surveyed datasets into a unified, structured table that clearly summarizes their key characteristics and provides reference links, offering the community an accessible and comprehensive repository. By charting the current terrain and offering a principled path to dataset consolidation, our survey provides a practical roadmap for scaling medical imaging corpora, supporting faster data discovery, more principled dataset creation, and more capable medical foundation models.",
+      "drop_reason": "Dropped by codex"
+    },
+    {
+      "title": "Think Anywhere in Code Generation",
+      "url": "https://huggingface.co/papers/2603.29957",
+      "category_id": "video-world-model",
+      "summary_zh": "Recent advances in reasoning Large Language Models (LLMs) have primarily relied on upfront thinking, where reasoning occurs before final answer. However, this approach suffers from critical limitations in code generation, where upfront thinking is often insufficient as problems' full complexity only reveals itself during code implementation. Moreover, it cannot adaptively allocate reasoning effort throughout the code generation process where difficulty varies significantly. In this paper, we propose Think-Anywhere, a novel reasoning mechanism that enables LLMs to invoke thinking on-demand at any token position during code generation. We achieve Think-Anywhere by first teaching LLMs to imitate the reasoning patterns through cold-start training, then leveraging outcome-based RL rewards to drive the model's autonomous exploration of when and where to invoke reasoning. Extensive experiments on four mainstream code generation benchmarks (i.e., LeetCode, LiveCodeBench, HumanEval, and MBPP) show that Think-Anywhere achieves state-of-the-art performance over both existing reasoning methods and recent post-training approaches, while demonstrating consistent generalization across diverse LLMs. Our analysis further reveals that Think-Anywhere enables the model to adaptively invoke reasoning at high-entropy positions, providing enhanced interpretability.",
+      "summary_en": "Recent advances in reasoning Large Language Models (LLMs) have primarily relied on upfront thinking, where reasoning occurs before final answer. However, this approach suffers from critical limitations in code generation, where upfront thinking is often insufficient as problems' full complexity only reveals itself during code implementation. Moreover, it cannot adaptively allocate reasoning effort throughout the code generation process where difficulty varies significantly. In this paper, we propose Think-Anywhere, a novel reasoning mechanism that enables LLMs to invoke thinking on-demand at any token position during code generation. We achieve Think-Anywhere by first teaching LLMs to imitate the reasoning patterns through cold-start training, then leveraging outcome-based RL rewards to drive the model's autonomous exploration of when and where to invoke reasoning. Extensive experiments on four mainstream code generation benchmarks (i.e., LeetCode, LiveCodeBench, HumanEval, and MBPP) show that Think-Anywhere achieves state-of-the-art performance over both existing reasoning methods and recent post-training approaches, while demonstrating consistent generalization across diverse LLMs. Our analysis further reveals that Think-Anywhere enables the model to adaptively invoke reasoning at high-entropy positions, providing enhanced interpretability.",
+      "drop_reason": "Dropped by codex"
+    },
+    {
+      "title": "FlowPIE: Test-Time Scientific Idea Evolution with Flow-Guided Literature Exploration",
+      "url": "https://huggingface.co/papers/2603.29557",
+      "category_id": "general-agent",
+      "summary_zh": "Scientific idea generation (SIG) is critical to AI-driven autonomous research, yet existing approaches are often constrained by a static retrieval-then-generation paradigm, leading to homogeneous and insufficiently divergent ideas. In this work, we propose FlowPIE, a tightly coupled retrieval-generation framework that treats literature exploration and idea generation as a co-evolving process. FlowPIE expands literature trajectories via a flow-guided Monte Carlo Tree Search (MCTS) inspired by GFlowNets, using the quality of current ideas assessed by an LLM-based generative reward model (GRM) as a supervised signal to guide adaptive retrieval and construct a diverse, high-quality initial population. Based on this population, FlowPIE models idea generation as a test-time idea evolution process, applying selection, crossover, and mutation with the isolation island paradigm and GRM-based fitness computation to incorporate cross-domain knowledge. It effectively mitigates the information cocoons arising from over-reliance on parametric knowledge and static literature. Extensive evaluations demonstrate that FlowPIE consistently produces ideas with higher novelty, feasibility and diversity compared to strong LLM-based and agent-based frameworks, while enabling reward scaling during test time.",
+      "summary_en": "Scientific idea generation (SIG) is critical to AI-driven autonomous research, yet existing approaches are often constrained by a static retrieval-then-generation paradigm, leading to homogeneous and insufficiently divergent ideas. In this work, we propose FlowPIE, a tightly coupled retrieval-generation framework that treats literature exploration and idea generation as a co-evolving process. FlowPIE expands literature trajectories via a flow-guided Monte Carlo Tree Search (MCTS) inspired by GFlowNets, using the quality of current ideas assessed by an LLM-based generative reward model (GRM) as a supervised signal to guide adaptive retrieval and construct a diverse, high-quality initial population. Based on this population, FlowPIE models idea generation as a test-time idea evolution process, applying selection, crossover, and mutation with the isolation island paradigm and GRM-based fitness computation to incorporate cross-domain knowledge. It effectively mitigates the information cocoons arising from over-reliance on parametric knowledge and static literature. Extensive evaluations demonstrate that FlowPIE consistently produces ideas with higher novelty, feasibility and diversity compared to strong LLM-based and agent-based frameworks, while enabling reward scaling during test time.",
+      "drop_reason": "Dropped by codex"
+    }
+  ],
+  "sections": [
+    {
+      "id": "visual-reasoning:grounding-driven-visual-reasoning",
+      "title": "Grounding-driven Visual Reasoning",
+      "outer": "visual-reasoning"
+    },
+    {
+      "id": "visual-reasoning:thinking-with-images",
+      "title": "Thinking with Images",
+      "outer": "visual-reasoning"
+    },
+    {
+      "id": "visual-reasoning:thinking-with-code-structure",
+      "title": "Thinking with Code/Structure",
+      "outer": "visual-reasoning"
+    },
+    {
+      "id": "visual-reasoning:multimodal-agent",
+      "title": "Multimodal Agent",
+      "outer": "visual-reasoning"
+    },
+    {
+      "id": "visual-reasoning:3d-space-reasoning",
+      "title": "3D/Space Reasoning",
+      "outer": "visual-reasoning"
+    },
+    {
+      "id": "general-agent:3d-llm",
+      "title": "3D LLM",
+      "outer": "general-agent"
+    },
+    {
+      "id": "general-agent:3d-agent",
+      "title": "3D Agent",
+      "outer": "general-agent"
+    },
+    {
+      "id": "general-agent:embodied-agent",
+      "title": "Embodied Agent",
+      "outer": "general-agent"
+    },
+    {
+      "id": "general-agent:spatial-intelligence",
+      "title": "Spatial Intelligence (Image/Video)",
+      "outer": "general-agent"
+    },
+    {
+      "id": "general-agent:4d-understanding-generation",
+      "title": "4D Understanding and Generation",
+      "outer": "general-agent"
+    },
+    {
+      "id": "general-agent:agent-training-evaluation",
+      "title": "Agent Training and Evaluation",
+      "outer": "general-agent"
+    },
+    {
+      "id": "video-world-model:world-models",
+      "title": "Multimodal World Model",
+      "outer": "video-world-model"
+    }
+  ],
+  "llmAssignments": [
+    {
+      "url": "https://huggingface.co/papers/2603.28032",
+      "action": "keep",
+      "section_id": "general-agent:embodied-agent",
+      "summary_zh": "CARLA-Air 提供一个统一的基础设施，在单个 Unreal Engine 进程中将高保真城市驾驶和物理精确的多旋翼飞行结合，为低空经济与空地协同任务建模。该平台保留 CARLA 与 AirSim 原生 Python API 和 ROS 2 接口，通过统一的物理刻度与渲染管线同步捕获多达 18 种传感器模态，实现光线写实环境、合规交通以及流畅的社会感知行人。研究者可以用零改动重用已有的飞行与地面代码，且支持定制机器人平台与多模态感知、导航与 RL 策略训练等典型的空地体现智能工作负载。继承 AirSim 的飞行堆栈同时增加可扩展资源管线，让用户继续在现代基础设施中维护已广泛采用的空中能力。该平台已开源并提供预编译二进制与完整源码，便于社区构建完整的空地协同实验环境。"
+    },
+    {
+      "url": "https://huggingface.co/papers/2603.19835",
+      "action": "keep",
+      "section_id": "general-agent:agent-training-evaluation",
+      "summary_zh": "FIPO（Future-KL Influenced Policy Optimization）针对大语言模型在推理过程中因粗粒度奖励导致的瓶颈，提出基于未来 KL 散度增强的稠密优势函数。该方法通过对策略更新引入衰减的未来 KL，令关键逻辑词元在策略更新中获得更大权重，从而区分高影响与低影响词元。与传统的经验奖励（ORM）相比，FIPO 形成了一套密集优势的训练机制，显著延展模型在长链式思维任务中的长度上限。实验以 Qwen2.5-32B 为基座，平均链式思维长度从约 4,000 提升至 10,000 以上，AIME 2024 Pass@1 准确率峰值达 58.0%，收敛时约 56.0%。该表现分别优于 DeepSeek-R1-Zero-Math-32B（约 47.0%）与 o1-mini（约 56.0%），凸显稠密优势在提升 ORM 式训练中的潜力。"
+    },
+    {
+      "url": "https://huggingface.co/papers/2603.27538",
+      "action": "keep",
+      "section_id": "visual-reasoning:thinking-with-images",
+      "summary_zh": "LongCat-Next 引入 Discrete Native Autoregressive（DiNA）框架，将文本、视觉与音频统一映射到共享离散空间，实现单一自回归目标下的多模态建模。核心组件 dNaViT 能在任意分辨率下完成视觉信号的层级离散化与反离散化，使连续图像信息可在统一离散令牌上建模。整个模型尽量减少模态专用设计，通过统一接词与生成机制，在理解与生成两类任务间找到平衡。实验结果表明，LongCat-Next 在多个多模态基准上表现强劲，尤其在离散视觉理解任务上突破以往性能天花板。模型与分词器已开源，为原生多模态研究与工业应用提供基础设施。"
+    },
+    {
+      "url": "https://huggingface.co/papers/2603.28088",
+      "action": "keep",
+      "section_id": "visual-reasoning:multimodal-agent",
+      "summary_zh": "GEMS（Agent-Native Multimodal Generation with Memory and Skills）通过代理循环、记忆与技能三大组件，克服基础模型处理复杂指令与专业任务的局限。Agent Loop 采用结构化多代理闭环优化，反复改进生成质量；Agent Memory 保存轨迹级别的事实与压缩经验，保证全局视角并消减冗余；Agent Skill 则以可按需加载的领域专长扩展能力，适应多样下游场景。该框架在五个主流任务与四个下游任务上评估，跨不同生成后端均显著提升性能。尤其在 GenEval2 上，轻量级的 6B 模型 Z-Image-Turbo 在 GEMS 驱动下超越了 Nano Banana 2，验证代理化机制能将模型能力拓展到原始极限之外。"
+    },
+    {
+      "url": "https://huggingface.co/papers/2603.25240",
+      "action": "drop",
+      "section_id": null,
+      "summary_zh": ""
+    },
+    {
+      "url": "https://huggingface.co/papers/2603.26599",
+      "action": "keep",
+      "section_id": "video-world-model:world-models",
+      "summary_zh": "VGGRPO旨在在保持预训练视频扩散模型能力的前提下提升几何一致性，以提供世界级连续的视频生成。方法通过引入Latent Geometry Model，将潜在视频特征与几何基础模型对齐，从潜在空间直接解码四维重建信息，并在此基础上用Group Relative Policy Optimization优化两个补充奖励：相机运动平滑性和几何重投影一致性，从而增强跨视角的几何连贯性。该方法能扩展到动态场景，避免频繁的VAE解码开销，并通过潜在空间的几何引导强化学习实现高效训练。实验在静态与动态基准上均证明VGGRPO在相机稳定性、几何一致性和整体质量上的提升，验证了其处理复杂场景的能力。"
+    },
+    {
+      "url": "https://huggingface.co/papers/2603.29620",
+      "action": "keep",
+      "section_id": "visual-reasoning:multimodal-agent",
+      "summary_zh": "Unify-Agent提出了一个面向世界级图像合成的统一多模态智能体框架，把生成过程拆解为提示理解、多模态证据检索、落地重述和最终合成四个agentic步骤。为此构建了专门的数据管道，收集了143K条agent轨迹用于训练整条流水线，并引入FactIP基准涵盖12类文化意义和长尾知识点，评估生成与外部知识一致性。结果显示在多项公开与现实任务上，Unify-Agent相比基线模型有明显提升，并在知识丰富性上接近最强闭源大模型，说明紧耦合搜索、推理与合成有助于开放世界图像生成。该工作验证了agent式建模在知识密集图像合成场景中的价值。"
+    },
+    {
+      "url": "https://huggingface.co/papers/2603.29664",
+      "action": "keep",
+      "section_id": "visual-reasoning:multimodal-agent",
+      "summary_zh": "CutClaw构建一个多agent框架，用于自动将数小时素材剪辑成与音乐节奏同步的短视频艺术作品。它首先通过层级多模态分解捕捉视觉与音频的细节与全局结构，再由Playwriter Agent统筹叙事节奏、把视觉场景与音乐变化对齐，最后Editor和Reviewer Agents协作依据美学与语义标准筛选画面优化剪辑。实验表明CutClaw在生成节奏感强、叙事一致的视频方面显著优于现有最先进方法，验证了agent协作策略在长视频剪辑中的有效性。"
+    },
+    {
+      "url": "https://huggingface.co/papers/2603.27460",
+      "action": "drop",
+      "section_id": null,
+      "summary_zh": ""
+    },
+    {
+      "url": "https://huggingface.co/papers/2603.29957",
+      "action": "drop",
+      "section_id": null,
+      "summary_zh": ""
+    },
+    {
+      "url": "https://huggingface.co/papers/2603.29387",
+      "action": "keep",
+      "section_id": "general-agent:3d-agent",
+      "summary_zh": "Extend3D 提出一个无需训练的 3D 场景生成流水线，基于面向对象的 3D 生成模型，通过在 x、y 方向扩展隐空间并将其分块，允许对镇级规模的图像进行重建。为实现图像与局部隐空间严格对齐，作者以单目深度估计生成点云先验初始化场景，再通过 SDEdit 反复优化遮挡区域，并提出将结构不完整视为噪声的“欠噪”概念以完成推理。为了避免对象中心模型在子场景上的效果退化，扩展隐变量在去噪阶段被优化，并引入多项 3D 感知的几何与纹理一致性目标。实验证明在几何与纹理质量上均优于之前的方法，并通过人类偏好与定量指标验证了更高的泛化表现。"
+    },
+    {
+      "url": "https://huggingface.co/papers/2603.29557",
+      "action": "drop",
+      "section_id": null,
+      "summary_zh": ""
+    }
+  ]
+}
