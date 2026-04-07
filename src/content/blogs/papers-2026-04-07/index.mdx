@@ -15,10 +15,24 @@ import PaperCard from '@/components/papers/PaperCard.astro'
 
 <div class="space-y-4">
 <PaperCard
+  title={"Token Warping Helps MLLMs Look from Nearby Viewpoints"}
+  arxivUrl={"https://arxiv.org/abs/2604.02870"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.02870"}
+  summary={"论文探讨用视觉语言模型中 token 级别的表征完成近景视角变化，弥补像素级扭曲对深度误差敏感与几何畸变的问题。提出后向 token 扭曲策略，即在目标视角上规则采样，分别从源视角检索对应 token 而不是直接拉伸像素，使语义一致性更强。基于作者设计的 ViewBench，实验证明该方法在视角迁移场景下比像素扭曲、空间调优模型和生成式扭曲显著稳健。该方法大幅提升了 MLLM 在附近视角推理任务中的成功率，展现出基于 token 的结构表示在视觉推理中的优势。"}
+/>
+
+<PaperCard
+  title={"Communicating about Space: Language-Mediated Spatial Integration Across Partial Views"}
+  arxivUrl={"https://arxiv.org/abs/2603.27183"}
+  hjfyUrl={"https://hjfy.top/arxiv/2603.27183"}
+  summary={"该工作提出 COSMIC 基准，聚焦多模态大模型在不同视角下通过对话对齐部分观察，从而构建一致的 allocentric 空间理解。实验设计中两台静态 MLLM 各自观察 3D 室内场景不同视角，通过自然语言消息协同解答空间查询，覆盖 899 个场景和 1250 个问答题。分析发现模型在跨视角锚点物体对齐上的能力最强，关系推理能力较弱，构建全局地图则几乎接近随机，提示高级空间沟通仍受限。引入思考能力有助于锚点定位但不足以解决更高层次的空间通信难题。与人工对话相比，人类能达到 95% 准确率，而最好的 Gemini-3-Pro-Thinking 只有 72%，且人类对话会逐步收敛于共享空间表征，而模型对话则反复探索，说明模型难以维持稳定的共享心智模型。"}
+/>
+
+<PaperCard
   title={"VLMs Need Words: Vision Language Models Ignore Visual Detail In Favor of Semantic Anchors"}
   arxivUrl={"https://arxiv.org/abs/2604.02486"}
   hjfyUrl={"https://hjfy.top/arxiv/2604.02486"}
-  summary={"论文指出当前视觉语言模型在需要细粒度视觉理解的任务中失效，原因是训练流程将视觉信息压缩至语言空间，导致模型只能处理可被映射到语义概念的实体。作者通过语义、形状和人脸的视觉对应任务验证：当相关实体可命名时模型表现显著优于不可命名的情况。进一步利用 logit lens 机制分析发现模型在可命名实体上会显式生成更唯一的对应 token，指示其依赖文本锚而非纯视觉表征。为了打破这一限制，研究者尝试为未知实体教授任意名称，性能提升；而任务特定微调则在不依赖语言先验的前提下进一步提高泛化能力。实验显示此类训练手段可以缓解 VLM 在视觉对应和新颖实体推理上的缺陷，从而揭示问题源自训练捷径而非基础架构。"}
+  summary={"论文指出现有 VLM 过度依赖语言语义锚点来表达视觉信息，导致在细粒度的视觉对应与新颖实体推理等任务上失效，因为模型只能推理可被命名的实体。作者通过语义、形状和面部对应任务对比了可命名与不可命名实体，发现前者性能显著更好，同时利用 Logit Lens 观察到模型会为可命名实体显式分配语义标签并产生更独特的对应 token。进一步实验为未知实体分配任意名称，显示能短期提升性能，而任务特定微调则能在不依赖已有语言先验的前提下实现更强泛化。研究认为 VLM 的弱点主要源于训练流程的偏差而非多模态架构本身，因而需要更均衡地在视觉域保留原始信息。"}
 />
 </div>
 
@@ -26,21 +40,10 @@ import PaperCard from '@/components/papers/PaperCard.astro'
 
 <div class="space-y-4">
 <PaperCard
-  title={"Token Warping Helps MLLMs Look from Nearby Viewpoints"}
-  arxivUrl={"https://arxiv.org/abs/2604.02870"}
-  hjfyUrl={"https://hjfy.top/arxiv/2604.02870"}
-  summary={"论文考察了可视化大模型在相邻视角理解中的脆弱性，提出用 token 而不是像素进行视角扭曲。方法是构造目标视角上的密集网格，并对每个点执行后向 token 扭曲，以稳定地映射回源视角的 ViT token，从而保持语义一致性。实验在作者构建的 ViewBench 基准上展开，结果显示该 token 级扭曲在不同视角下都能可靠推理，优于像素扭曲、微调模型乃至生成扭曲方法。论文通过对比正向与后向扭曲，还进一步确认了后向方法在保持语义与结构完整性方面的优势。"}
-/>
-</div>
-
-## Spatial Intelligence (Image/Video)
-
-<div class="space-y-4">
-<PaperCard
-  title={"Communicating about Space: Language-Mediated Spatial Integration Across Partial Views"}
-  arxivUrl={"https://arxiv.org/abs/2603.27183"}
-  hjfyUrl={"https://hjfy.top/arxiv/2603.27183"}
-  summary={"该工作提出COSMIC基准，模拟两个静态MLLM从不同视角通过自然语言对话对齐观察并构建共享的 allocentric 空间模型，覆盖899个场景和1250个问答。方法上，让模型在五种任务中交流，重点考察锚点识别、关系推理和全局地图构建能力，并额外采集250组人类对话以做对比。实验发现模型在跨视角锚点对齐最稳健、关系推理明显退步、构建全局一致地图几乎和随机一样，思考能力在锚点落地上带来提升但不足以驱动高层次空间通信。对比人类在所有任务中95%的总体准确率，最强模型Gemini-3-Pro-Thinking仅达72%，表明仍有巨大差距。研究还观察到人类对话随着共享空间理解不断精炼，而MLLM则在对话中不断探索、难以收敛，一方面暴露其在维持共享心理模型上的限制。"}
+  title={"A Simple Baseline for Streaming Video Understanding"}
+  arxivUrl={"https://arxiv.org/abs/2604.02317"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.02317"}
+  summary={"这篇论文通过 SimpleStream 基线挑战了当前复杂的流式视频理解机制，仅利用最近 N 帧与现成的 VLM 即可实现与多种流/离线模型相当或更好的效果。它将滑动窗口策略形式化，在 OVO-Bench 和 StreamingBench 上评估，与 13 个主流基线对比时，使用 4 帧即可分别达到 67.7% 和 80.59% 的平均准确率。进一步的消融分析发现上下文长度对性能的提升依赖于 backbone，更多历史帧虽有助于回想能力却会削弱实时感知，强调未来评测中应区分近期场景感知与长程记忆。"}
 />
 </div>
 
@@ -51,41 +54,27 @@ import PaperCard from '@/components/papers/PaperCard.astro'
   title={"Self-Distilled RLVR"}
   arxivUrl={"https://arxiv.org/abs/2604.03128"}
   hjfyUrl={"https://hjfy.top/arxiv/2604.03128"}
-  summary={"该论文提出 RLSD，将强化学习与可验证回报（RLVR）和自蒸馏（OPSD）分别分工，借助自蒸馏获得精细的 token 级策略差异，再用 RLVR 提供来自环境的可靠更新方向。这个设计在保留自蒸馏细粒度信号的同时避免了特权信息泄露和训练不稳定的问题，从而扩展了自蒸馏的适用区间。实验表明 RLSD 在收敛上限和训练稳定性方面都显著优于仅靠 RLVR 或 OPSD 的方案，说明通过策略差异调节更新幅度而仍坚持环境回报方向是有效的。"}
+  summary={"本文提出 RLSD 框架，将强化学习中基于可验证结果的 RLVR 与自蒸馏信号相结合，从而在保持环境反馈方向可靠性的同时获得更细粒度的更新幅度。方法上利用自蒸馏产生的 token 级策略差异来决定更新幅度，并继续借助 RLVR 提供的环境反馈（如答案正确性）确定更新方向。实验表明 RLSD 同时继承了两者优势，相比纯自蒸馏能在收敛上限和训练稳定性方面取得显著提升。"}
 />
 
 <PaperCard
   title={"Agentic-MME: What Agentic Capability Really Brings to Multimodal Intelligence?"}
   arxivUrl={"https://arxiv.org/abs/2604.03016"}
   hjfyUrl={"https://hjfy.top/arxiv/2604.03016"}
-  summary={"Agentic-MME 构建了一个面向多模态 agent 行为的过程验证基准，收录 418 个真实任务、6 个领域和 3 个难度级别，并为每项任务标注了上下文沙箱执行、S/V 轴工序和 2000 多个中间检查点，记录人工参考轨迹以便横向对比。该框架不仅检查最终答案，还审核工具调用、解法步骤与效率（通过与人工轨迹的过度思考度量），从而真正衡量视觉扩展与知识扩展两种能力的协同。实验中最好的 Gemini3-pro 在整体准确率上达到 56.3%，但在最高难度 L3 任务上骤降至 23.0%，凸显真实世界多模态 agent 任务的复杂性并说明现有模型远未达到稳定执行的水平。"}
+  summary={"Agentic-MME 提出了面向多模态智能体能力的过程验证基准，包含 418 条跨 6 个领域、3 个难度等级的真实任务，且每条任务都配有超过 2,000 个逐步检查点以及人工标注的双轴轨迹。框架支持沙箱化代码与 API 调用，覆盖视觉扩展与知识扩展操作，并引入与人类轨迹相比的“过度思考”指标来量化效率。相比只看最终结果，这种细粒度状态审计能验证工具是否被合理调用与使用，并衡量多模态智能体的合作能力。评测结果显示 Gemini3-pro 最佳整体准确率为 56.3%，但在 Level-3 高难任务上下降到 23.0%，凸显真实多模态代理任务的巨大挑战。"}
 />
 
 <PaperCard
   title={"Test-Time Scaling Makes Overtraining Compute-Optimal"}
   arxivUrl={"https://arxiv.org/abs/2604.01411"}
   hjfyUrl={"https://hjfy.top/arxiv/2604.01411"}
-  summary={"本文提出 Train-to-Test（T^2）缩放定律，在固定端到端预算下联合优化模型体量、训练 tokens 与推理采样次数，以应对测试时扩展（如重复采样）带来的开销。T^2 用 pass@k 建模测试端扩展效应，并同时考虑训练与推理决策，做出比传统 Chinchilla 更现代的预训练指导。作者在八个下游任务上验证了该定律，发现最优预训练策略被驱动到“过训练”区间——即训练数据远超标准缩放建议，却在整个体系内提供更强效果。进一步的长训练验证显示，在 T^2 指导下训练出的模型在实际部署（包括后训练阶段）中依旧优于单纯遵循预训练缩放律的模型，表明该方法具有跨阶段的适用性。"}
-/>
-
-<PaperCard
-  title={"GrandCode: Achieving Grandmaster Level in Competitive Programming via Agentic Reinforcement Learning"}
-  arxivUrl={"https://arxiv.org/abs/2604.02721"}
-  hjfyUrl={"https://hjfy.top/arxiv/2604.02721"}
-  summary={"GrandCode通过多代理强化学习系统实现了在Codeforces Round 1087（2026年3月21日）、Round 1088（3月28日）和Round 1089（3月29日）三场真人赛中持续战胜所有人类选手的能力，真实赛场表现首次超越最强人类选手。方法上，系统协调假设生成、求解器、测试生成、总结等模块，并通过后训练及在线测试时的Agentic GRPO机制联合优化，这一算法专为多阶段延迟奖励与常见离策略漂移设计。实验结果显示GrandCode在这些高压竞争赛中名列第一，证明整合Agentic RL与多模态子任务能够达到超越人类的竞争级编程水平。"}
-/>
-
-<PaperCard
-  title={"AgentSocialBench: Evaluating Privacy Risks in Human-Centered Agentic Social Networks"}
-  arxivUrl={"https://arxiv.org/abs/2604.01487"}
-  hjfyUrl={"https://hjfy.top/arxiv/2604.01487"}
-  summary={"AgentSocialBench 构建以真实用户配置文件和分层敏感度标签为基础、涵盖七类场景的隐私评估基准，旨在探测人类中心Agent社交网络中的信息泄露风险。该benchmark重点关注跨域/跨用户协调、团队协作和社交图影响，并评估现有LLM代理在多对多互动下是否能保持隐私。实验表明，即使在明确提示保护信息的情况下，跨域跨用户协调仍会产生持续泄露压力，而且教代理抽象敏感信息的指令反而导致它们更频繁讨论敏感内容（抽象悖论）。由此可见当前代理缺乏健壮隐私保护机制，仅靠提示工程无法确保安全，需要新的方法支撑真实部署。"}
+  summary={"本文提出 Train-to-Test (T^2) 规模规律，在固定端到端预算下联合优化模型规模、训练 token 数与推理 sampling 次数，填补传统 Chinchilla 规律不考虑测试阶段扩展的空白。方法以 pass@k 建模测试时扩展效果，并在联合损失与准确率两个层面建模预训练与测推之间的相互影响，从而识别出最优的过训练区域。跨 8 个下游任务的实验表明，若计入推理成本，最优预训练策略会大幅偏向过训练区间，他们在该区域预训练的模型性能显著优于传统规律指导的模型，并且该结论在后续 post-training 阶段依然成立。"}
 />
 
 <PaperCard
   title={"Xpertbench: Expert Level Tasks with Rubrics-Based Evaluation"}
   arxivUrl={"https://arxiv.org/abs/2604.02368"}
   hjfyUrl={"https://hjfy.top/arxiv/2604.02368"}
-  summary={"As Large Language Models (LLMs) exhibit plateauing performance on conventional benchmarks, a pivotal challenge persists: evaluating their proficiency in complex, open-ended tasks characterizing genuine expert-level cognition. Existing frameworks suffer from narrow domain coverage, reliance on generalist tasks, or self-evaluation biases. To bridge this gap, we present XpertBench, a high-fidelity benchmark engineered to assess LLMs across authentic professional domains. XpertBench consists of 1,346 meticulously curated tasks across 80 categories, spanning finance, healthcare, legal services, education, and dual-track research (STEM and Humanities). These tasks are derived from over 1,000 submissions by domain experts--including researchers from elite institutions and practitioners with extensive clinical or industrial experience--ensuring superior ecological validity. Each task uses detailed rubrics with mostly 15-40 weighted checkpoints to assess professional rigor. To facilitate scalable yet human-aligned assessment, we introduce ShotJudge, a novel evaluation paradigm that employs LLM judges calibrated with expert few-shot exemplars to mitigate self-rewarding biases. Our empirical evaluation of state-of-the-art LLMs reveals a pronounced performance ceiling: even leading models achieve a peak success rate of only ~66%, with a mean score around 55%. Models also exhibit domain-specific divergence, showing non-overlapping strengths in quantitative reasoning versus linguistic synthesis.. These findings underscore a significant \"expert-gap\" in current AI systems and establish XpertBench as a critical instrument for navigating the transition from general-purpose assistants to specialized professional collaborators."}
+  summary={"XpertBench 构建了一个涵盖 80 类、1,346 个专家级任务的高保真基准，任务来源于 1,000 多位研究者与实践者的提交，覆盖金融、医疗、法律、教育与 STEM/人文双轨研究等真实领域。每个任务配备 15-40 条加权细化的评价标准以衡量专业严谨度，并提出 ShotJudge 模式，利用带专家少样本示例调校的 LLM 评审器来缓解自我奖励偏差。实验证明即便是当前最强模型在该基准上也仅达约 66% 的最高成功率、平均约 55%，且在定量推理与语言综合方面表现具备非重叠的能力强项。该工作揭示了通用型模型在成为专业协作者过程中的“专家缺口”，并为后续面向真实行业任务的能力提升提供了测评框架。"}
 />
 </div>
