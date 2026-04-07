@@ -15,10 +15,10 @@ import PaperCard from '@/components/papers/PaperCard.astro'
 
 <div class="space-y-4">
 <PaperCard
-  title={"Communicating about Space: Language-Mediated Spatial Integration Across Partial Views"}
-  arxivUrl={"https://arxiv.org/abs/2603.27183"}
-  hjfyUrl={"https://hjfy.top/arxiv/2603.27183"}
-  summary={"该工作提出了COSMIC基准，研究MLLM是否能通过对话对齐不同视角下的碎片化三维观察，构建一致的allocentric空间模型，从而推动多模态空间交流。方法上设计了双静止MLLM代理在同一室内场景中从不同视角交换自然语言消息以回答空间问答，收录899个场景和1250个问题，辅以250个人类对话作为对照。实验显示，当前模型在跨视角锚点对象识别方面最可信，但在关系推理上表现显著下降，构建全局一致地图几乎与随机持平，最高模型Gemini-3-Pro-Thinking在任务上仅达72%的准确率。相比之下，人类对话在对齐共享空间理解时准确率达95%，且对话随着认知收敛而越来越精确，而MLLM则倾向于不断探索未收敛的状态。该结果揭示了MLLM在构建和维护稳定共享心理地图方面的能力仍十分有限。"}
+  title={"VLMs Need Words: Vision Language Models Ignore Visual Detail In Favor of Semantic Anchors"}
+  arxivUrl={"https://arxiv.org/abs/2604.02486"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.02486"}
+  summary={"该论文指出当前 VLMs 的训练流程过度强调将视觉信息映射到已有的文本概念，导致它们在需要细粒度感知和新颖视觉实体推理的任务中失效。作者在语义、形状和人脸对齐的视觉对应任务上系统评估模型，发现当实体无法被语言命名时性能明显下降。通过 Logit Lens 分析，他们进一步发现模型会显式分配语义标签给可命名实体，而对不可命名实体输出的 token 更加模糊和重复。论文还尝试给未知视觉对象统一赋予任意名称，发现这能提升对应任务性能；而进行任务特定微调可以不依赖语言先验实现更强的泛化。整体来看，VLMs 的失败更像是训练中学到的文本捷径，而非多模态架构的根本限制。"}
 />
 </div>
 
@@ -29,14 +29,18 @@ import PaperCard from '@/components/papers/PaperCard.astro'
   title={"Token Warping Helps MLLMs Look from Nearby Viewpoints"}
   arxivUrl={"https://arxiv.org/abs/2604.02870"}
   hjfyUrl={"https://hjfy.top/arxiv/2604.02870"}
-  summary={"论文通过在ViT基础的多模态大模型上对token而非像素进行变形，解决从相邻视角观察时的几何扭曲问题，实现更稳健的视觉推理。提出的反向token warping在目标视图上建立稠密网格，为每个网格点检索源视图token，保持语义一致性，并在ViewBench基准上全面比较不同变形策略。实验证明该方法在视角迁移评测中持续优于像素变形、空间微调及生成建模技术，表明token层面的结构表征更适合模拟人类想象中的视角转换。"}
+  summary={"Token Warping 提出用变形 tokens 替代像素来增强 MLLM 对近景视角变化的稳定理解，基于 ViT token 考察前向与后向 warping。方法采用后向 token warping：在目标视角上定义密集网格，再依次检索源视角的语义 token，保留结构一致性并规避小深度误差导致的几何扭曲。作者还基于 ViewBench 设计对比实验，结果显示该 token-level 变形在各种基线（包括像素级 warping、空间调优的 MLLM 和生成式变形）上都能更可靠地从附近视角推理。实验表明 token warping 大幅提升对视角变化的鲁棒性，使 MLLM 更接近人类所依赖的部分级结构心理意象。"}
 />
+</div>
 
+## Spatial Intelligence (Image/Video)
+
+<div class="space-y-4">
 <PaperCard
-  title={"VLMs Need Words: Vision Language Models Ignore Visual Detail In Favor of Semantic Anchors"}
-  arxivUrl={"https://arxiv.org/abs/2604.02486"}
-  hjfyUrl={"https://hjfy.top/arxiv/2604.02486"}
-  summary={"本文指出當前VLM在細粒度視覺感知任務上的失敗並非多模態架構本質限制，而是訓練流程過度將視覺資訊轉譯到語言空間導致視覺細節被忽略。作者通過視覺對應任務考察模型能否在兩張圖像間辨認語義、形狀與人臉等對應實體，發現只有可命名的實體能被可靠識別。利用Logit Lens分析證實，VLM會為可命名實體生成明確語義標籤，無法命名的實體則缺乏對應token。進一步證明，賦予未知實體任意名稱或針對性微調後可提升性能，特別是後者在泛化上更強。研究說明VLM學到的捷徑是語言先驗對應，而非視覺推理能力短板，提示需在訓練設計上保留視覺專注部分。"}
+  title={"Communicating about Space: Language-Mediated Spatial Integration Across Partial Views"}
+  arxivUrl={"https://arxiv.org/abs/2603.27183"}
+  hjfyUrl={"https://hjfy.top/arxiv/2603.27183"}
+  summary={"该论文推出了COSMIC基准，用于考察多模态大语言模型在多个视角下通过对话整合空间信息、形成共享 allocentric 心智模型的能力。实验中，两个人工智能代理分别从不同视角观察三维室内场景，并通过自然语言消息协作回答空间问题，同时还收集了250组人类对话用于行为对比分析。COSMIC覆盖899个场景与1250个问答，结果显示模型在定位共享锚点物体方面最可靠，但在关系推理上表现更差，并且几乎无法构建全局一致的地图，最强模型（Gemini-3-Pro-Thinking）总体准确率仅72%，远低于人类的95%。研究还发现思考能力能提升锚点 grounding，但不足以支撑更高层次的空间交流；人类对话随着共识增强变得越来越精确，而模型则不断探索未收敛的表征。"}
 />
 </div>
 
@@ -47,21 +51,14 @@ import PaperCard from '@/components/papers/PaperCard.astro'
   title={"Agentic-MME: What Agentic Capability Really Brings to Multimodal Intelligence?"}
   arxivUrl={"https://arxiv.org/abs/2604.03016"}
   hjfyUrl={"https://hjfy.top/arxiv/2604.03016"}
-  summary={"Agentic-MME推出一个面向多模态Agent能力的过程验证评测，涵盖6大领域、3个难度级别共418个真实任务，并提供每个任务超过2000个双轴的检查点轨迹，支持沙箱化代码与API执行。该基准用统一框架检查Visual Expansion与Knowledge Expansion工具调用的执行过程，量化是否按人类轨迹高效操作，并引入“过度思考”指标判定执行步骤的冗余。实验显示Gemini3-pro在整体准确率56.3%，但在Level-3高难任务时跌至23.0%，凸显现实多模态Agent任务在工具组合、过程控制上的挑战。"}
-/>
-
-<PaperCard
-  title={"AgentSocialBench: Evaluating Privacy Risks in Human-Centered Agentic Social Networks"}
-  arxivUrl={"https://arxiv.org/abs/2604.01487"}
-  hjfyUrl={"https://hjfy.top/arxiv/2604.01487"}
-  summary={"AgentSocialBench构建了首个用于评估以人为中心的智能体社交网络隐私风险的基准，涵盖七类现实场景、用户配置文件和有向社交图，按敏感度分层标签以量化跨域协作泄露。方法上模拟多智能体协作、跨用户代理互访以及隐私指令，重点分析当前LLM代理在交叉域协调下对敏感信息的持久泄露压力，并揭示“抽象悖论”：教代理如何抽象信息反而促使其更频繁讨论敏感内容。实验结果表明，即使明确指令保护信息，代理间的跨域和跨用户协调依然造成持续泄露，现有模型尚无稳健隐私机制，提示亟需超越提示工程的新方法。"}
+  summary={"Agentic-MME 构建了一个过程可验证的多模态 agent 能力评估基准，围绕 6 个领域、3 个难度等级的 418 个真实任务衡量视觉+搜索工具协同解决问题的质控。方法上为每条任务路径构建沙箱代码与 API 调用环境，同时提供双轴注释（S 轴和 V 轴）的人工参考轨迹，并在 2000+ 个逐步检查点记录真实流程，从而不仅验证最终答复还检验是否正确调用和有效使用工具。为了度量效率，还引入“过度思考”指标与人类轨迹对齐，揭示模型是否多余搜索或重复操作。实验显示最强模型 Gemini3-pro 总体准确率为 56.3%，而在最高难度 Level-3 上骤降至 23.0%，凸显真实世界多模态 agentic 问题求解的挑战。"}
 />
 
 <PaperCard
   title={"Xpertbench: Expert Level Tasks with Rubrics-Based Evaluation"}
   arxivUrl={"https://arxiv.org/abs/2604.02368"}
   hjfyUrl={"https://hjfy.top/arxiv/2604.02368"}
-  summary={"XpertBench構建了一個涵蓋金融、醫療、法律、教育與STEM/人文雙軌研究共1,346項專業任務的高保真基準，這些任務源自超過1,000位專家提交、並附帶15~40項加權檢查點的細緻評分規則。為了縮小通用評估與人類專業標準間的差距，作者提出ShotJudge架構，採用少量專家示例的LLM評判器以降低自我獎勵偏差，從而實現可擴展的對齊式評測。實驗在多個先進LLM上揭示顯著表現上限：最強模型成功率僅約66%，平均分僅55%，不同領域間優勢呈現非重疊性。該成果放大了現有模型與專業人類之間的“expert-gap”，並確立XpertBench為推動AI從通用助手向專業協作者過渡的關鍵工具。"}
+  summary={"XpertBench 构建了一个包含 1,346 个跨金融、医疗、法务、教育、STEM 和人文等 80 个专业领域任务的高保真基准，所有题目均由顶尖研究者或资深从业者提交，因而具备优越的生态效度。每个任务配套 15-40 项加权评分细则，以确保评估聚焦专业严谨度。作者提出 ShotJudge，即用专家 few-shot 示例调校的 LLM 评审器，避免模型自评带来的偏差，实现可扩展的人类对齐评估。实验揭示即使是最先进模型也只在某些任务取得约 66% 的峰值成功率、平均得分约 55%，且在定量推理与语言整合任务上表现出非重叠的领域强项。该基准揭示当前通用模型与真实专家能力之间的“专家差距”，为专业协作型系统的训练与评价提供了重要工具。"}
 />
 </div>
 
@@ -72,6 +69,6 @@ import PaperCard from '@/components/papers/PaperCard.astro'
   title={"A Simple Baseline for Streaming Video Understanding"}
   arxivUrl={"https://arxiv.org/abs/2604.02317"}
   hjfyUrl={"https://hjfy.top/arxiv/2604.02317"}
-  summary={"论文提出SimpleStream基线：仅用滑动窗口捕捉最近N帧并交给现成的视频语言模型，即可支持实时流式视频理解。该方法集中评估短期感知与历史记忆的权衡，发现更长的上下文并非总能提升性能，而是依赖于主干模型的特性。实验证明，在OVO-Bench上用4帧就能达到67.7%的平均准确率，在StreamingBench上达到80.59%，整体性能与多种复杂内存机制的流式模型相当甚至更优，同时指明今后应把近期场景感知和长距记忆在基准中拆分开来以便明确衡量改进。"}
+  summary={"SimpleStream 证明在流式视频理解场景中，仅用最近 N 帧喂给现成的 VLM 就能达到甚至超越多种复杂的记忆机制，提出了一个简单的滑动窗口基线。方法上只保留最靠近当前帧的短时窗，避免了复杂的长历史缓存并继续使用标准 VLM 推理。实验证明，在 OVO-Bench 上用 4 帧就能达到 67.7% 平均准确率，在 StreamingBench 上取得 80.59%，并在 13 个主流离线/在线基线中持续保持竞争力。对 ablation 研究显示：上下文长度的收益与 backbone 有关，长期上下文虽然提升召回但可能削弱实时感知，提示未来的记忆/检索模块必须在同协议下优于 SimpleStream 才算真正进步，也建议将短期感知和长期记忆拆开评测。"}
 />
 </div>
