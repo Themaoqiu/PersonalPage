@@ -15,42 +15,64 @@ import PaperCard from '@/components/papers/PaperCard.astro'
 
 <div class="space-y-4">
 <PaperCard
-  title={"LIBERO-Para: A Diagnostic Benchmark and Metrics for Paraphrase Robustness in VLA Models"}
-  arxivUrl={"https://arxiv.org/abs/2603.28301"}
-  hjfyUrl={"https://hjfy.top/arxiv/2603.28301"}
-  summary={"Vision-Language-Action (VLA) models achieve strong performance in robotic manipulation by leveraging pre-trained vision-language backbones. However, in downstream robotic settings, they are typically fine-tuned with limited data, leading to overfitting to specific instruction formulations and leaving robustness to paraphrased instructions underexplored. To study this gap, we introduce LIBERO-Para, a controlled benchmark that independently varies action expressions and object references for fine-grained analysis of linguistic generalization. Across seven VLA configurations (0.6B-7.5B), we observe consistent performance degradation of 22-52 pp under paraphrasing. This degradation is primarily driven by object-level lexical variation: even simple synonym substitutions cause large drops, indicating reliance on surface-level matching rather than semantic grounding. Moreover, 80-96% of failures arise from planning-level trajectory divergence rather than execution errors, showing that paraphrasing disrupts task identification. Binary success rate treats all paraphrases equally, obscuring whether models perform consistently across difficulty levels or rely on easier cases. To address this, we propose PRIDE, a metric that quantifies paraphrase difficulty using semantic and syntactic factors. Our benchmark and corresponding code are available at: https://github.com/cau-hai-lab/LIBERO-Para"}
+  title={"SpatialEdit: Benchmarking Fine-Grained Image Spatial Editing"}
+  arxivUrl={"https://arxiv.org/abs/2604.04911"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.04911"}
+  summary={"SpatialEdit本体设计了SpatialEdit-Bench基准集合、SpatialEdit-500k控制合成数据集和SpatialEdit-16B基线模型，专注于细粒度的图像空间编辑能力评测。Benchmark通过视角重建与画面构图分析双管齐下，联合衡量感知合理性与几何精度；数据集借助可控Blender流水线在多背景下渲染对象与系统化摄像机轨迹，从而提供精确的对象与摄像机变换标注。基于此数据训练出的SpatialEdit-16B不仅保持通用编辑水平，还显著压倒此前方法在空间操控任务上的表现。实验结果表明，该模型在空间编辑指标上领先，资源已开放以推动后续研究。"}
 />
 </div>
 
-## 3D LLM
+## Multimodal Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"AURA: Always-On Understanding and Real-Time Assistance via Video Streams"}
+  arxivUrl={"https://arxiv.org/abs/2604.04184"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.04184"}
+  summary={"AURA设计了面向实时流视频的端到端视觉大模型交互框架，目标在“Always-On”模式下同时支持问答与主动响应。其方法整合了上下文管理、数据构建、训练目标与部署优化，使单一VideoLLM可以持续观察流媒体并维持长时视角。在系统层面提供语音识别与合成并在两个80G卡上以2FPS实现了Demo，验证了稳定长程流式交互的可行性。在多个流式基准上刷新状态，对应指标与实测延迟都说明该框架已接近实用级别。"}
+/>
+</div>
+
+## Embodied Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"LIBERO-Para: A Diagnostic Benchmark and Metrics for Paraphrase Robustness in VLA Models"}
+  arxivUrl={"https://arxiv.org/abs/2603.28301"}
+  hjfyUrl={"https://hjfy.top/arxiv/2603.28301"}
+  summary={"LIBERO-Para提出面向机器人视觉语言动作模型的诊断基准，通过独立变化动作表达与物体引用来解析语言泛化能力，目标是恢复对指令改述的鲁棒性。方法上构建精细控制的改写对，并设计PRIDE难度度量，结合语义与句法特征量化改写导致的难度差异。实验表明七种VLA模型（0.6B-7.5B）在改写指令下性能下降22-52个百分点，且词汇层面变化如同义词替换就会大幅损失表现，说明模型依赖表面匹配而非语义。失败案例中有80-96%因规划轨迹偏离而非执行错误，说明改写破坏了任务识别，基准和度量帮助揭示这一瓶颈。"}
+/>
+</div>
+
+## Agent Training and Evaluation
 
 <div class="space-y-4">
 <PaperCard
   title={"ClawArena: Benchmarking AI Agents in Evolving Information Environments"}
   arxivUrl={"https://arxiv.org/abs/2604.04202"}
   hjfyUrl={"https://hjfy.top/arxiv/2604.04202"}
-  summary={"AI agents deployed as persistent assistants must maintain correct beliefs as their information environment evolves. In practice, evidence is scattered across heterogeneous sources that often contradict one another, new information can invalidate earlier conclusions, and user preferences surface through corrections rather than explicit instructions. Existing benchmarks largely assume static, single-authority settings and do not evaluate whether agents can keep up with this complexity. We introduce ClawArena, a benchmark for evaluating AI agents in evolving information environments. Each scenario maintains a complete hidden ground truth while exposing the agent only to noisy, partial, and sometimes contradictory traces across multi-channel sessions, workspace files, and staged updates. Evaluation is organized around three coupled challenges: multi-source conflict reasoning, dynamic belief revision, and implicit personalization, whose interactions yield a 14-category question taxonomy. Two question formats, multi-choice (set-selection) and shell-based executable checks, test both reasoning and workspace grounding. The current release contains 64 scenarios across 8 professional domains, totaling 1{,}879 evaluation rounds and 365 dynamic updates. Experiments on five agent frameworks and five language models show that both model capability (15.4% range) and framework design (9.2%) substantially affect performance, that self-evolving skill frameworks can partially close model-capability gaps, and that belief revision difficulty is determined by update design strategy rather than the mere presence of updates. Code is available at https://github.com/aiming-lab/ClawArena."}
+  summary={"ClawArena面向持续演化信息环境定义了一个新评测基准，模拟多源噪声、内部冲突与隐性个性化的现实助理场景。每个情形保持完整隐藏真值，而只向代理揭示多通道、部分且有时矛盾的证据，评估任务涵盖多源冲突推理、动态信念修正与隐式个性化，并以14类问题的多选与可执行Shell校验实现多模态 grounding。作者发布64个跨8个专业领域的场景，总计1,879轮评估与365次动态更新，并在5个代理框架与5个语言模型上实验。结果显示模型能力与框架设计分别带来约15.4%与9.2%的性能跨度，自演化技能架构可部分弥补能力差距，而信念修正难度更取决于更新策略而非更新本身。"}
 />
 
 <PaperCard
   title={"FileGram: Grounding Agent Personalization in File-System Behavioral Traces"}
   arxivUrl={"https://arxiv.org/abs/2604.04901"}
   hjfyUrl={"https://hjfy.top/arxiv/2604.04901"}
-  summary={"Coworking AI agents operating within local file systems are rapidly emerging as a paradigm in human-AI interaction; however, effective personalization remains limited by severe data constraints, as strict privacy barriers and the difficulty of jointly collecting multimodal real-world traces prevent scalable training and evaluation, and existing methods remain interaction-centric while overlooking dense behavioral traces in file-system operations; to address this gap, we propose FileGram, a comprehensive framework that grounds agent memory and personalization in file-system behavioral traces, comprising three core components: (1) FileGramEngine, a scalable persona-driven data engine that simulates realistic workflows and generates fine-grained multimodal action sequences at scale; (2) FileGramBench, a diagnostic benchmark grounded in file-system behavioral traces for evaluating memory systems on profile reconstruction, trace disentanglement, persona drift detection, and multimodal grounding; and (3) FileGramOS, a bottom-up memory architecture that builds user profiles directly from atomic actions and content deltas rather than dialogue summaries, encoding these traces into procedural, semantic, and episodic channels with query-time abstraction; extensive experiments show that FileGramBench remains challenging for state-of-the-art memory systems and that FileGramEngine and FileGramOS are effective, and by open-sourcing the framework, we hope to support future research on personalized memory-centric file-system agents."}
+  summary={"FileGram提出以文件系统行为轨迹为根基的个性化记忆框架，解决协同AIagent在本地文件系统中的个性化与数据稀缺问题。核心包括FileGramEngine用于模拟现实工作流与生成细粒度多模态动作序列、FileGramBench评价多种记忆任务（如画像恢复、轨迹解缠、人格漂移检测与多模态对齐）、以及FileGramOS以原子动作与内容增量构建过程、语义、情节三个信息通道并在查询时抽象化。该架构直接从行为痕迹学习用户特征，减少对对话摘要的依赖。实验结果表明FileGramBench对现有记忆系统仍具挑战性，同时FileGramEngine与FileGramOS可提升个性化表现，证实框架对未来记忆中心文件系统agent的支撑价值。"}
 />
 
 <PaperCard
   title={"LightThinker++: From Reasoning Compression to Memory Management"}
   arxivUrl={"https://arxiv.org/abs/2604.03679"}
   hjfyUrl={"https://hjfy.top/arxiv/2604.03679"}
-  summary={"Large language models (LLMs) excel at complex reasoning, yet their efficiency is limited by the surging cognitive overhead of long thought traces. In this paper, we propose LightThinker, a method that enables LLMs to dynamically compress intermediate thoughts into compact semantic representations. However, static compression often struggles with complex reasoning where the irreversible loss of intermediate details can lead to logical bottlenecks. To address this, we evolve the framework into LightThinker++, introducing Explicit Adaptive Memory Management. This paradigm shifts to behavioral-level management by incorporating explicit memory primitives, supported by a specialized trajectory synthesis pipeline to train purposeful memory scheduling. Extensive experiments demonstrate the framework's versatility across three dimensions. (1) LightThinker reduces peak token usage by 70% and inference time by 26% with minimal accuracy loss. (2) In standard reasoning, LightThinker++ slashes peak token usage by 69.9% while yielding a +2.42% accuracy gain under the same context budget for maximum performance. (3) Most notably, in long-horizon agentic tasks, it maintains a stable footprint beyond 80 rounds (a 60%-70% reduction), achieving an average performance gain of 14.8% across different complex scenarios. Overall, our work provides a scalable direction for sustaining deep LLM reasoning over extended horizons with minimal overhead."}
+  summary={"LightThinker++从推理压缩演化为显式自适应记忆管理，旨在维持LLM长链思维的效率与稳定性。方法通过内建记忆原语与轨迹合成流水线训练记忆调度器，在行为层面动态管理中间思考并避免固定压缩丢失关键信息。结果显示LightThinker在标准推理中峰值令牌量减少69.9%并在相同上下文预算下带来2.42%的准确率提升；在长时序agent任务中保持80轮以上稳定占用、减少60%~70%资源，平均性能提升14.8%。此外LightThinker整体减少峰值词元70%与推理时长26%，证明框架能在持续推理中保持极低开销。"}
 />
 
 <PaperCard
-  title={"Adam's Law: Textual Frequency Law on Large Language Models"}
-  arxivUrl={"https://arxiv.org/abs/2604.02176"}
-  hjfyUrl={"https://hjfy.top/arxiv/2604.02176"}
-  summary={"While textual frequency has been validated as relevant to human cognition in reading speed, its relatedness to Large Language Models (LLMs) is seldom studied. We propose a novel research direction in terms of textual data frequency, which is an understudied topic, to the best of our knowledge. Our framework is composed of three units. First, this paper proposes Textual Frequency Law (TFL), which indicates that frequent textual data should be preferred for LLMs for both prompting and fine-tuning. Since many LLMs are closed-source in their training data, we propose using online resources to estimate the sentence-level frequency. We then utilize an input paraphraser to paraphrase the input into a more frequent textual expression. Next, we propose Textual Frequency Distillation (TFD) by querying LLMs to conduct story completion by further extending the sentences in the datasets, and the resulting corpora are used to adjust the initial estimation. Finally, we propose Curriculum Textual Frequency Training (CTFT) that fine-tunes LLMs in an increasing order of sentence-level frequency. Experiments are conducted on our curated dataset Textual Frequency Paired Dataset (TFPD) on math reasoning, machine translation, commonsense reasoning and agentic tool calling. Results show the effectiveness of our framework."}
+  title={"Unifying Group-Relative and Self-Distillation Policy Optimization via Sample Routing"}
+  arxivUrl={"https://arxiv.org/abs/2604.02288"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.02288"}
+  summary={"SRPO统一GRPO与SDPO中的群体相对与自蒸馏优化策略，通过样本路由机制分别将正确回合分发给与奖励对齐的强化学习模块，而将失败样本交给强调logit级纠错的自蒸馏模块，并辅以熵感知动态加权以弱化高熵不可靠的蒸馏目标。该框架解决了SDPO长期训练中信号退化与已正确样本带来的优化歧义，同时保留SDPO的密集指令与GRPO的稳定性。五个基准与两种模型规模上实验表明，SRPO兼具快速早期提升与长周期稳定性，在Qwen3-8B上平均性能比GRPO高3.4%、比SDPO高6.3%，并在响应长度与每步算力上分别有所节省（最高达17.2%）。"}
 />
 </div>
 
@@ -61,48 +83,6 @@ import PaperCard from '@/components/papers/PaperCard.astro'
   title={"OpenWorldLib: A Unified Codebase and Definition of Advanced World Models"}
   arxivUrl={"https://arxiv.org/abs/2604.04707"}
   hjfyUrl={"https://hjfy.top/arxiv/2604.04707"}
-  summary={"World models have garnered significant attention as a promising research direction in artificial intelligence, yet a clear and unified definition remains lacking. In this paper, we introduce OpenWorldLib, a comprehensive and standardized inference framework for Advanced World Models. Drawing on the evolution of world models, we propose a clear definition: a world model is a model or framework centered on perception, equipped with interaction and long-term memory capabilities, for understanding and predicting the complex world. We further systematically categorize the essential capabilities of world models. Based on this definition, OpenWorldLib integrates models across different tasks within a unified framework, enabling efficient reuse and collaborative inference. Finally, we present additional reflections and analyses on potential future directions for world model research. Code link: https://github.com/OpenDCAI/OpenWorldLib"}
-/>
-
-<PaperCard
-  title={"MinerU2.5-Pro: Pushing the Limits of Data-Centric Document Parsing at Scale"}
-  arxivUrl={"https://arxiv.org/abs/2604.04771"}
-  hjfyUrl={"https://hjfy.top/arxiv/2604.04771"}
-  summary={"Current document parsing methods compete primarily on model architecture innovation, while systematic engineering of training data remains underexplored. Yet SOTA models of different architectures and parameter scales exhibit highly consistent failure patterns on the same set of hard samples, suggesting that the performance bottleneck stems from shared deficiencies in training data rather than architecture itself. Building on this finding, we present \\minerupro, which advances the state of the art solely through data engineering and training strategy optimization while keeping the 1.2B-parameter architecture of \\mineru completely fixed. At its core is a Data Engine co-designed around coverage, informativeness, and annotation accuracy: Diversity-and-Difficulty-Aware Sampling expands training data from under 10M to 65.5M samples while correcting distribution shift; Cross-Model Consistency Verification leverages output agreement among heterogeneous models to assess sample difficulty and generate reliable annotations; the Judge-and-Refine pipeline improves annotation quality for hard samples through render-then-verify iterative correction. A three-stage progressive training strategy -- large-scale pre-training, hard sample fine-tuning, and GRPO alignment -- sequentially exploits these data at different quality tiers. On the evaluation front, we fix element-matching biases in OmniDocBench~v1.5 and introduce a Hard subset, establishing the more discriminative OmniDocBench~v1.6 protocol. Without any architectural modification, \\minerupro achieves 95.69 on OmniDocBench~v1.6, improving over the same-architecture baseline by 2.71 points and surpassing all existing methods including models with over 200$\\times$ more parameters."}
-/>
-
-<PaperCard
-  title={"TriAttention: Efficient Long Reasoning with Trigonometric KV Compression"}
-  arxivUrl={"https://arxiv.org/abs/2604.04921"}
-  hjfyUrl={"https://hjfy.top/arxiv/2604.04921"}
-  summary={"Extended reasoning in large language models (LLMs) creates severe KV cache memory bottlenecks. Leading KV cache compression methods estimate KV importance using attention scores from recent post-RoPE queries. However, queries rotate with position during RoPE, making representative queries very few, leading to poor top-key selection and unstable reasoning. To avoid this issue, we turn to the pre-RoPE space, where we observe that Q and K vectors are highly concentrated around fixed non-zero centers and remain stable across positions -- Q/K concentration. We show that this concentration causes queries to preferentially attend to keys at specific distances (e.g., nearest keys), with the centers determining which distances are preferred via a trigonometric series. Based on this, we propose TriAttention to estimate key importance by leveraging these centers. Via the trigonometric series, we use the distance preference characterized by these centers to score keys according to their positions, and also leverage Q/K norms as an additional signal for importance estimation. On AIME25 with 32K-token generation, TriAttention matches Full Attention reasoning accuracy while achieving 2.5x higher throughput or 10.7x KV memory reduction, whereas leading baselines achieve only about half the accuracy at the same efficiency. TriAttention enables OpenClaw deployment on a single consumer GPU, where long context would otherwise cause out-of-memory with Full Attention."}
-/>
-
-<PaperCard
-  title={"AURA: Always-On Understanding and Real-Time Assistance via Video Streams"}
-  arxivUrl={"https://arxiv.org/abs/2604.04184"}
-  hjfyUrl={"https://hjfy.top/arxiv/2604.04184"}
-  summary={"Video Large Language Models (VideoLLMs) have achieved strong performance on many video understanding tasks, but most existing systems remain offline and are not well-suited for live video streams that require continuous observation and timely response. Recent streaming VideoLLMs have made progress, yet current approaches often rely on decoupled trigger-response pipelines or are limited to captioning-style narration, reducing their effectiveness for open-ended question answering and long-horizon interaction. We propose AURA (Always-On Understanding and Real-Time Assistance), an end-to-end streaming visual interaction framework that enables a unified VideoLLM to continuously process video streams and support both real-time question answering and proactive responses. AURA integrates context management, data construction, training objectives, and deployment optimization for stable long-horizon streaming interaction. It achieves state-of-the-art performance on streaming benchmarks and supports a real-time demo system with ASR and TTS running at 2 FPS on two 80G accelerators. We release the AURA model together with a real-time inference framework to facilitate future research."}
-/>
-
-<PaperCard
-  title={"SpatialEdit: Benchmarking Fine-Grained Image Spatial Editing"}
-  arxivUrl={"https://arxiv.org/abs/2604.04911"}
-  hjfyUrl={"https://hjfy.top/arxiv/2604.04911"}
-  summary={"Image spatial editing performs geometry-driven transformations, allowing precise control over object layout and camera viewpoints. Current models are insufficient for fine-grained spatial manipulations, motivating a dedicated assessment suite. Our contributions are listed: (i) We introduce SpatialEdit-Bench, a complete benchmark that evaluates spatial editing by jointly measuring perceptual plausibility and geometric fidelity via viewpoint reconstruction and framing analysis. (ii) To address the data bottleneck for scalable training, we construct SpatialEdit-500k, a synthetic dataset generated with a controllable Blender pipeline that renders objects across diverse backgrounds and systematic camera trajectories, providing precise ground-truth transformations for both object- and camera-centric operations. (iii) Building on this data, we develop SpatialEdit-16B, a baseline model for fine-grained spatial editing. Our method achieves competitive performance on general editing while substantially outperforming prior methods on spatial manipulation tasks. All resources will be made public at https://github.com/EasonXiao-888/SpatialEdit."}
-/>
-
-<PaperCard
-  title={"Unifying Group-Relative and Self-Distillation Policy Optimization via Sample Routing"}
-  arxivUrl={"https://arxiv.org/abs/2604.02288"}
-  hjfyUrl={"https://hjfy.top/arxiv/2604.02288"}
-  summary={"Reinforcement learning with verifiable rewards (RLVR) has become a standard paradigm for post-training large language models. While Group Relative Policy Optimization (GRPO) is widely adopted, its coarse credit assignment uniformly penalizes failed rollouts, lacking the token-level focus needed to efficiently address specific deviations. Self-Distillation Policy Optimization (SDPO) addresses this by providing denser, more targeted logit-level supervision that facilitates rapid early improvement, yet it frequently collapses during prolonged training. We trace this late-stage instability to two intrinsic flaws: self-distillation on already-correct samples introduces optimization ambiguity, and the self-teacher's signal reliability progressively degrades. To resolve these issues, we propose Sample-Routed Policy Optimization (SRPO), a unified on-policy framework that routes correct samples to GRPO's reward-aligned reinforcement and failed samples to SDPO's targeted logit-level correction. SRPO further incorporates an entropy-aware dynamic weighting mechanism to suppress high-entropy, unreliable distillation targets while emphasizing confident ones. Evaluated across five benchmarks and two model scales, SRPO achieves both the rapid early improvement of SDPO and the long-horizon stability of GRPO. It consistently surpasses the peak performance of both baselines, raising the five-benchmark average on Qwen3-8B by 3.4% over GRPO and 6.3% over SDPO, while simultaneously yielding moderate response lengths and lowering per-step compute cost by up to 17.2%."}
-/>
-
-<PaperCard
-  title={"Self-Execution Simulation Improves Coding Models"}
-  arxivUrl={"https://arxiv.org/abs/2604.03253"}
-  hjfyUrl={"https://hjfy.top/arxiv/2604.03253"}
-  summary={"A promising research direction in enabling LLMs to generate consistently correct code involves addressing their inability to properly estimate program execution, particularly for code they generate. In this work, we demonstrate that Code LLMs can be trained to simulate program execution in a step-by-step manner and that this capability can be leveraged to improve competitive programming performance. Our approach combines supervised fine-tuning on natural language execution traces, textual explanations grounded in true execution, with reinforcement learning using verifiable rewards. We introduce two complementary objectives: output prediction given code and inputs, and solving competitive programming tasks with either ground-truth or self-predicted execution feedback. These objectives enable models to perform self-verification over multiple candidate solutions, and iterative self-fixing by simulating test execution. Across multiple competitive programming benchmarks, our method yields consistent improvements over standard reasoning approaches. We further present ablations and analysis to elucidate the role of execution simulation and its limitations."}
+  summary={"该工作提出了OpenWorldLib，给出一个统一的“以感知为中心、具备交互与长期记忆”的高级世界模型定义，并系统地归纳其关键能力。通过构建统一推理框架，OpenWorldLib整合不同任务的模型与接口，实现了跨任务的高效复用和协作推理流程。框架还配套了标准化的数据与能力描述，便于研究者在同一平台上对世界模型进行一致的评估与比较。实践中，该库展示了通过共享基础模块和统一协同推理可以覆盖更多任务需求，从而为未来世界模型研究指明更清晰的方向。"}
 />
 </div>
