@@ -30,6 +30,7 @@
     "deployScript": "./deploy-to-github-pages.sh"
   },
   "papers": {
+    "heroImageApiUrl": "https://app.zichen.zone/api/acg/api.php",
     "heroImageUrl": "https://cdn.someacg.top/graph/origin/142795457_p0.jpg"
   },
   "interests": [

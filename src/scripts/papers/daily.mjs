@@ -76,6 +76,10 @@ function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
+function ensureDir(p) {
+  fs.mkdirSync(p, { recursive: true })
+}
+
 function normalizeText(input) {
   return (input || '')
     .replace(/<[^>]*>/g, ' ')
@@ -161,6 +165,43 @@ function extractPapersFromText(input) {
   }
 
   return papers
+}
+
+async function resolveHeroImage(date, config) {
+  const fallbackUrl = config?.papers?.heroImageUrl || ''
+  const apiUrl = config?.papers?.heroImageApiUrl || ''
+
+  if (!apiUrl) return fallbackUrl
+
+  try {
+    console.log(`[papers] fetch hero image via ${apiUrl}`)
+    ensureDir(DEBUG_ROOT)
+    const headerFile = path.join(DEBUG_ROOT, `${date}.hero.headers.txt`)
+    try {
+      execFileSync(
+        'curl',
+        ['-L', '-sS', '-A', 'Mozilla/5.0 papers-bot', '-D', headerFile, '-o', '/dev/null', apiUrl],
+        { stdio: 'pipe' }
+      )
+      const headerText = fs.readFileSync(headerFile, 'utf8')
+      const locationMatches = Array.from(headerText.matchAll(/^location:\s*([^\r\n]+)/gim))
+      const contentTypeMatches = Array.from(headerText.matchAll(/^content-type:\s*([^\r\n;]+)/gim))
+      const finalUrl = locationMatches[locationMatches.length - 1]?.[1]?.trim() || ''
+      const contentType = contentTypeMatches[contentTypeMatches.length - 1]?.[1]?.trim() || ''
+      if (!contentType.toLowerCase().startsWith('image/')) {
+        throw new Error(`hero api returned non-image content-type: ${contentType || 'unknown'}`)
+      }
+      if (!finalUrl) {
+        return apiUrl
+      }
+      return finalUrl
+    } finally {
+      fs.rmSync(headerFile, { force: true })
+    }
+  } catch (err) {
+    console.warn(`[papers] hero image fetch failed, fallback to configured heroImageUrl: ${err?.message || err}`)
+    return fallbackUrl
+  }
 }
 
 function loadFineSectionsFromDocs() {
@@ -426,7 +467,7 @@ function mdxProp(value) {
   return `{${JSON.stringify(value)}}`
 }
 
-function renderMdx(date, groups, config) {
+function renderMdx(date, groups, config, heroImageUrl = '') {
   const title = `Papers - ${date}`
   const hasAgent = groups.some((g) => g.outer === 'general-agent' && g.papers.length > 0)
   const hasVisual = groups.some((g) => g.outer === 'visual-reasoning' && g.papers.length > 0)
@@ -451,8 +492,8 @@ function renderMdx(date, groups, config) {
     return `## ${group.title}\n\n<div class="space-y-4">\n${cards}\n</div>`
   })
 
-  const heroImageLine = config?.papers?.heroImageUrl
-    ? `heroImage: { src: "${config.papers.heroImageUrl}" }`
+  const heroImageLine = heroImageUrl
+    ? `heroImage: { src: "${heroImageUrl}" }`
     : ''
 
   return `---
@@ -472,20 +513,13 @@ ${sectionLines.filter(Boolean).join('\n\n')}
 `
 }
 
-function ensureDir(p) {
-  fs.mkdirSync(p, { recursive: true })
-}
-
-function writeOutputs(date, mdx, debugData) {
+function writeOutputs(date, mdx) {
   const postDir = path.join(OUTPUT_ROOT, `papers-${date}`)
   const postFile = path.join(postDir, 'index.mdx')
-  const debugFile = path.join(DEBUG_ROOT, `${date}.raw.json`)
 
   ensureDir(postDir)
-  ensureDir(DEBUG_ROOT)
   fs.writeFileSync(postFile, mdx, 'utf8')
-  fs.writeFileSync(debugFile, JSON.stringify(debugData, null, 2), 'utf8')
-  return { postFile, debugFile }
+  return { postFile }
 }
 
 function updatePapersCollection() {
@@ -625,25 +659,14 @@ async function main() {
   }
 
   const groups = groupByFineSections(kept, sections)
-  const mdx = renderMdx(date, groups, config)
+  const heroImageUrl = await resolveHeroImage(date, config)
+  const mdx = renderMdx(date, groups, config, heroImageUrl)
   console.log(`[papers] kept: ${kept.length}, dropped: ${dropped.length}`)
 
-  const { postFile, debugFile } = writeOutputs(date, mdx, {
-    date,
-    mailCount: mails.length,
-    paperCount: papers.length,
-    keptCount: kept.length,
-    droppedCount: dropped.length,
-    maxPapersPerDay: MAX_PAPERS_PER_DAY,
-    papers,
-    enriched: kept,
-    dropped,
-    sections,
-    llmAssignments
-  })
+  const { postFile } = writeOutputs(date, mdx)
 
   const collectionFile = updatePapersCollection()
-  await maybePublish(date, [postFile, debugFile, collectionFile], config)
+  await maybePublish(date, [postFile, collectionFile], config)
   console.log(`[papers] generated ${postFile}`)
 }
 

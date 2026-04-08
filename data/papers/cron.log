@@ -1,40 +1,64 @@
-[papers] QQ_IMAP_AUTH_CODE is still placeholder, please set real QQ IMAP auth code
-[papers] ===== 2026-04-01 23:54:52 run start =====
-[papers] PATH=/Users/themaoqiu/.bun/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/opt/pkg/env/active/bin:/opt/pmk/env/global/bin:/Library/Apple/usr/bin:/opt/homebrew/bin
+[papers] ===== 2026-04-08 16:21:22 run start =====
+[papers] PATH=/Users/themaoqiu/.bun/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/Users/themaoqiu/.codex/tmp/arg0/codex-arg0Y6zc8y:/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin:/Users/themaoqiu/CodeRepo/Android/flutter/bin:/opt/homebrew/opt/postgresql@16/bin:/Users/themaoqiu/.local/state/fnm_multishells/64047_1775179237976/bin:/Users/themaoqiu/.bun/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/opt/pkg/env/active/bin:/opt/pmk/env/global/bin:/Library/Apple/usr/bin:/opt/homebrew/bin:/Users/themaoqiu/.vscode/extensions/openai.chatgpt-26.325.31654-darwin-arm64/bin/macos-aarch64
 $ node src/scripts/papers/daily.mjs
-[papers] running for 2026-04-01 (Asia/Shanghai)
+[papers] running for 2026-04-08 (Asia/Shanghai)
 [papers] matched mails: 1
 [papers] unique papers after cleanup: 12
-[papers] fetch summary 1/12: https://huggingface.co/papers/2603.27027
-[papers] fetch summary 2/12: https://huggingface.co/papers/2603.28589
-[papers] fetch summary 3/12: https://huggingface.co/papers/2603.28767
-[papers] fetch summary 4/12: https://huggingface.co/papers/2603.27771
-[papers] fetch summary 5/12: https://huggingface.co/papers/2603.27304
-[papers] fetch summary 6/12: https://huggingface.co/papers/2603.27481
-[papers] fetch summary 7/12: https://huggingface.co/papers/2603.28547
-[papers] fetch summary 8/12: https://huggingface.co/papers/2603.27646
-[papers] fetch summary 9/12: https://huggingface.co/papers/2603.26639
-[papers] fetch summary 10/12: https://huggingface.co/papers/2603.27862
-[papers] fetch summary 11/12: https://huggingface.co/papers/2603.28762
-[papers] fetch summary 12/12: https://huggingface.co/papers/2603.27813
-[papers] annotate papers with codex (single batch)...
-[papers] failed: Error: codex annotation failed: spawnSync codex ETIMEDOUT
-    at annotatePapersWithCodex (file:///Users/themaoqiu/CodeRepo/web/website/Xingjian_Wang/src/scripts/papers/daily.mjs:371:11)
-    at main (file:///Users/themaoqiu/CodeRepo/web/website/Xingjian_Wang/src/scripts/papers/daily.mjs:561:26)
-    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+[papers] fetch summary 1/12: https://huggingface.co/papers/2604.04707
+[papers] fetch summary 2/12: https://huggingface.co/papers/2604.04771
+[papers] fetch summary 3/12: https://huggingface.co/papers/2603.28301
+[papers] fetch summary 4/12: https://huggingface.co/papers/2604.04921
+[papers] fetch summary 5/12: https://huggingface.co/papers/2604.04184
+[papers] fetch summary 6/12: https://huggingface.co/papers/2604.04911
+[papers] fetch summary 7/12: https://huggingface.co/papers/2604.04202
+[papers] fetch summary 8/12: https://huggingface.co/papers/2604.04901
+[papers] fetch summary 9/12: https://huggingface.co/papers/2604.03679
+[papers] fetch summary 10/12: https://huggingface.co/papers/2604.02288
+[papers] fetch summary 11/12: https://huggingface.co/papers/2604.02176
+[papers] fetch summary 12/12: https://huggingface.co/papers/2604.03253
+[papers] annotate papers with codex (chunk 1, 5 items)...
+[papers] codex annotations(chunk 1): 5
+[papers] annotate papers with codex (chunk 2, 5 items)...
+[papers] codex annotations(chunk 2): 5
+[papers] annotate papers with codex (chunk 3, 2 items)...
+[papers] codex annotations(chunk 3): 2
+[papers] codex annotations(total): 12/12
+[papers] fetch hero image via https://app.zichen.zone/api/acg/api.php
+[papers] hero image fetch failed, fallback to configured heroImageUrl: hero api returned non-image content-type: text/html
+[papers] kept: 8, dropped: 4
+[main 2f333b2] papers: 2026-04-08
+ Committer: Themaoqiu <themaoqiu@ThemaoqiudeMacBook-Air.local>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 1 file changed, 32 insertions(+), 52 deletions(-)
+fatal: unable to access 'https://github.com/Themaoqiu/page.git/': Failed to connect to github.com port 443 after 75054 ms: Couldn't connect to server
+[papers] failed: Error: Command failed: git push
+    at genericNodeError (node:internal/errors:998:15)
+    at wrappedFn (node:internal/errors:543:14)
+    at checkExecSyncError (node:child_process:925:11)
+    at execFileSync (node:child_process:961:15)
+    at maybePublish (file:///Users/themaoqiu/CodeRepo/web/website/Xingjian_Wang/src/scripts/papers/daily.mjs:587:5)
+    at main (file:///Users/themaoqiu/CodeRepo/web/website/Xingjian_Wang/src/scripts/papers/daily.mjs:669:9)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {
+  status: 128,
+  signal: null,
+  output: [ null, null, null ],
+  pid: 48524,
+  stdout: null,
+  stderr: null
+}
 error: script "papers:daily" exited with code 1
-[papers] ===== 2026-04-02 00:01:40 run start =====
-[papers] PATH=/Users/themaoqiu/.bun/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/opt/pkg/env/active/bin:/opt/pmk/env/global/bin:/Library/Apple/usr/bin:/opt/homebrew/bin
-$ node src/scripts/papers/daily.mjs
-[papers] running for 2026-04-02 (Asia/Shanghai)
-[papers] no today's mail yet, sleep 15m then retry (until 12:00 Asia/Shanghai)
-error: script "papers:daily" was terminated by signal SIGTERM (Polite quit request)
-[papers] ===== 2026-04-02 00:14:26 run start =====
-[papers] PATH=/Users/themaoqiu/.bun/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/opt/pkg/env/active/bin:/opt/pmk/env/global/bin:/Library/Apple/usr/bin:/opt/homebrew/bin
-[papers] skip: now=00:14 outside auto window [09:10, 12:00]
-[papers] ===== 2026-04-02 00:24:26 run start =====
-[papers] PATH=/Users/themaoqiu/.bun/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/opt/pkg/env/active/bin:/opt/pmk/env/global/bin:/Library/Apple/usr/bin:/opt/homebrew/bin
-[papers] skip: now=00:24 outside auto window [09:10, 12:00]
-[papers] ===== 2026-04-02 00:34:26 run start =====
-[papers] PATH=/Users/themaoqiu/.bun/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/opt/pkg/env/active/bin:/opt/pmk/env/global/bin:/Library/Apple/usr/bin:/opt/homebrew/bin
-[papers] skip: now=00:34 outside auto window [09:10, 12:00]
+[papers] wake event at 2026-04-08 18:01:09
+[papers] ===== 2026-04-08 18:01:09 run start =====
+[papers] PATH=/Users/themaoqiu/.bun/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/bin:/bin:/usr/sbin:/sbin
+[papers] skip: now=18:01 outside auto window [09:10, 12:00]

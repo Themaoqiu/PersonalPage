@@ -35,6 +35,19 @@ fi
 export PAPERS_WAIT_FOR_TODAY_MAIL="${PAPERS_WAIT_FOR_TODAY_MAIL:-true}"
 
 mkdir -p data/papers
+TODAY="$(date '+%F')"
+LOG_DATE_FILE="data/papers/.log-date"
+
+if [ ! -f "$LOG_DATE_FILE" ] || [ "$(cat "$LOG_DATE_FILE" 2>/dev/null)" != "$TODAY" ]; then
+  : > data/papers/cron.log
+  : > data/papers/launchd.out.log
+  : > data/papers/launchd.err.log
+  echo "$TODAY" > "$LOG_DATE_FILE"
+fi
+
+find data/papers -type f \( -name '*.raw.json' -o -name '*.hero.headers.txt' \) -delete
+find data/papers -type f -name 'auto-run-*.stamp' ! -name "auto-run-${TODAY}.stamp" -delete
+
 echo "[papers] ===== $(date '+%Y-%m-%d %H:%M:%S') run start =====" >> data/papers/cron.log
 echo "[papers] PATH=$PATH" >> data/papers/cron.log
 
@@ -44,7 +57,6 @@ echo "[papers] PATH=$PATH" >> data/papers/cron.log
 # - after 12:00 skip auto-run
 if [ "${PAPERS_FORCE_RUN:-false}" != "true" ]; then
   HHMM="$(date '+%H:%M')"
-  TODAY="$(date '+%F')"
   START="${PAPERS_AUTO_WINDOW_START:-09:10}"
   END="${PAPERS_AUTO_WINDOW_END:-12:00}"
   STAMP_FILE="data/papers/auto-run-${TODAY}.stamp"
@@ -73,7 +85,6 @@ else
 fi
 
 if [ "${PAPERS_FORCE_RUN:-false}" != "true" ]; then
-  TODAY="$(date '+%F')"
   STAMP_FILE="data/papers/auto-run-${TODAY}.stamp"
   date '+%Y-%m-%d %H:%M:%S' > "$STAMP_FILE"
   echo "[papers] success stamp written: $STAMP_FILE" >> data/papers/cron.log

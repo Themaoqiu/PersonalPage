@@ -41,6 +41,13 @@ export PAPERS_DEPLOY_GITHUB_PAGES="true"
 export PAPERS_DEPLOY_SCRIPT="/Users/themaoqiu/CodeRepo/web/website/Xingjian_Wang/deploy-to-github-pages.sh"
 ```
 
+Papers hero image:
+
+```bash
+# random ACG hero image at generation time
+# if the API fails, falls back to papers.heroImageUrl in config.json
+```
+
 Optional morning waiting mode (for non-fixed delivery times such as 9/10/11 AM):
 
 ```bash
@@ -55,6 +62,8 @@ You can tune these in `config.json`:
 - `publishing.gitAutoPush`
 - `publishing.deployAfterPush`
 - `publishing.deployScript`
+- `papers.heroImageApiUrl`
+- `papers.heroImageUrl`
 
 ## 2) Run
 
@@ -71,17 +80,22 @@ chmod +x src/scripts/papers/run-daily.sh src/scripts/papers/install-launchd.sh s
 src/scripts/papers/install-launchd.sh
 ```
 
-This installs a daily job at `09:10` local time.
-The job runs:
+This installs two macOS user-session jobs:
+- a daily scheduled run at `09:10`
+- a `sleepwatcher`-based wake listener for catch-up runs after wake
+
+The jobs run:
 - fetch today's email
 - generate/update papers post
 - auto push + deploy (if enabled in `config.json` / env)
 
 Current auto behavior:
-- fixed trigger at `09:10`
-- if sleeping at 09:10, catch-up checks run every 10 minutes
+- fixed scheduled run at `09:10`
 - auto-run allowed only in `09:10-12:00` (local time)
+- if the Mac sleeps across `09:10`, opening the lid in the morning triggers an immediate wake catch-up check
 - once succeeded, it won't auto-run again the same day
+- outside the window wake checks only log and skip
+- `sleepwatcher` must be installed locally
 
 Manual trigger (for testing):
 
@@ -104,7 +118,6 @@ src/scripts/papers/uninstall-launchd.sh
 ## 3) Output
 
 - Blog post: `src/content/blogs/papers-YYYY-MM-DD/index.mdx`
-- Debug JSON: `data/papers/YYYY-MM-DD.raw.json`
 
 ## Notes
 
@@ -112,3 +125,5 @@ src/scripts/papers/uninstall-launchd.sh
 - Optional Codex review can refine category choices when enabled in config.
 - Only mails whose parsed mail date is exactly "today" in configured timezone are accepted.
 - When publishing is enabled, script will `git add/commit/push` and then run your deploy script.
+- Hero images can be pulled from ZiChen ACG API via `papers.heroImageApiUrl`; the script resolves the final image URL and writes that URL into frontmatter. On failure it falls back to `papers.heroImageUrl`.
+- Automation logs under `data/papers/` are rotated to the current day only, and old debug artifacts are deleted automatically.
