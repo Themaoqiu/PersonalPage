@@ -1,0 +1,95 @@
+---
+title: Papers - 2026-04-09
+description: "吾能观之数千而面色如故"
+publishDate: 2026-04-09
+updatedDate: 2026-04-09
+tags: ['paper reading', 'agent', 'visual reasoning', 'multimodal world model']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## Thinking with Images
+
+<div class="space-y-4">
+<PaperCard
+  title={"Video-MME-v2: Towards the Next Stage in Benchmarks for Comprehensive Video Understanding"}
+  arxivUrl={"https://arxiv.org/abs/2604.05015"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.05015"}
+  summary={"Video-MME-v2通过分层难度和组式评价体系检验视频理解模型的鲁棒性与推理一致性，并由严格的人力流程保障数据质量与注释一致性。该基准设定信息聚合、时序建模、复杂多模态推理三个层级，并引入组内一致性与推理连贯性的非线性评分，只有在逻辑支持下才算作有效答案，从而遏制碎片化或猜测式的正确率。实验揭示Gemini-3-Pro与人类专家之间仍有明显差距，底层信息聚合与时序建模错误会级联限制高阶推理，而有字幕的条件提升了推理表现但在纯视觉场景反而下降，表明当前模型在视频理解上的多层瓶颈。([huggingface.co](https://huggingface.co/papers/2604.05015?utm_source=openai))"}
+/>
+</div>
+
+## Embodied Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"GBQA: A Game Benchmark for Evaluating LLMs as Quality Assurance Engineers"}
+  arxivUrl={"https://arxiv.org/abs/2604.02648"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.02648"}
+  summary={"GBQA面向游戏开发引入30款游戏与124个经人工验证的缺陷，并用多智能体系统生成游戏与注入缺陷，同时保留专家审核以确保正确性。基准提供带记忆的多轮ReAct探索代理基线以支持长时跨度的环境探索与缺陷定位，强调动态运行时的缺陷发现能力。前沿LLM的实验结果表明，Claude-4.6-Opus思考模式下的最强模型只能发现48.39%的已验证缺陷，凸显自主软件QA在动态游戏环境下仍存在巨大挑战。([researchtrend.ai](https://researchtrend.ai/papers/2604.02648?utm_source=openai))"}
+/>
+</div>
+
+## 4D Understanding and Generation
+
+<div class="space-y-4">
+<PaperCard
+  title={"Watch Before You Answer: Learning from Visually Grounded Post-Training"}
+  arxivUrl={"https://arxiv.org/abs/2604.05117"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.05117"}
+  summary={"Watch Before You Answer指出现有视频理解基准与post-training数据集有40%~60%问题仅靠文本线索即可回答，严重削弱了视觉推理能力训练的作用。为此，提出VidGround机制，只利用真正需要视觉支撑的问题进行后训练，配合强化学习后训练算法可以避免语言偏差的淹没。实验表明，相比使用全文本偏置数据集，仅用69.1%的精炼数据，就能让模型性能最多提升6.2个百分点，且优于多个更复杂的后训练方法。该工作表明数据质量、尤其是去除语言偏差，是推进视频（4D）VLM理解能力的关键瓶颈。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"Claw-Eval: Toward Trustworthy Evaluation of Autonomous Agents"}
+  arxivUrl={"https://arxiv.org/abs/2604.06132"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.06132"}
+  summary={"Claw-Eval构建300个人工验证任务、涵盖通用服务、跨模态理解与多轮专业对话三大类，并为每个动作保留执行轨迹、审计日志与环境快照三条证据通道，使评分可追踪。其评分协议在Completion/Safety/Robustness三方面引入Average Score、Pass@k与Pass^k，以区分真正能力与侥幸完成；这样可检测出以最终结果为准的评估无法发现的大量安全与鲁棒性失败。对14个前沿模型的实验表明，传统只看终态输出的基准遗漏了44%的安全违例与13%的鲁棒性问题，控制性错误注入主要影响一致性指标(Pass^3)而不是峰值能力(Pass@3)，且模型在视频任务上普遍劣于文档或图像，反映出可部署智能体在多模态与稳定性方面仍面临巨大挑战。([huggingface.co](https://huggingface.co/papers/2604.06132?utm_source=openai))"}
+/>
+
+<PaperCard
+  title={"Learning to Retrieve from Agent Trajectories"}
+  arxivUrl={"https://arxiv.org/abs/2604.04949"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.04949"}
+  summary={"LRAT提出从代理搜索轨迹直接挖掘监督信号的新训练范式，通过分析代理的浏览动作、未浏览拒绝与后续推理痕迹等行为揭示文档效用，并在优化中引入相关强度的加权机制。该框架无需依赖传统面向人的点击/停留日志，而是让检索器对真实代理的查询模式更敏感，并能支持自我迭代的数据飞轮。跨域与跨架构的深度研究基准均显示轨迹训练的检索器在证据召回、端到端任务成功率与执行效率方面持续优于人类中心的检索器，彰显面向代理的检索训练的可行性与收益。([huggingface.co](https://huggingface.co/papers/2604.04949?utm_source=openai))"}
+/>
+
+<PaperCard
+  title={"ThinkTwice: Jointly Optimizing Large Language Models for Reasoning and Self-Refinement"}
+  arxivUrl={"https://arxiv.org/abs/2604.01591"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.01591"}
+  summary={"ThinkTwice提出一种双阶段训练框架，在同一批问题上先优化LLM解题能力再优化自我修正能力，通过Group Relative Policy Optimization统一使用相同的二元正确性奖励。第一阶段强化模型的推理解答，第二阶段再用仅依赖模型自身答案进行自我修正，避免需要额外的批注或人类评价。训练过程中自然形成先纠错再稳固的学习课程序列，随着模型变强修正阶段逐渐转向维护已有正确答案，从而稳定提升奖励信号。相比于GRPO基线，在Qwen3-4B上p站AIME任务的pass@4在修正前后分别提升5个点与11.5个点，充分验证了联合训练策略的有效性。"}
+/>
+
+<PaperCard
+  title={"Beyond Accuracy: Unveiling Inefficiency Patterns in Tool-Integrated Reasoning"}
+  arxivUrl={"https://arxiv.org/abs/2604.05404"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.05404"}
+  summary={"Beyond Accuracy通过引入PTE（Prefill Token Equivalents）指标，量化Tool-Integrated Reasoning中KV-Cache失效和长工具响应带来的实时推理开销，补足传统token数量与tool调用次数无法反映延迟的不足。该指标在高并发工业部署中显著与实际墙钟时间对齐，并在不同硬件上保持一致的效率排名。作者对5个TIR基准做实验，基于PTE分析总结出四类低效模式，还发现高PTE成本轨迹往往对应较低的推理正确率，说明频繁调用工具未必带来质量提升。论文强调关注整体KV管理与工具输出字数，才能在最少资源下保证TIR系统的响应效率和推理质量。"}
+/>
+
+<PaperCard
+  title={"How Well Do Agentic Skills Work in the Wild: Benchmarking LLM Skill Usage in Realistic Settings"}
+  arxivUrl={"https://arxiv.org/abs/2604.04323"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.04323"}
+  summary={"How Well Do Agentic Skills Work in the Wild系统评估现实场景下LLM代理在从3.4万条真实技能库中检索与筛选技能时的表现，逐步加大挑战性至无手工定制技能。结果表明技能收益在设定越真实时越脆弱，最困难条件下通过技能的通关率接近无技能基线，凸显当前技能工具链的局限。为此，作者提出查询特定与查询无关的技能精炼策略，其中查询特定精炼能够显著恢复当初始技能尚具相关性与质量时的性能。在Terminal-Bench 2.0上，检索+精炼分别将Claude Opus 4.6的通关率从57.7%提高到65.5%，展示了在现实技能检索场景中恢复与扩展技能效用的可行路径。"}
+/>
+</div>
+
+## Multimodal World Model
+
+<div class="space-y-4">
+<PaperCard
+  title={"ACES: Who Tests the Tests? Leave-One-Out AUC Consistency for Code Generation"}
+  arxivUrl={"https://arxiv.org/abs/2604.03922"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.03922"}
+  summary={"Selecting LLM-generated code candidates using LLM-generated tests is challenging because the tests themselves may be incorrect. Existing methods either treat all tests equally or rely on ad-hoc heuristics to filter unreliable tests. Yet determining test correctness requires knowing which codes are correct, creating a \\emph{circular dependency}. Our key insight is that we need not determine test correctness at all: \\emph{test votes should rank, not merely count}. What matters is not how many codes pass a test, but whether the test can \\emph{distinguish} correct from incorrect code. We break the circular dependency via leave-one-out evaluation: hold out one test, rank codes by their aggregate scores on all remaining tests, and measure whether the held-out test's pass/fail pattern agrees with this ranking. We formalize this agreement as the leave-one-out AUC~(LOO-AUC) and prove that the expected LOO-AUC is proportional to each test's ability to separate correct code from incorrect code. Building on this, we propose \\textbf{ACES}~(\\textbf{A}UC \\textbf{C}onsist\\textbf{E}ncy \\textbf{S}coring) with two complementary variants: ACES-C provides closed-form weights that provably approximate the oracle in expectation under a mild assumption on average test quality; ACES-O drops this assumption and iteratively optimizes a differentiable LOO-AUC objective. Both operate solely on the binary pass matrix with negligible overhead, and achieve state-of-the-art Pass@$k$ on multiple code generation benchmarks."}
+/>
+</div>
