@@ -1,21 +1,24 @@
-[papers] ===== 2026-04-08 16:21:22 run start =====
-[papers] PATH=/Users/themaoqiu/.bun/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/Users/themaoqiu/.codex/tmp/arg0/codex-arg0Y6zc8y:/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin:/Users/themaoqiu/CodeRepo/Android/flutter/bin:/opt/homebrew/opt/postgresql@16/bin:/Users/themaoqiu/.local/state/fnm_multishells/64047_1775179237976/bin:/Users/themaoqiu/.bun/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/opt/pkg/env/active/bin:/opt/pmk/env/global/bin:/Library/Apple/usr/bin:/opt/homebrew/bin:/Users/themaoqiu/.vscode/extensions/openai.chatgpt-26.325.31654-darwin-arm64/bin/macos-aarch64
+[papers] ===== 2026-04-10 08:22:33 run start =====
+[papers] PATH=/Users/themaoqiu/.bun/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/bin:/bin:/usr/sbin:/sbin
+[papers] skip: now=08:22 outside auto window [09:10, 12:00]
+[papers] ===== 2026-04-10 09:10:02 run start =====
+[papers] PATH=/Users/themaoqiu/.bun/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/opt/pkg/env/active/bin:/opt/pmk/env/global/bin:/Library/Apple/usr/bin:/opt/homebrew/bin
 $ node src/scripts/papers/daily.mjs
-[papers] running for 2026-04-08 (Asia/Shanghai)
+[papers] running for 2026-04-10 (Asia/Shanghai)
 [papers] matched mails: 1
 [papers] unique papers after cleanup: 12
-[papers] fetch summary 1/12: https://huggingface.co/papers/2604.04707
-[papers] fetch summary 2/12: https://huggingface.co/papers/2604.04771
-[papers] fetch summary 3/12: https://huggingface.co/papers/2603.28301
-[papers] fetch summary 4/12: https://huggingface.co/papers/2604.04921
-[papers] fetch summary 5/12: https://huggingface.co/papers/2604.04184
-[papers] fetch summary 6/12: https://huggingface.co/papers/2604.04911
-[papers] fetch summary 7/12: https://huggingface.co/papers/2604.04202
-[papers] fetch summary 8/12: https://huggingface.co/papers/2604.04901
-[papers] fetch summary 9/12: https://huggingface.co/papers/2604.03679
-[papers] fetch summary 10/12: https://huggingface.co/papers/2604.02288
-[papers] fetch summary 11/12: https://huggingface.co/papers/2604.02176
-[papers] fetch summary 12/12: https://huggingface.co/papers/2604.03253
+[papers] fetch summary 1/12: https://huggingface.co/papers/2604.04746
+[papers] fetch summary 2/12: https://huggingface.co/papers/2604.06268
+[papers] fetch summary 3/12: https://huggingface.co/papers/2604.07023
+[papers] fetch summary 4/12: https://huggingface.co/papers/2603.25111
+[papers] fetch summary 5/12: https://huggingface.co/papers/2604.07209
+[papers] fetch summary 6/12: https://huggingface.co/papers/2604.06425
+[papers] fetch summary 7/12: https://huggingface.co/papers/2604.06916
+[papers] fetch summary 8/12: https://huggingface.co/papers/2604.07340
+[papers] fetch summary 9/12: https://huggingface.co/papers/2604.05643
+[papers] fetch summary 10/12: https://huggingface.co/papers/2604.06757
+[papers] fetch summary 11/12: https://huggingface.co/papers/2604.06427
+[papers] fetch summary 12/12: https://huggingface.co/papers/2604.07350
 [papers] annotate papers with codex (chunk 1, 5 items)...
 [papers] codex annotations(chunk 1): 5
 [papers] annotate papers with codex (chunk 2, 5 items)...
@@ -26,7 +29,7 @@ $ node src/scripts/papers/daily.mjs
 [papers] fetch hero image via https://app.zichen.zone/api/acg/api.php
 [papers] hero image fetch failed, fallback to configured heroImageUrl: hero api returned non-image content-type: text/html
 [papers] kept: 8, dropped: 4
-[main 2f333b2] papers: 2026-04-08
+[main 75fc552] papers: 2026-04-10
  Committer: Themaoqiu <themaoqiu@ThemaoqiudeMacBook-Air.local>
 Your name and email address were configured automatically based
 on your username and hostname. Please check that they are accurate.
@@ -40,25 +43,325 @@ After doing this, you may fix the identity used for this commit with:
 
     git commit --amend --reset-author
 
- 1 file changed, 32 insertions(+), 52 deletions(-)
-fatal: unable to access 'https://github.com/Themaoqiu/page.git/': Failed to connect to github.com port 443 after 75054 ms: Couldn't connect to server
-[papers] failed: Error: Command failed: git push
-    at genericNodeError (node:internal/errors:998:15)
-    at wrappedFn (node:internal/errors:543:14)
-    at checkExecSyncError (node:child_process:925:11)
-    at execFileSync (node:child_process:961:15)
-    at maybePublish (file:///Users/themaoqiu/CodeRepo/web/website/Xingjian_Wang/src/scripts/papers/daily.mjs:587:5)
-    at main (file:///Users/themaoqiu/CodeRepo/web/website/Xingjian_Wang/src/scripts/papers/daily.mjs:669:9)
-    at process.processTicksAndRejections (node:internal/process/task_queues:103:5) {
-  status: 128,
-  signal: null,
-  output: [ null, null, null ],
-  pid: 48524,
-  stdout: null,
-  stderr: null
-}
-error: script "papers:daily" exited with code 1
-[papers] wake event at 2026-04-08 18:01:09
-[papers] ===== 2026-04-08 18:01:09 run start =====
+ 2 files changed, 85 insertions(+)
+ create mode 100644 src/content/blogs/papers-2026-04-10/index.mdx
+remote: This repository moved. Please use the new location:        
+remote:   https://github.com/Themaoqiu/PersonalPage.git        
+To https://github.com/Themaoqiu/page.git
+   7554327..75fc552  main -> main
+[papers] deploy pages via /Users/themaoqiu/CodeRepo/web/website/Xingjian_Wang/deploy-to-github-pages.sh
+[0;34mStarting GitHub Pages deployment...[0m
+[0;34mStep 1: Building project with GitHub Pages configuration...[0m
+$ astro-pure check && astro check && astro build
+BUN_LINK_PKG is not set to true. Skipping commands.
+09:11:14 [content] Syncing content
+09:11:14 [WARN] [glob-loader] Duplicate id "papers" found in /Users/themaoqiu/CodeRepo/web/website/Xingjian_Wang/src/content/collection/papers.md. Later items with the same id will overwrite earlier ones.
+09:11:14 [content] Synced content
+09:11:14 [types] Generated 151ms
+09:11:14 [check] Getting diagnostics for Astro files in /Users/themaoqiu/CodeRepo/web/website/Xingjian_Wang...
+[96msrc/scripts/papers/daily.mjs[0m:[93m470[0m:[93m34[0m - [93mwarning[0m[90m ts(6133): [0m'config' is declared but its value is never read.
+
+[7m470[0m function renderMdx(date, groups, config, heroImageUrl = '') {
+[7m   [0m [93m                                 ~~~~~~[0m
+
+Result (171 files): 
+- 0 errors
+- 0 warnings
+- 1 hint
+
+09:11:20 [content] Syncing content
+09:11:20 [content] Synced content
+09:11:20 [types] Generated 108ms
+09:11:20 [build] output: "static"
+09:11:20 [build] mode: "static"
+09:11:20 [build] directory: /Users/themaoqiu/CodeRepo/web/website/Xingjian_Wang/dist/
+09:11:20 [build] adapter: @astrojs/vercel
+09:11:20 [build] Collecting build info...
+09:11:20 [build] ✓ Completed in 161ms.
+09:11:20 [build] Building static entrypoints...
+09:11:22 [vite] ✓ built in 1.15s
+09:11:22 [build] ✓ Completed in 1.17s.
+
+ building client (vite) 
+09:11:22 [vite] transforming...
+09:11:22 [vite] ✓ 86 modules transformed.
+09:11:22 [vite] rendering chunks...
+09:11:22 [vite] computing gzip size...
+09:11:22 [vite] dist/_astro/friendCircle.DVlTHx1d.css                                             5.54 kB │ gzip:  1.43 kB
+09:11:22 [vite] dist/_astro/toast.DeilrAYO.js                                                     0.09 kB │ gzip:  0.10 kB
+09:11:22 [vite] dist/_astro/date.Cjr_gNTW.js                                                      0.11 kB │ gzip:  0.12 kB
+09:11:22 [vite] dist/_astro/index.astro_astro_type_script_index_0_lang.DLH84w8G.js                0.30 kB │ gzip:  0.26 kB
+09:11:22 [vite] dist/_astro/index.astro_astro_type_script_index_0_lang.BkJYKIR0.js                0.30 kB │ gzip:  0.26 kB
+09:11:22 [vite] dist/_astro/Quote.astro_astro_type_script_index_0_lang.DrGPj8JZ.js                0.36 kB │ gzip:  0.28 kB
+09:11:22 [vite] dist/_astro/theme.Cvwf2xsE.js                                                     0.72 kB │ gzip:  0.42 kB
+09:11:22 [vite] dist/_astro/Header.astro_astro_type_script_index_0_lang.wRgy3ZJ-.js               0.74 kB │ gzip:  0.42 kB
+09:11:22 [vite] dist/_astro/Copyright.astro_astro_type_script_index_0_lang.B0l0Py8_.js            0.77 kB │ gzip:  0.45 kB
+09:11:22 [vite] dist/_astro/PFSearch.astro_astro_type_script_index_0_lang.CrEuzYZb.js             1.69 kB │ gzip:  0.97 kB
+09:11:22 [vite] dist/_astro/site.config.jl8B33XQ.js                                               1.69 kB │ gzip:  1.01 kB
+09:11:22 [vite] dist/_astro/page.D1uwR3nK.js                                                      2.24 kB │ gzip:  1.01 kB
+09:11:22 [vite] dist/_astro/friendCircle.JSuoFEn3.js                                              6.26 kB │ gzip:  2.32 kB
+09:11:22 [vite] dist/_astro/BaseLayout.astro_astro_type_script_index_0_lang.BK0m7-AI.js           7.10 kB │ gzip:  2.74 kB
+09:11:22 [vite] dist/_astro/AlgorithmShowcase.astro_astro_type_script_index_0_lang.C_vzoCpq.js   20.59 kB │ gzip:  5.11 kB
+09:11:22 [vite] dist/_astro/ThemeProvider.astro_astro_type_script_index_0_lang.moZ9U9w6.js       55.65 kB │ gzip: 13.07 kB
+09:11:22 [vite] dist/_astro/ui-core.BECleguW.js                                                  72.93 kB │ gzip: 22.50 kB
+09:11:22 [vite] dist/_astro/Comment.astro_astro_type_script_index_0_lang.CXZEynd1.js            182.21 kB │ gzip: 68.65 kB
+09:11:22 [vite] ✓ built in 349ms
+
+ generating static routes 
+09:11:22 ▶ src/pages/404.astro
+09:11:22   └─ /404.html (+7ms) 
+09:11:22 ▶ src/pages/about/index.astro
+09:11:22   └─ /about/index.html (+33ms) 
+09:11:22 ▶ src/pages/academic/index.astro
+09:11:22   └─ /academic/index.html (+5ms) 
+09:11:22 ▶ src/pages/archives/index.astro
+09:11:22   └─ /archives/index.html (+4ms) 
+09:11:22 ▶ src/pages/blog/papers/[...page].astro
+09:11:22   └─ /blog/papers/index.html (+1ms) 
+09:11:22 ▶ src/pages/blog/[category]/[...page].astro
+09:11:22   └─ /blog/research/index.html (+3ms) 
+09:11:22 ▶ src/pages/blog/[...id].astro
+09:11:22   ├─ /blog/papers-2026-04-10/index.html (+2ms) 
+09:11:22   ├─ /blog/papers-2026-04-09/index.html (+1ms) 
+09:11:22   ├─ /blog/papers-2026-04-08/index.html (+1ms) 
+09:11:22   ├─ /blog/papers-2026-04-07/index.html (+1ms) 
+09:11:22   ├─ /blog/papers-2026-04-04/index.html (+2ms) 
+09:11:22   ├─ /blog/papers-2026-04-03/index.html (+1ms) 
+09:11:22   ├─ /blog/papers-2026-04-02/index.html (+3ms) 
+09:11:22   └─ /blog/papers-2026-04-01/index.html (+1ms) 
+09:11:22 ▶ src/pages/blog/[...page].astro
+09:11:22   └─ /blog/index.html (+2ms) 
+09:11:22 ▶ src/pages/collection/[id].astro
+09:11:22   └─ /collection/papers/index.html (+2ms) 
+09:11:22 ▶ src/pages/collection/index.astro
+09:11:22   └─ /collection/index.html (+1ms) 
+09:11:22 ▶ src/pages/en/about/index.astro
+09:11:22   └─ /en/about/index.html (+1ms) 
+09:11:22 ▶ src/pages/en/academic/index.astro
+09:11:22   └─ /en/academic/index.html (+1ms) 
+09:11:22 ▶ src/pages/en/archives/index.astro
+09:11:22   └─ /en/archives/index.html (+1ms) 
+09:11:22 ▶ src/pages/en/blog/papers/[...page].astro
+09:11:22   └─ /en/blog/papers/index.html (+1ms) 
+09:11:22 ▶ src/pages/en/blog/[category]/[...page].astro
+09:11:22   └─ /en/blog/research/index.html (+2ms) 
+09:11:22 ▶ src/pages/en/blog/[...id].astro
+09:11:22   ├─ /en/blog/papers-2026-04-10/index.html (+1ms) 
+09:11:22   ├─ /en/blog/papers-2026-04-09/index.html (+1ms) 
+09:11:22   ├─ /en/blog/papers-2026-04-08/index.html (+1ms) 
+09:11:22   ├─ /en/blog/papers-2026-04-07/index.html (+2ms) 
+09:11:22   ├─ /en/blog/papers-2026-04-04/index.html (+1ms) 
+09:11:22   ├─ /en/blog/papers-2026-04-03/index.html (+1ms) 
+09:11:22   ├─ /en/blog/papers-2026-04-02/index.html (+1ms) 
+09:11:22   └─ /en/blog/papers-2026-04-01/index.html (+1ms) 
+09:11:22 ▶ src/pages/en/blog/[...page].astro
+09:11:22   └─ /en/blog/index.html (+2ms) 
+09:11:22 ▶ src/pages/en/collection/[id].astro
+09:11:22   └─ /en/collection/papers/index.html (+2ms) 
+09:11:22 ▶ src/pages/en/collection/index.astro
+09:11:22   └─ /en/collection/index.html (+1ms) 
+09:11:22 ▶ src/pages/en/links/index.astro
+09:11:22   └─ /en/links/index.html (+1ms) 
+09:11:22 ▶ src/pages/en/projects/index.astro
+09:11:22   └─ /en/projects/index.html (+0ms) 
+09:11:22 ▶ src/pages/en/search/index.astro
+09:11:22   └─ /en/search/index.html (+1ms) 
+09:11:22 ▶ src/pages/en/tags/[tag]/[...page].astro
+09:11:22   ├─ /en/tags/paper reading/index.html (+2ms) 
+09:11:22   ├─ /en/tags/agent/index.html (+1ms) 
+09:11:22   ├─ /en/tags/visual reasoning/index.html (+7ms) 
+09:11:22   ├─ /en/tags/multimodal world model/index.html (+2ms) 
+09:11:22   ├─ /en/tags/papers/index.html (+1ms) 
+09:11:22   └─ /en/tags/research/index.html (+1ms) 
+09:11:22 ▶ src/pages/en/tags/index.astro
+09:11:22   └─ /en/tags/index.html (+1ms) 
+09:11:22 ▶ src/pages/en/terms/copyright.md
+09:11:22   └─ /en/terms/copyright/index.html (+1ms) 
+09:11:22 ▶ src/pages/en/terms/disclaimer.md
+09:11:22   └─ /en/terms/disclaimer/index.html (+1ms) 
+09:11:22 ▶ src/pages/en/terms/list.astro
+09:11:22   └─ /en/terms/list/index.html (+1ms) 
+09:11:22 ▶ src/pages/en/terms/privacy-policy.md
+09:11:22   └─ /en/terms/privacy-policy/index.html (+1ms) 
+09:11:22 ▶ src/pages/en/terms/terms-and-conditions.md
+09:11:22   └─ /en/terms/terms-and-conditions/index.html (+1ms) 
+09:11:23 ▶ src/pages/en/index.astro
+09:11:23   └─ /en/index.html (+2.11s) 
+09:11:25 ▶ src/pages/links/index.astro
+09:11:25   └─ /links/index.html (+6ms) 
+09:11:25 ▶ src/pages/projects/index.astro
+09:11:25   └─ /projects/index.html (+1ms) 
+09:11:25 λ src/pages/robots.txt.ts
+09:11:25   └─ /robots.txt (+1ms) 
+09:11:25 λ src/pages/rss.xml.ts
+09:11:25   └─ /rss.xml (+15ms) 
+09:11:25 ▶ src/pages/search/index.astro
+09:11:25   └─ /search/index.html (+1ms) 
+09:11:25 ▶ src/pages/tags/[tag]/[...page].astro
+09:11:25   ├─ /tags/paper reading/index.html (+3ms) 
+09:11:25   ├─ /tags/agent/index.html (+2ms) 
+09:11:25   ├─ /tags/visual reasoning/index.html (+2ms) 
+09:11:25   └─ /tags/multimodal world model/index.html (+1ms) 
+09:11:25 ▶ src/pages/tags/index.astro
+09:11:25   └─ /tags/index.html (+1ms) 
+09:11:25 ▶ src/pages/terms/copyright.md
+09:11:25   └─ /terms/copyright/index.html (+1ms) 
+09:11:25 ▶ src/pages/terms/disclaimer.md
+09:11:25   └─ /terms/disclaimer/index.html (+1ms) 
+09:11:25 ▶ src/pages/terms/list.astro
+09:11:25   └─ /terms/list/index.html (+1ms) 
+09:11:25 ▶ src/pages/terms/privacy-policy.md
+09:11:25   └─ /terms/privacy-policy/index.html (+1ms) 
+09:11:25 ▶ src/pages/terms/terms-and-conditions.md
+09:11:25   └─ /terms/terms-and-conditions/index.html (+1ms) 
+09:11:25 ▶ src/pages/index.astro
+09:11:25   └─ /index.html (+231ms) 
+09:11:25 ✓ Completed in 3.04s.
+
+ generating optimized images 
+09:11:25   ▶ /_astro/142154272_p0_1tn8f5.webp (reused cache entry) (+4ms) (1/4)
+09:11:25   ▶ /_astro/141912166_p0_scale_Z25gPRe.webp (reused cache entry) (+4ms) (2/4)
+09:11:25   ▶ /_astro/avatar.eqm0NkMC_ZQ2Ekl.webp (reused cache entry) (+5ms) (3/4)
+09:11:25   ▶ /_astro/142795457_p0_ZOJUKU.webp (reused cache entry) (+6ms) (4/4)
+09:11:25 ✓ Completed in 7ms.
+
+(node:98559) [DEP0190] DeprecationWarning: Passing args to a child process with shell option true can lead to security vulnerabilities, as the arguments are not escaped, only concatenated.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Running Pagefind v1.4.0 (Extended)
+Running from: "/Users/themaoqiu/CodeRepo/web/website/Xingjian_Wang/src"
+Source:       "../dist"
+Output:       "../dist/pagefind"
+
+[Walking source directory]
+Found 63 files matching **/*.{html}
+
+[Parsing files]
+Did not find a data-pagefind-body element on the site.
+↳ Indexing all <body> elements on the site.
+2 pages found without an <html> element. 
+Pages without an outer <html> element will not be processed by default. 
+If adding this element is not possible, use the root selector config to target a different root element.
+  * "/projects/" has no <html> element
+  * "/en/projects/" has no <html> element
+
+[Reading languages]
+Discovered 2 languages: en, zh
+
+[Building search indexes]
+Total: 
+  Indexed 2 languages
+  Indexed 61 pages
+  Indexed 5957 words
+  Indexed 2 filters
+  Indexed 0 sorts
+Note: Pagefind doesn't support stemming for the language zh. 
+Search will still work, but will not match across root words.
+Note: Pagefind doesn't support stemming for the language zh. 
+Search will still work, but will not match across root words.
+
+Finished in 0.216 seconds
+09:11:26 [@astrojs/sitemap] `sitemap-index.xml` created at `dist`
+09:11:26 [output-copier] Copying output files from dist to vercel out
+09:11:26 [output-copier] [sitemap] Copying XML files to .vercel/output/static
+09:11:26 [output-copier] [pagefind] Copying pagefind folder to .vercel/output/static
+09:11:26 [output-copier] sitemap-0.xml, sitemap-index.xml
+09:11:26 [@astrojs/vercel] Copying static files to .vercel/output/static
+09:11:26 [build] 63 page(s) built in 5.54s
+09:11:26 [build] Complete!
+[0;32mBuild completed![0m
+[0;34mStep 2: Cleaning target directory...[0m
+[0;32mTarget directory cleaned![0m
+[0;34mStep 3: Copying new files from dist...[0m
+[0;32mFiles copied![0m
+[0;34mStep 4: Committing and pushing to GitHub...[0m
+[main d6ffcef] Deploy: 2026-04-10 09:11:26
+ Committer: Themaoqiu <themaoqiu@ThemaoqiudeMacBook-Air.local>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 89 files changed, 575 insertions(+), 29 deletions(-)
+ create mode 100644 blog/papers-2026-04-10/index.html
+ create mode 100644 en/blog/papers-2026-04-10/index.html
+ create mode 100644 pagefind/filter/en_68be6fd.pf_filter
+ delete mode 100644 pagefind/filter/en_c51fc05.pf_filter
+ delete mode 100644 pagefind/filter/zh_dff7cab.pf_filter
+ create mode 100644 pagefind/filter/zh_fac4465.pf_filter
+ create mode 100644 pagefind/fragment/en_02fb456.pf_fragment
+ create mode 100644 pagefind/fragment/en_1b6083c.pf_fragment
+ delete mode 100644 pagefind/fragment/en_3e6e63b.pf_fragment
+ delete mode 100644 pagefind/fragment/en_5598b78.pf_fragment
+ delete mode 100644 pagefind/fragment/en_64d07f3.pf_fragment
+ delete mode 100644 pagefind/fragment/en_67bcb65.pf_fragment
+ delete mode 100644 pagefind/fragment/en_6f36b86.pf_fragment
+ create mode 100644 pagefind/fragment/en_72e3af2.pf_fragment
+ delete mode 100644 pagefind/fragment/en_87db775.pf_fragment
+ delete mode 100644 pagefind/fragment/en_a456335.pf_fragment
+ delete mode 100644 pagefind/fragment/en_a5dab3c.pf_fragment
+ create mode 100644 pagefind/fragment/en_afb0a73.pf_fragment
+ create mode 100644 pagefind/fragment/en_b382a67.pf_fragment
+ create mode 100644 pagefind/fragment/en_c4afbf2.pf_fragment
+ create mode 100644 pagefind/fragment/en_c663758.pf_fragment
+ create mode 100644 pagefind/fragment/en_ca5985a.pf_fragment
+ create mode 100644 pagefind/fragment/en_cade467.pf_fragment
+ create mode 100644 pagefind/fragment/en_d8ce647.pf_fragment
+ delete mode 100644 pagefind/fragment/en_da54bc3.pf_fragment
+ create mode 100644 pagefind/fragment/en_e5a53ac.pf_fragment
+ delete mode 100644 pagefind/fragment/en_eb77b25.pf_fragment
+ create mode 100644 pagefind/fragment/en_f682ba9.pf_fragment
+ delete mode 100644 pagefind/fragment/en_fab0473.pf_fragment
+ create mode 100644 pagefind/fragment/zh_0e1e326.pf_fragment
+ create mode 100644 pagefind/fragment/zh_22f418b.pf_fragment
+ create mode 100644 pagefind/fragment/zh_2761020.pf_fragment
+ delete mode 100644 pagefind/fragment/zh_29375b4.pf_fragment
+ create mode 100644 pagefind/fragment/zh_2afcb03.pf_fragment
+ delete mode 100644 pagefind/fragment/zh_4899ebd.pf_fragment
+ delete mode 100644 pagefind/fragment/zh_52b89a0.pf_fragment
+ delete mode 100644 pagefind/fragment/zh_5361368.pf_fragment
+ create mode 100644 pagefind/fragment/zh_6155f69.pf_fragment
+ delete mode 100644 pagefind/fragment/zh_64a5514.pf_fragment
+ create mode 100644 pagefind/fragment/zh_6f608d7.pf_fragment
+ create mode 100644 pagefind/fragment/zh_7faa4bd.pf_fragment
+ create mode 100644 pagefind/fragment/zh_8dccd3b.pf_fragment
+ create mode 100644 pagefind/fragment/zh_938f953.pf_fragment
+ delete mode 100644 pagefind/fragment/zh_b36423a.pf_fragment
+ create mode 100644 pagefind/fragment/zh_c1601c7.pf_fragment
+ create mode 100644 pagefind/fragment/zh_cf4b571.pf_fragment
+ delete mode 100644 pagefind/fragment/zh_d9cbb79.pf_fragment
+ delete mode 100644 pagefind/fragment/zh_dc56275.pf_fragment
+ create mode 100644 pagefind/fragment/zh_e304ad8.pf_fragment
+ delete mode 100644 pagefind/fragment/zh_e9aba46.pf_fragment
+ delete mode 100644 pagefind/fragment/zh_eb4b5e3.pf_fragment
+ delete mode 100644 pagefind/fragment/zh_fb2a9ea.pf_fragment
+ delete mode 100644 pagefind/index/en_172d6dc.pf_index
+ create mode 100644 pagefind/index/en_509c2f8.pf_index
+ delete mode 100644 pagefind/index/en_dcb3401.pf_index
+ create mode 100644 pagefind/index/en_e6d02e7.pf_index
+ delete mode 100644 pagefind/index/zh_537f3c2.pf_index
+ create mode 100644 pagefind/index/zh_687709c.pf_index
+ delete mode 100644 pagefind/index/zh_bbfc49f.pf_index
+ create mode 100644 pagefind/index/zh_cb94ed2.pf_index
+ delete mode 100644 pagefind/pagefind.en_c490971736.pf_meta
+ create mode 100644 pagefind/pagefind.en_ef922c9ab9.pf_meta
+ delete mode 100644 pagefind/pagefind.zh_4c672ec261.pf_meta
+ create mode 100644 pagefind/pagefind.zh_7aaa109ce7.pf_meta
+To https://github.com/Themaoqiu/themaoqiu.github.io.git
+   6616b37..d6ffcef  main -> main
+[0;32mSuccessfully deployed![0m
+[0;32mYour site will be available at: https://themaoqiu.github.io[0m
+[0;32mDeployment complete![0m
+[papers] generated /Users/themaoqiu/CodeRepo/web/website/Xingjian_Wang/src/content/blogs/papers-2026-04-10/index.mdx
+[papers] success stamp written: data/papers/auto-run-2026-04-10.stamp
+[papers] wake event at 2026-04-10 09:37:38
+[papers] ===== 2026-04-10 09:37:38 run start =====
 [papers] PATH=/Users/themaoqiu/.bun/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/bin:/bin:/usr/sbin:/sbin
-[papers] skip: now=18:01 outside auto window [09:10, 12:00]
+[papers] skip: already succeeded today (data/papers/auto-run-2026-04-10.stamp)
