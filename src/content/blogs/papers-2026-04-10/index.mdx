@@ -1,0 +1,84 @@
+---
+title: Papers - 2026-04-10
+description: "吾能观之数千而面色如故"
+publishDate: 2026-04-10
+updatedDate: 2026-04-10
+tags: ['paper reading', 'agent', 'visual reasoning', 'multimodal world model']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## Thinking with Images
+
+<div class="space-y-4">
+<PaperCard
+  title={"Think in Strokes, Not Pixels: Process-Driven Image Generation via Interleaved Reasoning"}
+  arxivUrl={"https://arxiv.org/abs/2604.04746"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.04746"}
+  summary={"本论文提出了以过程驱动的图像生成范式，将传统单步合成拆分为计划、草图、反思、细化四个阶段，显式建模每轮的文本推理和视觉状态演进，从而让生成链路可解释且可监督。方法在每步通过密集的视觉一致性约束保证空间语义稳定，同时让文本推理保持对前一视觉状态的认知并识别违背提示的部分，辅助生成更准确的细节。为了评估难以定义的中间态，作者保持两类互补约束：图像部分强化空间与语义一致，文本部分则通过反思来校正错误。实验在多个文本到图像基准上验证了该过程式生成策略的有效性，整体质量和细节表达明显优于常规单步模型。"}
+/>
+</div>
+
+## Multimodal Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"FlowInOne:Unifying Multimodal Generation as Image-in, Image-out Flow Matching"}
+  arxivUrl={"https://arxiv.org/abs/2604.06757"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.06757"}
+  summary={"FlowInOne提出将所有模态输入统一为视觉提示，再通过单一Flow matching模型实现image-in/image-out的生成管线，挑战了传统以文本为主的多模态生成范式。它将文本描述、空间布局与编辑指令都映射到可视化prompt，解耦对齐与噪声调度，并强化视觉中心的控制流。为训练该模型，构建了覆盖推理、布局与物理动力学等任务的VisPrompt-5M大规模视觉提示对，以及用于评估指令忠实度、空间精度和视觉真实性的VP-Bench基准。实验证明FlowInOne在统一后的生成任务中全面超越开源与商用竞争者，升级了多任务表现，奠定在单一连续视觉空间中兼顾感知与创作的新基石。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"RAGEN-2: Reasoning Collapse in Agentic RL"}
+  arxivUrl={"https://arxiv.org/abs/2604.06268"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.06268"}
+  summary={"RAGEN-2 发现多轮LLM代理在训练中存在看似多样但对输入无感的模板坍缩问题，而传统熵度量无法检测到这种跨输入的一致性丧失。作者通过将推理质量分解为输入内多样性（熵）与跨输入可区分性（互信息），并设计互信息的代理指标，实现对这种失败模式的在线诊断。为解释模板坍缩机制，引入信噪比分析，指出低奖励方差削弱任务梯度使正则项主导，从而抹去跨输入差异；针对这一点提出了基于奖励方差的SNR感知筛选策略，选择信号更强的提示进行训练，从而提升输入依赖性。实验涵盖规划、数学推理、网页导航与代码执行等任务，互信息与最终性能高度相关，且SNR筛选显著改善跨输入表现与任务得分。"}
+/>
+
+<PaperCard
+  title={"MARS: Enabling Autoregressive Models Multi-Token Generation"}
+  arxivUrl={"https://arxiv.org/abs/2604.07023"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.07023"}
+  summary={"MARS 在指令微调的自回归模型上开展轻量微调，使其在单次前向传播中预测多个连续 token，从而突破每步一词生成的瓶颈。该方法无需改动模型结构，也不新增参数，仅利用已有指令数据训练出能在单词级生成时保持与基线一致的准确率，而在多词生成模式下实现1.5~1.7倍吞吐率提升。作者还针对批量推理提出块级KV缓存策略，使得在 Qwen2.5-7B 上配合KV cache时实现高达1.71倍的实际时间加速。最终 MARS 提供基于置信度阈值的实时速率调整能力，让部署系统在负载波动时无需换模或重启即可灵活权衡延迟与质量。"}
+/>
+
+<PaperCard
+  title={"SEVerA: Verified Synthesis of Self-Evolving Agents"}
+  arxivUrl={"https://arxiv.org/abs/2603.25111"}
+  hjfyUrl={"https://hjfy.top/arxiv/2603.25111"}
+  summary={"SEVerA 将自演化代理的代码合成任务形式化为约束学习问题，借助形式守护生成模型（FGGM）让计划器LLM为每次生成调用指定一阶逻辑合同，并通过拒绝采样+验证回退确保输出无论输入与参数如何都满足硬约束。框架分为搜索、验证与学习三阶段：先搜索包含FGGM调用的候选程序，再用验证将绝对约束简化为无约束学习任务，最后通过梯度优化（含 GRPO 风格微调）在保证正确性的同时提升软目标性能。在 Dafny 程序验证、符号数学合成与 τ^2 基准的策略合规工具使用任务上，SEVerA 保持零约束违规，同时较无约束与最先进基线在性能上有所领先，由此展示形式约束不仅保障正确性，还能引导生成更高质量的代理。"}
+/>
+
+<PaperCard
+  title={"The Depth Ceiling: On the Limits of Large Language Models in Discovering Latent Planning"}
+  arxivUrl={"https://arxiv.org/abs/2604.06427"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.06427"}
+  summary={"文章揭示了大模型在未监督中发现潜在多步规划策略的上限，指出即便在单次前向传播中模型也难以有效执行过深的内在推理。研究通过精细控制所需潜在规划步数的图路径搜索任务，评估不同模型在仅靠最终答案监督发现策略的能力。结果表明，从零训练的小型变换器只能学习最多三步的潜在策略，微调的GPT-4o和Qwen3-32B可达五步，而GPT-5.4在few-shot提示下达到了七步。尽管训练阶段发现策略的最大深度是五步，但其已学习的策略在测试时能推广到八步，由此说明理解与执行潜在策略之间存在脱节，并暗示需显式灌输或外部化较长链路的规划思维。"}
+/>
+</div>
+
+## Multimodal World Model
+
+<div class="space-y-4">
+<PaperCard
+  title={"INSPATIO-WORLD: A Real-Time 4D World Simulator via Spatiotemporal Autoregressive Modeling"}
+  arxivUrl={"https://arxiv.org/abs/2604.07209"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.07209"}
+  summary={"INSPATIO-WORLD 提出实时 4D 世界模拟系统，能从单个参考视频中恢复并交互式生成高保真动态场景，解决现有视频生成在空间持续性与真实感方面的不足。中心方法为 STAR 架构，其隐式时空缓存汇聚参考与历史观测构建世界表征，显式空间约束模块保证几何结构并将用户交互映射为合理的相机轨迹。结合 JDMD 利用真实数据分布作为正则化导向，缓解对合成数据的过度依赖带来的保真度下降问题。大规模实验显示该模型在空间一致性与交互精度方面显著超越现有方法，并在 WorldScore-Dynamic 实时交互方法排行榜中位列第一，验证了其在复杂长航程导航中的实用性与稳定性。"}
+/>
+
+<PaperCard
+  title={"Fast Spatial Memory with Elastic Test-Time Training"}
+  arxivUrl={"https://arxiv.org/abs/2604.07350"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.07350"}
+  summary={"FAST Spatial Memory (FSM)在此前LaCT长上下文3D重建的基础上，提出弹性测试时训练机制以提升快权重更新的稳定性。方法引入灵感来自弹性权重巩固的Fisher加权弹性先验，并将锚点状态设为过去快权重的指数移动平均，从而在稳定与可塑之间取得平衡。该架构支持在多个小块上进行快速适应，使模型能用更短的块处理长序列数据，避免简单的相机插值捷径。通过在大规模3D/4D数据上预训练并学习时空表示，实验显示FSM在长序列上的自适应能力显著，能渲染高质量的3D/4D重建结果并缓解激活记忆瓶颈。"}
+/>
+</div>
