@@ -3,7 +3,7 @@ title: Papers - 2026-04-11
 description: "吾能观之数千而面色如故"
 publishDate: 2026-04-11
 updatedDate: 2026-04-11
-tags: ['paper reading', 'agent', 'visual reasoning']
+tags: ['paper reading', 'agent', 'visual reasoning', 'multimodal world model']
 category: research
 comment: true
 heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
@@ -15,17 +15,32 @@ import PaperCard from '@/components/papers/PaperCard.astro'
 
 <div class="space-y-4">
 <PaperCard
-  title={"When Numbers Speak: Aligning Textual Numerals and Visual Instances in Text-to-Video Diffusion Models"}
-  arxivUrl={"https://arxiv.org/abs/2604.08546"}
-  hjfyUrl={"https://hjfy.top/arxiv/2604.08546"}
-  summary={"NUMINA 提出识别再引导的训练免费框架，解决文本到视频扩散模型中指定数量对象的对齐问题。方法首先选取辨别性强的自/跨注意力头构建可计数的潜在布局，再保守修正该布局并通过调节 cross-attention 指导重生成。CountBench 实验显示，Wan2.1-1.3B、5B、14B 模型的计数准确率分别提升 7.4%、4.9% 和 5.5%，同时与 CLIP 的对齐也增强且时间一致性未受损。结果表明结构化引导可以补充种子搜索与提示增强，为计数准确的文本到视频扩散提供实际可行的路径。"}
+  title={"Rethinking Generalization in Reasoning SFT: A Conditional Analysis on Optimization, Data, and Model Capability"}
+  arxivUrl={"https://arxiv.org/abs/2604.06628"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.06628"}
+  summary={"A prevailing narrative in LLM post-training holds that supervised finetuning (SFT) memorizes while reinforcement learning (RL) generalizes. We revisit this claim for reasoning SFT with long chain-of-thought (CoT) supervision and find that cross-domain generalization is not absent but conditional, jointly shaped by optimization dynamics, training data, and base-model capability. Some reported failures are under-optimization artifacts: cross-domain performance first degrades before recovering and improving with extended training (a dip-and-recovery pattern), so shorttraining checkpoints can underestimate generalization. Data quality and structure both matter: low-quality solutions broadly hurt generalization,while verified long-CoT traces yield consistent cross-domain gains. Model capability is essential: stronger models internalize transferable procedural patterns (e.g., backtracking) even from a toy arithmetic game, while weaker ones imitate surface verbosity. This generalization is asymmetric, however: reasoning improves while safety degrades, reframing the question from whether reasoning SFT generalizes to under what conditions and at what cost."}
 />
+</div>
 
+## Thinking with Images
+
+<div class="space-y-4">
 <PaperCard
   title={"OpenVLThinkerV2: A Generalist Multimodal Reasoning Model for Multi-domain Visual Tasks"}
   arxivUrl={"https://arxiv.org/abs/2604.08539"}
   hjfyUrl={"https://hjfy.top/arxiv/2604.08539"}
-  summary={"Group Relative Policy Optimization (GRPO) has emerged as the de facto Reinforcement Learning (RL) objective driving recent advancements in Multimodal Large Language Models. However, extending this success to open-source multimodal generalist models remains heavily constrained by two primary challenges: the extreme variance in reward topologies across diverse visual tasks, and the inherent difficulty of balancing fine-grained perception with multi-step reasoning capabilities. To address these issues, we introduce Gaussian GRPO (G$^2$RPO), a novel RL training objective that replaces standard linear scaling with non-linear distributional matching. By mathematically forcing the advantage distribution of any given task to strictly converge to a standard normal distribution, $\\mathcal{N}(0,1)$, G$^2$RPO theoretically ensures inter-task gradient equity, mitigates vulnerabilities to heavy-tail outliers, and offers symmetric update for positive and negative rewards. Leveraging the enhanced training stability provided by G$^2$RPO, we introduce two task-level shaping mechanisms to seamlessly balance perception and reasoning. First, response length shaping dynamically elicits extended reasoning chains for complex queries while enforce direct outputs to bolster visual grounding. Second, entropy shaping tightly bounds the model's exploration zone, effectively preventing both entropy collapse and entropy explosion. Integrating these methodologies, we present OpenVLThinkerV2, a highly robust, general-purpose multimodal model. Extensive evaluations across 18 diverse benchmarks demonstrate its superior performance over strong open-source and leading proprietary frontier models."}
+  summary={"OpenVLThinkerV2 通过新的 G²RPO 强化学习目标，为开放领域多模态推理模型提供跨任务梯度公平的训练信号，并结合两个任务级 shaping 机制平衡细粒度感知与多步推理。G²RPO 通过将任何任务的优势分布逼近标准正态分布，缓解 reward 拓扑差异与长尾影响，同时为正负奖励提供对称更新；随后，响应长度 shaping 促使复杂查询展开较长推理链，entropy shaping 约束探索防止熵坍缩或爆炸。基于增强的训练稳定性，该模型在 18 个多领域基准上与开源和商用前沿模型对齐。实验结果表明 OpenVLThinkerV2 在视觉任务上显著优于其他强基线，验证了方法在感知-推理平衡上的有效性。"}
+/>
+</div>
+
+## Multimodal Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"MolmoWeb: Open Visual Web Agent and Open Data for the Open Web"}
+  arxivUrl={"https://arxiv.org/abs/2604.08516"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.08516"}
+  summary={"MolmoWeb推出开放数据集MolmoWebMix及对应可执行的开放视觉网页代理，目的是让网页任务代理开放可复现。MolmoWebMix结合10万条合成轨迹、3万多条人工演示、原子网页技能轨迹和GUI感知数据，为训练提供丰富指令-界面对齐信号。MolmoWeb代理以指令条件的视觉语言动作策略形式，从任务指令和截图直接预测下一步浏览器动作，无需HTML或API访问。在WebVoyager、Online-Mind2Web和DeepShop等基准上, 4B/8B模型领先Fara-7B、UI-Tars-1.5-7B、Holo1-7B等开源模型, MolmoWeb-8B甚至超过GPT-4o驱动的SoM, 并通过并行Rollout+best-of-N在WebVoyager和Online-Mind2Web上分别达到94.7%和60.5% pass@4。作者还将发布模型、训练数据、代码及统一评估工具以促进可复现。"}
 />
 </div>
 
@@ -33,42 +48,17 @@ import PaperCard from '@/components/papers/PaperCard.astro'
 
 <div class="space-y-4">
 <PaperCard
-  title={"ClawBench: Can AI Agents Complete Everyday Online Tasks?"}
-  arxivUrl={"https://arxiv.org/abs/2604.08523"}
-  hjfyUrl={"https://hjfy.top/arxiv/2604.08523"}
-  summary={"AI agents may be able to automate your inbox, but can they automate other routine aspects of your life? Everyday online tasks offer a realistic yet unsolved testbed for evaluating the next generation of AI agents. To this end, we introduce ClawBench, an evaluation framework of 153 simple tasks that people need to accomplish regularly in their lives and work, spanning 144 live platforms across 15 categories, from completing purchases and booking appointments to submitting job applications. These tasks require demanding capabilities beyond existing benchmarks, such as obtaining relevant information from user-provided documents, navigating multi-step workflows across diverse platforms, and write-heavy operations like filling in many detailed forms correctly. Unlike existing benchmarks that evaluate agents in offline sandboxes with static pages, ClawBench operates on production websites, preserving the full complexity, dynamic nature, and challenges of real-world web interaction. A lightweight interception layer captures and blocks only the final submission request, ensuring safe evaluation without real-world side effects. Our evaluations of 7 frontier models show that both proprietary and open-source models can complete only a small portion of these tasks. For example, Claude Sonnet 4.6 achieves only 33.3%. Progress on ClawBench brings us closer to AI agents that can function as reliable general-purpose assistants."}
+  title={"SkillClaw: Let Skills Evolve Collectively with Agentic Evolver"}
+  arxivUrl={"https://arxiv.org/abs/2604.08377"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.08377"}
+  summary={"Large language model (LLM) agents such as OpenClaw rely on reusable skills to perform complex tasks, yet these skills remain largely static after deployment. As a result, similar workflows, tool usage patterns, and failure modes are repeatedly rediscovered across users, preventing the system from improving with experience. While interactions from different users provide complementary signals about when a skill works or fails, existing systems lack a mechanism to convert such heterogeneous experiences into reliable skill updates. To address these issues, we present SkillClaw, a framework for collective skill evolution in multi-user agent ecosystems, which treats cross-user and over-time interactions as the primary signal for improving skills. SkillClaw continuously aggregates trajectories generated during use and processes them with an autonomous evolver, which identifies recurring behavioral patterns and translates them into updates to the skill set by refining existing skills or extending them with new capabilities. The resulting skills are maintained in a shared repository and synchronized across users, allowing improvements discovered in one context to propagate system-wide while requiring no additional effort from users. By integrating multi-user experience into ongoing skill updates, SkillClaw enables cross-user knowledge transfer and cumulative capability improvement, and experiments on WildClawBench show that limited interaction and feedback, it significantly improves the performance of Qwen3-Max in real-world agent scenarios."}
 />
 
-<PaperCard
-  title={"KnowU-Bench: Towards Interactive, Proactive, and Personalized Mobile Agent Evaluation"}
-  arxivUrl={"https://arxiv.org/abs/2604.08455"}
-  hjfyUrl={"https://hjfy.top/arxiv/2604.08455"}
-  summary={"Personalized mobile agents that infer user preferences and calibrate proactive assistance hold great promise as everyday digital assistants, yet existing benchmarks fail to capture what this requires. Prior work evaluates preference recovery from static histories or intent prediction from fixed contexts. Neither tests whether an agent can elicit missing preferences through interaction, nor whether it can decide when to intervene, seek consent, or remain silent in a live GUI environment. We introduce KnowU-Bench, an online benchmark for personalized mobile agents built on a reproducible Android emulation environment, covering 42 general GUI tasks, 86 personalized tasks, and 64 proactive tasks. Unlike prior work that treats user preferences as static context, KnowU-Bench hides the user profile from the agent and exposes only behavioral logs, forcing genuine preference inference rather than context lookup. To support multi-turn preference elicitation, it instantiates an LLM-driven user simulator grounded in structured profiles, enabling realistic clarification dialogues and proactive consent handling. Beyond personalization, KnowU-Bench provides comprehensive evaluation of the complete proactive decision chain, including grounded GUI execution, consent negotiation, and post-rejection restraint, evaluated through a hybrid protocol combining rule-based verification with LLM-as-a-Judge scoring. Our experiments reveal a striking degradation: agents that excel at explicit task execution fall below 50% under vague instructions requiring user preference inference or intervention calibration, even for frontier models like Claude Sonnet 4.6. The core bottlenecks are not GUI navigation but preference acquisition and intervention calibration, exposing a fundamental gap between competent interface operation and trustworthy personal assistance."}
-/>
-
-<PaperCard
-  title={"Externalization in LLM Agents: A Unified Review of Memory, Skills, Protocols and Harness Engineering"}
-  arxivUrl={"https://arxiv.org/abs/2604.08224"}
-  hjfyUrl={"https://hjfy.top/arxiv/2604.08224"}
-  summary={"Large language model (LLM) agents are increasingly built less by changing model weights than by reorganizing the runtime around them. Capabilities that earlier systems expected the model to recover internally are now externalized into memory stores, reusable skills, interaction protocols, and the surrounding harness that makes these modules reliable in practice. This paper reviews that shift through the lens of externalization. Drawing on the idea of cognitive artifacts, we argue that agent infrastructure matters not merely because it adds auxiliary components, but because it transforms hard cognitive burdens into forms that the model can solve more reliably. Under this view, memory externalizes state across time, skills externalize procedural expertise, protocols externalize interaction structure, and harness engineering serves as the unification layer that coordinates them into governed execution. We trace a historical progression from weights to context to harness, analyze memory, skills, and protocols as three distinct but coupled forms of externalization, and examine how they interact inside a larger agent system. We further discuss the trade-off between parametric and externalized capability, identify emerging directions such as self-evolving harnesses and shared agent infrastructure, and discuss open challenges in evaluation, governance, and the long-term co-evolution of models and external infrastructure. The result is a systems-level framework for explaining why practical agent progress increasingly depends not only on stronger models, but on better external cognitive infrastructure."}
-/>
-
-<PaperCard
-  title={"Act Wisely: Cultivating Meta-Cognitive Tool Use in Agentic Multimodal Models"}
-  arxivUrl={"https://arxiv.org/abs/2604.08545"}
-  hjfyUrl={"https://hjfy.top/arxiv/2604.08545"}
-  summary={"The advent of agentic multimodal models has empowered systems to actively interact with external environments. However, current agents suffer from a profound meta-cognitive deficit: they struggle to arbitrate between leveraging internal knowledge and querying external utilities. Consequently, they frequently fall prey to blind tool invocation, resorting to reflexive tool execution even when queries are resolvable from the raw visual context. This pathological behavior precipitates severe latency bottlenecks and injects extraneous noise that derails sound reasoning. Existing reinforcement learning protocols attempt to mitigate this via a scalarized reward that penalizes tool usage. Yet, this coupled formulation creates an irreconcilable optimization dilemma: an aggressive penalty suppresses essential tool use, whereas a mild penalty is entirely subsumed by the variance of the accuracy reward during advantage normalization, rendering it impotent against tool overuse. To transcend this bottleneck, we propose HDPO, a framework that reframes tool efficiency from a competing scalar objective to a strictly conditional one. By eschewing reward scalarization, HDPO maintains two orthogonal optimization channels: an accuracy channel that maximizes task correctness, and an efficiency channel that enforces execution economy exclusively within accurate trajectories via conditional advantage estimation. This decoupled architecture naturally induces a cognitive curriculum-compelling the agent to first master task resolution before refining its self-reliance. Extensive evaluations demonstrate that our resulting model, Metis, reduces tool invocations by orders of magnitude while simultaneously elevating reasoning accuracy."}
-/>
-</div>
-
-## Embodied Agent
-
-<div class="space-y-4">
 <PaperCard
   title={"HY-Embodied-0.5: Embodied Foundation Models for Real-World Agents"}
   arxivUrl={"https://arxiv.org/abs/2604.07430"}
   hjfyUrl={"https://hjfy.top/arxiv/2604.07430"}
-  summary={"HY-Embodied-0.5 构建面向真实世界具身 Agent 的基础模型系列，强调空间/时间视觉感知与预测、交互、规划等具身推理核心能力。作者采用 Mixture-of-Transformers 架构并引入 latent token 以提升模态专属计算并加强感知表达，配合迭代自演化的后训练范式强化推理能力。并利用 on-policy 蒸馏将 32B 大模型的高级能力传递给 2B 轻量模型，最大化小模型性能潜力。22 个视觉感知、空间推理与具身理解基准验证中，MoT-2B 在 16 个任务上领先同量级 SOTA，32B 版本与 Gemini 3.0 Pro 相当；在下游机器人控制实验中，基于该 VLM 的 Vision-Language-Action 模型在真实物理环境里表现出色。"}
+  summary={"We introduce HY-Embodied-0.5, a family of foundation models specifically designed for real-world embodied agents. To bridge the gap between general Vision-Language Models (VLMs) and the demands of embodied agents, our models are developed to enhance the core capabilities required by embodied intelligence: spatial and temporal visual perception, alongside advanced embodied reasoning for prediction, interaction, and planning. The HY-Embodied-0.5 suite comprises two primary variants: an efficient model with 2B activated parameters designed for edge deployment, and a powerful model with 32B activated parameters targeted for complex reasoning. To support the fine-grained visual perception essential for embodied tasks, we adopt a Mixture-of-Transformers (MoT) architecture to enable modality-specific computing. By incorporating latent tokens, this design effectively enhances the perceptual representation of the models. To improve reasoning capabilities, we introduce an iterative, self-evolving post-training paradigm. Furthermore, we employ on-policy distillation to transfer the advanced capabilities of the large model to the smaller variant, thereby maximizing the performance potential of the compact model. Extensive evaluations across 22 benchmarks, spanning visual perception, spatial reasoning, and embodied understanding, demonstrate the effectiveness of our approach. Our MoT-2B model outperforms similarly sized state-of-the-art models on 16 benchmarks, while the 32B variant achieves performance comparable to frontier models such as Gemini 3.0 Pro. In downstream robot control experiments, we leverage our robust VLM foundation to train an effective Vision-Language-Action (VLA) model, achieving compelling results in real-world physical evaluations. Code and models are open-sourced at https://github.com/Tencent-Hunyuan/HY-Embodied."}
 />
 </div>
 
@@ -76,23 +66,41 @@ import PaperCard from '@/components/papers/PaperCard.astro'
 
 <div class="space-y-4">
 <PaperCard
-  title={"Rethinking Generalization in Reasoning SFT: A Conditional Analysis on Optimization, Data, and Model Capability"}
-  arxivUrl={"https://arxiv.org/abs/2604.06628"}
-  hjfyUrl={"https://hjfy.top/arxiv/2604.06628"}
-  summary={"本文重新审视长链 CoT 推理 SFT 在跨域泛化中的表现，指出泛化并非缺失而是与优化、训练数据和基础模型能力共同决定的条件性现象。作者在优化分析中发现跨域性能会先下降再恢复并持续提升，说明短训练检查点会低估最终泛化效果。数据方面，低质量解答普遍压制泛化，而经过验证的长 CoT 轨迹能稳定带来跨域增益。模型能力层面，强模型能够从简单算术游戏中内化可迁移的过程式策略（例如回溯），而弱模型只模仿表层冗长；推理泛化伴随安全性下降，因此问题应从“是否泛化”转向“在何种条件与代价下泛化”。"}
+  title={"ClawBench: Can AI Agents Complete Everyday Online Tasks?"}
+  arxivUrl={"https://arxiv.org/abs/2604.08523"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.08523"}
+  summary={"ClawBench 提出一个包含 153 个日常线上任务、横跨 144 个真实平台的评测套件，用于测量智能体在现实线上操作流程中的可靠性。框架通过拦截最终提交请求的轻量级中间层，在不造成实际副作用的条件下直接操控生产网站，保留并评估多步骤 workflow、文档信息提取和填写复杂表单等挑战。评测涵盖采购、预约、求职提交等 15 类任务，强调量表外的多模态理解与书写能力，并对 7 个前沿模型进行系统测评。结果显示即便是 Claude Sonnet 4.6 最终完成率也仅为 33.3%，表明现有模型在真实交互任务中的能力仍然有限。包含动态网页复杂性和任务多样性的 ClawBench 使我们更接近可信赖的通用助手方向。"}
 />
 
 <PaperCard
-  title={"SkillClaw: Let Skills Evolve Collectively with Agentic Evolver"}
-  arxivUrl={"https://arxiv.org/abs/2604.08377"}
-  hjfyUrl={"https://hjfy.top/arxiv/2604.08377"}
-  summary={"SkillClaw 提出面向多用户 Agent 生态的技能协同进化框架，把跨用户与跨时交互作为推动技能更新的核心信号。系统持续聚合使用轨迹，由自治 evolver 识别重复行为模式，进而细化现有技能或扩展新能力，更新后的技能存储在共享仓库并同步至所有用户。该机制使得在某一场景发现的改进能够无需额外操作在整个系统内传播，实现跨用户经验的迁移与能力的累积提升。WildClawBench 实验表明，在有限交互与反馈下，SkillClaw 能显著提升 Qwen3-Max 在真实 Agent 场景中的表现。"}
+  title={"KnowU-Bench: Towards Interactive, Proactive, and Personalized Mobile Agent Evaluation"}
+  arxivUrl={"https://arxiv.org/abs/2604.08455"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.08455"}
+  summary={"KnowU-Bench 设计一套可在可复现安卓模拟器中运行的评测，覆盖 42 个通用 GUI 任务、86 个个性化任务和 64 个主动干预任务，照顾用户偏好的推理与主动性。Benchmark 隐藏用户画像，仅提供行为日志，强迫智能体通过多轮交互与 LLM 驱动的用户模拟器去主动询问偏好、处理授权以及拒绝后的克制行为。评测 protocol 结合规则验证与 LLM 评分，从 GUI 执行、授权协商到拒绝后沉默全链条评价智能体表现。实验发现即便如 Claude Sonnet 4.6 这样的前沿模型，在需要偏好推断或干预校准的模糊指令下得分仍低于 50%，说明瓶颈不在导航能力而在获取偏好与合理干预。该基准揭示了从熟练界面操作到信任的个性化助理之间的关键差距。"}
 />
 
 <PaperCard
-  title={"MolmoWeb: Open Visual Web Agent and Open Data for the Open Web"}
-  arxivUrl={"https://arxiv.org/abs/2604.08516"}
-  hjfyUrl={"https://hjfy.top/arxiv/2604.08516"}
-  summary={"MolmoWeb提出一个完全开放的视觉-语言网页代理体系，目标是在无HTML、无无障碍树、无专用API的条件下执行指令驱动的网页操作。作者设计了MolmoWebMix数据集，融合十万条合成浏览器轨迹、三万条人工示范、原子化网页技能轨迹及GUI感知数据，用于训练动作策略。模型形式为接受任务指令和网页截图后预测下一步浏览器动作的多模态策略，现有MolmoWeb-4B/8B模型都是基于这一数据训练。实验展示其在WebVoyager、Online-Mind2Web、DeepShop等基准上超过同规模公开权重模型，并且MolmoWeb-8B已超越基于GPT-4o的大型封闭模型。通过并行推理与best-of-N选择，进一步提升WebVoyager pass@4到94.7%和Online-Mind2Web pass@4到60.5%，显著优于pass@1表现。"}
+  title={"Act Wisely: Cultivating Meta-Cognitive Tool Use in Agentic Multimodal Models"}
+  arxivUrl={"https://arxiv.org/abs/2604.08545"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.08545"}
+  summary={"Act Wisely 提出 HDPO 框架，将工具效率从与准确率耦合的标量奖励转化为条件优化，保留准确率通道最大化任务正确性，并在仅有准确轨迹时通过条件优势估计约束工具调用。该架构引导智能体先掌握任务再精炼自我依赖，克服了过度使用工具与工具惩罚失效之间的悖论。实验结果表明新模型 Metis 在保持甚至提升推理准确率的同时，将工具调用量缩减到原先数量级以下。该方法缓解了盲目工具调用带来的延迟与噪声，推动更加认知自觉的多模态 Agent。"}
+/>
+</div>
+
+## Multimodal World Model
+
+<div class="space-y-4">
+<PaperCard
+  title={"When Numbers Speak: Aligning Textual Numerals and Visual Instances in Text-to-Video Diffusion Models"}
+  arxivUrl={"https://arxiv.org/abs/2604.08546"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.08546"}
+  summary={"Text-to-video diffusion models have enabled open-ended video synthesis, but often struggle with generating the correct number of objects specified in a prompt. We introduce NUMINA , a training-free identify-then-guide framework for improved numerical alignment. NUMINA identifies prompt-layout inconsistencies by selecting discriminative self- and cross-attention heads to derive a countable latent layout. It then refines this layout conservatively and modulates cross-attention to guide regeneration. On the introduced CountBench, NUMINA improves counting accuracy by up to 7.4% on Wan2.1-1.3B, and by 4.9% and 5.5% on 5B and 14B models, respectively. Furthermore, CLIP alignment is improved while maintaining temporal consistency. These results demonstrate that structural guidance complements seed search and prompt enhancement, offering a practical path toward count-accurate text-to-video diffusion. The code is available at https://github.com/H-EmbodVis/NUMINA."}
+/>
+
+<PaperCard
+  title={"MegaStyle: Constructing Diverse and Scalable Style Dataset via Consistent Text-to-Image Style Mapping"}
+  arxivUrl={"https://arxiv.org/abs/2604.08364"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.08364"}
+  summary={"In this paper, we introduce MegaStyle, a novel and scalable data curation pipeline that constructs an intra-style consistent, inter-style diverse and high-quality style dataset. We achieve this by leveraging the consistent text-to-image style mapping capability of current large generative models, which can generate images in the same style from a given style description. Building on this foundation, we curate a diverse and balanced prompt gallery with 170K style prompts and 400K content prompts, and generate a large-scale style dataset MegaStyle-1.4M via content-style prompt combinations. With MegaStyle-1.4M, we propose style-supervised contrastive learning to fine-tune a style encoder MegaStyle-Encoder for extracting expressive, style-specific representations, and we also train a FLUX-based style transfer model MegaStyle-FLUX. Extensive experiments demonstrate the importance of maintaining intra-style consistency, inter-style diversity and high-quality for style dataset, as well as the effectiveness of the proposed MegaStyle-1.4M. Moreover, when trained on MegaStyle-1.4M, MegaStyle-Encoder and MegaStyle-FLUX provide reliable style similarity measurement and generalizable style transfer, making a significant contribution to the style transfer community. More results are available at our project website https://jeoyal.github.io/MegaStyle/."}
 />
 </div>
