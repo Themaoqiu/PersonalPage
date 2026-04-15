@@ -1,0 +1,108 @@
+---
+title: Papers - 2026-04-15
+description: "吾能观之数千而面色如故"
+publishDate: 2026-04-15
+updatedDate: 2026-04-15
+tags: ['paper reading', 'agent', 'visual reasoning', 'multimodal world model']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## Grounding-driven Visual Reasoning
+
+<div class="space-y-4">
+<PaperCard
+  title={"Strips as Tokens: Artist Mesh Generation with Native UV Segmentation"}
+  arxivUrl={"https://arxiv.org/abs/2604.09132"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.09132"}
+  summary={"No summary available."}
+/>
+</div>
+
+## 3D LLM
+
+<div class="space-y-4">
+<PaperCard
+  title={"CodeTracer: Towards Traceable Agent States"}
+  arxivUrl={"https://arxiv.org/abs/2604.11641"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.11641"}
+  summary={"No summary available."}
+/>
+
+<PaperCard
+  title={"CocoaBench: Evaluating Unified Digital Agents in the Wild"}
+  arxivUrl={"https://arxiv.org/abs/2604.11201"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.11201"}
+  summary={"No summary available."}
+/>
+
+<PaperCard
+  title={"Tracing the Roots: A Multi-Agent Framework for Uncovering Data Lineage in Post-Training LLMs"}
+  arxivUrl={"https://arxiv.org/abs/2604.10480"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.10480"}
+  summary={"No summary available."}
+/>
+</div>
+
+## Multimodal World Model
+
+<div class="space-y-4">
+<PaperCard
+  title={"QuanBench+: A Unified Multi-Framework Benchmark for LLM-Based Quantum Code Generation"}
+  arxivUrl={"https://arxiv.org/abs/2604.08570"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.08570"}
+  summary={"Large Language Models (LLMs) are increasingly used for code generation, yet quantum code generation is still evaluated mostly within single frameworks, making it difficult to separate quantum reasoning from framework familiarity. We introduce QuanBench+, a unified benchmark spanning Qiskit, PennyLane, and Cirq, with 42 aligned tasks covering quantum algorithms, gate decomposition, and state preparation. We evaluate models with executable functional tests, report Pass@1 and Pass@5, and use KL-divergence-based acceptance for probabilistic outputs. We additionally study Pass@1 after feedback-based repair, where a model may revise code after a runtime error or wrong answer. Across frameworks, the strongest one-shot scores reach 59.5% in Qiskit, 54.8% in Cirq, and 42.9% in PennyLane; with feedback-based repair, the best scores rise to 83.3%, 76.2%, and 66.7%, respectively. These results show clear progress, but also that reliable multi-framework quantum code generation remains unsolved and still depends strongly on framework-specific knowledge."}
+/>
+
+<PaperCard
+  title={"OmniShow: Unifying Multimodal Conditions for Human-Object Interaction Video Generation"}
+  arxivUrl={"https://arxiv.org/abs/2604.11804"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.11804"}
+  summary={"In this work, we study Human-Object Interaction Video Generation (HOIVG), which aims to synthesize high-quality human-object interaction videos conditioned on text, reference images, audio, and pose. This task holds significant practical value for automating content creation in real-world applications, such as e-commerce demonstrations, short video production, and interactive entertainment. However, existing approaches fail to accommodate all these requisite conditions. We present OmniShow, an end-to-end framework tailored for this practical yet challenging task, capable of harmonizing multimodal conditions and delivering industry-grade performance. To overcome the trade-off between controllability and quality, we introduce Unified Channel-wise Conditioning for efficient image and pose injection, and Gated Local-Context Attention to ensure precise audio-visual synchronization. To effectively address data scarcity, we develop a Decoupled-Then-Joint Training strategy that leverages a multi-stage training process with model merging to efficiently harness heterogeneous sub-task datasets. Furthermore, to fill the evaluation gap in this field, we establish HOIVG-Bench, a dedicated and comprehensive benchmark for HOIVG. Extensive experiments demonstrate that OmniShow achieves overall state-of-the-art performance across various multimodal conditioning settings, setting a solid standard for the emerging HOIVG task."}
+/>
+
+<PaperCard
+  title={"Attention Sink in Transformers: A Survey on Utilization, Interpretation, and Mitigation"}
+  arxivUrl={"https://arxiv.org/abs/2604.10098"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.10098"}
+  summary={"No summary available."}
+/>
+
+<PaperCard
+  title={"Uni-ViGU: Towards Unified Video Generation and Understanding via A Diffusion-Based Video Generator"}
+  arxivUrl={"https://arxiv.org/abs/2604.08121"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.08121"}
+  summary={"No summary available."}
+/>
+
+<PaperCard
+  title={"Pseudo-Unification: Entropy Probing Reveals Divergent Information Patterns in Unified Multimodal Models"}
+  arxivUrl={"https://arxiv.org/abs/2604.10949"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.10949"}
+  summary={"No summary available."}
+/>
+
+<PaperCard
+  title={"The Past Is Not Past: Memory-Enhanced Dynamic Reward Shaping"}
+  arxivUrl={"https://arxiv.org/abs/2604.11297"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.11297"}
+  summary={"No summary available."}
+/>
+
+<PaperCard
+  title={"Audio Flamingo Next: Next-Generation Open Audio-Language Models for Speech, Sound, and Music"}
+  arxivUrl={"https://arxiv.org/abs/2604.10905"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.10905"}
+  summary={"No summary available."}
+/>
+
+<PaperCard
+  title={"Introspective Diffusion Language Models"}
+  arxivUrl={"https://arxiv.org/abs/2604.11035"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.11035"}
+  summary={"Diffusion language models promise parallel generation, yet still lag behind autoregressive (AR) models in quality. We stem this gap to a failure of introspective consistency: AR models agree with their own generations, while DLMs often do not. We define the introspective acceptance rate, which measures whether a model accepts its previously generated tokens. This reveals why AR training has a structural advantage: causal masking and logit shifting implicitly enforce introspective consistency. Motivated by this observation, we introduce Introspective Diffusion Language Model (I-DLM), a paradigm that retains diffusion-style parallel decoding while inheriting the introspective consistency of AR training. I-DLM uses a novel introspective strided decoding (ISD) algorithm, which enables the model to verify previously generated tokens while advancing new ones in the same forward pass. From a systems standpoint, we build I-DLM inference engine on AR-inherited optimizations and further customize it with a stationary-batch scheduler. To the best of our knowledge, I-DLM is the first DLM to match the quality of its same-scale AR counterpart while outperforming prior DLMs in both model quality and practical serving efficiency across 15 benchmarks. It reaches 69.6 on AIME-24 and 45.7 on LiveCodeBench-v6, exceeding LLaDA-2.1-mini (16B) by more than 26 and 15 points, respectively. Beyond quality, I-DLM is designed for the growing demand of large-concurrency serving, delivering about 3x higher throughput than prior state-of-the-art DLMs."}
+/>
+</div>
