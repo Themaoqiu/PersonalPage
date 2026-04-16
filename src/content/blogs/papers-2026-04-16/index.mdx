@@ -15,13 +15,6 @@ import PaperCard from '@/components/papers/PaperCard.astro'
 
 <div class="space-y-4">
 <PaperCard
-  title={"Toward Autonomous Long-Horizon Engineering for ML Research"}
-  arxivUrl={"https://arxiv.org/abs/2604.13018"}
-  hjfyUrl={"https://hjfy.top/arxiv/2604.13018"}
-  summary={"Autonomous AI research has advanced rapidly, but long-horizon ML research engineering remains difficult: agents must sustain coherent progress across task comprehension, environment setup, implementation, experimentation, and debugging over hours or days. We introduce AiScientist, a system for autonomous long-horizon engineering for ML research built on a simple principle: strong long-horizon performance requires both structured orchestration and durable state continuity. To this end, AiScientist combines hierarchical orchestration with a permission-scoped File-as-Bus workspace: a top-level Orchestrator maintains stage-level control through concise summaries and a workspace map, while specialized agents repeatedly re-ground on durable artifacts such as analyses, plans, code, and experimental evidence rather than relying primarily on conversational handoffs, yielding thin control over thick state. Across two complementary benchmarks, AiScientist improves PaperBench score by 10.54 points on average over the best matched baseline and achieves 81.82 Any Medal% on MLE-Bench Lite. Ablation studies further show that File-as-Bus protocol is a key driver of performance, reducing PaperBench by 6.41 points and MLE-Bench Lite by 31.82 points when removed. These results suggest that long-horizon ML research engineering is a systems problem of coordinating specialized work over durable project state, rather than a purely local reasoning problem."}
-/>
-
-<PaperCard
   title={"Turing Test on Screen: A Benchmark for Mobile GUI Agent Humanization"}
   arxivUrl={"https://arxiv.org/abs/2604.09574"}
   hjfyUrl={"https://hjfy.top/arxiv/2604.09574"}
@@ -57,20 +50,27 @@ import PaperCard from '@/components/papers/PaperCard.astro'
   title={"KnowRL: Boosting LLM Reasoning via Reinforcement Learning with Minimal-Sufficient Knowledge Guidance"}
   arxivUrl={"https://arxiv.org/abs/2604.12627"}
   hjfyUrl={"https://hjfy.top/arxiv/2604.12627"}
-  summary={"RLVR improves reasoning in large language models, but its effectiveness is often limited by severe reward sparsity on hard problems. Recent hint-based RL methods mitigate sparsity by injecting partial solutions or abstract templates, yet they typically scale guidance by adding more tokens, which introduce redundancy, inconsistency, and extra training overhead. We propose \\textbf{KnowRL} (Knowledge-Guided Reinforcement Learning), an RL training framework that treats hint design as a minimal-sufficient guidance problem. During RL training, KnowRL decomposes guidance into atomic knowledge points (KPs) and uses Constrained Subset Search (CSS) to construct compact, interaction-aware subsets for training. We further identify a pruning interaction paradox -- removing one KP may help while removing multiple such KPs can hurt -- and explicitly optimize for robust subset curation under this dependency structure. We train KnowRL-Nemotron-1.5B from OpenMath-Nemotron-1.5B. Across eight reasoning benchmarks at the 1.5B scale, KnowRL-Nemotron-1.5B consistently outperforms strong RL and hinting baselines. Without KP hints at inference, KnowRL-Nemotron-1.5B reaches 70.08 average accuracy, already surpassing Nemotron-1.5B by +9.63 points; with selected KPs, performance improves to 74.16, establishing a new state of the art at this scale. The model, curated training data, and code are publicly available at https://github.com/Hasuer/KnowRL."}
+  summary={"No summary available."}
 />
 
 <PaperCard
   title={"Rethinking On-Policy Distillation of Large Language Models: Phenomenology, Mechanism, and Recipe"}
   arxivUrl={"https://arxiv.org/abs/2604.13016"}
   hjfyUrl={"https://hjfy.top/arxiv/2604.13016"}
-  summary={"On-policy distillation (OPD) has become a core technique in the post-training of large language models, yet its training dynamics remain poorly understood. This paper provides a systematic investigation of OPD dynamics and mechanisms. We first identify that two conditions govern whether OPD succeeds or fails: (i) the student and teacher should share compatible thinking patterns; and (ii) even with consistent thinking patterns and higher scores, the teacher must offer genuinely new capabilities beyond what the student has seen during training. We validate these findings through weak-to-strong reverse distillation, showing that same-family 1.5B and 7B teachers are distributionally indistinguishable from the student's perspective. Probing into the token-level mechanism, we show that successful OPD is characterized by progressive alignment on high-probability tokens at student-visited states, a small shared token set that concentrates most of the probability mass (97%-99%). We further propose two practical strategies to recover failing OPD: off-policy cold start and teacher-aligned prompt selection. Finally, we show that OPD's apparent free lunch of dense token-level reward comes at a cost, raising the question of whether OPD can scale to long-horizon distillation."}
+  summary={"No summary available."}
 />
 
 <PaperCard
   title={"SPPO: Sequence-Level PPO for Long-Horizon Reasoning Tasks"}
   arxivUrl={"https://arxiv.org/abs/2604.08865"}
   hjfyUrl={"https://hjfy.top/arxiv/2604.08865"}
+  summary={"No summary available."}
+/>
+
+<PaperCard
+  title={"Toward Autonomous Long-Horizon Engineering for ML Research"}
+  arxivUrl={"https://arxiv.org/abs/2604.13018"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.13018"}
   summary={"No summary available."}
 />
 
@@ -85,7 +85,7 @@ import PaperCard from '@/components/papers/PaperCard.astro'
   title={"Lyra 2.0: Explorable Generative 3D Worlds"}
   arxivUrl={"https://arxiv.org/abs/2604.13036"}
   hjfyUrl={"https://hjfy.top/arxiv/2604.13036"}
-  summary={"No summary available."}
+  summary={"Recent advances in video generation enable a new paradigm for 3D scene creation: generating camera-controlled videos that simulate scene walkthroughs, then lifting them to 3D via feed-forward reconstruction techniques. This generative reconstruction approach combines the visual fidelity and creative capacity of video models with 3D outputs ready for real-time rendering and simulation. Scaling to large, complex environments requires 3D-consistent video generation over long camera trajectories with large viewpoint changes and location revisits, a setting where current video models degrade quickly. Existing methods for long-horizon generation are fundamentally limited by two forms of degradation: spatial forgetting and temporal drifting. As exploration proceeds, previously observed regions fall outside the model's temporal context, forcing the model to hallucinate structures when revisited. Meanwhile, autoregressive generation accumulates small synthesis errors over time, gradually distorting scene appearance and geometry. We present Lyra 2.0, a framework for generating persistent, explorable 3D worlds at scale. To address spatial forgetting, we maintain per-frame 3D geometry and use it solely for information routing -- retrieving relevant past frames and establishing dense correspondences with the target viewpoints -- while relying on the generative prior for appearance synthesis. To address temporal drifting, we train with self-augmented histories that expose the model to its own degraded outputs, teaching it to correct drift rather than propagate it. Together, these enable substantially longer and 3D-consistent video trajectories, which we leverage to fine-tune feed-forward reconstruction models that reliably recover high-quality 3D scenes."}
 />
 
 <PaperCard
@@ -99,6 +99,6 @@ import PaperCard from '@/components/papers/PaperCard.astro'
   title={"Self-Adversarial One Step Generation via Condition Shifting"}
   arxivUrl={"https://arxiv.org/abs/2604.12322"}
   hjfyUrl={"https://hjfy.top/arxiv/2604.12322"}
-  summary={"No summary available."}
+  summary={"The push for efficient text to image synthesis has moved the field toward one step sampling, yet existing methods still face a three way tradeoff among fidelity, inference speed, and training efficiency. Approaches that rely on external discriminators can sharpen one step performance, but they often introduce training instability, high GPU memory overhead, and slow convergence, which complicates scaling and parameter efficient tuning. In contrast, regression based distillation and consistency objectives are easier to optimize, but they typically lose fine details when constrained to a single step. We present APEX, built on a key theoretical insight: adversarial correction signals can be extracted endogenously from a flow model through condition shifting. Using a transformation creates a shifted condition branch whose velocity field serves as an independent estimator of the model's current generation distribution, yielding a gradient that is provably GAN aligned, replacing the sample dependent discriminator terms that cause gradient vanishing. This discriminator free design is architecture preserving, making APEX a plug and play framework compatible with both full parameter and LoRA based tuning. Empirically, our 0.6B model surpasses FLUX-Schnell 12B (20$\\times$ more parameters) in one step quality. With LoRA tuning on Qwen-Image 20B, APEX reaches a GenEval score of 0.89 at NFE=1 in 6 hours, surpassing the original 50-step teacher (0.87) and providing a 15.33$\\times$ inference speedup. Code is available https://github.com/LINs-lab/APEX."}
 />
 </div>
