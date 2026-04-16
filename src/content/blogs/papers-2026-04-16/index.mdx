@@ -1,0 +1,104 @@
+---
+title: Papers - 2026-04-16
+description: "吾能观之数千而面色如故"
+publishDate: 2026-04-16
+updatedDate: 2026-04-16
+tags: ['paper reading', 'agent', 'multimodal world model']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## 3D LLM
+
+<div class="space-y-4">
+<PaperCard
+  title={"Toward Autonomous Long-Horizon Engineering for ML Research"}
+  arxivUrl={"https://arxiv.org/abs/2604.13018"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.13018"}
+  summary={"Autonomous AI research has advanced rapidly, but long-horizon ML research engineering remains difficult: agents must sustain coherent progress across task comprehension, environment setup, implementation, experimentation, and debugging over hours or days. We introduce AiScientist, a system for autonomous long-horizon engineering for ML research built on a simple principle: strong long-horizon performance requires both structured orchestration and durable state continuity. To this end, AiScientist combines hierarchical orchestration with a permission-scoped File-as-Bus workspace: a top-level Orchestrator maintains stage-level control through concise summaries and a workspace map, while specialized agents repeatedly re-ground on durable artifacts such as analyses, plans, code, and experimental evidence rather than relying primarily on conversational handoffs, yielding thin control over thick state. Across two complementary benchmarks, AiScientist improves PaperBench score by 10.54 points on average over the best matched baseline and achieves 81.82 Any Medal% on MLE-Bench Lite. Ablation studies further show that File-as-Bus protocol is a key driver of performance, reducing PaperBench by 6.41 points and MLE-Bench Lite by 31.82 points when removed. These results suggest that long-horizon ML research engineering is a systems problem of coordinating specialized work over durable project state, rather than a purely local reasoning problem."}
+/>
+
+<PaperCard
+  title={"Turing Test on Screen: A Benchmark for Mobile GUI Agent Humanization"}
+  arxivUrl={"https://arxiv.org/abs/2604.09574"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.09574"}
+  summary={"The rise of autonomous GUI agents has triggered adversarial countermeasures from digital platforms, yet existing research prioritizes utility and robustness over the critical dimension of anti-detection. We argue that for agents to survive in human-centric ecosystems, they must evolve Humanization capabilities. We introduce the ``Turing Test on Screen,'' formally modeling the interaction as a MinMax optimization problem between a detector and an agent aiming to minimize behavioral divergence. We then collect a new high-fidelity dataset of mobile touch dynamics, and conduct our analysis that vanilla LMM-based agents are easily detectable due to unnatural kinematics. Consequently, we establish the Agent Humanization Benchmark (AHB) and detection metrics to quantify the trade-off between imitability and utility. Finally, we propose methods ranging from heuristic noise to data-driven behavioral matching, demonstrating that agents can achieve high imitability theoretically and empirically without sacrificing performance. This work shifts the paradigm from whether an agent can perform a task to how it performs it within a human-centric ecosystem, laying the groundwork for seamless coexistence in adversarial digital environments."}
+/>
+
+<PaperCard
+  title={"Nemotron 3 Super: Open, Efficient Mixture-of-Experts Hybrid Mamba-Transformer Model for Agentic Reasoning"}
+  arxivUrl={"https://arxiv.org/abs/2604.12374"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.12374"}
+  summary={"No summary available."}
+/>
+
+<PaperCard
+  title={"Towards Long-horizon Agentic Multimodal Search"}
+  arxivUrl={"https://arxiv.org/abs/2604.12890"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.12890"}
+  summary={"No summary available."}
+/>
+
+<PaperCard
+  title={"Many-Tier Instruction Hierarchy in LLM Agents"}
+  arxivUrl={"https://arxiv.org/abs/2604.09443"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.09443"}
+  summary={"No summary available."}
+/>
+</div>
+
+## Multimodal World Model
+
+<div class="space-y-4">
+<PaperCard
+  title={"KnowRL: Boosting LLM Reasoning via Reinforcement Learning with Minimal-Sufficient Knowledge Guidance"}
+  arxivUrl={"https://arxiv.org/abs/2604.12627"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.12627"}
+  summary={"RLVR improves reasoning in large language models, but its effectiveness is often limited by severe reward sparsity on hard problems. Recent hint-based RL methods mitigate sparsity by injecting partial solutions or abstract templates, yet they typically scale guidance by adding more tokens, which introduce redundancy, inconsistency, and extra training overhead. We propose \\textbf{KnowRL} (Knowledge-Guided Reinforcement Learning), an RL training framework that treats hint design as a minimal-sufficient guidance problem. During RL training, KnowRL decomposes guidance into atomic knowledge points (KPs) and uses Constrained Subset Search (CSS) to construct compact, interaction-aware subsets for training. We further identify a pruning interaction paradox -- removing one KP may help while removing multiple such KPs can hurt -- and explicitly optimize for robust subset curation under this dependency structure. We train KnowRL-Nemotron-1.5B from OpenMath-Nemotron-1.5B. Across eight reasoning benchmarks at the 1.5B scale, KnowRL-Nemotron-1.5B consistently outperforms strong RL and hinting baselines. Without KP hints at inference, KnowRL-Nemotron-1.5B reaches 70.08 average accuracy, already surpassing Nemotron-1.5B by +9.63 points; with selected KPs, performance improves to 74.16, establishing a new state of the art at this scale. The model, curated training data, and code are publicly available at https://github.com/Hasuer/KnowRL."}
+/>
+
+<PaperCard
+  title={"Rethinking On-Policy Distillation of Large Language Models: Phenomenology, Mechanism, and Recipe"}
+  arxivUrl={"https://arxiv.org/abs/2604.13016"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.13016"}
+  summary={"On-policy distillation (OPD) has become a core technique in the post-training of large language models, yet its training dynamics remain poorly understood. This paper provides a systematic investigation of OPD dynamics and mechanisms. We first identify that two conditions govern whether OPD succeeds or fails: (i) the student and teacher should share compatible thinking patterns; and (ii) even with consistent thinking patterns and higher scores, the teacher must offer genuinely new capabilities beyond what the student has seen during training. We validate these findings through weak-to-strong reverse distillation, showing that same-family 1.5B and 7B teachers are distributionally indistinguishable from the student's perspective. Probing into the token-level mechanism, we show that successful OPD is characterized by progressive alignment on high-probability tokens at student-visited states, a small shared token set that concentrates most of the probability mass (97%-99%). We further propose two practical strategies to recover failing OPD: off-policy cold start and teacher-aligned prompt selection. Finally, we show that OPD's apparent free lunch of dense token-level reward comes at a cost, raising the question of whether OPD can scale to long-horizon distillation."}
+/>
+
+<PaperCard
+  title={"SPPO: Sequence-Level PPO for Long-Horizon Reasoning Tasks"}
+  arxivUrl={"https://arxiv.org/abs/2604.08865"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.08865"}
+  summary={"No summary available."}
+/>
+
+<PaperCard
+  title={"BERT-as-a-Judge: A Robust Alternative to Lexical Methods for Efficient Reference-Based LLM Evaluation"}
+  arxivUrl={"https://arxiv.org/abs/2604.09497"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.09497"}
+  summary={"Accurate evaluation is central to the large language model (LLM) ecosystem, guiding model selection and downstream adoption across diverse use cases. In practice, however, evaluating generative outputs typically relies on rigid lexical methods to extract and assess answers, which can conflate a model's true problem-solving ability with its compliance with predefined formatting guidelines. While recent LLM-as-a-Judge approaches mitigate this issue by assessing semantic correctness rather than strict structural conformity, they also introduce substantial computational overhead, making evaluation costly. In this work, we first systematically investigate the limitations of lexical evaluation through a large-scale empirical study spanning 36 models and 15 downstream tasks, demonstrating that such methods correlate poorly with human judgments. To address this limitation, we introduce BERT-as-a-Judge, an encoder-driven approach for assessing answer correctness in reference-based generative settings, robust to variations in output phrasing, and requiring only lightweight training on synthetically annotated question-candidate-reference triplets. We show that it consistently outperforms the lexical baseline while matching the performance of much larger LLM judges, providing a compelling tradeoff between the two and enabling reliable, scalable evaluation. Finally, through extensive experimentation, we provide detailed insights into BERT-as-a-Judge's performance to offer practical guidance for practitioners, and release all project artifacts to foster downstream adoption."}
+/>
+
+<PaperCard
+  title={"Lyra 2.0: Explorable Generative 3D Worlds"}
+  arxivUrl={"https://arxiv.org/abs/2604.13036"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.13036"}
+  summary={"No summary available."}
+/>
+
+<PaperCard
+  title={"Habitat-GS: A High-Fidelity Navigation Simulator with Dynamic Gaussian Splatting"}
+  arxivUrl={"https://arxiv.org/abs/2604.12626"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.12626"}
+  summary={"No summary available."}
+/>
+
+<PaperCard
+  title={"Self-Adversarial One Step Generation via Condition Shifting"}
+  arxivUrl={"https://arxiv.org/abs/2604.12322"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.12322"}
+  summary={"No summary available."}
+/>
+</div>
