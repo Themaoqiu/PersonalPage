@@ -1,0 +1,108 @@
+---
+title: Papers - 2026-04-21
+description: "吾能观之数千而面色如故"
+publishDate: 2026-04-21
+updatedDate: 2026-04-21
+tags: ['paper reading', 'agent', 'visual reasoning', 'multimodal world model']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## Grounding-driven Visual Reasoning
+
+<div class="space-y-4">
+<PaperCard
+  title={"Maximal Brain Damage Without Data or Optimization: Disrupting Neural Networks via Sign-Bit Flips"}
+  arxivUrl={"https://arxiv.org/abs/2502.07408"}
+  hjfyUrl={"https://hjfy.top/arxiv/2502.07408"}
+  summary={"Deep Neural Networks (DNNs) can be catastrophically disrupted by flipping only a handful of parameter bits. We introduce Deep Neural Lesion (DNL), a data-free and optimizationfree method that locates critical parameters, and an enhanced single-pass variant, 1P-DNL, that refines this selection with one forward and backward pass on random inputs. We show that this vulnerability spans multiple domains, including image classification, object detection, instance segmentation, and reasoning large language models. In image classification, flipping just two sign bits in ResNet-50 on ImageNet reduces accuracy by 99.8%. In object detection and instance segmentation, one or two sign flips in the backbone collapse COCO detection and mask AP for Mask R-CNN and YOLOv8-seg models. In language modeling, two sign flips into different experts reduce Qwen3-30B-A3B-Thinking from 78% to 0% accuracy. We also show that selectively protecting a small fraction of vulnerable sign bits provides a practical defense against such attacks."}
+/>
+
+<PaperCard
+  title={"Learning Adaptive Reasoning Paths for Efficient Visual Reasoning"}
+  arxivUrl={"https://arxiv.org/abs/2604.14568"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.14568"}
+  summary={"Visual reasoning models (VRMs) have recently shown strong cross-modal reasoning capabilities by integrating visual perception with language reasoning. However, they often suffer from overthinking, producing unnecessarily long reasoning chains for any tasks. We attribute this issue to \\textbf{Reasoning Path Redundancy} in visual reasoning: many visual questions do not require the full reasoning process. To address this, we propose \\textbf{AVR}, an adaptive visual reasoning framework that decomposes visual reasoning into three cognitive functions: visual perception, logical reasoning, and answer application. It further enables models to dynamically choose among three response formats: Full Format, Perception-Only Format, and Direct Answer. AVR is trained with FS-GRPO, an adaptation of Group Relative Policy Optimization that encourages the model to select the most efficient reasoning format while preserving correctness. Experiments on multiple vision-language benchmarks show that AVR reduces token usage by 50--90\\% while maintaining overall accuracy, especially in perception-intensive tasks. These results demonstrate that adaptive visual reasoning can effectively mitigate overthinking in VRMs. Code and data are available at: https://github.com/RunRiotComeOn/AVR."}
+/>
+</div>
+
+## 3D LLM
+
+<div class="space-y-4">
+<PaperCard
+  title={"PersonaVLM: Long-Term Personalized Multimodal LLMs"}
+  arxivUrl={"https://arxiv.org/abs/2604.13074"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.13074"}
+  summary={"Multimodal Large Language Models (MLLMs) serve as daily assistants for millions. However, their ability to generate responses aligned with individual preferences remains limited. Prior approaches enable only static, single-turn personalization through input augmentation or output alignment, and thus fail to capture users' evolving preferences and personality over time (see Fig.1). In this paper, we introduce PersonaVLM, an innovative personalized multimodal agent framework designed for long-term personalization. It transforms a general-purpose MLLM into a personalized assistant by integrating three key capabilities: (a) Remembering: It proactively extracts and summarizes chronological multimodal memories from interactions, consolidating them into a personalized database. (b) Reasoning: It conducts multi-turn reasoning by retrieving and integrating relevant memories from the database. (c) Response Alignment: It infers the user's evolving personality throughout long-term interactions to ensure outputs remain aligned with their unique characteristics. For evaluation, we establish Persona-MME, a comprehensive benchmark comprising over 2,000 curated interaction cases, designed to assess long-term MLLM personalization across seven key aspects and 14 fine-grained tasks. Extensive experiments validate our method's effectiveness, improving the baseline by 22.4% (Persona-MME) and 9.8% (PERSONAMEM) under a 128k context, while outperforming GPT-4o by 5.2% and 2.0%, respectively. Project page: https://PersonaVLM.github.io."}
+/>
+
+<PaperCard
+  title={"Web Retrieval-Aware Chunking (W-RAC) for Efficient and Cost-Effective Retrieval-Augmented Generation Systems"}
+  arxivUrl={"https://arxiv.org/abs/2604.04936"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.04936"}
+  summary={"Retrieval-Augmented Generation (RAG) systems critically depend on effective document chunking strategies to balance retrieval quality, latency, and operational cost. Traditional chunking approaches, such as fixed-size, rule-based, or fully agentic chunking, often suffer from high token consumption, redundant text generation, limited scalability, and poor debuggability, especially for large-scale web content ingestion. In this paper, we propose Web Retrieval-Aware Chunking (W-RAC), a novel, cost-efficient chunking framework designed specifically for web-based documents. W-RAC decouples text extraction from semantic chunk planning by representing parsed web content as structured, ID-addressable units and leveraging large language models (LLMs) only for retrieval-aware grouping decisions rather than text generation. This significantly reduces token usage, eliminates hallucination risks, and improves system observability.Experimental analysis and architectural comparison demonstrate that W-RAC achieves comparable or better retrieval performance than traditional chunking approaches while reducing chunking-related LLM costs by an order of magnitude."}
+/>
+</div>
+
+## Multimodal World Model
+
+<div class="space-y-4">
+<PaperCard
+  title={"Qwen3.5-Omni Technical Report"}
+  arxivUrl={"https://arxiv.org/abs/2604.15804"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.15804"}
+  summary={"No summary available."}
+/>
+
+<PaperCard
+  title={"Elucidating the SNR-t Bias of Diffusion Probabilistic Models"}
+  arxivUrl={"https://arxiv.org/abs/2604.16044"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.16044"}
+  summary={"Diffusion Probabilistic Models have demonstrated remarkable performance across a wide range of generative tasks. However, we have observed that these models often suffer from a Signal-to-Noise Ratio-timestep (SNR-t) bias. This bias refers to the misalignment between the SNR of the denoising sample and its corresponding timestep during the inference phase. Specifically, during training, the SNR of a sample is strictly coupled with its timestep. However, this correspondence is disrupted during inference, leading to error accumulation and impairing the generation quality. We provide comprehensive empirical evidence and theoretical analysis to substantiate this phenomenon and propose a simple yet effective differential correction method to mitigate the SNR-t bias. Recognizing that diffusion models typically reconstruct low-frequency components before focusing on high-frequency details during the reverse denoising process, we decompose samples into various frequency components and apply differential correction to each component individually. Extensive experiments show that our approach significantly improves the generation quality of various diffusion models (IDDPM, ADM, DDIM, A-DPM, EA-DPM, EDM, PFGM++, and FLUX) on datasets of various resolutions with negligible computational overhead. The code is at https://github.com/AMAP-ML/DCW."}
+/>
+
+<PaperCard
+  title={"Cut Your Losses! Learning to Prune Paths Early for Efficient Parallel Reasoning"}
+  arxivUrl={"https://arxiv.org/abs/2604.16029"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.16029"}
+  summary={"Parallel reasoning enhances Large Reasoning Models (LRMs) but incurs prohibitive costs due to futile paths caused by early errors. To mitigate this, path pruning at the prefix level is essential, yet existing research remains fragmented without a standardized framework. In this work, we propose the first systematic taxonomy of path pruning, categorizing methods by their signal source (internal vs. external) and learnability (learnable vs. non-learnable). This classification reveals the unexplored potential of learnable internal methods, motivating our proposal of STOP (Super TOken for Pruning). Extensive evaluations across LRMs ranging from 1.5B to 20B parameters demonstrate that STOP achieves superior effectiveness and efficiency compared to existing baselines. Furthermore, we rigorously validate the scalability of STOP under varying compute budgets - for instance, boosting GPT-OSS-20B accuracy on AIME25 from 84% to nearly 90% under fixed compute budgets. Finally, we distill our findings into formalized empirical guidelines to facilitate optimal real-world deployment. Code, data and models are available at https://bijiaxihh.github.io/STOP"}
+/>
+
+<PaperCard
+  title={"(1D) Ordered Tokens Enable Efficient Test-Time Search"}
+  arxivUrl={"https://arxiv.org/abs/2604.15453"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.15453"}
+  summary={"No summary available."}
+/>
+
+<PaperCard
+  title={"Repurposing 3D Generative Model for Autoregressive Layout Generation"}
+  arxivUrl={"https://arxiv.org/abs/2604.16299"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.16299"}
+  summary={"We introduce LaviGen, a framework that repurposes 3D generative models for 3D layout generation. Unlike previous methods that infer object layouts from textual descriptions, LaviGen operates directly in the native 3D space, formulating layout generation as an autoregressive process that explicitly models geometric relations and physical constraints among objects, producing coherent and physically plausible 3D scenes. To further enhance this process, we propose an adapted 3D diffusion model that integrates scene, object, and instruction information and employs a dual-guidance self-rollout distillation mechanism to improve efficiency and spatial accuracy. Extensive experiments on the LayoutVLM benchmark show LaviGen achieves superior 3D layout generation performance, with 19% higher physical plausibility than the state of the art and 65% faster computation. Our code is publicly available at https://github.com/fenghora/LaviGen."}
+/>
+
+<PaperCard
+  title={"Where does output diversity collapse in post-training?"}
+  arxivUrl={"https://arxiv.org/abs/2604.16027"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.16027"}
+  summary={"Post-trained language models produce less varied outputs than their base counterparts. This output diversity collapse undermines inference-time scaling methods that rely on varied samples, and risks homogenizing model outputs on creative and value-laden tasks. Prior work attributes collapse to specific post-training methods, without separating the role of training data composition from the method, or the generation format from the model weights. We trace output diversity through three parallel post-training lineages of Olmo 3, Think (chain-of-thought distillation), Instruct (broad multi-source data), and RL-Zero, across 15 tasks and four text diversity metrics. We find that the location of collapse co-varies with data composition: the Think lineage loses most semantic diversity at supervised fine-tuning, and the effect of DPO is larger in Instruct than in Think. Suppressing chain-of-thought reasoning at inference in Think models drops accuracy on hard tasks, yet leaves answer-level diversity unchanged, showing that the collapse is embedded in the model weights by training data, not imposed by the generation format. Decomposing diversity loss on six verifiable tasks into a quality-control component (removal of incorrect outputs) and a residual component (genuine narrowing among correct outputs) reveals that the split is task-dependent, and Think models retain more correct-answer diversity than Instruct despite collapsing more in aggregate. Our results indicate that diversity collapse is determined during training by data composition and cannot be addressed at inference time alone."}
+/>
+
+<PaperCard
+  title={"QuantCode-Bench: A Benchmark for Evaluating the Ability of Large Language Models to Generate Executable Algorithmic Trading Strategies"}
+  arxivUrl={"https://arxiv.org/abs/2604.15151"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.15151"}
+  summary={"No summary available."}
+/>
+
+<PaperCard
+  title={"Can Large Language Models Reinvent Foundational Algorithms?"}
+  arxivUrl={"https://arxiv.org/abs/2604.05716"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.05716"}
+  summary={"LLMs have shown strong potential to advance scientific discovery. Whether they possess the capacity for foundational innovation, however, remains an open question. In this work, we focus on a prerequisite for foundational innovation: can LLMs reinvent foundational algorithms in computer science? Our \\textit{Unlearn-and-Reinvent} pipeline applies LLM unlearning to remove a specific foundational algorithm, such as Dijkstra's or Euclid's algorithm, from an LLM's pretrained knowledge, and then tests whether the model can reinvent it in a controlled environment. To enable effective unlearning, we adopt a GRPO-based, on-policy unlearning method. Across 10 target algorithms, 3 strong open-weight models, and 3 hint levels, our experiments demonstrate that (1) the strongest model Qwen3-4B-Thinking-2507 successfully reinvents 50% of the algorithms with no hint, 70% at hint level 1, and 90% at hint level 2; (2) a few high-level hints can enhance the reinvention success rate, but even step-by-step hints fail for those complicated algorithms; and (3) test-time reinforcement learning enables successful reinvention for the Strassen algorithm at hint level 2. Through analyses of output trajectories and ablation studies, we find that generative verifier in the reinvention phase plays a critical role in sustaining models' reasoning strength, helping to avoid the ``thought collapse'' phenomenon. These findings offer insights into both the potential and current limits of LLMs' innovative thinking."}
+/>
+</div>
