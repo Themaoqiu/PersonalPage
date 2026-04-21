@@ -22,6 +22,13 @@ import PaperCard from '@/components/papers/PaperCard.astro'
 />
 
 <PaperCard
+  title={"Qwen3.5-Omni Technical Report"}
+  arxivUrl={"https://arxiv.org/abs/2604.15804"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.15804"}
+  summary={"In this work, we present Qwen3.5-Omni, the latest advancement in the Qwen-Omni model family. Representing a significant evolution over its predecessor, Qwen3.5-Omni scales to hundreds of billions of parameters and supports a 256k context length. By leveraging a massive dataset comprising heterogeneous text-vision pairs and over 100 million hours of audio-visual content, the model demonstrates robust omni-modality capabilities. Qwen3.5-Omni-plus achieves SOTA results across 215 audio and audio-visual understanding, reasoning, and interaction subtasks and benchmarks, surpassing Gemini-3.1 Pro in key audio tasks and matching it in comprehensive audio-visual understanding. Architecturally, Qwen3.5-Omni employs a Hybrid Attention Mixture-of-Experts (MoE) framework for both Thinker and Talker, enabling efficient long-sequence inference. The model facilitates sophisticated interaction, supporting over 10 hours of audio understanding and 400 seconds of 720P video (at 1 FPS). To address the inherent instability and unnaturalness in streaming speech synthesis, often caused by encoding efficiency discrepancies between text and speech tokenizers, we introduce ARIA. ARIA dynamically aligns text and speech units, significantly enhancing the stability and prosody of conversational speech with minimal latency impact. Furthermore, Qwen3.5-Omni expands linguistic boundaries, supporting multilingual understanding and speech generation across 10 languages with human-like emotional nuance. Finally, Qwen3.5-Omni exhibits superior audio-visual grounding capabilities, generating script-level structured captions with precise temporal synchronization and automated scene segmentation. Remarkably, we observed the emergence of a new capability in omnimodal models: directly performing coding based on audio-visual instructions, which we call Audio-Visual Vibe Coding."}
+/>
+
+<PaperCard
   title={"Learning Adaptive Reasoning Paths for Efficient Visual Reasoning"}
   arxivUrl={"https://arxiv.org/abs/2604.14568"}
   hjfyUrl={"https://hjfy.top/arxiv/2604.14568"}
@@ -45,18 +52,18 @@ import PaperCard from '@/components/papers/PaperCard.astro'
   hjfyUrl={"https://hjfy.top/arxiv/2604.04936"}
   summary={"Retrieval-Augmented Generation (RAG) systems critically depend on effective document chunking strategies to balance retrieval quality, latency, and operational cost. Traditional chunking approaches, such as fixed-size, rule-based, or fully agentic chunking, often suffer from high token consumption, redundant text generation, limited scalability, and poor debuggability, especially for large-scale web content ingestion. In this paper, we propose Web Retrieval-Aware Chunking (W-RAC), a novel, cost-efficient chunking framework designed specifically for web-based documents. W-RAC decouples text extraction from semantic chunk planning by representing parsed web content as structured, ID-addressable units and leveraging large language models (LLMs) only for retrieval-aware grouping decisions rather than text generation. This significantly reduces token usage, eliminates hallucination risks, and improves system observability.Experimental analysis and architectural comparison demonstrate that W-RAC achieves comparable or better retrieval performance than traditional chunking approaches while reducing chunking-related LLM costs by an order of magnitude."}
 />
+
+<PaperCard
+  title={"QuantCode-Bench: A Benchmark for Evaluating the Ability of Large Language Models to Generate Executable Algorithmic Trading Strategies"}
+  arxivUrl={"https://arxiv.org/abs/2604.15151"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.15151"}
+  summary={"Large language models have demonstrated strong performance on general-purpose programming tasks, yet their ability to generate executable algorithmic trading strategies remains underexplored. Unlike standard code benchmarks, trading-strategy generation requires simultaneous mastery of domain-specific financial logic, knowledge of a specialized API, and the ability to produce code that is not only syntactically correct but also leads to actual trades on historical data. In this work, we present QuantCode-Bench, a benchmark for the systematic evaluation of modern LLMs in generating strategies for the Backtrader framework from textual descriptions in English. The benchmark contains 400 tasks of varying difficulty collected from Reddit, TradingView, StackExchange, GitHub, and synthetic sources. Evaluation is conducted through a multi-stage pipeline that checks syntactic correctness, successful backtest execution, the presence of trades, and semantic alignment with the task description using an LLM judge. We compare state-of-the-art models in two settings: single-turn, where the strategy must be generated correctly on the first attempt, and agentic multi-turn, where the model receives iterative feedback and may repair its errors. We analyze the failure modes across different stages of the pipeline and show that the main limitations of current models are not related to syntax, but rather to the correct operationalization of trading logic, proper API usage, and adherence to task semantics. These findings suggest that trading strategy generation constitutes a distinct class of domain-specific code generation tasks in which success requires not only technical correctness, but also alignment between natural-language descriptions, financial logic, and the observable behavior of the strategy on data."}
+/>
 </div>
 
 ## Multimodal World Model
 
 <div class="space-y-4">
-<PaperCard
-  title={"Qwen3.5-Omni Technical Report"}
-  arxivUrl={"https://arxiv.org/abs/2604.15804"}
-  hjfyUrl={"https://hjfy.top/arxiv/2604.15804"}
-  summary={"No summary available."}
-/>
-
 <PaperCard
   title={"Elucidating the SNR-t Bias of Diffusion Probabilistic Models"}
   arxivUrl={"https://arxiv.org/abs/2604.16044"}
@@ -75,7 +82,7 @@ import PaperCard from '@/components/papers/PaperCard.astro'
   title={"(1D) Ordered Tokens Enable Efficient Test-Time Search"}
   arxivUrl={"https://arxiv.org/abs/2604.15453"}
   hjfyUrl={"https://hjfy.top/arxiv/2604.15453"}
-  summary={"No summary available."}
+  summary={"Tokenization is a key component of autoregressive (AR) generative models, converting raw data into more manageable units for modeling. Commonly, tokens describe local information, such as regions of pixels in images or word pieces in text, and AR generation predicts these tokens in a fixed order. A worthwhile question is whether token structures affect the ability to steer the generation through test-time search, where multiple candidate generations are explored and evaluated by a verifier. Using image generation as our testbed, we hypothesize that recent 1D ordered tokenizers with coarse-to-fine structure can be more amenable to search than classical 2D grid structures. This is rooted in the fact that the intermediate states in coarse-to-fine sequences carry semantic meaning that verifiers can reliably evaluate, enabling effective steering during generation. Through controlled experiments, we find that AR models trained on coarse-to-fine ordered tokens exhibit improved test-time scaling behavior compared to grid-based counterparts. Moreover, we demonstrate that, thanks to the ordered structure, pure test-time search over token sequences (i.e., without training an AR model) can perform training-free text-to-image generation when guided by an image-text verifier. Beyond this, we systematically study how classical search algorithms (best-of-N, beam search, lookahead search) interact with different token structures, as well as the role of different verifiers and AR priors. Our results highlight the impact of token structure on inference-time scalability and provide practical guidance for test-time scaling in AR models."}
 />
 
 <PaperCard
@@ -90,13 +97,6 @@ import PaperCard from '@/components/papers/PaperCard.astro'
   arxivUrl={"https://arxiv.org/abs/2604.16027"}
   hjfyUrl={"https://hjfy.top/arxiv/2604.16027"}
   summary={"Post-trained language models produce less varied outputs than their base counterparts. This output diversity collapse undermines inference-time scaling methods that rely on varied samples, and risks homogenizing model outputs on creative and value-laden tasks. Prior work attributes collapse to specific post-training methods, without separating the role of training data composition from the method, or the generation format from the model weights. We trace output diversity through three parallel post-training lineages of Olmo 3, Think (chain-of-thought distillation), Instruct (broad multi-source data), and RL-Zero, across 15 tasks and four text diversity metrics. We find that the location of collapse co-varies with data composition: the Think lineage loses most semantic diversity at supervised fine-tuning, and the effect of DPO is larger in Instruct than in Think. Suppressing chain-of-thought reasoning at inference in Think models drops accuracy on hard tasks, yet leaves answer-level diversity unchanged, showing that the collapse is embedded in the model weights by training data, not imposed by the generation format. Decomposing diversity loss on six verifiable tasks into a quality-control component (removal of incorrect outputs) and a residual component (genuine narrowing among correct outputs) reveals that the split is task-dependent, and Think models retain more correct-answer diversity than Instruct despite collapsing more in aggregate. Our results indicate that diversity collapse is determined during training by data composition and cannot be addressed at inference time alone."}
-/>
-
-<PaperCard
-  title={"QuantCode-Bench: A Benchmark for Evaluating the Ability of Large Language Models to Generate Executable Algorithmic Trading Strategies"}
-  arxivUrl={"https://arxiv.org/abs/2604.15151"}
-  hjfyUrl={"https://hjfy.top/arxiv/2604.15151"}
-  summary={"No summary available."}
 />
 
 <PaperCard
