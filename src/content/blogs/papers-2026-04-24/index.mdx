@@ -1,0 +1,84 @@
+---
+title: Papers - 2026-04-24
+description: "吾能观之数千而面色如故"
+publishDate: 2026-04-24
+updatedDate: 2026-04-24
+tags: ['paper reading', 'agent', 'visual reasoning']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## 3D/Space Reasoning
+
+<div class="space-y-4">
+<PaperCard
+  title={"C-GenReg: Training-Free 3D Point Cloud Registration by Multi-View-Consistent Geometry-to-Image Generation with Probabilistic Modalities Fusion"}
+  arxivUrl={"https://arxiv.org/abs/2604.16680"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.16680"}
+  summary={"这篇工作提出 C-GenReg，一个无需训练的三维点云配准框架，核心思路是把几何匹配问题先转移到图像域，再利用视觉基础模型做稠密对应。方法先用世界基础模型从输入几何中合成多视角一致的 RGB 表示，再在这些生成图像上提取匹配，最后通过深度图把二维对应关系提升回三维。为增强鲁棒性，作者还设计了 Match-then-Fuse 的概率冷融合机制，将生成图像分支和原始几何分支的对应后验进行融合。实验在室内的 3DMatch、ScanNet 和室外 Waymo 上都表现出很强的零样本性能与跨域泛化能力，并首次展示了该生成式配准框架可以在真实室外激光雷达数据上工作。"}
+/>
+</div>
+
+## Embodied Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"DeVI: Physics-based Dexterous Human-Object Interaction via Synthetic Video Imitation"}
+  arxivUrl={"https://arxiv.org/abs/2604.20841"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.20841"}
+  summary={"这篇论文提出 DeVI，用合成视频来进行物理一致的灵巧人-物交互控制，目标是让具身智能体学会面向未见对象的手部操作。方法结合了文本条件生成视频，并设计混合跟踪奖励，把三维人体跟踪与鲁棒的二维物体跟踪结合起来，以弥补生成视频在物理真实性和三维信息上的不足。与依赖高质量三维示范的方法不同，DeVI 只需要生成视频即可实现零样本泛化到不同对象和交互类型。实验表明，DeVI 在多项设置下优于现有模仿三维人-物交互示范的方法，尤其在精细手-物交互建模、多物体场景和文本驱动动作多样性方面更有优势。"}
+/>
+</div>
+
+## Spatial Intelligence (Image/Video)
+
+<div class="space-y-4">
+<PaperCard
+  title={"Exploring Spatial Intelligence from a Generative Perspective"}
+  arxivUrl={"https://arxiv.org/abs/2604.20570"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.20570"}
+  summary={"这篇工作从生成式视角重新审视空间智能，关注多模态模型是否具备在图像生成与编辑中遵守和操控三维空间约束的能力。作者提出了首个用于量化生成式空间智能的基准 GSI-Bench，包含基于三维先验构建的真实数据集 GSI-Real，以及支持可控空间操作、自动标注的大规模合成集 GSI-Syn。配套的统一评测协议可以同时衡量空间遵循性和编辑保真度。实验表明，在 GSI-Syn 上微调统一多模态模型能够显著提升合成任务和真实任务表现，并且还能带来下游空间理解能力的提升。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"Near-Future Policy Optimization"}
+  arxivUrl={"https://arxiv.org/abs/2604.20733"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.20733"}
+  summary={"这篇论文提出近未来策略优化 NPO，用同一训练过程中较晚的检查点作为辅助轨迹来源，让当前策略既能学习到更强的行为，又能保持与自身分布足够接近。作者进一步提出 AutoNPO，可根据在线训练信号自动触发介入，并选择最能提升学习信号的引导检查点。方法在 Qwen3-VL-8B-Instruct 上结合 GRPO 训练验证，平均性能从 57.88 提升到 62.84，AutoNPO 进一步提升到 63.15。结果表明，该方法既能加速收敛，也能抬高最终性能上限。"}
+/>
+
+<PaperCard
+  title={"DR-Venus: Towards Frontier Edge-Scale Deep Research Agents with Only 10K Open Data"}
+  arxivUrl={"https://arxiv.org/abs/2604.19859"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.19859"}
+  summary={"这篇工作面向边缘端深度研究代理，提出仅用约 1 万条开源数据训练 4B 级强代理的 DR-Venus。方法上分两阶段：先用 agentic SFT 结合严格清洗与长轨迹重采样提升基础能力，再用 agentic RL 和基于信息增益的转级奖励、格式正则化来提高长链路任务的执行可靠性。实验显示，DR-Venus-4B 在多个深度研究基准上显著优于参数低于 9B 的既有代理模型，并缩小了与 30B 级系统的差距。作者还指出，4B 模型本身具有很强潜力，测试时扩展对这类任务也很重要。"}
+/>
+
+<PaperCard
+  title={"OpenMobile: Building Open Mobile Agents with Task and Trajectory Synthesis"}
+  arxivUrl={"https://arxiv.org/abs/2604.15093"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.15093"}
+  summary={"这篇论文提出 OpenMobile，一个用于构建开源移动代理的数据与轨迹合成框架。它先通过探索构建全局环境记忆，再利用该记忆生成更丰富且有 grounding 的任务指令，同时采用 learner/expert 交替的策略切换轨迹采样，以补足标准模仿学习中常缺失的纠错数据。基于这些数据训练的代理在多个动态移动任务基准上取得了有竞争力的结果，其中微调后的 Qwen2.5-VL 和 Qwen3-VL 在 AndroidWorld 上分别达到 51.7% 和 64.7%。作者还分析了合成指令与测试集的重叠，说明性能提升主要来自覆盖面扩大而非过拟合。"}
+/>
+
+<PaperCard
+  title={"A Self-Evolving Framework for Efficient Terminal Agents via Observational Context Compression"}
+  arxivUrl={"https://arxiv.org/abs/2604.19572"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.19572"}
+  summary={"这篇论文面向长程终端智能体任务，提出了 TACO，一个自我演化的观测上下文压缩框架，用于减少终端环境反馈在多轮交互中带来的冗余和 token 开销。方法会从历史轨迹中自动发现并迭代压缩规则，从而适配不同终端环境，而不是依赖固定启发式或人工提示。作者在 TerminalBench 1.0/2.0 以及 SWE-Bench Lite、CompileBench、DevEval、CRUST-Bench 上进行了评测。结果显示，TACO 在多种主流智能体框架和强基座模型上都能稳定提升性能，在 MiniMax-2.5 上还能将 token 开销降低约 10%，并在 TerminalBench 上带来约 1% 到 4% 的一致增益。"}
+/>
+
+<PaperCard
+  title={"SWE-chat: Coding Agent Interactions From Real Users in the Wild"}
+  arxivUrl={"https://arxiv.org/abs/2604.20779"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.20779"}
+  summary={"这篇工作提出了 SWE-chat，一个来自真实开源开发者使用场景的大规模编码代理交互数据集，用来研究人们在野外如何使用 coding agent。作者构建了持续发现和处理公开仓库会话的流水线，当前包含 6000 个会话、超过 6.3 万条用户提示和 35.5 万次代理工具调用。基于该数据集的分析显示，真实编码模式呈现明显双峰：一类会话几乎完全由代理写代码，另一类则完全由人类自己写代码。实验和统计结果还表明，代理生成代码只有 44% 会进入最终提交，且其引入的安全漏洞更多，用户也会在 44% 的轮次中对代理输出进行纠正、报告失败或中断。"}
+/>
+</div>
