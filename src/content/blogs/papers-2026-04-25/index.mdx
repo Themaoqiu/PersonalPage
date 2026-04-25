@@ -1,0 +1,106 @@
+---
+title: Papers - 2026-04-25
+description: "吾能观之数千而面色如故"
+publishDate: 2026-04-25
+updatedDate: 2026-04-25
+tags: ['paper reading', 'agent', 'visual reasoning', 'multimodal world model']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## Grounding-driven Visual Reasoning
+
+<div class="space-y-4">
+<PaperCard
+  title={"LLaTiSA: Towards Difficulty-Stratified Time Series Reasoning from Visual Perception to Semantics"}
+  arxivUrl={"https://arxiv.org/abs/2604.17295"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.17295"}
+  summary={"Comprehensive understanding of time series remains a significant challenge for Large Language Models (LLMs). Current research is hindered by fragmented task definitions and benchmarks with inherent ambiguities, precluding rigorous evaluation and the development of unified Time Series Reasoning Models(TSRMs). To bridge this gap, we formalize Time Series Reasoning (TSR) via a four-level taxonomy of increasing cognitive complexity. We introduce HiTSR, a hierarchical time series reasoning dataset comprising 83k samples with diverse task combinations and verified Chain-of-Thought (CoT) trajectories. Leveraging HiTSR, we propose LLaTiSA, a strong TSRM that integrates visualized patterns with precision-calibrated numerical tables to enhance the temporal perception of Vision-Language Models (VLMs). Through a multi-stage curriculum fine-tuning strategy, LLaTiSA achieves superior performance and exhibits robust out-of-distribution generalization across diverse TSR tasks and real-world scenarios. Our code is available at https://github.com/RainingNovember/LLaTiSA."}
+/>
+</div>
+
+## 3D LLM
+
+<div class="space-y-4">
+<PaperCard
+  title={"VLAA-GUI: Knowing When to Stop, Recover, and Search, A Modular Framework for GUI Automation"}
+  arxivUrl={"https://arxiv.org/abs/2604.21375"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.21375"}
+  summary={"Autonomous GUI agents face two fundamental challenges: early stopping, where agents prematurely declare success without verifiable evidence, and repetitive loops, where agents cycle through the same failing actions without recovery. We present VLAA-GUI, a modular GUI agentic framework built around three integrated components that guide the system on when to Stop, Recover, and Search. First, a mandatory Completeness Verifier enforces UI-observable success criteria and verification at every finish step -- with an agent-level verifier that cross-examines completion claims with decision rules, rejecting those lacking direct visual evidence. Second, a mandatory Loop Breaker provides multi-tier filtering: switching interaction mode after repeated failures, forcing strategy changes after persistent screen-state recurrence, and binding reflection signals to strategy shifts. Third, an on-demand Search Agent searches online for unfamiliar workflows by directly querying a capable LLM with search ability, returning results as plain text. We additionally integrate a Coding Agent for code-intensive actions and a Grounding Agent for precise action grounding, both invoked on demand when required. We evaluate VLAA-GUI across five top-tier backbones, including Opus 4.5, 4.6 and Gemini 3.1 Pro, on two benchmarks with Linux and Windows tasks, achieving top performance on both (77.5% on OSWorld and 61.0% on WindowsAgentArena). Notably, three of the five backbones surpass human performance (72.4%) on OSWorld in a single pass. Ablation studies show that all three proposed components consistently improve a strong backbone, while a weaker backbone benefits more from these tools when the step budget is sufficient. Further analysis also shows that the Loop Breaker nearly halves wasted steps for loop-prone models."}
+/>
+</div>
+
+## Embodied Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"UniT: Toward a Unified Physical Language for Human-to-Humanoid Policy Learning and World Modeling"}
+  arxivUrl={"https://arxiv.org/abs/2604.19734"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.19734"}
+  summary={"这篇论文提出 UniT，用统一的物理语言缓解人类数据到人形机器人策略学习与世界模型构建中的跨形态鸿沟。方法上，它采用三分支交叉重建机制，让动作预测视觉、视觉重建动作，并通过融合分支把两者压到共享的离散潜空间中，以提取与身体形态无关的物理意图。作者将其用于策略学习和世界建模两个范式：前者的 VLA-UniT 利用大量人类数据提升数据效率和 OOD 泛化，后者的 WM-UniT 则把统一 token 作为条件实现人到人形动作迁移。实验在仿真基准和真实部署中都显示出更强的可控性与更好的零样本任务迁移效果。"}
+/>
+</div>
+
+## 4D Understanding and Generation
+
+<div class="space-y-4">
+<PaperCard
+  title={"Seeing Fast and Slow: Learning the Flow of Time in Videos"}
+  arxivUrl={"https://arxiv.org/abs/2604.21931"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.21931"}
+  summary={"这篇论文把视频中的“时间流动”作为可学习的视觉概念来研究，目标是识别视频是否被加速或减速，并生成不同播放速度的视频。方法上，作者利用视频中天然存在的多模态线索和时序结构，进行自监督的速度变化检测与播放速度估计。基于这些时序推理模型，他们进一步整理出迄今最大的慢动作视频数据集，并训练出可进行速度条件生成和时间超分辨率的模型。实验表明，这种方法能把低帧率、模糊视频恢复成高帧率且细节更丰富的序列，也验证了时间维度可被显式建模与控制。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"Co-Evolving LLM Decision and Skill Bank Agents for Long-Horizon Tasks"}
+  arxivUrl={"https://arxiv.org/abs/2604.20987"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.20987"}
+  summary={"这篇论文提出 COSPLAY，一个让 LLM 决策代理与可学习技能库共同演化的框架，用于长程交互任务。它通过检索技能库中的可复用技能来指导动作选择，同时由技能管线从无标注 rollout 中持续发现、提炼和更新技能及其约束，从而增强多步规划与技能复用能力。作者在六个游戏环境上进行了评测。结果显示，使用 8B 基座模型的 COSPLAY 相比四个前沿 LLM 基线平均奖励提升超过 25.1%，并且在多智能体社交推理游戏中保持竞争力。"}
+/>
+</div>
+
+## Multimodal World Model
+
+<div class="space-y-4">
+<PaperCard
+  title={"WorldMark: A Unified Benchmark Suite for Interactive Video World Models"}
+  arxivUrl={"https://arxiv.org/abs/2604.21686"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.21686"}
+  summary={"这篇论文提出了 WorldMark，一个面向交互式视频世界模型的统一基准，用来解决不同模型各自使用私有场景和轨迹、导致横向比较不公平的问题。它设计了统一动作映射层，把共享的 WASD 动作词汇转换为各模型原生控制格式，并构建了覆盖第一/第三人称、写实/风格化场景以及不同难度的 500 个测试样例。作者还提供了模块化评测工具，分别衡量视觉质量、控制一致性和世界一致性。实验展示了该基准可以在相同输入条件下对六个主流模型进行可比评测，并配套发布了数据、代码和线上竞技平台。"}
+/>
+
+<PaperCard
+  title={"Hybrid Policy Distillation for LLMs"}
+  arxivUrl={"https://arxiv.org/abs/2604.20244"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.20244"}
+  summary={"Knowledge distillation (KD) is a powerful paradigm for compressing large language models (LLMs), whose effectiveness depends on intertwined choices of divergence direction, optimization strategy, and data regime. We break down the design of existing KD methods and present a unified view that establishes connections between them, reformulating KD as a reweighted log-likelihood objective at the token level. We further propose Hybrid Policy Distillation (HPD), which integrates the complementary advantages of forward and reverse KL to balance mode coverage and mode-seeking, and combines off-policy data with lightweight, approximate on-policy sampling. We validate HPD on long-generation math reasoning as well as short-generation dialogue and code tasks, demonstrating improved optimization stability, computational efficiency, and final performance across diverse model families and scales. The code related to this work is available at https://github.com/zwhong714/Hybrid-Policy-Distillation."}
+/>
+
+<PaperCard
+  title={"TingIS: Real-time Risk Event Discovery from Noisy Customer Incidents at Enterprise Scale"}
+  arxivUrl={"https://arxiv.org/abs/2604.21889"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.21889"}
+  summary={"Real-time detection and mitigation of technical anomalies are critical for large-scale cloud-native services, where even minutes of downtime can result in massive financial losses and diminished user trust. While customer incidents serve as a vital signal for discovering risks missed by monitoring, extracting actionable intelligence from this data remains challenging due to extreme noise, high throughput, and semantic complexity of diverse business lines. In this paper, we present TingIS, an end-to-end system designed for enterprise-grade incident discovery. At the core of TingIS is a multi-stage event linking engine that synergizes efficient indexing techniques with Large Language Models (LLMs) to make informed decisions on event merging, enabling the stable extraction of actionable incidents from just a handful of diverse user descriptions. This engine is complemented by a cascaded routing mechanism for precise business attribution and a multi-dimensional noise reduction pipeline that integrates domain knowledge, statistical patterns, and behavioral filtering. Deployed in a production environment handling a peak throughput of over 2,000 messages per minute and 300,000 messages per day, TingIS achieves a P90 alert latency of 3.5 minutes and a 95\\% discovery rate for high-priority incidents. Benchmarks constructed from real-world data demonstrate that TingIS significantly outperforms baseline methods in routing accuracy, clustering quality, and Signal-to-Noise Ratio."}
+/>
+
+<PaperCard
+  title={"EditCrafter: Tuning-free High-Resolution Image Editing via Pretrained Diffusion Model"}
+  arxivUrl={"https://arxiv.org/abs/2604.10268"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.10268"}
+  summary={"We propose EditCrafter, a high-resolution image editing method that operates without tuning, leveraging pretrained text-to-image (T2I) diffusion models to process images at resolutions significantly exceeding those used during training. Leveraging the generative priors of large-scale T2I diffusion models enables the development of a wide array of novel generation and editing applications. Although numerous image editing methods have been proposed based on diffusion models and exhibit high-quality editing results, they are difficult to apply to images with arbitrary aspect ratios or higher resolutions since they only work at the training resolutions (512x512 or 1024x1024). Naively applying patch-wise editing fails with unrealistic object structures and repetition. To address these challenges, we introduce EditCrafter, a simple yet effective editing pipeline. EditCrafter operates by first performing tiled inversion, which preserves the original identity of the input high-resolution image. We further propose a noise-damped manifold-constrained classifier-free guidance (NDCFG++) that is tailored for high resolution image editing from the inverted latent. Our experiments show that the our EditCrafter can achieve impressive editing results across various resolutions without fine-tuning and optimization."}
+/>
+
+<PaperCard
+  title={"Context Unrolling in Omni Models"}
+  arxivUrl={"https://arxiv.org/abs/2604.21921"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.21921"}
+  summary={"这篇工作提出了 Omni 统一多模态模型，面向文本、图像、视频、3D 几何和隐空间表示进行原生联合训练。作者发现这种训练会诱发一种“Context Unrolling”机制，使模型在输出预测前显式跨多种模态展开推理，从而更充分地聚合互补信息。方法上，模型通过在异构模态间进行上下文展开，逼近共享的多模态知识流形，以提升推理一致性和生成/理解能力。实验表明，Omni 在多模态生成与理解基准上都取得了很强的性能，并展示了文本、图像、视频和3D 几何的 in-context 生成能力。"}
+/>
+</div>
