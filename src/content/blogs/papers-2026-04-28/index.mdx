@@ -1,0 +1,69 @@
+---
+title: Papers - 2026-04-28
+description: "吾能观之数千而面色如故"
+publishDate: 2026-04-28
+updatedDate: 2026-04-28
+tags: ['paper reading', 'agent', 'multimodal world model']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## 3D LLM
+
+<div class="space-y-4">
+<PaperCard
+  title={"AgentSearchBench: A Benchmark for AI Agent Search in the Wild"}
+  arxivUrl={"https://arxiv.org/abs/2604.22436"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.22436"}
+  summary={"The rapid growth of AI agent ecosystems is transforming how complex tasks are delegated and executed, creating a new challenge of identifying suitable agents for a given task. Unlike traditional tools, agent capabilities are often compositional and execution-dependent, making them difficult to assess from textual descriptions alone. However, existing research and benchmarks typically assume well-specified functionalities, controlled candidate pools, or only executable task queries, leaving realistic agent search scenarios insufficiently studied. We introduce AgentSearchBench, a large-scale benchmark for agent search in the wild, built from nearly 10,000 real-world agents across multiple providers. The benchmark formalizes agent search as retrieval and reranking problems under both executable task queries and high-level task descriptions, and evaluates relevance using execution-grounded performance signals. Experiments reveal a consistent gap between semantic similarity and actual agent performance, exposing the limitations of description-based retrieval and reranking methods. We further show that lightweight behavioral signals, including execution-aware probing, can substantially improve ranking quality, highlighting the importance of incorporating execution signals into agent discovery. Our code is available at https://github.com/Bingo-W/AgentSearchBench."}
+/>
+
+<PaperCard
+  title={"Memanto: Typed Semantic Memory with Information-Theoretic Retrieval for Long-Horizon Agents"}
+  arxivUrl={"https://arxiv.org/abs/2604.22085"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.22085"}
+  summary={"The transition from stateless language model inference to persistent, multi session autonomous agents has revealed memory to be a primary architectural bottleneck in the deployment of production grade agentic systems. Existing methodologies largely depend on hybrid semantic graph architectures, which impose substantial computational overhead during both ingestion and retrieval. These systems typically require large language model mediated entity extraction, explicit graph schema maintenance, and multi query retrieval pipelines. This paper introduces Memanto, a universal memory layer for agentic artificial intelligence that challenges the prevailing assumption that knowledge graph complexity is necessary to achieve high fidelity agent memory. Memanto integrates a typed semantic memory schema comprising thirteen predefined memory categories, an automated conflict resolution mechanism, and temporal versioning. These components are enabled by Moorcheh's Information Theoretic Search engine, a no indexing semantic database that provides deterministic retrieval within sub ninety millisecond latency while eliminating ingestion delay. Through systematic benchmarking on the LongMemEval and LoCoMo evaluation suites, Memanto achieves state of the art accuracy scores of 89.8 percent and 87.1 percent respectively. These results surpass all evaluated hybrid graph and vector based systems while requiring only a single retrieval query, incurring no ingestion cost, and maintaining substantially lower operational complexity. A five stage progressive ablation study is presented to quantify the contribution of each architectural component, followed by a discussion of the implications for scalable deployment of agentic memory systems."}
+/>
+</div>
+
+## Multimodal World Model
+
+<div class="space-y-4">
+<PaperCard
+  title={"Agentic World Modeling: Foundations, Capabilities, Laws, and Beyond"}
+  arxivUrl={"https://arxiv.org/abs/2604.22748"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.22748"}
+  summary={"这篇工作系统梳理了面向智能体的世界模型研究，提出了“能力层级 × 规律类型”的分类框架。作者把世界模型分为三层能力：L1 预测器、L2 模拟器和 L3 演化器，并进一步按物理、数字、社会和科学四类规律讨论其约束与失效模式。论文综合总结了 400 多篇相关工作和 100 多个代表性系统，覆盖模型式强化学习、视频生成、网页和 GUI 智能体、多智能体社会仿真以及科学发现等方向。文中还提出了面向决策的评测原则、最小可复现评测包和架构建议，并给出了一系列开放问题与治理挑战。"}
+/>
+
+<PaperCard
+  title={"Building a Precise Video Language with Human-AI Oversight"}
+  arxivUrl={"https://arxiv.org/abs/2604.21718"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.21718"}
+  summary={"Video-language models (VLMs) learn to reason about the dynamic visual world through natural language. We introduce a suite of open datasets, benchmarks, and recipes for scalable oversight that enable precise video captioning. First, we define a structured specification for describing subjects, scenes, motion, spatial, and camera dynamics, grounded by hundreds of carefully defined visual primitives developed with professional video creators such as filmmakers. Next, to curate high-quality captions, we introduce CHAI (Critique-based Human-AI Oversight), a framework where trained experts critique and revise model-generated pre-captions into improved post-captions. This division of labor improves annotation accuracy and efficiency by offloading text generation to models, allowing humans to better focus on verification. Additionally, these critiques and preferences between pre- and post-captions provide rich supervision for improving open-source models (Qwen3-VL) on caption generation, reward modeling, and critique generation through SFT, DPO, and inference-time scaling. Our ablations show that critique quality in precision, recall, and constructiveness, ensured by our oversight framework, directly governs downstream performance. With modest expert supervision, the resulting model outperforms closed-source models such as Gemini-3.1-Pro. Finally, we apply our approach to re-caption large-scale professional videos (e.g., films, commercials, games) and fine-tune video generation models such as Wan to better follow detailed prompts of up to 400 words, achieving finer control over cinematography including camera motion, angle, lens, focus, point of view, and framing. Our results show that precise specification and human-AI oversight are key to professional-level video understanding and generation. Data and code are available on our project page: https://linzhiqiu.github.io/papers/chai/"}
+/>
+
+<PaperCard
+  title={"LLM Safety From Within: Detecting Harmful Content with Internal Representations"}
+  arxivUrl={"https://arxiv.org/abs/2604.18519"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.18519"}
+  summary={"Guard models are widely used to detect harmful content in user prompts and LLM responses. However, state-of-the-art guard models rely solely on terminal-layer representations and overlook the rich safety-relevant features distributed across internal layers. We present SIREN, a lightweight guard model that harnesses these internal features. By identifying safety neurons via linear probing and combining them through an adaptive layer-weighted strategy, SIREN builds a harmfulness detector from LLM internals without modifying the underlying model. Our comprehensive evaluation shows that SIREN substantially outperforms state-of-the-art open-source guard models across multiple benchmarks while using 250 times fewer trainable parameters. Moreover, SIREN exhibits superior generalization to unseen benchmarks, naturally enables real-time streaming detection, and significantly improves inference efficiency compared to generative guard models. Overall, our results highlight LLM internal states as a promising foundation for practical, high-performance harmfulness detection."}
+/>
+
+<PaperCard
+  title={"Sessa: Selective State Space Attention"}
+  arxivUrl={"https://arxiv.org/abs/2604.18580"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.18580"}
+  summary={"Modern sequence modeling is dominated by two families: Transformers, whose self-attention can access arbitrary elements of the visible sequence, and structured state-space models, which propagate information through an explicit recurrent state. These mechanisms face different limitations on long contexts: when attention is diffuse, the influence of individual tokens is diluted across the effective support, while recurrent state propagation can lose long-range sensitivity unless information is actively preserved. As a result, both mechanisms face challenges in preserving and selectively retrieving information over long contexts. We propose Sessa, a decoder that places attention inside a recurrent feedback path. This creates many attention-based paths through which past tokens can influence future states, rather than relying on a single attention read or a single recurrent chain. We prove that, under explicit assumptions and matched regimes, Sessa admits power-law memory tails $O(\\ell^{-β})$ for $0 &lt; β&lt; 1$, with slower decay than in the corresponding Transformer and Mamba-style baselines. We further give an explicit construction that achieves this power-law rate. Under the same assumptions, Sessa is the only model class among those considered that realizes flexible selective retrieval, including profiles whose influence does not decay with distance. Consistent with this theoretical advantage, across matched experiments, Sessa achieves the strongest performance on long-context benchmarks while remaining competitive with Transformer and Mamba-style baselines on short-context language modeling."}
+/>
+
+<PaperCard
+  title={"dWorldEval: Scalable Robotic Policy Evaluation via Discrete Diffusion World Model"}
+  arxivUrl={"https://arxiv.org/abs/2604.22152"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.22152"}
+  summary={"本文提出 dWorldEval，用离散扩散世界模型来评估机器人策略的优劣。方法上，它通过世界模型对候选策略在未来环境中的演化进行模拟，从而在不直接执行真实策略的情况下估计策略表现，并提升评估流程的可扩展性。实验结果表明，该方法在机器人策略评估任务上比现有基线更准确，也更适合大规模评测场景。"}
+/>
+</div>
