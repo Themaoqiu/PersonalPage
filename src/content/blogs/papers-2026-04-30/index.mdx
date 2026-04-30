@@ -11,14 +11,21 @@ heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
 
 import PaperCard from '@/components/papers/PaperCard.astro'
 
-## Multimodal Agent
+## Thinking with Images
 
 <div class="space-y-4">
 <PaperCard
-  title={"Co-Director: Agentic Generative Video Storytelling"}
-  arxivUrl={"https://arxiv.org/abs/2604.24842"}
-  hjfyUrl={"https://hjfy.top/arxiv/2604.24842"}
-  summary={"这篇工作提出 Co-Director，用分层多智能体框架来把视频故事生成建模为全局优化问题。方法上，它用多臂老虎机在全局层面选择更有前景的创意方向，再结合局部的多模态自我修正循环来抑制身份漂移并保持序列一致性。作者还构建了 GenAD-Bench，一个包含 400 个虚构产品场景的数据集，用于个性化广告式故事生成评测。实验结果显示，Co-Director 在该基准上显著优于现有强基线，并能较好迁移到更广泛的电影叙事场景。"}
+  title={"Meta-CoT: Enhancing Granularity and Generalization in Image Editing"}
+  arxivUrl={"https://arxiv.org/abs/2604.24625"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.24625"}
+  summary={"本文提出 Meta-CoT，用于提升图像编辑中的理解粒度与泛化能力。方法把单张图像编辑操作分解为两层：先将编辑意图表示为任务、目标与所需理解能力的三元组，再进一步拆成五个基础 meta-task，以此生成任务特定的 CoT 并指导编辑学习。作者还引入 CoT-Editing Consistency Reward，增强推理链与编辑行为的一致性。实验表明该方法在 21 个编辑任务上平均提升 15.8%，并且只用少量 meta-task 训练就能较好泛化到未见过的编辑任务。"}
+/>
+
+<PaperCard
+  title={"Refinement via Regeneration: Enlarging Modification Space Boosts Image Refinement in Unified Multimodal Models"}
+  arxivUrl={"https://arxiv.org/abs/2604.25636"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.25636"}
+  summary={"这篇工作提出了 Refinement via Regeneration（RvR），用于统一多模态模型中的图像精修。它将精修从“基于编辑的局部修改”重新表述为“条件图像再生成”，用目标提示词和初始图像的语义 token 作为条件，从而扩大可修改空间并提升语义对齐程度。相比依赖编辑指令和像素级保留的传统 RvE 方法，RvR 更能覆盖提示与图像之间的细粒度不一致。实验显示，该方法在 Geneval、DPGBench 和 UniGenBench++ 上分别取得 0.78→0.91、84.02→87.21、61.53→77.41 的提升。"}
 />
 </div>
 
@@ -29,34 +36,20 @@ import PaperCard from '@/components/papers/PaperCard.astro'
   title={"Recursive Multi-Agent Systems"}
   arxivUrl={"https://arxiv.org/abs/2604.25917"}
   hjfyUrl={"https://hjfy.top/arxiv/2604.25917"}
-  summary={"这篇工作把递归式单智能体扩展到多智能体协作，提出 RecursiveMAS，将整个多智能体系统统一表述为潜空间中的递归计算。作者设计了轻量级 RecursiveLink 来连接异构智能体，并提出 inner-outer loop 学习算法，对整个系统进行跨递归轮次的联合优化。理论分析表明，该框架在运行复杂度和训练稳定性上优于传统文本式多智能体系统。实验覆盖数学、科学、医学、搜索和代码生成等 9 个基准，在 4 种协作模式下平均准确率提升 8.3%，推理速度提升 1.2 到 2.4 倍，同时 token 使用量减少 34.6% 到 75.6%。"}
+  summary={"本文提出 RecursiveMAS，把递归式计算从单模型扩展到多智能体协作系统，将异构智能体通过轻量的 RecursiveLink 连接为统一的潜空间递归过程。作者进一步设计了内外循环联合优化算法，使系统能够在多轮递归中进行整体协同训练和共享梯度归因。理论分析表明该框架在运行时复杂度和训练稳定性上优于传统文本式多智能体系统。实验在 4 种协作模式和 9 个涵盖数学、科学、医学、搜索与代码生成的基准上验证，平均准确率提升 8.3%，端到端推理速度提升 1.2-2.4 倍，token 使用量减少 34.6%-75.6%。"}
 />
 
 <PaperCard
   title={"DV-World: Benchmarking Data Visualization Agents in Real-World Scenarios"}
   arxivUrl={"https://arxiv.org/abs/2604.25914"}
   hjfyUrl={"https://hjfy.top/arxiv/2604.25914"}
-  summary={"这篇论文提出 DV-World，用来评测真实场景中的数据可视化智能体能力，补足了现有基准在代码沙箱、单语言、只做创建任务等方面的不足。基准共包含 260 个任务，覆盖电子表格原生操作、跨范式可视化演化改写，以及带用户模拟器的交互式意图对齐三类场景。作者还设计了结合表值对齐和 MLLM-as-a-Judge 的混合评测框架，用于同时衡量数值精度与语义视觉一致性。实验显示，当前最强模型的整体表现仍低于 50%，暴露出它们在真实企业级数据可视化工作流中的明显短板。"}
-/>
-
-<PaperCard
-  title={"AutoResearchBench: Benchmarking AI Agents on Complex Scientific Literature Discovery"}
-  arxivUrl={"https://arxiv.org/abs/2604.25256"}
-  hjfyUrl={"https://hjfy.top/arxiv/2604.25256"}
-  summary={"这篇工作提出 AutoResearchBench，用来评测 AI 代理在复杂科学文献发现中的自主研究能力。基准包含两类任务：Deep Research 需要通过多步线索追踪定位目标论文，Wide Research 则要求在未知数量的候选中全面收集满足条件的论文。作者强调该基准同时具备研究导向、文献细粒度理解和开放式搜索三种特征，因此比一般网页浏览类基准更难。实验结果显示，即便最强的 LLM 在 Deep Research 上也只有 9.39% 准确率，在 Wide Research 上 IoU 仅 9.31%，很多强基线甚至低于 5%。"}
-/>
-
-<PaperCard
-  title={"Toward Scalable Terminal Task Synthesis via Skill Graphs"}
-  arxivUrl={"https://arxiv.org/abs/2604.25727"}
-  hjfyUrl={"https://hjfy.top/arxiv/2604.25727"}
-  summary={"这篇工作提出 SkillSynth，一个基于场景中介技能图的终端任务合成框架，用来缓解终端智能体训练中高质量、多样化执行轨迹不足的问题。方法上，它先构建大规模技能图，再在图上采样路径作为真实工作流抽象，最后借助多智能体执行框架把路径实例化为可运行任务。与只追求任务数量的传统合成方法不同，SkillSynth 能显式控制训练时所需的最小执行轨迹多样性。作者在 Terminal-Bench 上验证了该方法有效，合成出的任务还被用于训练 Hy3 Preview 并提升了其终端代理能力。"}
+  summary={"本文提出 DV-World，用于评测真实场景中的数据可视化智能体，共包含 260 个任务。基准覆盖电子表格原生操作、跨语言与跨范式的可视化演化，以及通过用户模拟器进行意图对齐的交互式任务。作者还设计了结合数值对齐与 MLLM-as-a-Judge 的混合评测框架，以同时衡量精度和语义视觉质量。实验显示当前最先进模型的整体表现仍低于 50%，说明现有系统在真实企业级数据可视化流程中仍存在明显短板。"}
 />
 
 <PaperCard
   title={"TCOD: Exploring Temporal Curriculum in On-Policy Distillation for Multi-turn Autonomous Agents"}
   arxivUrl={"https://arxiv.org/abs/2604.24005"}
   hjfyUrl={"https://hjfy.top/arxiv/2604.24005"}
-  summary={"这篇工作研究多轮自主智能体中的 on-policy distillation，并指出朴素 OPD 在轨迹级别会出现 KL 不稳定问题。作者提出 TCOD，通过时间课程学习逐步增加学生模型暴露的轨迹深度，从短轨迹到长轨迹渐进训练，以缓解误差累积带来的监督失真。方法在 ALFWorld、WebShop 和 ScienceWorld 三个多轮基准、四组师生模型上验证，结果显示 TCOD 能显著稳定 KL 曲线并提升训练效果。相较于 vanilla OPD，智能体性能最高提升 18 个点，并且在部分任务上还能超过教师模型、泛化到教师失败的任务上。"}
+  summary={"这篇论文研究多轮自主智能体中的 on-policy distillation 训练问题，指出朴素 OPD 会出现轨迹级 KL 不稳定，导致训练过程和性能波动。作者提出 TCOD，通过时间课程学习逐步限制学生模型接触的轨迹深度，并从短到长逐渐扩展监督范围，以缓解多轮误差累积带来的偏移。实验在 ALFWorld、WebShop 和 ScienceWorld 三个基准上、覆盖四组师生模型对，结果显示 TCOD 显著稳定了 KL 并将智能体性能相较朴素 OPD 最多提升 18 分，还能在部分任务上超过教师模型。"}
 />
 </div>
