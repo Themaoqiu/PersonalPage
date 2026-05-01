@@ -1,0 +1,88 @@
+---
+title: Papers - 2026-05-01
+description: "吾能观之数千而面色如故"
+publishDate: 2026-05-01
+updatedDate: 2026-05-01
+tags: ['paper reading', 'agent', 'visual reasoning', 'multimodal world model']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## Multimodal Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"GLM-5V-Turbo: Toward a Native Foundation Model for Multimodal Agents"}
+  arxivUrl={"https://arxiv.org/abs/2604.26752"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.26752"}
+  summary={"本文提出 GLM-5V-Turbo，旨在把多模态感知做成多模态智能体的原生核心能力，而不是语言模型外接的辅助接口。方法上，模型在设计、图文视频与网页/文档/GUI 训练、强化学习、工具链扩展以及智能体框架集成等方面进行了系统增强，使感知、规划、工具使用和执行能够协同工作。实验显示，它在多模态编程、视觉工具使用和基于框架的智能体任务上表现很强，同时保持了有竞争力的纯文本编程能力。"}
+/>
+</div>
+
+## 3D/Space Reasoning
+
+<div class="space-y-4">
+<PaperCard
+  title={"RADIO-ViPE: Online Tightly Coupled Multi-Modal Fusion for Open-Vocabulary Semantic SLAM in Dynamic Environments"}
+  arxivUrl={"https://arxiv.org/abs/2604.26067"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.26067"}
+  summary={"本文提出 RADIO-ViPE，一个面向动态环境的在线语义 SLAM 系统，用于实现具几何意识的开放词汇 grounding。该方法直接处理原始单目 RGB 视频，不依赖相机内参、深度传感器或位姿初始化，并将来自基础视觉-语言模型的多模态嵌入与几何场景信息在初始化、优化和因子图连接中紧密耦合。系统还引入自适应鲁棒核，以处理运动物体和被移动的场景元素。实验表明，RADIO-ViPE 在动态 TUM-RGBD 基准上达到最先进结果，同时在依赖标定数据和静态假设的离线开放词汇方法中保持了有竞争力的表现。"}
+/>
+</div>
+
+## 3D LLM
+
+<div class="space-y-4">
+<PaperCard
+  title={"FAMA: Failure-Aware Meta-Agentic Framework for Open-Source LLMs in Interactive Tool Use Environments"}
+  arxivUrl={"https://arxiv.org/abs/2604.25135"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.25135"}
+  summary={"Large Language Models are being increasingly deployed as the decision-making core of autonomous agents capable of effecting change in external environments. Yet, in conversational benchmarks, which simulate real-world customer-centric issue resolution scenarios, these agents frequently fail due to the cascading effects of incorrect decision-making. These challenges are particularly pronounced for open-source LLMs with smaller parameter sizes, limited context windows, and constrained inference budgets, which contribute to increased error accumulation in agentic settings. To tackle these challenges, we present the Failure-Aware Meta-Agentic (FAMA) framework. FAMA operates in two stages: first, it analyzes failure trajectories from baseline agents to identify the most prevalent errors; second, it employs an orchestration mechanism that activates a minimal subset of specialized agents tailored to address these failures by injecting a targeted context for the tool-use agent before the decision-making step. Experiments across open-source LLMs demonstrate performance gains up to 27% across evaluation modes over standard baselines. These results highlight that targeted curation of context through specialized agents to address common failures is a valuable design principle for building reliable, multi-turn tool-use LLM agents that simulate real-world conversational scenarios."}
+/>
+
+<PaperCard
+  title={"Operating-Layer Controls for Onchain Language-Model Agents Under Real Capital"}
+  arxivUrl={"https://arxiv.org/abs/2604.26091"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.26091"}
+  summary={"No summary available."}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"ClawGym: A Scalable Framework for Building Effective Claw Agents"}
+  arxivUrl={"https://arxiv.org/abs/2604.26904"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.26904"}
+  summary={"本文提出 ClawGym，一个用于构建和评估 Claw-style 个人智能体的可扩展框架。作者构建了 ClawGym-SynData，包含 1.35 万个经过过滤的合成任务，并配有仿真的工作空间和混合验证机制；同时用这些轨迹对模型进行监督微调，并探索了基于并行沙箱的轻量强化学习流程。为支持可靠评测，作者还构建了 ClawGym-Bench，包含 200 个经过自动过滤与人类-LLM 复核校准的实例。实验表明，该框架能够支撑从数据构造、训练到诊断评测的完整智能体开发流程。"}
+/>
+</div>
+
+## Multimodal World Model
+
+<div class="space-y-4">
+<PaperCard
+  title={"Unified 4D World Action Modeling from Video Priors with Asynchronous Denoising"}
+  arxivUrl={"https://arxiv.org/abs/2604.26694"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.26694"}
+  summary={"We propose X-WAM, a Unified 4D World Model that unifies real-time robotic action execution and high-fidelity 4D world synthesis (video + 3D reconstruction) in a single framework, addressing the critical limitations of prior unified world models (e.g., UWM) that only model 2D pixel-space and fail to balance action efficiency and world modeling quality. To leverage the strong visual priors of pretrained video diffusion models, X-WAM imagines the future world by predicting multi-view RGB-D videos, and obtains spatial information efficiently through a lightweight structural adaptation: replicating the final few blocks of the pretrained Diffusion Transformer into a dedicated depth prediction branch for the reconstruction of future spatial information. Moreover, we propose Asynchronous Noise Sampling (ANS) to jointly optimize generation quality and action decoding efficiency. ANS applies a specialized asynchronous denoising schedule during inference, which rapidly decodes actions with fewer steps to enable efficient real-time execution, while dedicating the full sequence of steps to generate high-fidelity video. Rather than entirely decoupling the timesteps during training, ANS samples from their joint distribution to align with the inference distribution. Pretrained on over 5,800 hours of robotic data, X-WAM achieves 79.2% and 90.7% average success rate on RoboCasa and RoboTwin 2.0 benchmarks, while producing high-fidelity 4D reconstruction and generation surpassing existing methods in both visual and geometric metrics."}
+/>
+
+<PaperCard
+  title={"Accelerating RL Post-Training Rollouts via System-Integrated Speculative Decoding"}
+  arxivUrl={"https://arxiv.org/abs/2604.26779"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.26779"}
+  summary={"RL post-training of frontier language models is increasingly bottlenecked by autoregressive rollout generation, making rollout acceleration a central systems challenge. Many existing efficiency methods improve throughput by changing the rollout or optimization regime, for example, through off-policy execution, replay, or lower-precision generation. We study speculative decoding as a lossless acceleration primitive for RL rollouts that preserves the target model's output distribution. We implement speculative decoding in NeMo-RL with a vLLM backend, supporting both synchronous and asynchronous pipelines and enabling speculation during RL rollouts. This benefit is realizable across speculation mechanisms, such as pretrained MTP heads, small external draft models or even techniques such as Eagle3, which are traditionally applied after RL phase. This yields a deployment path for state-of-the-art speculative decoding inside RL training. In a reasoning post-training workload at 8B scale under synchronous RL, speculative decoding improves rollout throughput by 1.8x. Using a high-fidelity performance simulator, we project that combining speculative decoding with asynchronous RL yields up to 2.5x end-to-end training speedup at 235B scale."}
+/>
+
+<PaperCard
+  title={"A Survey on LLM-based Conversational User Simulation"}
+  arxivUrl={"https://arxiv.org/abs/2604.24977"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.24977"}
+  summary={"User simulation has long played a vital role in computer science due to its potential to support a wide range of applications. Language, as the primary medium of human communication, forms the foundation of social interaction and behavior. Consequently, simulating conversational behavior has become a key area of study. Recent advancements in large language models (LLMs) have significantly catalyzed progress in this domain by enabling high-fidelity generation of synthetic user conversation. In this paper, we survey recent advancements in LLM-based conversational user simulation. We introduce a novel taxonomy covering user granularity and simulation objectives. Additionally, we systematically analyze core techniques and evaluation methodologies. We aim to keep the research community informed of the latest advancements in conversational user simulation and to further facilitate future research by identifying open challenges and organizing existing work under a unified framework."}
+/>
+</div>
