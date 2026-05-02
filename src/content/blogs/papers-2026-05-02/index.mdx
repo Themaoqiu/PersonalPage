@@ -3,7 +3,7 @@ title: Papers - 2026-05-02
 description: "吾能观之数千而面色如故"
 publishDate: 2026-05-02
 updatedDate: 2026-05-02
-tags: ['paper reading', 'agent', 'multimodal world model']
+tags: ['paper reading', 'agent', 'visual reasoning', 'multimodal world model']
 category: research
 comment: true
 heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
@@ -11,35 +11,25 @@ heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
 
 import PaperCard from '@/components/papers/PaperCard.astro'
 
-## 3D LLM
+## Multimodal Agent
 
 <div class="space-y-4">
-<PaperCard
-  title={"Heterogeneous Scientific Foundation Model Collaboration"}
-  arxivUrl={"https://arxiv.org/abs/2604.27351"}
-  hjfyUrl={"https://hjfy.top/arxiv/2604.27351"}
-  summary={"Agentic large language model systems have demonstrated strong capabilities. However, their reliance on language as the universal interface fundamentally limits their applicability to many real-world problems, especially in scientific domains where domain-specific foundation models have been developed to address specialized tasks beyond natural language. In this work, we introduce Eywa, a heterogeneous agentic framework designed to extend language-centric systems to a broader class of scientific foundation models. The key idea of Eywa is to augment domain-specific foundation models with a language-model-based reasoning interface, enabling language models to guide inference over non-linguistic data modalities. This design allows predictive foundation models, which are typically optimized for specialized data and tasks, to participate in higher-level reasoning and decision-making processes within agentic systems. Eywa can serve as a drop-in replacement for a single-agent pipeline (EywaAgent) or be integrated into existing multi-agent systems by replacing traditional agents with specialized agents (EywaMAS). We further investigate a planning-based orchestration framework in which a planner dynamically coordinates traditional agents and Eywa agents to solve complex tasks across heterogeneous data modalities (EywaOrchestra). We evaluate Eywa across a diverse set of scientific domains spanning physical, life, and social sciences. Experimental results demonstrate that Eywa improves performance on tasks involving structured and domain-specific data, while reducing reliance on language-based reasoning through effective collaboration with specialized foundation models."}
-/>
-
-<PaperCard
-  title={"Claw-Eval-Live: A Live Agent Benchmark for Evolving Real-World Workflows"}
-  arxivUrl={"https://arxiv.org/abs/2604.28139"}
-  hjfyUrl={"https://hjfy.top/arxiv/2604.28139"}
-  summary={"LLM agents are expected to complete end-to-end units of work across software tools, business services, and local workspaces. Yet many agent benchmarks freeze a curated task set at release time and grade mainly the final response, making it difficult to evaluate agents against evolving workflow demand or verify whether a task was executed. We introduce Claw-Eval-Live, a live benchmark for workflow agents that separates a refreshable signal layer, updated across releases from public workflow-demand signals, from a reproducible, time-stamped release snapshot. Each release is constructed from public workflow-demand signals, with ClawHub Top-500 skills used in the current release, and materialized as controlled tasks with fixed fixtures, services, workspaces, and graders. For grading, Claw-Eval-Live records execution traces, audit logs, service state, and post-run workspace artifacts, using deterministic checks when evidence is sufficient and structured LLM judging only for semantic dimensions. The release contains 105 tasks spanning controlled business services and local workspace repair, and evaluates 13 frontier models under a shared public pass rule. Experiments reveal that reliable workflow automation remains far from solved: the leading model passes only 66.7% of tasks and no model reaches 70%. Failures are structured by task family and execution surface, with HR, management, and multi-system business workflows as persistent bottlenecks and local workspace repair comparatively easier but unsaturated. Leaderboard rank alone is insufficient because models with similar pass rates can diverge in overall completion, and task-level discrimination concentrates in a middle band of tasks. Claw-Eval-Live suggests that workflow-agent evaluation should be grounded twice, in fresh external demand and in verifiable agent action."}
-/>
-
-<PaperCard
-  title={"Intern-Atlas: A Methodological Evolution Graph as Research Infrastructure for AI Scientists"}
-  arxivUrl={"https://arxiv.org/abs/2604.28158"}
-  hjfyUrl={"https://hjfy.top/arxiv/2604.28158"}
-  summary={"Existing research infrastructure is fundamentally document-centric, providing citation links between papers but lacking explicit representations of methodological evolution. In particular, it does not capture the structured relationships that explain how and why research methods emerge, adapt, and build upon one another. With the rise of AI-driven research agents as a new class of consumers of scientific knowledge, this limitation becomes increasingly consequential, as such agents cannot reliably reconstruct method evolution topologies from unstructured text. We introduce Intern-Atlas, a methodological evolution graph that automatically identifies method-level entities, infers lineage relationships among methodologies, and captures the bottlenecks that drive transitions between successive innovations. Built from 1,030,314 papers spanning AI conferences, journals, and arXiv preprints, the resulting graph comprises 9,410,201 semantically typed edges, each grounded in verbatim source evidence, forming a queryable causal network of methodological development. To operationalize this structure, we further propose a self-guided temporal tree search algorithm for constructing evolution chains that trace the progression of methods over time. We evaluate the quality of the resulting graph against expert-curated ground-truth evolution chains and observe strong alignment. In addition, we demonstrate that Intern-Atlas enables downstream applications in idea evaluation and automated idea generation. We position methodological evolution graphs as a foundational data layer for the emerging automated scientific discovery."}
-/>
-
 <PaperCard
   title={"InteractWeb-Bench: Can Multimodal Agent Escape Blind Execution in Interactive Website Generation?"}
   arxivUrl={"https://arxiv.org/abs/2604.27419"}
   hjfyUrl={"https://hjfy.top/arxiv/2604.27419"}
-  summary={"No summary available."}
+  summary={"这篇工作提出 InteractWeb-Bench，用来评测多模态 agent 在交互式网页生成中的真实能力。作者构建了面向非专业用户的低代码交互环境，并设计 Clarify、Implement、Verify、Submit 四类统一动作，让 agent 可以逐步澄清需求、生成代码并基于视觉反馈验证结果。实验表明，前沿的多模态大模型 agent 仍普遍陷入“盲执行”，在意图理解和自适应交互上存在明显短板。"}
+/>
+</div>
+
+## Embodied Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"ExoActor: Exocentric Video Generation as Generalizable Interactive Humanoid Control"}
+  arxivUrl={"https://arxiv.org/abs/2604.27711"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.27711"}
+  summary={"本文提出 ExoActor，把第三人称视频生成作为统一接口来建模人形机器人与环境、物体之间的交互过程。给定任务指令和场景上下文，系统先生成符合物理与任务意图的执行视频，再通过人体动作估计和通用动作控制器将其转换为可执行的人形行为序列。作者实现了端到端系统，并在无需额外真实世界数据采集的情况下验证了对新场景的泛化能力。结果显示，该方法能更好地支持交互丰富的 humanoid 控制，并为生成式模型驱动通用机器人智能提供了新路径。"}
 />
 </div>
 
@@ -47,10 +37,31 @@ import PaperCard from '@/components/papers/PaperCard.astro'
 
 <div class="space-y-4">
 <PaperCard
+  title={"Heterogeneous Scientific Foundation Model Collaboration"}
+  arxivUrl={"https://arxiv.org/abs/2604.27351"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.27351"}
+  summary={"本文提出 Eywa，用语言模型作为推理接口，把不同科学领域的基础模型接入统一的智能体框架，使其能在非语言模态数据上参与高层推理与决策。作者设计了单智能体版本 EywaAgent、可替换现有多智能体的 EywaMAS，以及基于规划器的 EywaOrchestra 来协调传统智能体与 Eywa 智能体。实验覆盖物理、生命和社会科学等多个领域，结果表明该框架在结构化和领域专用数据任务上更强，同时减少了对纯语言推理的依赖。"}
+/>
+
+<PaperCard
+  title={"Co-Evolving Policy Distillation"}
+  arxivUrl={"https://arxiv.org/abs/2604.27083"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.27083"}
+  summary={"本文统一分析了 RLVR 和 OPD 两类后训练范式在多能力融合中的能力损失问题，指出混合 RLVR 会产生跨能力分歧，而先训专家再做 OPD 又会因师生行为差距而吸收不充分。作者提出 Co-Evolving Policy Distillation（CoPD），让多个专家并行训练，并在专家持续进行 RLVR 时同步做双向 OPD 以共同演化。实验表明，CoPD 能把文本、图像和视频推理能力整合到一个模型中，在强基线之上取得显著提升，甚至超过了单领域专家。"}
+/>
+
+<PaperCard
+  title={"Claw-Eval-Live: A Live Agent Benchmark for Evolving Real-World Workflows"}
+  arxivUrl={"https://arxiv.org/abs/2604.28139"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.28139"}
+  summary={"这篇工作提出 Claw-Eval-Live，一个面向会随真实工作流变化的 LLM agent 评测基准。它把可刷新信号层与可复现实验快照分离，并结合执行轨迹、审计日志、服务状态和运行后产物进行评分，确定性检查优先，语义维度再用结构化 LLM 判定。实验覆盖 105 个任务和 13 个前沿模型，结果显示最强模型也只通过 66.7%，没有模型达到 70%，说明可靠的工作流自动化仍然没有被解决。"}
+/>
+
+<PaperCard
   title={"Synthetic Computers at Scale for Long-Horizon Productivity Simulation"}
   arxivUrl={"https://arxiv.org/abs/2604.28181"}
   hjfyUrl={"https://hjfy.top/arxiv/2604.28181"}
-  summary={"这篇工作提出了 Synthetic Computers at Scale，用可扩展的方法构造带有真实文件夹层级和内容型工件的合成电脑环境。作者在每台合成电脑上先生成贴近用户工作场景的长期生产力目标，再让代理在文件系统中导航、协调协作者并持续产出文档、表格和演示等成果，形成跨月级别的长程模拟。实验中构建了 1000 台合成电脑，并在其上运行平均超过 2000 轮、单次超过 8 小时的模拟。结果表明，这些模拟产生的经验学习信号能显著提升代理在域内和域外生产力评测上的表现。"}
+  summary={"这篇工作提出了 Synthetic Computers at Scale，用来大规模构造带有真实文件夹层级和文档、表格、演示稿等内容丰富工件的合成电脑环境。作者在每台合成电脑上运行长时程模拟：一个智能体先生成与该用户相关、需要多份专业交付物且跨度约一个月的人类工作目标，另一个智能体再以该用户身份在电脑中持续工作，进行文件系统定位、协作和产出文档。实验中他们构建了 1000 台合成电脑，每次模拟平均超过 2000 轮、运行超过 8 小时。结果表明，这些模拟产生了丰富的经验学习信号，并显著提升了智能体在领域内和领域外的生产力评测表现。"}
 />
 </div>
 
@@ -61,41 +72,6 @@ import PaperCard from '@/components/papers/PaperCard.astro'
   title={"Visual Generation in the New Era: An Evolution from Atomic Mapping to Agentic World Modeling"}
   arxivUrl={"https://arxiv.org/abs/2604.28185"}
   hjfyUrl={"https://hjfy.top/arxiv/2604.28185"}
-  summary={"Recent visual generation models have made major progress in photorealism, typography, instruction following, and interactive editing, yet they still struggle with spatial reasoning, persistent state, long-horizon consistency, and causal understanding. We argue that the field should move beyond appearance synthesis toward intelligent visual generation: plausible visuals grounded in structure, dynamics, domain knowledge, and causal relations. To frame this shift, we introduce a five-level taxonomy: Atomic Generation, Conditional Generation, In-Context Generation, Agentic Generation, and World-Modeling Generation, progressing from passive renderers to interactive, agentic, world-aware generators. We analyze key technical drivers, including flow matching, unified understanding-and-generation models, improved visual representations, post-training, reward modeling, data curation, synthetic data distillation, and sampling acceleration. We further show that current evaluations often overestimate progress by emphasizing perceptual quality while missing structural, temporal, and causal failures. By combining benchmark review, in-the-wild stress tests, and expert-constrained case studies, this roadmap offers a capability-centered lens for understanding, evaluating, and advancing the next generation of intelligent visual generation systems."}
-/>
-
-<PaperCard
-  title={"Co-Evolving Policy Distillation"}
-  arxivUrl={"https://arxiv.org/abs/2604.27083"}
-  hjfyUrl={"https://hjfy.top/arxiv/2604.27083"}
-  summary={"RLVR and OPD have become standard paradigms for post-training. We provide a unified analysis of these two paradigms in consolidating multiple expert capabilities into a single model, identifying capability loss in different ways: mixed RLVR suffers from inter-capability divergence cost, while the pipeline of first training experts and then performing OPD, though avoiding divergence, fails to fully absorb teacher capabilities due to large behavioral pattern gaps between teacher and student. We propose Co-Evolving Policy Distillation (CoPD), which encourages parallel training of experts and introduces OPD during each expert's ongoing RLVR training rather than after complete expert training, with experts serving as mutual teachers (making OPD bidirectional) to co-evolve. This enables more consistent behavioral patterns among experts while maintaining sufficient complementary knowledge throughout. Experiments validate that CoPD achieves all-in-one integration of text, image, and video reasoning capabilities, significantly outperforming strong baselines such as mixed RLVR and MOPD, and even surpassing domain-specific experts. The model parallel training pattern offered by CoPD may inspire a novel training scaling paradigm."}
-/>
-
-<PaperCard
-  title={"ExoActor: Exocentric Video Generation as Generalizable Interactive Humanoid Control"}
-  arxivUrl={"https://arxiv.org/abs/2604.27711"}
-  hjfyUrl={"https://hjfy.top/arxiv/2604.27711"}
-  summary={"Humanoid control systems have made significant progress in recent years, yet modeling fluent interaction-rich behavior between a robot, its surrounding environment, and task-relevant objects remains a fundamental challenge. This difficulty arises from the need to jointly capture spatial context, temporal dynamics, robot actions, and task intent at scale, which is a poor match to conventional supervision. We propose ExoActor, a novel framework that leverages the generalization capabilities of large-scale video generation models to address this problem. The key insight in ExoActor is to use third-person video generation as a unified interface for modeling interaction dynamics. Given a task instruction and scene context, ExoActor synthesizes plausible execution processes that implicitly encode coordinated interactions between robot, environment, and objects. Such video output is then transformed into executable humanoid behaviors through a pipeline that estimates human motion and executes it via a general motion controller, yielding a task-conditioned behavior sequence. To validate the proposed framework, we implement it as an end-to-end system and demonstrate its generalization to new scenarios without additional real-world data collection. Furthermore, we conclude by discussing limitations of the current implementation and outlining promising directions for future research, illustrating how ExoActor provides a scalable approach to modeling interaction-rich humanoid behaviors, potentially opening a new avenue for generative models to advance general-purpose humanoid intelligence."}
-/>
-
-<PaperCard
-  title={"Efficient Training on Multiple Consumer GPUs with RoundPipe"}
-  arxivUrl={"https://arxiv.org/abs/2604.27085"}
-  hjfyUrl={"https://hjfy.top/arxiv/2604.27085"}
-  summary={"Fine-tuning Large Language Models (LLMs) on consumer-grade GPUs is highly cost-effective, yet constrained by limited GPU memory and slow PCIe interconnects. Pipeline parallelism combined with CPU offloading mitigates these hardware bottlenecks by reducing communication overhead. However, existing PP schedules suffer from an inherent limitation termed the weight binding issue. Binding uneven model stages (e.g., the LM head is large) to GPUs limits the pipeline's throughput to that of the GPU with the heaviest load, leading to severe pipeline bubbles. In this paper, we propose RoundPipe, a novel pipeline schedule that breaks the weight binding constraint on consumer GPU servers. RoundPipe treats GPUs as a pool of stateless execution workers and dynamically dispatches computation stages across devices in a round-robin manner, achieving a near-zero-bubble pipeline. To ensure training correctness and system efficiency, RoundPipe integrates a priority-aware transfer scheduling engine, a fine-grained distributed event-based synchronization protocol, and an automated layer partitioning algorithm. Evaluations on an 8$\\times$ RTX 4090 server demonstrate that RoundPipe achieves 1.48--2.16$\\times$ speedups over state-of-the-art baselines when fine-tuning 1.7B to 32B models. Remarkably, RoundPipe enables LoRA fine-tuning of the Qwen3-235B model with 31K sequence length on a single server. RoundPipe is publicly available as an open-source Python library with comprehensive documentation."}
-/>
-
-<PaperCard
-  title={"Length Value Model: Scalable Value Pretraining for Token-Level Length Modeling"}
-  arxivUrl={"https://arxiv.org/abs/2604.27039"}
-  hjfyUrl={"https://hjfy.top/arxiv/2604.27039"}
-  summary={"Token serves as the fundamental unit of computation in modern autoregressive models, and generation length directly influences both inference cost and reasoning performance. Despite its importance, existing approaches lack fine-grained length modeling, operating primarily at the coarse-grained sequence level. We introduce the Length Value Model (LenVM), a token-level framework that models the remaining generation length. By formulating length modeling as a value estimation problem and assigning a constant negative reward to each generated token, LenVM predicts a bounded, discounted return that serves as a monotone proxy for the remaining generation horizon. This formulation yields supervision that is annotation-free, dense, unbiased, and scalable. Experiments on LLMs and VLMs demonstrate LenVM provides a highly effective signal at inference time. On the LIFEBench exact length matching task, applying LenVM to a 7B model improves the length score from 30.9 to 64.8, significantly outperforming frontier closed-source models. Furthermore, LenVM enables continuous control over the trade off between performance and efficiency. On GSM8K at a budget of 200 tokens, LenVM maintains 63% accuracy compared to 6 percent for token budget baseline. It also accurately predicts total generation length from the prompt boundary. Finally, LenVM's token-level values offer an interpretable view of generation dynamics, revealing how specific tokens shift reasoning toward shorter or longer regimes. Results demonstrate that LenVM supports a broad range of applications and token length can be effectively modeled as a token-level value signal, highlighting the potential of LenVM as a general framework for length modeling and as a length-specific value signal that could support future RL training. Code is available at https://github.com/eric-ai-lab/Length-Value-Model."}
-/>
-
-<PaperCard
-  title={"Leveraging Verifier-Based Reinforcement Learning in Image Editing"}
-  arxivUrl={"https://arxiv.org/abs/2604.27505"}
-  hjfyUrl={"https://hjfy.top/arxiv/2604.27505"}
-  summary={"While Reinforcement Learning from Human Feedback (RLHF) has become a pivotal paradigm for text-to-image generation, its application to image editing remains largely unexplored. A key bottleneck is the lack of a robust general reward model for all editing tasks. Existing edit reward models usually give overall scores without detailed checks, ignoring different instruction requirements and causing biased rewards. To address this, we argue that the key is to move from a simple scorer to a reasoning verifier. We introduce Edit-R1, a framework that builds a chain-of-thought (CoT) verifier-based reasoning reward model (RRM) and then leverages it for downstream image editing. The Edit-RRM breaks instructions into distinct principles, evaluates the edited image against each principle, and aggregates these checks into an interpretable, fine-grained reward. To build such an RRM, we first apply supervised fine-tuning (SFT) as a ``cold-start'' to generate CoT reward trajectories. Then, we introduce Group Contrastive Preference Optimization (GCPO), a reinforcement learning algorithm that leverages human pairwise preference data to reinforce our pointwise RRM. After building the RRM, we use GRPO to train editing models with this non-differentiable yet powerful reward model. Extensive experiments demonstrate that our Edit-RRM surpasses powerful VLMs such as Seed-1.5-VL and Seed-1.6-VL as an editing-specific reward model, and we observe a clear scaling trend, with performance consistently improving from 3B to 7B parameters. Moreover, Edit-R1 delivers gains to editing models like FLUX.1-kontext, highlighting its effectiveness in enhancing image editing."}
+  summary={"本文系统梳理了视觉生成从原子映射到智能体式世界建模的演进，提出五级分类框架：Atomic、Conditional、In-Context、Agentic 和 World-Modeling Generation。作者围绕 flow matching、统一理解与生成、后训练、奖励建模、数据构建和采样加速等技术驱动力，分析了推动下一代视觉生成的关键路径。论文还结合基准回顾、真实场景压力测试和专家约束案例，指出当前评测过度强调感知质量，往往掩盖了结构、时间和因果层面的失败。整体上，它给出了面向智能视觉生成的能力导向路线图。"}
 />
 </div>
