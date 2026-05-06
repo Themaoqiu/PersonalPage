@@ -1,0 +1,77 @@
+---
+title: Papers - 2026-05-06
+description: "吾能观之数千而面色如故"
+publishDate: 2026-05-06
+updatedDate: 2026-05-06
+tags: ['paper reading', 'agent', 'multimodal world model']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## 3D LLM
+
+<div class="space-y-4">
+<PaperCard
+  title={"AcademiClaw: When Students Set Challenges for AI Agents"}
+  arxivUrl={"https://arxiv.org/abs/2605.02661"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.02661"}
+  summary={"Benchmarks within the OpenClaw ecosystem have thus far evaluated exclusively assistant-level tasks, leaving the academic-level capabilities of OpenClaw largely unexamined. We introduce AcademiClaw, a bilingual benchmark of 80 complex, long-horizon tasks sourced directly from university students' real academic workflows -- homework, research projects, competitions, and personal projects -- that they found current AI agents unable to solve effectively. Curated from 230 student-submitted candidates through rigorous expert review, the final task set spans 25+ professional domains, ranging from olympiad-level mathematics and linguistics problems to GPU-intensive reinforcement learning and full-stack system debugging, with 16 tasks requiring CUDA GPU execution. Each task executes in an isolated Docker sandbox and is scored on task completion by multi-dimensional rubrics combining six complementary techniques, with an independent five-category safety audit providing additional behavioral analysis. Experiments on six frontier models show that even the best achieves only a 55\\% pass rate. Further analysis uncovers sharp capability boundaries across task domains, divergent behavioral strategies among models, and a disconnect between token consumption and output quality, providing fine-grained diagnostic signals beyond what aggregate metrics reveal. We hope that AcademiClaw and its open-sourced data and code can serve as a useful resource for the OpenClaw community, driving progress toward agents that are more capable and versatile across the full breadth of real-world academic demands. All data and code are available at https://github.com/GAIR-NLP/AcademiClaw."}
+/>
+
+<PaperCard
+  title={"PhysicianBench: Evaluating LLM Agents in Real-World EHR Environments"}
+  arxivUrl={"https://arxiv.org/abs/2605.02240"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.02240"}
+  summary={"No summary available."}
+/>
+
+<PaperCard
+  title={"T$^2$PO: Uncertainty-Guided Exploration Control for Stable Multi-Turn Agentic Reinforcement Learning"}
+  arxivUrl={"https://arxiv.org/abs/2605.02178"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.02178"}
+  summary={"Recent progress in multi-turn reinforcement learning (RL) has significantly improved reasoning LLMs' performances on complex interactive tasks. Despite advances in stabilization techniques such as fine-grained credit assignment and trajectory filtering, instability remains pervasive and often leads to training collapse. We argue that this instability stems from inefficient exploration in multi-turn settings, where policies continue to generate low-information actions that neither reduce uncertainty nor advance task progress. To address this issue, we propose Token- and Turn-level Policy Optimization (T$^2$PO), an uncertainty-aware framework that explicitly controls exploration at fine-grained levels. At the token level, T$^2$PO monitors uncertainty dynamics and triggers a thinking intervention once the marginal uncertainty change falls below a threshold. At the turn level, T$^2$PO identifies interactions with negligible exploration progress and dynamically resamples such turns to avoid wasted rollouts. We evaluate T$^2$PO in diverse environments, including WebShop, ALFWorld, and Search QA, demonstrating substantial gains in training stability and performance improvements with better exploration efficiency. Code is available at: https://github.com/WillDreamer/T2PO."}
+/>
+
+<PaperCard
+  title={"Hierarchical Abstract Tree for Cross-Document Retrieval-Augmented Generation"}
+  arxivUrl={"https://arxiv.org/abs/2605.00529"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.00529"}
+  summary={"Retrieval-augmented generation (RAG) enhances large language models with external knowledge, and tree-based RAG organizes documents into hierarchical indexes to support queries at multiple granularities. However, existing Tree-RAG methods designed for single-document retrieval face critical challenges in scaling to cross-document multi-hop questions: (1) poor distribution adaptability, where $k$-means clustering introduces noise due to rigid distribution assumptions; (2) structural isolation, as tree indexes lack explicit cross-document connections; and (3) coarse abstraction, which obscures fine-grained details. To address these limitations, we propose $Ψ$-RAG, a tree-RAG framework with two key components. First, a hierarchical abstract tree index built through an iterative \"merging and collapse\" process that adapts to data distributions without a priori assumption. Second, a multi-granular retrieval agent that intelligently interacts with the knowledge base with reorganized queries and an agent-powered hybrid retriever. $Ψ$-RAG supports diverse tasks from token-level question answering to document-level summarization. On cross-document multi-hop QA benchmarks, it outperforms RAPTOR by 25.9% and HippoRAG 2 by 7.4% in average F1 score. Code is available at https://github.com/Newiz430/Psi-RAG."}
+/>
+</div>
+
+## Embodied Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"MolmoAct2: Action Reasoning Models for Real-world Deployment"}
+  arxivUrl={"https://arxiv.org/abs/2605.02881"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.02881"}
+  summary={"这篇工作提出了面向真实部署的全开源动作推理模型 MolmoAct2，目标是提升机器人视觉-语言-动作系统在实际环境中的可用性。作者先训练了专门面向空间与具身推理的 MolmoER 视觉语言骨干，并构建了包含双臂遥操作、Franka 与 SO100/101 等平台的新数据集。模型架构上，他们将连续动作的 flow-matching 专家通过逐层 KV-cache 条件注入到离散 token VLM 中，并加入 MolmoThink 以按需重预测变化区域的深度 token 来降低推理延迟。实验覆盖 7 个仿真和真实世界基准以及 13 个具身推理基准，结果显示 MolmoAct2 和 MolmoER 都明显优于强基线。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"HiL-Bench (Human-in-Loop Benchmark): Do Agents Know When to Ask for Help?"}
+  arxivUrl={"https://arxiv.org/abs/2604.09408"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.09408"}
+  summary={"这篇工作提出 HiL-Bench，用来评测智能体在信息不完整、含糊或矛盾时是否会主动向人类求助。作者设计了逐步探索才能暴露 blocker 的任务，并用 Ask-F1 同时衡量提问精确率和 blocker 召回率，避免靠“乱问”刷分。实验覆盖 SWE 和 text-to-SQL，结果显示多数前沿模型在判断何时该问这件事上都有明显短板，拿到完整上下文时的能力并不能转化为可靠的求助判断。进一步的强化学习实验表明，这种判断能力是可以训练提升的，一个 32B 模型在 Ask-F1 和任务通过率上都获得了改进，并且这种收益能跨领域迁移。"}
+/>
+</div>
+
+## Multimodal World Model
+
+<div class="space-y-4">
+<PaperCard
+  title={"ComboStoc: Combinatorial Stochasticity for Diffusion Generative Models"}
+  arxivUrl={"https://arxiv.org/abs/2405.13729"}
+  hjfyUrl={"https://hjfy.top/arxiv/2405.13729"}
+  summary={"In this paper, we study an under-explored but important factor of diffusion generative models, i.e., the combinatorial complexity. Data samples are generally high-dimensional, and for various structured generation tasks, additional attributes are combined to associate with data samples. We show that the space spanned by the combination of dimensions and attributes can be insufficiently covered by existing training schemes of diffusion generative models, potentially limiting test time performance. We present a simple fix to this problem by constructing stochastic processes that fully exploit the combinatorial structures, hence the name ComboStoc. Using this simple strategy, we show that network training is significantly accelerated across diverse data modalities, including images and 3D structured shapes. Moreover, ComboStoc enables a new way of test time generation which uses asynchronous time steps for different dimensions and attributes, thus allowing for varying degrees of control over them. Our code is available at: https://github.com/Xrvitd/ComboStoc"}
+/>
+</div>
