@@ -1,0 +1,84 @@
+---
+title: Papers - 2026-05-08
+description: "吾能观之数千而面色如故"
+publishDate: 2026-05-08
+updatedDate: 2026-05-08
+tags: ['paper reading', 'agent', 'visual reasoning', 'multimodal world model']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## Grounding-driven Visual Reasoning
+
+<div class="space-y-4">
+<PaperCard
+  title={"MiniCPM-o 4.5: Towards Real-Time Full-Duplex Omni-Modal Interaction"}
+  arxivUrl={"https://arxiv.org/abs/2604.27393"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.27393"}
+  summary={"Recent progress in multimodal large language models (MLLMs) has brought AI capabilities from static offline data processing to real-time streaming interaction, yet they still remain far from human-level multimodal interaction. The key bottlenecks are no longer modality coverage or latency alone, but the interaction paradigm itself. First, perception and response are still separated into alternating phases, preventing models from incorporating new inputs for timely adjustment during generation. Second, most current models remain reactive, responding only to explicit user requests instead of acting proactively in the evolving multimodal environment. We present MiniCPM-o 4.5, our latest effort towards human-like multimodal interaction, which mitigates these gaps by real-time full-duplex omni-modal interaction. It can see, listen, and speak simultaneously in real-time, while also exhibiting proactive behaviors such as issuing reminders or comments based on its continuous understanding of the live scene. The key technique behind MiniCPM-o 4.5 is Omni-Flow, a unified streaming framework that aligns omni-modal inputs and outputs along a shared temporal axis. This formulation converts conventional turn-based interaction into a full-duplex, time-aligned process, enabling simultaneous perception and response and allowing proactive behavior to arise within the same framework. With a total of 9B parameters, MiniCPM-o 4.5 approaches Gemini 2.5 Flash in vision-language capabilities, delivering state-of-the-art open-source performance at its scale. It also surpasses Qwen3-Omni-30B-A3B in omni-modal understanding and delivers better speech generation, with significantly higher computation efficiency. Driven by its efficient architecture design and inference optimization, the model can perform real-time full-duplex omni-modal interaction on edge devices with less than 12GB RAM cost."}
+/>
+</div>
+
+## Spatial Intelligence (Image/Video)
+
+<div class="space-y-4">
+<PaperCard
+  title={"Awaking Spatial Intelligence in Unified Multimodal Understanding and Generation"}
+  arxivUrl={"https://arxiv.org/abs/2605.04128"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.04128"}
+  summary={"这篇工作提出 JoyAI-Image，一个统一的多模态基础模型，同时支持视觉理解、文本生成图像和指令式图像编辑。方法上，它将具备空间增强能力的多模态大语言模型与多模态扩散 Transformer 结合，通过共享多模态接口让感知与生成互相促进，并配合统一指令微调、长文本渲染监督、空间标注数据以及通用/空间编辑信号进行训练。实验覆盖理解、生成、长文本渲染和编辑等多个基准，结果显示该模型达到 SOTA 或接近 SOTA。作者还指出，增强理解、可控空间编辑和新视角辅助推理之间的双向闭环，是提升空间智能的关键。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"OpenSearch-VL: An Open Recipe for Frontier Multimodal Search Agents"}
+  arxivUrl={"https://arxiv.org/abs/2605.05185"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.05185"}
+  summary={"这篇工作提出 OpenSearch-VL，目标是构建可复现的开放式多模态深度搜索智能体训练方案。方法上，作者先通过维基路径采样、实体模糊改写和源锚点视觉定位构建高质量数据，再提供统一的工具环境，支持文本搜索、图像搜索、OCR、裁剪、锐化、超分辨率和透视校正。训练上采用多轮、fatal-aware 的 GRPO 算法，在工具失败后屏蔽后续 token，同时保留失败前的有效推理。实验显示，该方案在七个基准上平均提升超过 10 分，并在若干任务上接近专有商业模型。"}
+/>
+
+<PaperCard
+  title={"Rethinking Reasoning-Intensive Retrieval: Evaluating and Advancing Retrievers in Agentic Search Systems"}
+  arxivUrl={"https://arxiv.org/abs/2605.04018"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.04018"}
+  summary={"这篇工作聚焦于面向 agentic search 的“推理型检索”，目标不是单纯匹配主题，而是找出能支撑后续推理的证据组合。作者提出 BRIGHT-Pro 基准，把每个查询扩展为多方面金标准证据，并在静态检索和 agentic 搜索两种协议下评测检索器；同时构建 RTriever-Synth，通过方面拆解生成互补正样本和正样本条件下的 hard negatives，用于 LoRA 微调 RTriever-4B。实验表明，新的评测方式能暴露传统指标看不到的行为差异，而微调后的 RTriever-4B 相比基础模型有明显提升。"}
+/>
+
+<PaperCard
+  title={"CreativityBench: Evaluating Agent Creative Reasoning via Affordance-Based Tool Repurposing"}
+  arxivUrl={"https://arxiv.org/abs/2605.02910"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.02910"}
+  summary={"这篇工作提出了 CreativityBench，用来评估大模型在“工具再利用”场景下的创造性推理能力。作者构建了一个包含 4000 个实体和 15 万+ affordance 标注的知识库，把物体、部件、属性和可执行用途关联起来，并据此生成 1.4 万个带约束的 grounded 任务。实验覆盖 10 个主流闭源与开源模型，结果显示模型往往能选出看起来合理的物体，但常常找不到正确部件、对应 affordance 和物理机制，性能因此显著下降。研究还发现，规模扩展带来的收益很快饱和，常规 Chain-of-Thought 对这类任务帮助有限，说明创造性工具使用仍是当前模型的明显短板。"}
+/>
+</div>
+
+## Multimodal World Model
+
+<div class="space-y-4">
+<PaperCard
+  title={"Stream-R1: Reliability-Perplexity Aware Reward Distillation for Streaming Video Generation"}
+  arxivUrl={"https://arxiv.org/abs/2605.03849"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.03849"}
+  summary={"这篇工作提出 Stream-R1，用于提升流式视频生成蒸馏的可靠性和质量。方法上，它把教师监督拆成“跨 rollout 的可靠性”和“时空区域的难度”两层加权，利用预训练视频奖励模型同时重标定整段轨迹和像素/帧级优化重点。作者还设计了自适应平衡机制，避免画质、运动和文本对齐某一项过度主导训练。实验表明，Stream-R1 在标准流式视频生成基准上相较蒸馏基线取得了稳定提升，而且不增加推理开销。"}
+/>
+
+<PaperCard
+  title={"Stream-T1: Test-Time Scaling for Streaming Video Generation"}
+  arxivUrl={"https://arxiv.org/abs/2605.04461"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.04461"}
+  summary={"这篇工作提出 Stream-T1，把测试时缩放引入流式视频生成，以更低成本提升生成质量。方法上，它围绕 chunk 级生成设计了三部分：用历史高质量噪声引导当前噪声传播、用奖励模型筛选候选以平衡局部美感和全局时序一致性、以及把被移出 KV-cache 的上下文按反馈重新注入后续生成。作者强调流式视频生成天然适合测试时搜索，因为分块合成和较少去噪步数能降低候选探索成本。实验在 5 秒和 30 秒视频基准上显示，该方法显著改善了时序一致性、运动平滑度和逐帧视觉质量。"}
+/>
+
+<PaperCard
+  title={"HERMES++: Toward a Unified Driving World Model for 3D Scene Understanding and Generation"}
+  arxivUrl={"https://arxiv.org/abs/2604.28196"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.28196"}
+  summary={"这篇工作提出 HERMES++，把 3D 场景理解和未来几何预测统一到同一个驾驶世界模型中。方法上，它用 BEV 表示融合多视角空间信息，引入 LLM 增强的 world queries 做理解分支的知识迁移，并通过 Current-to-Future Link 把语义上下文连接到未来几何演化。为保证结构一致性，作者还加入联合几何优化，将显式几何约束和隐式潜表示正则结合起来。实验表明，HERMES++ 在多个基准上同时提升了未来点云预测和 3D 场景理解性能，优于专门方法。"}
+/>
+</div>
