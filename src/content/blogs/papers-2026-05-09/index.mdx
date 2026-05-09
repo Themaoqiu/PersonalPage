@@ -1,0 +1,66 @@
+---
+title: Papers - 2026-05-09
+description: "吾能观之数千而面色如故"
+publishDate: 2026-05-09
+updatedDate: 2026-05-09
+tags: ['paper reading', 'agent']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## 3D LLM
+
+<div class="space-y-4">
+<PaperCard
+  title={"Audio-Visual Intelligence in Large Foundation Models"}
+  arxivUrl={"https://arxiv.org/abs/2605.04045"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.04045"}
+  summary={"Audio-Visual Intelligence (AVI) has emerged as a central frontier in artificial intelligence, bridging auditory and visual modalities to enable machines that can perceive, generate, and interact in the multimodal real world. In the era of large foundation models, joint modeling of audio and vision has become increasingly crucial, i.e., not only for understanding but also for controllable generation and reasoning across dynamic, temporally grounded signals. Recent advances, such as Meta MovieGen and Google Veo-3, highlight the growing industrial and academic focus on unified audio-vision architectures that learn from massive multimodal data. However, despite rapid progress, the literature remains fragmented, spanning diverse tasks, inconsistent taxonomies, and heterogeneous evaluation practices that impede systematic comparison and knowledge integration. This survey provides the first comprehensive review of AVI through the lens of large foundation models. We establish a unified taxonomy covering the broad landscape of AVI tasks, ranging from understanding (e.g., speech recognition, sound localization) to generation (e.g., audio-driven video synthesis, video-to-audio) and interaction (e.g., dialogue, embodied, or agentic interfaces). We synthesize methodological foundations, including modality tokenization, cross-modal fusion, autoregressive and diffusion-based generation, large-scale pretraining, instruction alignment, and preference optimization. Furthermore, we curate representative datasets, benchmarks, and evaluation metrics, offering a structured comparison across task families and identifying open challenges in synchronization, spatial reasoning, controllability, and safety. By consolidating this rapidly expanding field into a coherent framework, this survey aims to serve as a foundational reference for future research on large-scale AVI."}
+/>
+
+<PaperCard
+  title={"StraTA: Incentivizing Agentic Reinforcement Learning with Strategic Trajectory Abstraction"}
+  arxivUrl={"https://arxiv.org/abs/2605.06642"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.06642"}
+  summary={"Large language models (LLMs) are increasingly used as interactive agents, but optimizing them for long-horizon decision making remains difficult because current methods are largely purely reactive, which weakens both exploration and credit assignment over extended trajectories. In this work, we present Strategic Trajectory Abstraction (StraTA), a simple framework that introduces an explicit trajectory-level strategy into agentic reinforcement learning (RL). StraTA samples a compact strategy from the initial task state, conditions subsequent actions on that strategy, and trains strategy generation and action execution jointly with a hierarchical GRPO-style rollout design, further enhanced by diverse strategy rollout and critical self-judgment. Experiments on ALFWorld, WebShop, and SciWorld show that StraTA consistently improves both sample efficiency and final performance over strong baselines. StraTA reaches success rates of 93.1% on ALFWorld and 84.2% on WebShop. On SciWorld, StraTA attains a 63.5% overall score, outperforming frontier closed-source models."}
+/>
+</div>
+
+## Embodied Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"When to Trust Imagination: Adaptive Action Execution for World Action Models"}
+  arxivUrl={"https://arxiv.org/abs/2605.06222"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.06222"}
+  summary={"这篇工作研究了机器人在世界动作模型中如何自适应地决定执行多长的动作片段。作者把问题建模为“未来-现实”一致性验证，提出 FFDC 轻量验证器，联合利用预测动作、预测视觉动态、真实观测和语言指令来判断当前想象的未来是否仍可信。基于验证结果，系统可在预测稳定时延长执行步长，在偏离现实或接触复杂阶段提前重规划。RoboTwin 和真实机器人实验表明，该方法在保持效率的同时提升了鲁棒性：RoboTwin 上前向推理次数减少 69.10%，执行时间减少 34.02%，成功率比短步长基线提升 2.54%，真实世界成功率提升 35%。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"Skill1: Unified Evolution of Skill-Augmented Agents via Reinforcement Learning"}
+  arxivUrl={"https://arxiv.org/abs/2605.06130"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.06130"}
+  summary={"这篇工作提出 Skill1，用强化学习把技能检索、技能使用和新技能蒸馏统一到同一个策略里协同优化。方法上，智能体先查询技能库、重排序选择合适技能，再在该技能条件下完成任务，并从轨迹中蒸馏新技能，所有学习都来自同一个任务结果信号。作者还用低频趋势和高频波动分别为技能选择与技能蒸馏分配信用。实验在 ALFWorld 和 WebShop 上显示它优于此前的技能型方法和强化学习基线，消融也证明去掉任一信用信号都会削弱学习效果。"}
+/>
+
+<PaperCard
+  title={"SkillOS: Learning Skill Curation for Self-Evolving Agents"}
+  arxivUrl={"https://arxiv.org/abs/2605.06614"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.06614"}
+  summary={"这篇工作提出 SkillOS，用强化学习来学习自我演化智能体中的技能整理与维护策略。方法上，作者将执行器与技能整理器解耦，冻结的执行器负责检索和应用技能，可训练的整理器负责把经验更新到外部 SkillRepo 中，并通过分组任务流和复合奖励提供延迟反馈下的训练信号。该框架让前序轨迹更新技能库、后续相关任务评估更新效果，从而学到更长期的技能管理策略。实验表明，SkillOS 在多轮智能体任务和单轮推理任务上都稳定优于无记忆和强记忆基线，并且学到的整理策略能迁移到不同执行器骨干和任务域。"}
+/>
+
+<PaperCard
+  title={"Nonsense Helps: Prompt Space Perturbation Broadens Reasoning Exploration"}
+  arxivUrl={"https://arxiv.org/abs/2605.05566"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.05566"}
+  summary={"这篇工作针对基于可验证奖励的强化学习中常见的 zero-advantage 问题，提出 LoPE 来扩大推理探索。作者在重采样前向提示中随机加入由 Lorem Ipsum 词汇拼接而成的低困惑度扰动，从而把模型分布推到新的区域，激活原提示下难以到达的推理路径。该方法不依赖复杂搜索或额外模型，却能在困难题目上提供更有效的训练信号。实验覆盖 1.7B、4B 和 7B 模型，结果显示 LoPE 明显优于原始提示下的重采样，且其他低困惑度的拉丁随机序列也具有类似效果。"}
+/>
+</div>
