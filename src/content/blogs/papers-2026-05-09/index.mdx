@@ -11,24 +11,6 @@ heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
 
 import PaperCard from '@/components/papers/PaperCard.astro'
 
-## 3D LLM
-
-<div class="space-y-4">
-<PaperCard
-  title={"Audio-Visual Intelligence in Large Foundation Models"}
-  arxivUrl={"https://arxiv.org/abs/2605.04045"}
-  hjfyUrl={"https://hjfy.top/arxiv/2605.04045"}
-  summary={"Audio-Visual Intelligence (AVI) has emerged as a central frontier in artificial intelligence, bridging auditory and visual modalities to enable machines that can perceive, generate, and interact in the multimodal real world. In the era of large foundation models, joint modeling of audio and vision has become increasingly crucial, i.e., not only for understanding but also for controllable generation and reasoning across dynamic, temporally grounded signals. Recent advances, such as Meta MovieGen and Google Veo-3, highlight the growing industrial and academic focus on unified audio-vision architectures that learn from massive multimodal data. However, despite rapid progress, the literature remains fragmented, spanning diverse tasks, inconsistent taxonomies, and heterogeneous evaluation practices that impede systematic comparison and knowledge integration. This survey provides the first comprehensive review of AVI through the lens of large foundation models. We establish a unified taxonomy covering the broad landscape of AVI tasks, ranging from understanding (e.g., speech recognition, sound localization) to generation (e.g., audio-driven video synthesis, video-to-audio) and interaction (e.g., dialogue, embodied, or agentic interfaces). We synthesize methodological foundations, including modality tokenization, cross-modal fusion, autoregressive and diffusion-based generation, large-scale pretraining, instruction alignment, and preference optimization. Furthermore, we curate representative datasets, benchmarks, and evaluation metrics, offering a structured comparison across task families and identifying open challenges in synchronization, spatial reasoning, controllability, and safety. By consolidating this rapidly expanding field into a coherent framework, this survey aims to serve as a foundational reference for future research on large-scale AVI."}
-/>
-
-<PaperCard
-  title={"StraTA: Incentivizing Agentic Reinforcement Learning with Strategic Trajectory Abstraction"}
-  arxivUrl={"https://arxiv.org/abs/2605.06642"}
-  hjfyUrl={"https://hjfy.top/arxiv/2605.06642"}
-  summary={"Large language models (LLMs) are increasingly used as interactive agents, but optimizing them for long-horizon decision making remains difficult because current methods are largely purely reactive, which weakens both exploration and credit assignment over extended trajectories. In this work, we present Strategic Trajectory Abstraction (StraTA), a simple framework that introduces an explicit trajectory-level strategy into agentic reinforcement learning (RL). StraTA samples a compact strategy from the initial task state, conditions subsequent actions on that strategy, and trains strategy generation and action execution jointly with a hierarchical GRPO-style rollout design, further enhanced by diverse strategy rollout and critical self-judgment. Experiments on ALFWorld, WebShop, and SciWorld show that StraTA consistently improves both sample efficiency and final performance over strong baselines. StraTA reaches success rates of 93.1% on ALFWorld and 84.2% on WebShop. On SciWorld, StraTA attains a 63.5% overall score, outperforming frontier closed-source models."}
-/>
-</div>
-
 ## Embodied Agent
 
 <div class="space-y-4">
@@ -36,7 +18,7 @@ import PaperCard from '@/components/papers/PaperCard.astro'
   title={"When to Trust Imagination: Adaptive Action Execution for World Action Models"}
   arxivUrl={"https://arxiv.org/abs/2605.06222"}
   hjfyUrl={"https://hjfy.top/arxiv/2605.06222"}
-  summary={"这篇工作研究了机器人在世界动作模型中如何自适应地决定执行多长的动作片段。作者把问题建模为“未来-现实”一致性验证，提出 FFDC 轻量验证器，联合利用预测动作、预测视觉动态、真实观测和语言指令来判断当前想象的未来是否仍可信。基于验证结果，系统可在预测稳定时延长执行步长，在偏离现实或接触复杂阶段提前重规划。RoboTwin 和真实机器人实验表明，该方法在保持效率的同时提升了鲁棒性：RoboTwin 上前向推理次数减少 69.10%，执行时间减少 34.02%，成功率比短步长基线提升 2.54%，真实世界成功率提升 35%。"}
+  summary={"这篇工作面向机器人世界动作模型（WAM）的自适应执行问题，目标是在“继续执行”与“提前重规划”之间动态切换。作者把该问题建模为未来-现实一致性验证，并提出 FFDC，一个轻量验证器，用来联合判断预测动作、预测视觉动态、真实观测和语言指令是否仍然一致。与此同时，论文提出 Mixture-of-Horizon Training 来增强长时程轨迹覆盖，从而更适合自适应分段执行。实验在 RoboTwin 和真实机器人上都显示了明显收益：在 RoboTwin 上前向推理次数减少 69.10%，执行时间减少 34.02%，成功率还提升 2.54%；真实世界实验中成功率提升 35%。"}
 />
 </div>
 
@@ -47,20 +29,41 @@ import PaperCard from '@/components/papers/PaperCard.astro'
   title={"Skill1: Unified Evolution of Skill-Augmented Agents via Reinforcement Learning"}
   arxivUrl={"https://arxiv.org/abs/2605.06130"}
   hjfyUrl={"https://hjfy.top/arxiv/2605.06130"}
-  summary={"这篇工作提出 Skill1，用强化学习把技能检索、技能使用和新技能蒸馏统一到同一个策略里协同优化。方法上，智能体先查询技能库、重排序选择合适技能，再在该技能条件下完成任务，并从轨迹中蒸馏新技能，所有学习都来自同一个任务结果信号。作者还用低频趋势和高频波动分别为技能选择与技能蒸馏分配信用。实验在 ALFWorld 和 WebShop 上显示它优于此前的技能型方法和强化学习基线，消融也证明去掉任一信用信号都会削弱学习效果。"}
+  summary={"这篇工作提出 Skill1，用强化学习统一训练带技能库的智能体，使技能检索、技能使用和新技能蒸馏共同朝着同一个任务结果目标优化。方法上，智能体先生成查询检索技能库，再重排序选技能，用该技能完成任务，并从轨迹中蒸馏出新技能，所有学习都只依赖单一任务回报信号。作者还设计了用回报低频趋势和高频变化分别归因于技能选择与蒸馏的信用分配方式。实验在 ALFWorld 和 WebShop 上表明，Skill1 优于已有的技能型方法和强化学习基线，消融实验也验证了三类信用信号都很关键。"}
+/>
+
+<PaperCard
+  title={"Beyond Semantic Similarity: Rethinking Retrieval for Agentic Search via Direct Corpus Interaction"}
+  arxivUrl={"https://arxiv.org/abs/2605.05242"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.05242"}
+  summary={"这篇工作提出 direct corpus interaction（DCI），让智能体直接通过 grep、文件读取和 shell 命令等终端工具访问原始语料，而不是依赖固定的向量检索接口。方法上，它避免离线索引和 embedding 检索，把精确词项约束、稀疏线索组合和多步假设修正交给智能体在语料上直接交互完成。作者认为这种接口更适合 agentic search，因为早期被过滤掉的证据无法靠后续推理补回。实验显示，DCI 在多个 BRIGHT 和 BEIR 基准上显著优于强稀疏、稠密和重排序检索器，并在 BrowseComp-Plus 和多跳问答上取得很强表现。"}
+/>
+
+<PaperCard
+  title={"RaguTeam at SemEval-2026 Task 8: Meno and Friends in a Judge-Orchestrated LLM Ensemble for Faithful Multi-Turn Response Generation"}
+  arxivUrl={"https://arxiv.org/abs/2605.04523"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.04523"}
+  summary={"这篇工作总结了 SemEval-2026 Task 8 中面向忠实多轮响应生成的获胜系统。方法上，他们采用由 7 个大模型和两种提示变体组成的异构集成，并用一个 GPT-4o-mini judge 为每个样本选择最佳候选。该系统在 Task B 上获得第 1 名，conditioned harmonic mean 达到 0.7827，明显高于最强基线 0.6390。消融实验表明，不同模型家族、规模和提示策略的多样性对性能提升至关重要。"}
 />
 
 <PaperCard
   title={"SkillOS: Learning Skill Curation for Self-Evolving Agents"}
   arxivUrl={"https://arxiv.org/abs/2605.06614"}
   hjfyUrl={"https://hjfy.top/arxiv/2605.06614"}
-  summary={"这篇工作提出 SkillOS，用强化学习来学习自我演化智能体中的技能整理与维护策略。方法上，作者将执行器与技能整理器解耦，冻结的执行器负责检索和应用技能，可训练的整理器负责把经验更新到外部 SkillRepo 中，并通过分组任务流和复合奖励提供延迟反馈下的训练信号。该框架让前序轨迹更新技能库、后续相关任务评估更新效果，从而学到更长期的技能管理策略。实验表明，SkillOS 在多轮智能体任务和单轮推理任务上都稳定优于无记忆和强记忆基线，并且学到的整理策略能迁移到不同执行器骨干和任务域。"}
+  summary={"这篇工作研究如何学习可复用技能的整理与更新策略，让基于 LLM 的智能体能够从经验中自我演化。作者提出 SkillOS，将冻结的执行器与可训练的技能整理器分离，由后者持续更新外部 SkillRepo，并通过分组任务流和复合奖励把“前序轨迹更新技能库、后续相关任务评估更新效果”串成训练信号。实验覆盖多轮智能体任务和单轮推理任务，结果显示 SkillOS 在效果和效率上都优于无记忆和强记忆基线，并且能迁移到不同执行器骨干和不同任务域。进一步分析表明，学到的整理策略会产生更有针对性的技能调用，SkillRepo 中的 Markdown 技能也会逐步演化成更结构化的高层元技能。"}
 />
 
 <PaperCard
   title={"Nonsense Helps: Prompt Space Perturbation Broadens Reasoning Exploration"}
   arxivUrl={"https://arxiv.org/abs/2605.05566"}
   hjfyUrl={"https://hjfy.top/arxiv/2605.05566"}
-  summary={"这篇工作针对基于可验证奖励的强化学习中常见的 zero-advantage 问题，提出 LoPE 来扩大推理探索。作者在重采样前向提示中随机加入由 Lorem Ipsum 词汇拼接而成的低困惑度扰动，从而把模型分布推到新的区域，激活原提示下难以到达的推理路径。该方法不依赖复杂搜索或额外模型，却能在困难题目上提供更有效的训练信号。实验覆盖 1.7B、4B 和 7B 模型，结果显示 LoPE 明显优于原始提示下的重采样，且其他低困惑度的拉丁随机序列也具有类似效果。"}
+  summary={"这篇工作针对 GRPO 等 verifiable reward 强化学习中的“零优势”问题，即困难样本上所有 rollout 都失败时训练信号会塌缩为零。作者提出 LoPE，通过在原始 prompt 前加入随机拼接的 Lorem Ipsum 式无意义前缀，扰动 prompt 空间来扩大探索范围，进而诱发原本不容易出现的正交推理路径。实验在 1.7B、4B 和 7B 模型上都显示，LoPE 明显优于简单的原 prompt 重新采样。进一步分析还发现，其他低困惑度的拉丁风格随机序列也同样有效，说明方法的关键在于提供一种轻量但能打散搜索局部性的 prompt 扰动。"}
+/>
+
+<PaperCard
+  title={"StraTA: Incentivizing Agentic Reinforcement Learning with Strategic Trajectory Abstraction"}
+  arxivUrl={"https://arxiv.org/abs/2605.06642"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.06642"}
+  summary={"这篇工作提出了 StraTA，用于提升大语言模型在长时序任务中的代理式强化学习表现。方法上，它先从初始任务状态采样一个紧凑的策略表示，再让后续动作围绕该策略展开，并结合分层的 GRPO 式 rollout、策略多样化采样和关键自我判断来改进探索与信用分配。实验在 ALFWorld、WebShop 和 SciWorld 上进行，结果显示 StraTA 在样本效率和最终性能上都优于强基线。具体上，它在 ALFWorld 上达到 93.1% 成功率，在 WebShop 上达到 84.2%，并在 SciWorld 上取得 63.5% 的总体分数，超过了多个前沿闭源模型。"}
 />
 </div>
