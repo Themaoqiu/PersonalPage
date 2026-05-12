@@ -1,0 +1,85 @@
+---
+title: Papers - 2026-05-12
+description: "吾能观之数千而面色如故"
+publishDate: 2026-05-12
+updatedDate: 2026-05-12
+tags: ['paper reading', 'agent', 'visual reasoning', 'multimodal world model']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## Multimodal Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"HyperEyes: Dual-Grained Efficiency-Aware Reinforcement Learning for Parallel Multimodal Search Agents"}
+  arxivUrl={"https://arxiv.org/abs/2605.07177"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.07177"}
+  summary={"这篇论文提出 HyperEyes，一个面向并行多模态搜索的智能体框架，核心目标是让搜索“更宽”而不是“更长”。方法上，它把视觉定位和检索融合成一个原子动作，允许在同一轮里并行处理多个独立实体，并以推理效率作为训练目标之一。训练采用两阶段流程，先用并行友好的数据合成与优选轨迹做冷启动，再用双粒度效率感知强化学习结合轨迹级约束和 token 级纠错信号优化策略。作者还构建了同时评估准确率与效率的 IMEB 基准。实验结果显示，HyperEyes-30B 在六个基准上比最强可比开源智能体平均高 9.9% 准确率，同时工具调用轮次平均减少 5.3 倍。"}
+/>
+</div>
+
+## 3D LLM
+
+<div class="space-y-4">
+<PaperCard
+  title={"DecodingTrust-Agent Platform (DTap): A Controllable and Interactive Red-Teaming Platform for AI Agents"}
+  arxivUrl={"https://arxiv.org/abs/2605.04808"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.04808"}
+  summary={"AI agents are increasingly deployed across diverse domains to automate complex workflows through long-horizon and high-stakes action executions. Due to their high capability and flexibility, such agents raise significant security and safety concerns. A growing number of real-world incidents have shown that adversaries can easily manipulate agents into performing harmful actions, such as leaking API keys, deleting user data, or initiating unauthorized transactions. Evaluating agent security is inherently challenging, as agents operate in dynamic, untrusted environments involving external tools, heterogeneous data sources, and frequent user interactions. However, realistic, controllable, and reproducible environments for large-scale risk assessment remain largely underexplored. To address this gap, we introduce the DecodingTrust-Agent Platform (DTap), the first controllable and interactive red-teaming platform for AI agents, spanning 14 real-world domains and over 50 simulation environments that replicate widely used systems such as Google Workspace, Paypal, and Slack. To scale the risk assessment of agents in DTap, we further propose DTap-Red, the first autonomous red-teaming agent that systematically explores diverse injection vectors (e.g., prompt, tool, skill, environment, combinations) and autonomously discovers effective attack strategies tailored to varying malicious goals. Using DTap-Red, we curate DTap-Bench, a large-scale red-teaming dataset comprising high-quality instances across domains, each paired with a verifiable judge to automatically validate attack outcomes. Through DTap, we conduct large-scale evaluations of popular AI agents built on various backbone models, spanning security policies, risk categories, and attack strategies, revealing systematic vulnerability patterns and providing valuable insights for developing secure next-generation agents."}
+/>
+</div>
+
+## Embodied Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"HumanNet: Scaling Human-centric Video Learning to One Million Hours"}
+  arxivUrl={"https://arxiv.org/abs/2605.06747"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.06747"}
+  summary={"这篇工作提出 HumanNet，一个规模达到一百万小时的人类中心视频语料库，用于支撑具身智能学习。它覆盖第一视角和第三视角视频，包含细粒度活动、人-物交互、工具使用和长时程行为，并提供描述、动作信息以及手部和身体相关信号等交互型标注。方法上，作者强调人类中心过滤、时间结构化、视角多样性和标注增强等数据构建原则，把无结构互联网视频转化为可用于表示学习、动作生成和人机迁移的基础数据。实验中，基于 HumanNet 的 1000 小时第一视角视频继续训练 Qwen VLM，在固定验证集上超过了仅用 100 小时真实机器人数据的继续训练结果，说明人类视频可作为具身模型可扩展且成本更低的数据来源。"}
+/>
+</div>
+
+## 4D Understanding and Generation
+
+<div class="space-y-4">
+<PaperCard
+  title={"MACE-Dance: Motion-Appearance Cascaded Experts for Music-Driven Dance Video Generation"}
+  arxivUrl={"https://arxiv.org/abs/2512.18181"}
+  hjfyUrl={"https://hjfy.top/arxiv/2512.18181"}
+  summary={"这篇工作提出了 MACE-Dance，用于音乐驱动的舞蹈视频生成。方法上，它采用级联式 MoE 架构，将 Motion Expert 负责从音乐生成三维动作，并用 BiMamba-Transformer 混合扩散模型和无指导训练提升动作的运动学合理性与表现力。Appearance Expert 则根据动作和参考图像生成视频，通过解耦的运动-审美微调保持身份一致性与时空连贯性。作者还构建了大规模数据集和运动-外观联合评测协议，实验显示该方法在三维舞蹈生成、姿态驱动图像动画以及整体任务评测上都取得了 SOTA。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"Listwise Policy Optimization: Group-based RLVR as Target-Projection on the LLM Response Simplex"}
+  arxivUrl={"https://arxiv.org/abs/2605.06139"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.06139"}
+  summary={"这篇工作提出了 Listwise Policy Optimization（LPO），用来改进带可验证奖励的强化学习后训练。作者从几何角度分析了常见的 group-based policy gradient，指出它们都可以看成是在 response simplex 上朝某个目标分布做投影。基于这一观察，LPO 直接在列表级目标上做精确的散度最小化，从而获得更清晰的优化形式和更稳定的梯度性质。实验显示，在多种推理任务和不同 LLM backbone 上，LPO 都能稳定优于常见策略梯度基线，并且保持了响应多样性。"}
+/>
+
+<PaperCard
+  title={"LLMs Improving LLMs: Agentic Discovery for Test-Time Scaling"}
+  arxivUrl={"https://arxiv.org/abs/2605.08083"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.08083"}
+  summary={"这篇工作提出 AutoTTS，把测试时扩展从手工设计启发式，转向由环境驱动的自动发现。作者将 width-depth 型测试时策略建模为控制器合成问题，让控制器决定何时分支、继续、探测、剪枝或停止，并通过预收集轨迹和探针信号进行低成本评估。为了让搜索空间更可控，论文引入了 beta 参数化和更细粒度的执行轨迹反馈来提升发现效率。实验表明，自动发现的策略在数学推理基准上能优于强手工基线，并且在留出基准和不同模型规模上具有泛化性。"}
+/>
+</div>
+
+## Multimodal World Model
+
+<div class="space-y-4">
+<PaperCard
+  title={"Beyond Retrieval: A Multitask Benchmark and Model for Code Search"}
+  arxivUrl={"https://arxiv.org/abs/2605.04615"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.04615"}
+  summary={"Code search has usually been evaluated as first-stage retrieval, even though production systems rely on broader pipelines with reranking and developer-style queries. Existing benchmarks also suffer from data contamination, label noise, and degenerate binary relevance. In this paper, we introduce \\textsc{CoREB}, a contamination-limited, multitask \\underline{co}de \\underline{r}etrieval and r\\underline{e}ranking \\underline{b}enchmark, together with a fine-tuned code reranker, that goes beyond retrieval to cover the full code search pipeline. \\textsc{CoREB} is built from counterfactually rewritten LiveCodeBench problems in five programming languages and delivered as timed releases with graded relevance judgments. We benchmark eleven embedding models and five rerankers across three tasks: text-to-code, code-to-text, and code-to-code. Our experiments reveal that: \\circone code-specialised embeddings dominate code-to-code retrieval (${\\sim}2{\\times}$ over general encoders), yet no single model wins all three tasks; \\circtwo short keyword queries, the format closest to real developer search, collapse every model to near-zero nDCG@10; \\circthree off-the-shelf rerankers are task-asymmetric, with a 12-point swing on code-to-code and no baseline net-positive across all tasks; \\circfour our fine-tuned \\textsc{CoREB-Reranker} is the first to achieve consistent gains across all three tasks. The data and model are released."}
+/>
+</div>
