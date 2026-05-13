@@ -16,7 +16,7 @@
     "provider": "openai",
     "model": "gpt-5.4-mini",
     "reviewWithCodex": false,
-    "reviewModel": "gpt-5.3-codex"
+    "reviewModel": "gpt-5.4-mini"
   },
   "translation": {
     "provider": "huanjue",

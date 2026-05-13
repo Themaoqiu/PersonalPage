@@ -353,7 +353,7 @@ function classifyCategoryId(text) {
   return 'video-world-model'
 }
 
-function annotatePapersWithCodexChunk(papers, sections, chunkIndex = 0) {
+function annotatePapersWithCodexChunk(papers, sections, reviewModel, chunkIndex = 0) {
   const tmpFile = path.join(path.resolve('/tmp'), `papers-fine-${Date.now()}-${chunkIndex}.json`)
   const payload = {
     sections: sections.map((s) => ({ id: s.id, title: s.title, outer: s.outer })),
@@ -394,7 +394,7 @@ function annotatePapersWithCodexChunk(papers, sections, chunkIndex = 0) {
         '--sandbox',
         'read-only',
         '-m',
-        'gpt-5.1-codex-mini',
+        reviewModel,
         '-c',
         'reasoning_effort="low"',
         '-o',
@@ -414,7 +414,7 @@ function annotatePapersWithCodexChunk(papers, sections, chunkIndex = 0) {
   }
 }
 
-function annotatePapersWithCodex(papers, sections) {
+function annotatePapersWithCodex(papers, sections, reviewModel = 'gpt-5.4-mini') {
   const CHUNK_SIZE = 5
   const chunks = []
   for (let i = 0; i < papers.length; i += CHUNK_SIZE) {
@@ -422,7 +422,7 @@ function annotatePapersWithCodex(papers, sections) {
   }
   const all = []
   chunks.forEach((chunk, idx) => {
-    const items = annotatePapersWithCodexChunk(chunk, sections, idx)
+    const items = annotatePapersWithCodexChunk(chunk, sections, reviewModel, idx)
     all.push(...items)
   })
   console.log(`[papers] codex annotations(total): ${all.length}/${papers.length}`)
@@ -584,7 +584,13 @@ async function maybePublish(date, files, config) {
 
   if (gitAutoPush) {
     execFileSync('git', ['commit', '-m', `papers: ${date}`], { stdio: 'inherit' })
-    execFileSync('git', ['push'], { stdio: 'inherit' })
+    execFileSync('git', ['push'], {
+      stdio: 'inherit',
+      env: {
+        ...process.env,
+        https_proxy: 'http://127.0.0.1:7890'
+      }
+    })
   } else {
     console.log('[papers] git auto push disabled, skip commit/push')
   }
@@ -597,6 +603,7 @@ async function maybePublish(date, files, config) {
 async function main() {
   const config = loadConfig()
   const timeZone = config?.email?.timezone || DEFAULT_TIMEZONE
+  const reviewModel = config?.classification?.reviewModel || 'gpt-5.4-mini'
   const date = nowDate(timeZone)
   const sections = loadFineSectionsFromDocs()
 
@@ -614,7 +621,7 @@ async function main() {
   }
 
   const enriched = await enrichPapers(papers)
-  const llmAssignments = annotatePapersWithCodex(enriched, sections)
+  const llmAssignments = annotatePapersWithCodex(enriched, sections, reviewModel)
   const sectionById = new Map(sections.map((s) => [s.id, s]))
   const assignmentMap = new Map(llmAssignments.map((x) => [x.url, x]))
   const kept = []
