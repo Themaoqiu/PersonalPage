@@ -3,7 +3,7 @@ title: Papers - 2026-05-13
 description: "吾能观之数千而面色如故"
 publishDate: 2026-05-13
 updatedDate: 2026-05-13
-tags: ['paper reading', 'agent', 'visual reasoning', 'multimodal world model']
+tags: ['paper reading', 'agent', 'multimodal world model']
 category: research
 comment: true
 heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
@@ -11,25 +11,28 @@ heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
 
 import PaperCard from '@/components/papers/PaperCard.astro'
 
-## 3D/Space Reasoning
-
-<div class="space-y-4">
-<PaperCard
-  title={"Pixal3D: Pixel-Aligned 3D Generation from Images"}
-  arxivUrl={"https://arxiv.org/abs/2605.10922"}
-  hjfyUrl={"https://hjfy.top/arxiv/2605.10922"}
-  summary={"这篇工作提出 Pixal3D，用像素对齐的方式从图像生成3D资产，目标是提升现有图像到3D生成中的像素级保真度。作者指出传统3D原生生成器在规范空间里生成形状，再通过注意力注入图像信息，容易造成2D到3D对应关系模糊。为此，他们设计了 pixel back-projection conditioning，把多尺度图像特征显式抬升到3D特征体中，直接建立像素到3D的对应。实验表明，该方法不仅可扩展，而且能生成高质量3D资产，保真度显著提升，接近重建方法的水平。进一步地，它还能自然扩展到多视图生成，并用于场景合成，生成更高保真的对象分离3D场景。"}
-/>
-</div>
-
 ## Agent Training and Evaluation
 
 <div class="space-y-4">
 <PaperCard
+  title={"Soohak: A Mathematician-Curated Benchmark for Evaluating Research-level Math Capabilities of LLMs"}
+  arxivUrl={"https://arxiv.org/abs/2605.09063"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.09063"}
+  summary={"这篇论文提出了 Soohak，一个由 64 位数学家从头编写的 439 题研究级数学评测基准，用来衡量大模型在接近数学前沿问题上的能力。它把题目分成挑战集和拒答集，前者测试真正的研究型推理，后者测试模型识别题目是否良定义并学会拒答的能力。实验显示，Gemini-3-Pro、GPT-5 和 Claude-Opus-4.5 在挑战集上的正确率分别为 30.4%、26.4% 和 10.4%，仍有很大提升空间。拒答集上没有模型超过 50%，说明当前模型对“不该答时主动停下”的能力还很弱。"}
+/>
+
+<PaperCard
   title={"TMAS: Scaling Test-Time Compute via Multi-Agent Synergy"}
   arxivUrl={"https://arxiv.org/abs/2605.10344"}
   hjfyUrl={"https://hjfy.top/arxiv/2605.10344"}
-  summary={"本文提出 TMAS，用多智能体协同来扩展测试时计算，从而提升大模型推理能力。方法上，它把推理过程组织为多个专门代理之间的协作，并引入分层记忆：experience bank 复用可靠的中间结论与局部反馈，guideline bank 记录已尝试过的高层策略以避免重复搜索。作者还设计了面向该框架的混合奖励强化学习方案，用来同时保留基础推理能力、增强经验利用并鼓励探索新策略。大量推理基准实验表明，TMAS 比现有测试时扩展基线有更强的迭代扩展效果，且混合奖励训练进一步提升了扩展的稳定性与有效性。"}
+  summary={"这篇论文提出 TMAS，用多智能体协同的方式提升测试时计算扩展效果。方法上，它把推理过程组织成多个专门代理之间的协作，并引入分层记忆：经验库保存可靠的中间结论和局部反馈，指南库记录已尝试过的高层策略，避免重复探索。作者还设计了混合奖励强化学习，用来同时保持基础推理能力、增强经验复用并鼓励探索新策略。实验表明，TMAS 在多个高难推理基准上比现有测试时扩展方法获得更强的迭代提升，且训练后的扩展效果和稳定性更好。"}
+/>
+
+<PaperCard
+  title={"SEIF: Self-Evolving Reinforcement Learning for Instruction Following"}
+  arxivUrl={"https://arxiv.org/abs/2605.07465"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.07465"}
+  summary={"这篇工作提出 SEIF，用自我演化强化学习持续提升大模型的指令跟随能力。方法上，它把训练过程做成闭环，由 Instructor 逐步生成更难的指令，Filter 过滤冲突或无效样本，Follower 学习执行，Judger 提供强化学习奖励，并让 Instructor 与 Follower 交替共进化。作者在多个模型规模和架构上验证了方法的通用性，结果显示 SEIF 能稳定带来指令跟随性能提升。分析还指出，先充分训练打基础、再在后期适度训练更有利于避免过拟合并获得更好最终效果。"}
 />
 </div>
 
@@ -37,37 +40,9 @@ import PaperCard from '@/components/papers/PaperCard.astro'
 
 <div class="space-y-4">
 <PaperCard
-  title={"SEIF: Self-Evolving Reinforcement Learning for Instruction Following"}
-  arxivUrl={"https://arxiv.org/abs/2605.07465"}
-  hjfyUrl={"https://hjfy.top/arxiv/2605.07465"}
-  summary={"Instruction following is a fundamental capability of large language models (LLMs), yet continuously improving this capability remains challenging. Existing methods typically rely either on costly external supervision from humans or strong teacher models, or on self-play training with static-difficulty instructions that cannot evolve as the model's capabilities improve. To address these limitations, we propose SEIF (Self-Evolving Reinforcement Learning for Instruction Following), a self-evolving framework for enhancing the instruction-following ability of LLMs. SEIF forms a closed self-evolution loop that improves the model's instruction-following ability, where instruction difficulty evolution and model capability evolution reinforce each other. SEIF consists of four roles: an Instructor that generates increasingly challenging instructions, a Filter that removes conflicting or invalid instructions to ensure data quality, a Follower that learns to follow evolved instructions, and a Judger that provides reward signals for reinforcement learning. The Instructor and Follower are alternately trained and co-evolve throughout the process. Experiments across multiple model scales and architectures show that SEIF consistently improves instruction-following performance, suggesting strong generality. Further analyses reveal the sources of improvement and identify an effective training strategy for self-evolution on open-ended tasks: sufficient early-stage training to build a solid foundation, followed by moderate late-stage training to mitigate overfitting and achieve better final performance. The code and data are publicly available at https://github.com/Rainier-rq1/SEIF."}
-/>
-
-<PaperCard
   title={"WorldReasonBench: Human-Aligned Stress Testing of Video Generators as Future World-State Predictors"}
   arxivUrl={"https://arxiv.org/abs/2605.10434"}
   hjfyUrl={"https://hjfy.top/arxiv/2605.10434"}
-  summary={"Commercial video generation systems such as Seedance2.0 and Veo3.1 have rapidly improved, strengthening the view that video generators may be evolving into \"world simulators.\" Yet the community still lacks a benchmark that directly tests whether a model can reason about how an observed world should evolve over time. We introduce WorldReasonBench, which reframes video generation evaluation as world-state prediction: given an initial state and an action, can a model generate a future video whose state evolution remains physically, socially, logically, and informationally consistent? WorldReasonBench contains 436 curated test cases with structured ground-truth QA annotations spanning four reasoning dimensions and 22 subcategories. We evaluate generated videos with a human-aligned two-part methodology: Process-aware Reasoning Verification uses structured QA and reasoning-phase diagnostics to detect temporal and causal failures, while Multi-dimensional Quality Assessment scores reasoning quality, temporal consistency, and visual aesthetics for ranking and reward modeling. We further introduce WorldRewardBench, a preference benchmark with approximately 6K expert-annotated pairs over 1.4K videos, supporting pair-wise and point-wise reward-model evaluation. Across modern video generators, our results expose a persistent gap between visual plausibility and world reasoning: videos can look convincing while failing dynamics, causality, or information preservation. We will release our benchmarks and evaluation toolkit to support community research on genuinely world-aware video generation at https://github.com/UniX-AI-Lab/WorldReasonBench/."}
-/>
-
-<PaperCard
-  title={"Geometry Conflict: Explaining and Controlling Forgetting in LLM Continual Post-Training"}
-  arxivUrl={"https://arxiv.org/abs/2605.09608"}
-  hjfyUrl={"https://hjfy.top/arxiv/2605.09608"}
-  summary={"No summary available."}
-/>
-
-<PaperCard
-  title={"Model Merging Scaling Laws in Large Language Models"}
-  arxivUrl={"https://arxiv.org/abs/2509.24244"}
-  hjfyUrl={"https://hjfy.top/arxiv/2509.24244"}
-  summary={"We study empirical scaling laws for language model merging measured by cross-entropy. Despite its wide practical use, merging lacks a quantitative rule that predicts returns as we add experts or scale the model size. We identify a compact power law that links model size and expert number: the size-dependent floor decreases with model capacity, while the merging tail exhibits clear diminishing returns in the number of experts. The law holds in-domain and cross-domain, tightly fits measured curves across diverse architectures and methods (Average, TA, TIES, DARE), and explains two robust regularities: most gains arrive early, and variability shrinks as more experts are included. Building on this, we present a simple theory that explains why gains fall roughly as 1/k and links the floor and tail to properties of the base model and the diversity across domains. This law enables predictive planning: estimate how many experts are needed to reach a target loss, decide when to stop adding experts, and trade off scaling the base model versus adding experts under a fixed budget--turning merging from heuristic practice into a computationally efficient, planable alternative to multitask training. This suggests a scaling principle for distributed generative AI: predictable gains can be achieved by composing specialists, offering a complementary path toward AGI-level systems."}
-/>
-
-<PaperCard
-  title={"Auto-Rubric as Reward: From Implicit Preferences to Explicit Multimodal Generative Criteria"}
-  arxivUrl={"https://arxiv.org/abs/2605.08354"}
-  hjfyUrl={"https://hjfy.top/arxiv/2605.08354"}
-  summary={"Aligning multimodal generative models with human preferences demands reward signals that respect the compositional, multi-dimensional structure of human judgment. Prevailing RLHF approaches reduce this structure to scalar or pairwise labels, collapsing nuanced preferences into opaque parametric proxies and exposing vulnerabilities to reward hacking. While recent Rubrics-as-Reward (RaR) methods attempt to recover this structure through explicit criteria, generating rubrics that are simultaneously reliable, scalable, and data-efficient remains an open problem. We introduce Auto-Rubric as Reward (ARR), a framework that reframes reward modeling from implicit weight optimization to explicit, criteria-based decomposition. Before any pairwise comparison, ARR externalizes a VLM's internalized preference knowledge as prompt-specific rubrics, translating holistic intent into independently verifiable quality dimensions. This conversion of implicit preference structure into inspectable, interpretable constraints substantially suppresses evaluation biases including positional bias, enabling both zero-shot deployment and few-shot conditioning on minimal supervision. To extend these gains into generative training, we propose Rubric Policy Optimization (RPO), which distills ARR's structured multi-dimensional evaluation into a robust binary reward, replacing opaque scalar regression with rubric-conditioned preference decisions that stabilize policy gradients. On text-to-image generation and image editing benchmarks, ARR-RPO outperforms pairwise reward models and VLM judges, demonstrating that explicitly externalizing implicit preference knowledge into structured rubrics achieves more reliable, data-efficient multimodal alignment, revealing that the bottleneck is the absence of a factorized interface, not a deficit of knowledge."}
+  summary={"这篇工作提出 WorldReasonBench，用来从人类对齐角度压力测试视频生成器是否适合作为未来世界状态预测器。方法上，它构建了一套面向视频生成模型的评测基准，重点检查模型在世界状态推演、时序一致性和人类可理解推理上的表现。实验结果表明，这类模型在作为世界模型时仍存在明显短板，基准能够有效暴露这些失败模式。论文因此为评估和改进视频世界模型提供了更贴近人类判断的测试工具。"}
 />
 </div>
