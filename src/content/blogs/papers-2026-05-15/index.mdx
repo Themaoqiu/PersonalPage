@@ -1,0 +1,52 @@
+---
+title: Papers - 2026-05-15
+description: "吾能观之数千而面色如故"
+publishDate: 2026-05-15
+updatedDate: 2026-05-15
+tags: ['paper reading', 'agent']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## Embodied Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"FrameSkip: Learning from Fewer but More Informative Frames in VLA Training"}
+  arxivUrl={"https://arxiv.org/abs/2605.13757"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.13757"}
+  summary={"这篇工作提出 FrameSkip，用于VLA训练中的帧选择，核心目标是在减少训练帧数的同时保留更有信息量的监督信号。方法在数据层根据动作变化、视觉-动作一致性、任务进度先验和夹爪状态变化等指标给轨迹帧打分，再按保留比例重映射采样，且不改动模型结构、动作头、训练目标或推理流程。实验在 RoboCasa-GR1、SimplerEnv 和 LIBERO 上验证了这种做法能在压缩到仅保留20%独立帧的情况下获得更好的成功率-保留率权衡，三项基准的宏平均成功率达到76.15%，高于全帧训练的66.50%。"}
+/>
+
+<PaperCard
+  title={"The DAWN of World-Action Interactive Models"}
+  arxivUrl={"https://arxiv.org/abs/2605.11550"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.11550"}
+  summary={"这篇论文提出了 World-Action Interactive Models（WAIMs），把场景演化和动作生成放在一个递归交互框架中联合建模。作者进一步在自动驾驶任务上实现了 DAWN，在紧凑的语义潜空间里结合 World Predictor 和 World-Conditioned Action Denoiser，让世界预测和动作去噪相互反馈、共同细化。方法上还采用了短程显式潜空间 rollout，而不是直接做全像素未来展开，从而支持长时域轨迹生成。实验表明，DAWN 在多个自动驾驶基准上取得了很强的规划表现，并带来更好的安全相关结果。"}
+/>
+</div>
+
+## Spatial Intelligence (Image/Video)
+
+<div class="space-y-4">
+<PaperCard
+  title={"TrackCraft3R: Repurposing Video Diffusion Transformers for Dense 3D Tracking"}
+  arxivUrl={"https://arxiv.org/abs/2605.12587"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.12587"}
+  summary={"这篇工作把视频扩散Transformer改造成了一个端到端的稠密3D跟踪器，用于单目视频中的密集3D轨迹恢复。作者设计了双潜变量表示来分别建模逐帧几何和参考帧锚定的跟踪信息，并用 temporal RoPE alignment 让跟踪latent对齐到目标时间步。实验显示，TrackCraft3R 在标准稀疏和稠密3D跟踪基准上达到最先进性能，同时比最强基线快1.3倍、峰值显存少4.6倍，还能更好地应对大运动和长视频。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"Predicting Decisions of AI Agents from Limited Interaction through Text-Tabular Modeling"}
+  arxivUrl={"https://arxiv.org/abs/2605.12411"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.12411"}
+  summary={"这篇论文研究如何只根据少量交互来预测黑盒 AI 代理在谈判中的下一步决策。作者把问题建模为目标自适应的文本-表格预测任务，将结构化游戏状态、历史对话和少量同一目标代理的适应样例结合起来，并引入 LLM-as-Observer，用一个冻结小模型提取决策相关的隐藏表示作为特征。实验在 13 个前沿 LLM 代理上训练、91 个未见的 scaffolded 代理上测试，结果显示该方法优于直接提示式预测和其他基线。在 K=16 时，Observer 特征还能让响应预测 AUC 提升约 4 个点，并将谈判出价预测误差降低 14%。"}
+/>
+</div>
