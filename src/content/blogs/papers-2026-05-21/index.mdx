@@ -1,0 +1,48 @@
+---
+title: Papers - 2026-05-21
+description: "吾能观之数千而面色如故"
+publishDate: 2026-05-21
+updatedDate: 2026-05-21
+tags: ['paper reading', 'agent']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## 3D LLM
+
+<div class="space-y-4">
+<PaperCard
+  title={"Aurora: Unified Video Editing with a Tool-Using Agent"}
+  arxivUrl={"https://arxiv.org/abs/2605.18748"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.18748"}
+  summary={"No summary available."}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"OpenComputer: Verifiable Software Worlds for Computer-Use Agents"}
+  arxivUrl={"https://arxiv.org/abs/2605.19769"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.19769"}
+  summary={"这篇工作提出 OpenComputer，用可验证的软件世界来支持 computer-use agent 的训练和评测。它把应用级状态验证器、自我改进的验证层、任务生成管线和评测框架整合在一起，让桌面任务可以被机器检查并给出可审计的部分奖励。作者覆盖了 33 个桌面应用和 1000 个任务。实验表明，硬编码验证器比 LLM-as-judge 更接近人工判定，尤其在需要细粒度状态判断时更可靠；同时也揭示了 frontier agent 和开源模型在端到端完成上的明显差距。"}
+/>
+
+<PaperCard
+  title={"AutoResearchClaw: Self-Reinforcing Autonomous Research with Human-AI Collaboration"}
+  arxivUrl={"https://arxiv.org/abs/2605.20025"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.20025"}
+  summary={"这篇工作提出 AutoResearchClaw，用多智能体协作来做自治科研流程。方法上结合了结构化多智能体辩论、自修复执行器、Pivot/Refine 决策循环、可验证结果报告以及跨运行经验累积。作者在 ARC-Bench 25 个任务上实验，结果比 AI Scientist v2 提升了 54.7%，并且在人机协作消融中发现定点介入比完全自治或全程监督更有效。"}
+/>
+
+<PaperCard
+  title={"Process Rewards with Learned Reliability"}
+  arxivUrl={"https://arxiv.org/abs/2605.15529"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.15529"}
+  summary={"这篇工作提出 BetaPRM，用分布式过程奖励模型同时预测步骤成功概率和该预测的可靠性。方法上用 Beta-Binomial 似然来学习 Beta 信念，而不是把有限样本成功率直接回归成点估计。作者在四种 backbone 和四个推理基准上验证，BetaPRM 提升了基于 PRM 的 Best-of-N 选择效果，并保持了步骤级错误检测能力；基于该可靠性信号的 ACA 最多可减少 33.57% 的 token 同时提升最终准确率。"}
+/>
+</div>
