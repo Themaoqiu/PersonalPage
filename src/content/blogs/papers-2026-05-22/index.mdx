@@ -1,0 +1,94 @@
+---
+title: Papers - 2026-05-22
+description: "吾能观之数千而面色如故"
+publishDate: 2026-05-22
+updatedDate: 2026-05-22
+tags: ['paper reading', 'agent', 'multimodal world model']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## 3D LLM
+
+<div class="space-y-4">
+<PaperCard
+  title={"It Takes Two: Complementary Self-Distillation for Contextual Integrity in LLMs"}
+  arxivUrl={"https://arxiv.org/abs/2605.20258"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.20258"}
+  summary={"Contextual Integrity (CI) defines privacy not merely as keeping information hidden, but as governing information flows according to the norms of a given context. As large language models are increasingly deployed as personal agents handling sensitive workflows, adhering to CI becomes critical. However, even frontier models remain unreliable in making disclosure decisions, and existing mitigation strategies often degrade underlying task performance. To overcome this privacy-utility trade-off, we propose SELFCI, a complementary self-distillation framework that decouples information suppression from task resolution. SELFCI jointly optimizes two independent reverse KL divergences over distinct teacher distributions derived from feedback: one encourages preserving task-relevant information for utility, while the other enforces minimal and appropriate disclosure. This complementary formulation induces a Product-of-Experts (PoE) target, aligning the policy with the intersection of capability and privacy requirements. Empirical evaluations demonstrate that SELFCI, without relying on costly external supervision, consistently outperforms competitive baselines such as online reinforcement learning algorithms (e.g., GRPO). These trends further extend to out-of-domain settings involving agentic workflows and accumulated private context, suggesting that SELFCI provides a practical path toward CI alignment."}
+/>
+
+<PaperCard
+  title={"Mix-Quant: Quantized Prefilling, Precise Decoding for Agentic LLMs"}
+  arxivUrl={"https://arxiv.org/abs/2605.20315"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.20315"}
+  summary={"LLM agents have recently emerged as a powerful paradigm for solving complex tasks through planning, tool use, memory retrieval, and multi-step interaction. However, these agentic workflows often introduce substantial input-side overhead, making the compute-intensive prefilling stage a key bottleneck in long-context, multi-turn inference. In this work, we propose Mix-Quant, a simple and effective phase-aware quantization framework for fast agentic inference. We first investigate FP4 quantization in agentic LLM workflows and observe that quantizing the entire inference process can incur significant performance degradation. In contrast, the prefilling stage exhibits substantial quantization redundancy and can therefore be quantized with minimal accuracy loss, despite being the dominant source of computation. Based on this insight, we apply high-throughput NVFP4 quantization to the prefilling phase while preserving BF16 precision for decoding. By decoupling prefilling acceleration from decoding quality, Mix-Quant combines phase-aware algorithmic quantization with hardware-efficient NVFP4 execution to alleviate the inference bottleneck in LLM agents. Extensive experiments across long-context and agentic benchmarks demonstrate that Mix-Quant largely preserves task performance while delivering significant efficiency improvements, achieving up to a 3x speedup during prefilling."}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"Video2GUI: Synthesizing Large-Scale Interaction Trajectories for Generalized GUI Agent Pretraining"}
+  arxivUrl={"https://arxiv.org/abs/2605.14747"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.14747"}
+  summary={"这篇工作提出了 Video2GUI，一个从未标注互联网视频中自动挖掘 GUI 交互轨迹的框架，用来缓解 GUI agent 训练数据稀缺的问题。方法上，它先用粗到细的过滤策略筛选高质量教程视频，再把视频转换为结构化的 agent 轨迹，并据此构建了 WildGUI 数据集，覆盖 1500 多个应用和网站、共 1200 万条交互轨迹。实验表明，用 WildGUI 预训练 Qwen2.5-VL 和 Mimo-VL 后，在多个 GUI grounding 与 action 基准上都有 5% 到 20% 的提升，整体达到或超过现有最优水平。"}
+/>
+
+<PaperCard
+  title={"IndusAgent: Reinforcing Open-Vocabulary Industrial Anomaly Detection with Agentic Tools"}
+  arxivUrl={"https://arxiv.org/abs/2605.20682"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.20682"}
+  summary={"这篇工作提出 IndusAgent，用工具增强的 agentic 框架来做开放词汇工业异常检测，重点解决多模态模型在工业场景中容易出现的域偏差推理和结构幻觉问题。方法上，它先构建 Indus-CoT 结构化数据集，融合全局观察、高分辨率局部 patch 和正常性先验，再让模型动态调用动态裁剪、高频特征增强和先验检索等外部工具。作者还设计了门控强化学习目标，同时优化异常分类、定位、异常类型推理和工具使用效率。结果显示，IndusAgent 在 MVTec-AD、VisA、MPDD、DTD 和 SDD 等五个基准上都达到零样本最优。"}
+/>
+
+<PaperCard
+  title={"You Only Need Minimal RLVR Training: Extrapolating LLMs via Rank-1 Trajectories"}
+  arxivUrl={"https://arxiv.org/abs/2605.21468"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.21468"}
+  summary={"这篇工作研究 RLVR 训练轨迹的低秩结构，发现大部分性能增益可以由参数增量的 rank-1 近似捕获，而且其幅度会随着训练步数近似线性变化。基于这一现象，作者提出 RELEX，只需观察短窗口内的训练轨迹，就能用线性回归外推未来 checkpoint，而不需要额外训练模型。实验在 Qwen2.5-Math-1.5B、Qwen3-4B-Base 和 Qwen3-8B-Base 上表明，RELEX 只用完整 RLVR 约 15% 的步骤就能达到甚至超过其性能，并且可外推到观测窗口之外 10 到 20 倍步数仍持续提升。"}
+/>
+
+<PaperCard
+  title={"CutVerse: A Compositional GUI Agents Benchmark for Media Post-Production Editing"}
+  arxivUrl={"https://arxiv.org/abs/2605.19484"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.19484"}
+  summary={"这篇工作提出了 CutVerse，一个面向媒体后期制作 GUI 代理的基准，用来系统评估自动化代理在真实创意工作流中的能力。作者整理了来自 Premiere Pro、Photoshop 等 7 个专业应用的专家演示，共覆盖 186 个长程复杂任务。为了支持可扩展评测，他们设计了一个轻量解析器，将屏幕录制和低层交互日志转换为带精确定位的结构化动作轨迹。实验显示，现有代理在这些真实媒体编辑任务上的成功率只有 36.0%，说明长时序规划和领域化执行仍然是主要瓶颈。"}
+/>
+</div>
+
+## Multimodal World Model
+
+<div class="space-y-4">
+<PaperCard
+  title={"Enhancing Train-Free Infinite-Frame Generation for Consistent Long Videos"}
+  arxivUrl={"https://arxiv.org/abs/2605.18233"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.18233"}
+  summary={"这篇工作研究无需训练的无限帧长视频生成，目标是在尽量不增加计算开销的前提下，让基础视频生成模型输出更长且更连贯的视频。作者提出 MIGA，通过两阶段对齐机制缩小训练与推理分布差异，并结合自反思修正早期高噪声帧、长程帧引导利用后期低噪声帧来增强时序一致性。实验在 VBench 和 NarrLV 上表明，MIGA 能取得当前最优表现。"}
+/>
+
+<PaperCard
+  title={"OScaR: The Occam's Razor for Extreme KV Cache Quantization in LLMs and Beyond"}
+  arxivUrl={"https://arxiv.org/abs/2605.19660"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.19660"}
+  summary={"The rapid advancement toward long-context reasoning and multi-modal intelligence has made the memory footprint of the Key-Value (KV) cache a dominant memory bottleneck for efficient deployment. While the established per-channel quantization effectively accommodates intrinsic channel-wise outliers in Key tensors, its efficacy diminishes under extreme compression. In this work, we revisit the inherent limitations of the per-channel quantization paradigm from both empirical and theoretical perspectives. Our analysis identifies Token Norm Imbalance (TNI) as the primary bottleneck to quantization fidelity. We demonstrate that TNI systematically amplifies errors when shared quantization parameters are required to span token groups exhibiting substantial norm disparities. Instead of relying on intricate quantization pipelines (e.g., TurboQuant), we propose OScaR (Omni-Scaled Canalized Rotation), an accurate and lightweight KV cache compression framework for X-LLMs (i.e., text-only, multi-modal, and omni-modal LLMs). Advancing the per-channel paradigm, OScaR employs Canalized Rotation followed by Omni-Token Scaling to mitigate TNI-induced sequence-dimensional variance both effectively and efficiently, further supported by our optimized system design and CUDA kernels. Extensive evaluations across X-LLMs show that OScaR consistently outperforms existing methods and achieves near-lossless performance under INT2 quantization, establishing it as a robust, low-complexity, and universal framework that defines a new Pareto front. Compared with the BF16 FlashDecoding-v2 baseline, our OScaR implementation achieves a notable up to 3.0x speedup in decoding, reduces memory footprint by 5.3x, and increases throughput by 4.1x. The code for OScaR is publicly available at https://github.com/ZunhaiSu/OScaR-KV-Quant."}
+/>
+
+<PaperCard
+  title={"Toto 2.0: Time Series Forecasting Enters the Scaling Era"}
+  arxivUrl={"https://arxiv.org/abs/2605.20119"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.20119"}
+  summary={"We show that time series foundation models scale: a single training recipe produces reliable forecast-quality improvements from 4M to 2.5B parameters. We release Toto 2.0, a family of five open-weights forecasting models trained under this recipe. The Toto 2.0 family sets a new state of the art on three forecasting benchmarks: BOOM, our observability benchmark; GIFT-Eval, the standard general-purpose benchmark; and the recent contamination-resistant TIME benchmark. This report describes our experimental results and details the design decisions behind Toto 2.0: its architecture and training recipe, training data, and the u-muP hyperparameter transfer pipeline. All five base checkpoints are released under Apache 2.0."}
+/>
+
+<PaperCard
+  title={"Generative Recursive Reasoning"}
+  arxivUrl={"https://arxiv.org/abs/2605.19376"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.19376"}
+  summary={"How should future neural reasoning systems implement extended computation? Recursive Reasoning Models (RRMs) offer a promising alternative to autoregressive sequence extension by performing iterative latent-state refinement with shared transition functions. Yet existing RRMs are largely deterministic, following a single latent trajectory and converging to a single prediction. We introduce Generative Recursive reAsoning Models (GRAM), a framework that turns recursive latent reasoning into probabilistic multi-trajectory computation. GRAM models reasoning as a stochastic latent trajectory, enabling multiple hypotheses, alternative solution strategies, and inference-time scaling through both recursive depth and parallel trajectory sampling. This yields a latent-variable generative model supporting conditional reasoning via $p_θ(y \\mid x)$ and, with fixed or absent inputs, unconditional generation via $p_θ(x)$. Trained with amortized variational inference, GRAM improves over deterministic recurrent and recursive baselines on structured reasoning and multi-solution constraint satisfaction tasks, while demonstrating an unconditional generation capability. https://ahn-ml.github.io/gram-website"}
+/>
+</div>
