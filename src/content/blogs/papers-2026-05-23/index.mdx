@@ -1,0 +1,102 @@
+---
+title: Papers - 2026-05-23
+description: "吾能观之数千而面色如故"
+publishDate: 2026-05-23
+updatedDate: 2026-05-23
+tags: ['paper reading', 'agent', 'visual reasoning', 'multimodal world model']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## 3D/Space Reasoning
+
+<div class="space-y-4">
+<PaperCard
+  title={"PhysX-Omni: Unified Simulation-Ready Physical 3D Generation for Rigid, Deformable, and Articulated Objects"}
+  arxivUrl={"https://arxiv.org/abs/2605.21572"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.21572"}
+  summary={"这篇论文提出 PhysX-Omni，用于生成可直接用于仿真的物理 3D 资产，覆盖刚体、可变形体和关节物体。方法上引入了一种面向视觉语言模型的新几何表示，可直接编码高分辨率 3D 结构而不压缩，从而提升生成效果。作者还构建了首个通用 simulation-ready 3D 数据集 PhysXVerse，并提出包含几何、绝对尺度、材质、可供性、运动学和功能描述六项属性的 PhysX-Bench。大量实验显示该方法在生成与理解任务上都表现强，且对仿真场景生成和机器人策略学习有潜力。"}
+/>
+</div>
+
+## Spatial Intelligence (Image/Video)
+
+<div class="space-y-4">
+<PaperCard
+  title={"TransitLM: A Large-Scale Dataset and Benchmark for Map-Free Transit Route Generation"}
+  arxivUrl={"https://arxiv.org/abs/2605.22355"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.22355"}
+  summary={"这篇工作提出 TransitLM，一个用于无地图公交线路生成的大规模数据集和基准，覆盖 4 个中国城市的 1300 多万条路线记录。作者将其作为持续预训练语料和评测集，构建了三个互补任务来测试模型是否能直接从起终点信息生成结构合法的公交线路。实验表明，基于 TransitLM 训练的 LLM 能较高准确率地产生合法路线，并能在没有显式地图的情况下把 GPS 坐标隐式对齐到合适站点。结果说明，公交路径规划可以主要依赖数据学习，而不必依赖传统地图引擎。"}
+/>
+
+<PaperCard
+  title={"LatentOmni: Rethinking Omni-Modal Understanding via Unified Audio-Visual Latent Reasoning"}
+  arxivUrl={"https://arxiv.org/abs/2605.22012"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.22012"}
+  summary={"这篇工作针对音频-视觉联合推理中显式文本链式思维会压缩连续感知信号、削弱时序定位的问题，提出 LatentOmni。它在文本推理和音视频潜在状态之间交替建模，用统一 latent space 保留更密集的感知信息，同时通过 feature-level supervision 对齐任务相关特征。方法还加入了 Omni-Sync Position Embedding 来保持音视频潜在状态的时间一致性，并构建 LatentOmni-Instruct-35K 作为监督数据。作者在多个音视频推理基准上验证，模型优于已评测的开源方法，也持续超过显式文本 CoT 基线。"}
+/>
+</div>
+
+## 4D Understanding and Generation
+
+<div class="space-y-4">
+<PaperCard
+  title={"Sensor2Sensor: Cross-Embodiment Sensor Conversion for Autonomous Driving"}
+  arxivUrl={"https://arxiv.org/abs/2605.22809"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.22809"}
+  summary={"这篇工作提出 Sensor2Sensor，用于把野外单目行车记录仪视频转换成高保真的自动驾驶多模态传感器套件，包括多视角相机图像和 LiDAR 点云。方法上，作者先将真实自动驾驶日志重建成 dashcam 风格视频，利用 4D Gaussian Splatting 生成配对训练数据，再用扩散模型完成从视频到传感器数据的生成转换。这样做解决了真实配对数据稀缺的问题，并把互联网和 dashcam 视频扩展为可用于自动驾驶训练与验证的结构化数据。实验表明，生成结果在保真度和真实感上表现良好，且能在多种复杂场景中保持实用性。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"Perception or Prejudice: Can MLLMs Go Beyond First Impressions of Personality?"}
+  arxivUrl={"https://arxiv.org/abs/2605.22109"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.22109"}
+  summary={"这篇工作提出了 Grounded Personality Reasoning（GPR），要求多模态大模型不仅给出人格评分，还要把每个 Big Five 维度的判断锚定到可观察证据上。作者还发布了 MM-OCEAN 数据集，包含 1104 个视频和 5320 个选择题，并通过多智能体流程与人工核验构建了带时间戳的行为证据和 grounded 分析。实验中，他们用三层评测和四个失败模式指标系统评估了 27 个 MLLM。结果显示模型经常能给出正确分数，但推理并不一定基于真实线索，整体存在明显的 prejudice gap 和 grounding 缺失。"}
+/>
+
+<PaperCard
+  title={"DelTA: Discriminative Token Credit Assignment for Reinforcement Learning from Verifiable Rewards"}
+  arxivUrl={"https://arxiv.org/abs/2605.21467"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.21467"}
+  summary={"这篇论文研究了可验证奖励强化学习中，响应级奖励如何转化为 token 级别的概率更新。作者从判别器视角分析 RLVR，指出标准更新会由正负样本的中心向量决定 token 概率增减，但容易被格式等高频共享模式干扰。为此提出 DelTA，通过估计 token 系数来强化更具区分性的方向、抑制共享或弱区分方向，从而重加权 self-normalized RLVR 目标。实验显示该方法在 7 个数学基准上优于同规模强基线，并在代码生成、不同骨干模型和域外设置中表现出较好的泛化性。"}
+/>
+
+<PaperCard
+  title={"$π$-Bench: Evaluating Proactive Personal Assistant Agents in Long-Horizon Workflows"}
+  arxivUrl={"https://arxiv.org/abs/2605.14678"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.14678"}
+  summary={"这篇论文提出 π-Bench，用于评估长时序工作流中的主动式个人助理智能体。作者针对用户请求常常不完整、隐藏意图会在多轮交互中逐渐显现的问题，设计了包含 100 个多轮任务、5 类用户画像的基准，并显式加入隐藏意图、任务依赖和跨会话连续性。该基准同时衡量智能体的主动性与任务完成度。实验结果表明，主动式协助仍然困难，而且任务完成并不等同于真正的主动性，历史交互信息对后续隐含意图解决也有明显帮助。"}
+/>
+
+<PaperCard
+  title={"ACC: Compiling Agent Trajectories for Long-Context Training"}
+  arxivUrl={"https://arxiv.org/abs/2605.21850"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.21850"}
+  summary={"这篇工作提出 ACC，把智能体在搜索、软件工程和数据库查询中的多轮轨迹编译成长上下文问答数据。它将原始问题、工具响应和环境观察合并为直接回答式监督，从而显式暴露跨轮次证据依赖。作者用 ACC 微调 Qwen3-30B-A3B，在 MRCR 上达到 68.3、在 GraphWalks 上达到 77.5，分别提升 18.1 和 7.6，效果接近更大的 Qwen3-235B-A22B。实验还表明模型在通用能力上基本保持不变，并出现了任务自适应注意力重组和专家 تخصص化。"}
+/>
+
+<PaperCard
+  title={"Spreadsheet-RL: Advancing Large Language Model Agents on Realistic Spreadsheet Tasks via Reinforcement Learning"}
+  arxivUrl={"https://arxiv.org/abs/2605.22642"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.22642"}
+  summary={"这篇论文提出 Spreadsheet-RL，用强化学习微调真实 Excel 环境中的电子表格智能体。它建立了自动化数据管线来收集起始表与目标表对，并构建了面向金融和供应链等场景的 Domain-Spreadsheet 基准。作者还设计了 Spreadsheet Gym，把 Excel 功能通过 Python sandbox 暴露给多轮 RL，并加入了更细的工具路由规则。实验显示，该方法将 Qwen3-4B-Thinking-2507 在 SpreadsheetBench 上的 Pass@1 从 12.0% 提升到 23.4%，在自建领域数据集上从 8.4% 提升到 17.2%。"}
+/>
+</div>
+
+## Multimodal World Model
+
+<div class="space-y-4">
+<PaperCard
+  title={"WorldKV: Efficient World Memory with World Retrieval and Compression"}
+  arxivUrl={"https://arxiv.org/abs/2605.22718"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.22718"}
+  summary={"这篇工作针对自回归视频扩散世界模型在长序列中难以保持持久世界一致性的问题，提出训练免费框架 WorldKV。它通过 World Retrieval 保存被挤出的 KV cache，并根据相机和动作对应关系选择性取回相关片段重新插入注意力窗口。另一部分 World Compression 则用 key-key 相似度对每个 chunk 内的冗余 token 做压缩，在固定预算下保留更多历史信息。实验表明，WorldKV 在 Matrix-Game-2.0 和 LingBot-World-Fast 上能以约 2 倍吞吐量达到接近甚至超过 full-KV 的记忆一致性，并且无需微调也能接近有记忆训练的基线。"}
+/>
+</div>
