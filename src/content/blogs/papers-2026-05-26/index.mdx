@@ -15,17 +15,10 @@ import PaperCard from '@/components/papers/PaperCard.astro'
 
 <div class="space-y-4">
 <PaperCard
-  title={"ETCHR: Editing To Clarify and Harness Reasoning"}
-  arxivUrl={"https://arxiv.org/abs/2605.23897"}
-  hjfyUrl={"https://hjfy.top/arxiv/2605.23897"}
-  summary={"Multimodal Large Language Models have advanced visual reasoning, yet a purely textual chain of thought remains a bottleneck for questions that require fine-grained focus or view transformations. The ''think with images'' paradigm narrows this gap, but existing approaches are either constrained by fixed predefined toolkits or produce noisy intermediate images from unified multimodal methods. We pursue a third option: using a dedicated image editing model and decouple it with an understanding model. However, off-the-shelf image editors fail as reasoning assistants with two complementary gaps: a language-side gap, where editors trained as passive instruction-followers cannot map an abstract question to an appropriate visual transformation, and a generation-side gap, where edit correctness degrades as reasoning depth grows. Guided by this analysis, we introduce ETCHR (Editing To Clarify and Harness Reasoning), a question-conditioned, reasoning-aware image editor decoupled from the downstream understanding model and trained with a two-stage recipe targeted at the two gaps: Reasoning Imitation via supervised fine-tuning on edit trajectories, followed by Reasoning Enhancement with VLM-derived rewards for edit correctness and downstream reasoning accuracy. Since the editor is decoupled, ETCHR plugs into different open- and closed-source MLLMs in a training-free manner. Across five task families (fine-grained perception, chart understanding, logic reasoning, jigsaw restoration, and 3D understanding), ETCHR raises average Pass@1 from 55.95 to 60.77 (+4.82) with Qwen3-VL-8B, from 65.08 to 70.55 (+5.47) with Gemini-3.1-Flash-Lite, and from 76.55 to 81.16 (+4.61) with the 1T-parameter MoE model Kimi K2.5."}
-/>
-
-<PaperCard
   title={"See What I Mean: Aligning Vision and Language Representations for Video Fine-grained Object Understanding"}
   arxivUrl={"https://arxiv.org/abs/2605.18018"}
   hjfyUrl={"https://hjfy.top/arxiv/2605.18018"}
-  summary={"这篇工作提出 SWIM，用于仅依靠文本提示实现视频中的细粒度目标理解。方法上，它在训练阶段利用分割掩码监督来约束跨模态注意力，并构建了 NL-Refer 数据集，把对象掩码与精确的自然语言指代表达配对。作者还分析了预训练多模态大模型的跨注意力，发现属性词往往能形成更尖锐的局部响应，而对象名词更容易出现分散激活，因此需要专门对齐文本与视觉表征。实验结果表明，SWIM 能显著提升文本-视觉对齐效果，并在细粒度目标理解基准上优于依赖视觉提示的方法。"}
+  summary={"这篇工作提出 SWIM，用来在不依赖显式视觉提示（如 mask 或点）的情况下，仅凭文本提示实现视频中的细粒度目标理解。方法核心是利用训练阶段的 mask 监督去约束跨模态注意力，并从对象名词中提取多层 cross-attention，与真实 mask 做空间一致性对齐。作者还构建了 NL-Refer 数据集，为每个目标 mask 配对精确的自然语言指代表达，以缓解视觉与语言表征错位。实验结果表明，SWIM 能显著改善文本-视觉对齐，并在细粒度目标理解基准上优于依赖视觉提示的方法。"}
 />
 </div>
 
@@ -36,21 +29,14 @@ import PaperCard from '@/components/papers/PaperCard.astro'
   title={"From Raw Experience to Skill Consumption: A Systematic Study of Model-Generated Agent Skills"}
   arxivUrl={"https://arxiv.org/abs/2605.23899"}
   hjfyUrl={"https://hjfy.top/arxiv/2605.23899"}
-  summary={"Language agents increasingly improve by reusing \\emph{skills} -- structured procedural artifacts distilled from past experience. In particular, \\emph{domain-level} and \\emph{model-generated} skills are especially promising. They offer fast adaptation within a domain by encoding domain-specific recurring procedures, and they scale beyond labor-intensive hand-crafting. However, while extraction methods continue to proliferate, understanding remains limited, with no comprehensive study spanning the full skill lifecycle -- \\textbf{experience generation}, \\textbf{skill extraction}, and \\textbf{skill consumption} -- to ask whether such skills actually work, when they work, and what makes them succeed or fail. To close this gap, we build a utility-grounded evaluation framework that provides systematic experimental results across extractors and target agents, covering five diverse agentic task domains. We find that model-generated skills are beneficial on average but exhibit non-trivial negative transfer, and that neither extractors nor targets behave uniformly. A model can be a strong extractor yet a weak consumer, or vice versa, with skill utility independent of model scale or baseline task strength. To explain these patterns, we then dissect each lifecycle stage in depth, analyzing how experience composition shapes skill quality, what properties characterize useful skills, and how the same skill transfers across different consumers. Finally, we translate these findings into a concrete \\emph{meta-skill} that guides skill extraction toward the features tied to actual utility, which consistently improves skill quality across domains and substantially reduces negative transfer."}
+  summary={"No summary available."}
 />
 
 <PaperCard
   title={"PhotoFlow: Agentic 3D Virtual Photography Missions"}
   arxivUrl={"https://arxiv.org/abs/2605.23771"}
   hjfyUrl={"https://hjfy.top/arxiv/2605.23771"}
-  summary={"Virtual photography asks an agent to enter a prepared 3D scene with no preselected camera pose or reference image, infer a suitable shot from scene information and a language intent, choose executable camera parameters, and render the final photograph. Recent progress in vision-language models makes this kind of spatial agent increasingly plausible, but the task stresses two capabilities that remain hard to evaluate together: complex 3D spatial understanding and abstract aesthetic judgment. We introduce PhotoFlow, a Director-Reviewer-Reflector agent for closed-loop camera search. The Director builds a soft photographic blueprint and proposes diverse candidate cameras; the Reviewer combines rule checks, visual critique, and pairwise incumbent selection; and the Reflector converts failures into region memory, dead-zone suppression, and high-explore relocation. We also introduce VPhotoBench, a benchmark of 47 open-license Blender scenes and 141 language-conditioned photography missions spanning subject placement, relational composition, and atmosphere/style. On held-out experiments, PhotoFlow achieves the strongest external quality-alignment composite and success rate among one-shot prediction, single-chain reflection, anchor-bank selection, and random search under a six-round rendering budget. To our knowledge, this is the first work to make language-conditioned virtual photography in arbitrary Blender scenes an executable agent task, and our results show that an LLM-centered spatial agent can already produce strong photographs in a setting designed to challenge both 3D reasoning and aesthetic choice."}
-/>
-
-<PaperCard
-  title={"VGenST-Bench: A Benchmark for Spatio-Temporal Reasoning via Active Video Synthesis"}
-  arxivUrl={"https://arxiv.org/abs/2605.22570"}
-  hjfyUrl={"https://hjfy.top/arxiv/2605.22570"}
-  summary={"Spatio-temporal reasoning is a core capability for Multimodal Large Language Models (MLLMs) operating in the real world. As such, evaluating it precisely has become an essential challenge. However, existing spatio-temporal reasoning benchmark datasets primarily rely on static image sets or passively curated video data, which limits the evaluation of fine-grained reasoning capabilities. In this paper, we introduce VGenST-Bench, a video benchmark that employs generative models to actively synthesize highly controlled and diverse evaluation scenarios. To construct VGenST-Bench, we propose a multi-agent pipeline incorporating a human quality control stage, ensuring the quality of all generated videos and QA pairs. We establish a comprehensive 3x2x2 video taxonomy, encompassing Spatial Scale, Perspective, and Scene Dynamics to span diverse scenarios. Furthermore, we design a hierarchical task suite that decouples low-level visual perception from high-level spatio-temporal reasoning. By shifting the paradigm from passive curation to active synthesis, VGenST-Bench enables fine-grained diagnosis of spatio-temporal understanding in MLLMs."}
+  summary={"No summary available."}
 />
 </div>
 
@@ -61,7 +47,7 @@ import PaperCard from '@/components/papers/PaperCard.astro'
   title={"SkillOpt: Executive Strategy for Self-Evolving Agent Skills"}
   arxivUrl={"https://arxiv.org/abs/2605.23904"}
   hjfyUrl={"https://hjfy.top/arxiv/2605.23904"}
-  summary={"这篇工作提出了 SkillOpt，用于把“技能文档”当作冻结智能体的外部状态来训练，而不是一次性生成或松散自修订。方法上，它用一个独立的优化器模型把带评分的 rollout 转成受约束的增删改编辑，并且只有在验证集分数严格提升时才接受编辑，同时加入文本版学习率预算、拒绝编辑缓冲和逐 epoch 的慢/元更新来稳定训练。作者在 6 个基准、7 个目标模型和 3 种执行框架上评测，SkillOpt 在 52 个组合里全部达到最好或并列最好。实验还显示，它在 GPT-5.5 上相对无技能基线有显著提升，并且优化后的技能可以跨模型规模和执行环境迁移。"}
+  summary={"这篇工作提出了 SkillOpt，用一种可控的文本空间优化器来训练智能体技能，把技能文档当作冻结智能体的外部状态来优化。方法上，它让一个独立的优化器模型根据带分数的 rollout 生成受限的 add/delete/replace 编辑，并且只有在验证集分数严格提升时才接受更新。作者还引入了文本版学习率预算、拒绝编辑缓冲区以及按 epoch 的慢更新/元更新来稳定训练，而且部署时不增加额外推理调用。实验覆盖 6 个基准、7 个目标模型和 3 种执行框架，结果在 52 个评测组合上都达到最佳或并列最佳，并且在模型尺度、Codex/Claude Code 环境之间以及邻近数学基准上都表现出良好的迁移性。"}
 />
 </div>
 
@@ -72,6 +58,20 @@ import PaperCard from '@/components/papers/PaperCard.astro'
   title={"PiD: Fast and High-Resolution Latent Decoding with Pixel Diffusion"}
   arxivUrl={"https://arxiv.org/abs/2605.23902"}
   hjfyUrl={"https://hjfy.top/arxiv/2605.23902"}
-  summary={"Most practical high-resolution text-to-image systems, including latent diffusion and autoregressive models, perform generation in a compact latent space, and a decoder maps the generated latents back to pixels. Yet the latent-to-pixel decoder is reconstruction-oriented, optimized to invert the encoder rather than synthesize more details, and becomes increasingly costly at megapixel scale. This drawback calls for a more expressive and efficient decoding paradigm. Motivated by recent progress in scalable pixel-space diffusion, we introduce PiD, a Pixel diffusion Decoder that reformulates latent decoding as conditional pixel diffusion, unifying decoding and upsampling into one generative module. By denoising directly in high-resolution pixel space, PiD synthesizes $4\\times$ and even $8\\times$ upscaled images with low latency. For latent conditioning, a lightweight sigma-aware adapter injects noise-corrupted latents into the pixel diffusion backbone, enabling PiD to decode partially denoised latents and terminate the latent diffusion process early. To further improve efficiency, we distill the model using DMD2, reducing inference to just 4 steps. PiD applies to both conventional VAE latents and semantic latents (e.g., SigLIP, DINOv2) used in recent RAE-based models. PiD decodes latents of $512 \\times 512$ images into $2048 \\times 2048$ pixels in under 1 second with 13 GB peak memory on a consumer RTX 5090, and as fast as 210 ms on a GB200 GPU, about $6\\times$ faster than cascaded diffusion-based super-resolution pipelines with better visual fidelity."}
+  summary={"No summary available."}
+/>
+
+<PaperCard
+  title={"VGenST-Bench: A Benchmark for Spatio-Temporal Reasoning via Active Video Synthesis"}
+  arxivUrl={"https://arxiv.org/abs/2605.22570"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.22570"}
+  summary={"No summary available."}
+/>
+
+<PaperCard
+  title={"ETCHR: Editing To Clarify and Harness Reasoning"}
+  arxivUrl={"https://arxiv.org/abs/2605.23897"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.23897"}
+  summary={"No summary available."}
 />
 </div>
