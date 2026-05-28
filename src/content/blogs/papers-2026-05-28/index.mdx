@@ -1,0 +1,74 @@
+---
+title: Papers - 2026-05-28
+description: "吾能观之数千而面色如故"
+publishDate: 2026-05-28
+updatedDate: 2026-05-28
+tags: ['paper reading', 'agent', 'visual reasoning']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## Grounding-driven Visual Reasoning
+
+<div class="space-y-4">
+<PaperCard
+  title={"LocateAnything: Fast and High-Quality Vision-Language Grounding with Parallel Box Decoding"}
+  arxivUrl={"https://arxiv.org/abs/2605.27365"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.27365"}
+  summary={"这篇工作提出 LocateAnything，用并行框解码（Parallel Box Decoding）把边界框和点等几何元素作为原子单元一次性解码，减少逐 token 生成带来的序列瓶颈。方法上，它统一了 grounding 与 detection 任务，并配套构建了一个超过 1.38 亿样本的大规模训练数据集 LocateAnything-Data。实验表明，PBD 同时提升了解码吞吐和定位精度，尤其在高 IoU 场景下更有优势。整体上，它把速度和精度的权衡推到了更好的新前沿。"}
+/>
+</div>
+
+## 3D LLM
+
+<div class="space-y-4">
+<PaperCard
+  title={"MobileGym: A Verifiable and Highly Parallel Simulation Platform for Mobile GUI Agent Research"}
+  arxivUrl={"https://arxiv.org/abs/2605.26114"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.26114"}
+  summary={"We present MobileGym, a browser-hosted, lightweight, fully controllable environment for everyday mobile use, targeting interaction fidelity without replicating proprietary backends. It enables two capabilities previously out of reach for everyday apps: verifiable outcome signals through deterministic state-based judging over structured JSON state, and scalable online RL through low-cost parallel rollouts. The full environment state is captured, configured, forked, and compared as structured JSON, and a single server can host hundreds of parallel instances, with about 400 MB memory per instance and about 3 s cold start. A layered state model and a declarative task-definition framework keep state programmability and task creation practical at scale, and a single programmatic judging mechanism delivers both deterministic evaluation verdicts and dense RL rewards. The accompanying MobileGym-Bench provides 416 parameterized task templates, including 256 test and 160 train templates, over 28 apps, with deterministic judges and a structured AnswerSheet protocol that avoids free-text matching failures. In a Sim-to-Real case study, GRPO on Qwen3-VL-4B-Instruct gains +12.8 percentage points on the 256-task test set, and on a 59-task real-device signal subset, real-device execution retains 95.1% of the simulation-side training gain. Project page: https://mobilegym.github.io."}
+/>
+</div>
+
+## Spatial Intelligence (Image/Video)
+
+<div class="space-y-4">
+<PaperCard
+  title={"SpatialBench: Is Your Spatial Foundation Model an All-Round Player?"}
+  arxivUrl={"https://arxiv.org/abs/2605.27367"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.27367"}
+  summary={"这篇论文提出 SpatialBench，用跨范式、跨领域且确定性采样的基准系统评估空间基础模型的泛化能力。它覆盖 19 个数据集、546 个场景、5 个空间领域、41 个模型和 6 种范式，并在 4 种输入密度下进行测试。实验发现，现有模型还算不上真正的“全能选手”，全上下文注意力更准，但受限记忆策略更利于长序列扩展。作者还补充了大规模数据集 DA-Next-5M 和基线模型 DA-Next，用于推动空间表征学习。"}
+/>
+
+<PaperCard
+  title={"LLaVA-OneVision-2: Towards Next-Generation Perceptual Intelligence"}
+  arxivUrl={"https://arxiv.org/abs/2605.25979"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.25979"}
+  summary={"LLaVA-OneVision-2提出原生OneVision-Encoder、Windowed Attention和codec-stream tokenization，把压缩视频视作连续比特流来分配时空token预算。它进一步用共享3D RoPE统一视频帧、codec canvas和图像的时空坐标，并结合大规模重标注视频与空间数据进行训练。新引入的JumpScore专门评测高频重复运动下的细粒度定位能力。实验表明，8B模型在JumpScore上达到74.9 mAP，比Qwen3-VL-8B高44.8分，同时在视频、空间和跟踪任务上也取得整体领先。"}
+/>
+</div>
+
+## 4D Understanding and Generation
+
+<div class="space-y-4">
+<PaperCard
+  title={"Soap2Soap: Long Cinematic Video Remaking via Multi-Agent Collaboration"}
+  arxivUrl={"https://arxiv.org/abs/2605.17423"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.17423"}
+  summary={"Soap2Soap面向系列级电影和剧集重制，目标是在数百个镜头上完成风格迁移或演员替换，同时保持叙事结构、动作编排和角色身份一致。方法上它用场景级JSON剧本作为持久语义骨架，并为场景和镜头动态分配视觉参考锚点来抑制漂移。系统还加入批量关键帧一致性和闭环验证代理，在发现身份、稳定性或对齐问题时触发选择性重生成。作者在SoapBench上验证，结果显示它在长期一致性和叙事保真度上优于商业视频生成API。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"The MiniMax-M2 Series: Mini Activations Unleashing Max Real-World Intelligence"}
+  arxivUrl={"https://arxiv.org/abs/2605.26494"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.26494"}
+  summary={"MiniMax-M2系列提出一套面向智能体部署的MoE语言模型，旗舰M2总参数229.9B、每个token仅激活9.8B参数。它通过面向智能体的数据流水线、可扩展的Forge强化学习系统，以及训练-推理解耦的工程设计，把长时序轨迹学习和执行效率结合起来。M2.7还加入了自动调试训练运行和修改自身脚手架的早期自进化机制。实验显示，该系列在agentic coding、deep search、办公任务和推理基准上达到了前沿水平。"}
+/>
+</div>
