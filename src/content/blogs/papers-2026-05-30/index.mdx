@@ -11,17 +11,6 @@ heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
 
 import PaperCard from '@/components/papers/PaperCard.astro'
 
-## Grounding-driven Visual Reasoning
-
-<div class="space-y-4">
-<PaperCard
-  title={"LoMo: Local Modality Substitution for Deeper Vision-Language Fusion"}
-  arxivUrl={"https://arxiv.org/abs/2605.30265"}
-  hjfyUrl={"https://hjfy.top/arxiv/2605.30265"}
-  summary={"Vision-Language Models (VLMs) have achieved substantial progress across a wide range of understanding and reasoning tasks, driven by large-scale image-text training aimed at multimodal fusion. Ideally, replacing a textual question with its rendered-image counterpart should leave model performance essentially unaffected. In practice, however, such modality substitution induces dramatic performance degradation. We attribute this \"carrier sensitivity\" issue to an inherent bias in current training corpora. Across prevalent datasets such as image captioning, VQA, OCR, and web-sourced interleaved data, text and images are typically organized into distinct and asymmetric roles, with text serving as linguistic queries and images as visual references. Such data bias leads VLMs to exhibit distinct preferences for information acquisition across different modalities. Consequently, VLMs fail to align representations of semantically equivalent content across textual and visual carriers, making model reasoning fragile under modality substitution. To address this, we propose Local Modality Substitution (LoMo), a lightweight, architecture-agnostic data curation paradigm designed to provide supervision for cross-modal representational invariance between semantically equivalent text and image carriers. LoMo achieves this by reformulating single-modality prompts into seamlessly interleaved multimodal sequences. It dynamically selects target text spans and recasts them as rendered images, thereby preserving the same semantics across \"text, visual, text\" carriers. Extensive experiments across 13 diverse multimodal benchmarks demonstrate that LoMo significantly improves overall multimodal reasoning and yields deeper cross-modal fusion. Specifically, it delivers consistent gains across foundational models, improving over standard SFT by 2.67 points on LLaVA-OneVision-1.5-8B and 2.82 points on Qwen3.5-9B."}
-/>
-</div>
-
 ## Thinking with Code/Structure
 
 <div class="space-y-4">
@@ -29,7 +18,7 @@ import PaperCard from '@/components/papers/PaperCard.astro'
   title={"GenClaw: Code-Driven Agentic Image Generation"}
   arxivUrl={"https://arxiv.org/abs/2605.30248"}
   hjfyUrl={"https://hjfy.top/arxiv/2605.30248"}
-  summary={"这篇论文提出 GenClaw，将代码作为代理式图像生成的中间画布，让模型像人类创作一样先构思、再草图、最后上色。方法上，系统先通过搜索和推理建立概念与上下文，再用 SVG、HTML、Three.js 等可执行代码生成可控视觉草图，最后借助图像生成模型补充纹理、材质和写实细节。作者将这一流程从黑盒式提示迭代改造成分阶段生成管线，实验表明该框架能提升图像生成的可控性和可解释性。"}
+  summary={"本文提出 GenClaw，把图像生成拆成概念规划、代码草图和最终上色三阶段。系统先通过搜索与推理构建场景知识，再用 SVG、HTML、Three.js 等代码生成可执行的视觉草图，最后借助图像生成模型补充纹理、材质和真实感。这样把黑盒式生成改造成可控的中间表示流程，提升了视觉构建的可解释性与精细控制能力。实验和案例表明，该流程能更稳定地产生符合意图、细节更完整的图像。"}
 />
 </div>
 
@@ -40,7 +29,7 @@ import PaperCard from '@/components/papers/PaperCard.astro'
   title={"Qwen-VLA: Unifying Vision-Language-Action Modeling across Tasks, Environments, and Robot Embodiments"}
   arxivUrl={"https://arxiv.org/abs/2605.30280"}
   hjfyUrl={"https://hjfy.top/arxiv/2605.30280"}
-  summary={"这篇论文提出 Qwen-VLA，将不同具身任务统一到一个 vision-language-action 模型中。方法上，它在 Qwen 的视觉语言栈上扩展出连续动作与轨迹生成能力，使用基于 DiT 的 action decoder，并通过大规模联合预训练融合机器人操作、人类第一视角示范、仿真数据、导航数据和辅助视觉语言数据。作者还引入 embodiment-aware prompt conditioning，用机器人文本描述显式指定当前平台和控制约定。实验显示，该模型在操作、导航和轨迹预测基准上具有稳定的多任务性能和跨环境、跨机器人形态的泛化能力。"}
+  summary={"这篇工作提出 Qwen-VLA，尝试用单一视觉-语言-动作模型统一操控、导航和轨迹预测等异构具身决策任务。模型在 Qwen 的视觉语言能力上扩展出基于 DiT 的动作解码器，并通过大规模联合预训练融合机器人操作轨迹、人类第一视角演示、仿真数据、导航数据和辅助视觉语言数据。作者还引入 embodiment-aware prompt conditioning，用文本描述显式指定机器人本体和控制约定，从而提升跨机器人形态的迁移能力。实验在 LIBERO、Simper-WidowX、RoboTwin、R2R、RxR 以及真实 ALOHA 等基准上表现稳定，展示了对场景布局、背景、光照、物体配置和机器人本体变化的 OOD 泛化能力。"}
 />
 </div>
 
@@ -51,7 +40,14 @@ import PaperCard from '@/components/papers/PaperCard.astro'
   title={"Why Far Looks Up: Probing Spatial Representation in Vision-Language Models"}
   arxivUrl={"https://arxiv.org/abs/2605.30161"}
   hjfyUrl={"https://hjfy.top/arxiv/2605.30161"}
-  summary={"这篇论文研究视觉语言模型的空间表征是否真的具备结构化 3D 理解。作者构造最小对照样本，从表示层面分析空间轴是否被正确分离，并发现模型普遍存在“垂直位置与距离”纠缠的偏差，符合自然照片中的透视先验。进一步提出的合成基准 SpatialTunnel 去除了常见相关性，用来暴露这种空间捷径偏差。实验显示，这种纠缠是模型内在特性，而且空间轴分离更好的模型在多种空间推理基准上更稳健。"}
+  summary={"本文从表示层面分析视觉语言模型的空间表征，提出最小对比样本框架来检查不同空间轴是否被解耦。结果发现，多种模型普遍把图像中的上下位置和远近距离纠缠在一起，反映出自然照片中的透视偏差。作者进一步构建了合成基准 SpatialTunnel，用来剥离数据集相关性并暴露这种捷径偏差。实验表明，这种纠缠是模型内生的，而空间轴分离更好的模型在多个空间推理基准上更稳健。"}
+/>
+
+<PaperCard
+  title={"LoMo: Local Modality Substitution for Deeper Vision-Language Fusion"}
+  arxivUrl={"https://arxiv.org/abs/2605.30265"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.30265"}
+  summary={"这篇工作研究多模态模型在“同义内容跨载体替换”时的性能退化问题，即把文本问题换成渲染图片后模型会明显变差。作者提出 LoMo，通过局部模态替换把单模态提示改写成交错的图文序列，在语义不变的前提下显式监督文本与图像表征对齐。该方法不依赖特定架构，可直接用于现有 VLM 训练。作者在 13 个多模态基准上验证了方法有效性，相比标准 SFT 在 LLaVA-OneVision-1.5-8B 和 Qwen3.5-9B 上分别提升 2.67 和 2.82 分。"}
 />
 </div>
 
@@ -62,7 +58,7 @@ import PaperCard from '@/components/papers/PaperCard.astro'
   title={"AgentDoG 1.5: A Lightweight and Scalable Alignment Framework for AI Agent Safety and Security"}
   arxivUrl={"https://arxiv.org/abs/2605.29801"}
   hjfyUrl={"https://hjfy.top/arxiv/2605.29801"}
-  summary={"这篇工作提出 AgentDoG 1.5，用于面向开放环境 AI agent 的轻量级安全与对齐。作者先更新了 agent 安全分类体系，再构建基于 taxonomy 的数据引擎，并结合 influence-function purification 训练 0.8B 到 8B 的小模型，只用约 1k 样本就能接近闭源强模型的效果。论文还把它做成了适用于 Docker 级环境的高效 agentic safety SFT/RL 训练环境，并可作为训练无关的在线安全护栏。实验表明，AgentDoG 1.5 在多种复杂交互式 agent 场景中达到 SOTA 表现。"}
+  summary={"这篇工作提出 AgentDoG 1.5，用于面向 AI agent 的安全与安全性对齐，目标是覆盖更复杂的开放世界交互风险。作者更新了 agent 安全分类体系，并构建了一个由 taxonomy 引导的数据引擎，结合 influence-function purification，只用约 1k 样本训练出 0.8B 到 8B 的轻量模型。论文还把该框架扩展成可直接用于 agentic safety 的 SFT/RL 训练环境，并可作为训练无关的在线 guardrail。实验表明，AgentDoG 1.5 在多种复杂交互场景中达到当前最优表现，且在部署开销上相比 Docker 级环境降低了两个数量级。"}
 />
 </div>
 
@@ -73,20 +69,20 @@ import PaperCard from '@/components/papers/PaperCard.astro'
   title={"minWM: A Full-Stack Open-Source Framework for Real-Time Interactive Video World Models"}
   arxivUrl={"https://arxiv.org/abs/2605.30263"}
   hjfyUrl={"https://hjfy.top/arxiv/2605.30263"}
-  summary={"这篇工作提出 minWM，一个用于实时交互式视频世界模型的开源全栈框架。它把现有双向文本到视频/图像到视频基础模型，通过相机控制微调、因果强制训练、AR diffusion、因果 ODE/一致性蒸馏和 asymmetric DMD 等步骤，转换成低延迟的少步自回归世界模型。框架支持不同架构，并能把已有视频世界模型适配到新的数据分布和延迟目标。作者还给出了可运行脚本、检查点和多项消融实验，验证了相机轨迹质量、可控训练步数和最小 batch size 对效果的影响。"}
+  summary={"这篇工作提出 minWM，一个用于构建实时交互式视频世界模型的全栈开源框架。作者给出从双向视频扩散模型出发的端到端流水线，包括相机控制微调、AR diffusion 训练、因果 ODE/因果一致性蒸馏以及 asymmetric DMD，从而把现有 T2V/TI2V backbone 转成低延迟的少步自回归世界模型。框架支持不同架构，并可适配如 Wan2.1-T2V-1.3B 和 HY1.5-TI2V-8B 等模型，也能迁移已有视频世界模型到新数据分布和延迟目标。实验与消融结果表明，该方法在相机轨迹质量、可控性训练步数和最小 batch-size 等方面给出了可复现的实践经验，并实现了可运行的实时交互生成。"}
 />
 
 <PaperCard
   title={"YoCausal: How Far is Video Generation from World Model? A Causality Perspective"}
   arxivUrl={"https://arxiv.org/abs/2605.30346"}
   hjfyUrl={"https://hjfy.top/arxiv/2605.30346"}
-  summary={"这篇论文从因果视角重新审视视频生成模型是否真正具备世界模型能力。作者提出 YoCausal，一个借鉴 VoE 范式的两层评测基准，直接用真实视频的时间反转样本构造自然反事实，并分别用 RSI 和 CCI 评估时间箭头感知与因果认知。对 13 个先进视频扩散模型的评测表明，识别时间方向并不等于理解因果关系，模型距离人类水平的因果认知仍有明显差距。"}
+  summary={"本文提出 YoCausal，一个用于评估视频扩散模型是否真正理解因果关系的两层基准。它利用真实视频的时间反转构造零成本反事实样本，并用 RSI 从去噪损失量化时间箭头感知，再用 CCI 借助 VLM 将数据划分为因果与非因果子集。作者评测了 13 个主流视频扩散模型，发现能识别时间方向并不等于具备因果理解。实验还显示，这些模型与人类级因果认知之间仍有明显差距。"}
 />
 
 <PaperCard
-  title={"Native Audio-Visual Alignment for Generation"}
-  arxivUrl={"https://arxiv.org/abs/2605.30073"}
-  hjfyUrl={"https://hjfy.top/arxiv/2605.30073"}
-  summary={"Joint audio-video generation aims to synthesize temporally synchronized and semantically coherent visual-acoustic content. However, existing open-source methods mainly rely on either dual-tower designs with posterior alignment or fully unified tri-modal designs that mix textual context, audio and video in one shared space. The former weakens fine-grained audio-video co-evolution, while the latter couples semantic conditioning with low-level synchronization. To address these limitations, we propose NAVA, a Native Audio-Visual Alignment framework for joint audio-video generation. NAVA is built upon context-conditioned native audio-visual alignment: it first establishes audio-video correspondence in a dedicated interaction space, and then uses external context to condition the joint denoising process. Specifically, NAVA is instantiated with an Align-then-Fuse MMDiT architecture, which transitions from modality-aware audio-video alignment to modality-shared joint denoising. Furthermore, we introduce Timbre-in-Context Conditioning to associate reference timbre cues with corresponding speech spans to achieve controllable speech timbre. Experiments on Verse-Bench and Seed-TTS, together with a user study, demonstrate that NAVA achieves superior video quality, precise audio-visual synchronization, competitive audio quality, and stronger reference-timbre controllability using only 6.3B parameters."}
+  title={"How LoRA Remembers? A Parametric Memory Law for LLM Finetuning"}
+  arxivUrl={"https://arxiv.org/abs/2605.30260"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.30260"}
+  summary={"Large Language Models (LLMs) must continuously learn and update knowledge to remain effective in dynamic real-world environments. While Low-Rank Adaptation (LoRA) is widely used for such memory updates, existing studies mainly rely on qualitative downstream evaluations, leaving the quantitative capacity limits and underlying dynamics of exact parametric memory largely unexplored. To bridge this gap, we employ LoRA as a controlled memory capacity probe within the latent space to systematically quantify exact parametric memory. We introduce the Parametric Memory Law, a robust power law linking loss reduction Delta L to effective parameters and sequence length. At the token level, fine-grained analysis reveals a deterministic phase transition, demonstrating that a prediction probability of p &gt; 0.5 constitutes a sufficient condition for verbatim recall under greedy decoding. Driven by these insights, we introduce MemFT, a threshold-guided optimization strategy that dynamically redistributes the training budget toward sub-threshold tokens. Empirical evaluations demonstrate that MemFT can enhance memory fidelity and efficiency. Code will be released at https://github.com/zjunlp/ParametricMemoryLaw."}
 />
 </div>
