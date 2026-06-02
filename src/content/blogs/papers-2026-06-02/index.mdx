@@ -1,0 +1,48 @@
+---
+title: Papers - 2026-06-02
+description: "吾能观之数千而面色如故"
+publishDate: 2026-06-02
+updatedDate: 2026-06-02
+tags: ['paper reading', 'agent', 'visual reasoning']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## 3D/Space Reasoning
+
+<div class="space-y-4">
+<PaperCard
+  title={"Function2Scene: 3D Indoor Scene Layout from Functional Specifications"}
+  arxivUrl={"https://arxiv.org/abs/2605.30819"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.30819"}
+  summary={"这篇工作提出了 Function2Scene，用功能性规格而不是单纯家具清单来生成 3D 室内布局。系统先从自然语言设计简报中解析居住者画像和活动需求，再基于覆盖空间、人体工学、活动和环境等 17 类标准抽取定制化设计约束。生成阶段采用工具增强的 check-and-repair 迭代流程，把几何测量、LLM 推理和 VLM 视觉评估结合起来，不直接一次性输出最终场景。作者在 30 个专业室内设计案例上验证了方法，结果在成对比较中有 94.3% 的偏好胜率，说明其更能满足功能需求。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"Trust-Region Behavior Blending for On-Policy Distillation"}
+  arxivUrl={"https://arxiv.org/abs/2605.31159"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.31159"}
+  summary={"这篇工作提出了一种用于 on-policy distillation 的热启动方法 TRB。它在训练早期不直接使用学生策略采样，而是在学生中心的 KL 信赖域内，选择最接近教师行为的策略作为中间 rollout，以避免弱 prefix 上的错误监督，同时保持原有的 reverse-KL 蒸馏目标不变。随着训练推进，KL 预算逐步退火到零，最终回到纯学生 rollout。作者在两个数学推理蒸馏设置上验证了该方法，TRB 的平均表现优于对比方法。"}
+/>
+
+<PaperCard
+  title={"LongTraceRL: Learning Long-Context Reasoning from Search Agent Trajectories with Rubric Rewards"}
+  arxivUrl={"https://arxiv.org/abs/2605.31584"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.31584"}
+  summary={"这篇工作提出 LongTraceRL，用强化学习来提升长上下文推理能力。作者通过知识图谱随机游走构造多跳问题，并结合搜索代理轨迹生成分层干扰文档，把训练场景做得比随机采样或单次搜索更难。方法上还设计了基于推理链黄金实体的 rubric reward，只对最终答案正确的样本施加过程监督，以区分不同正确解法的质量并减少 reward hacking。实验覆盖 3 个推理模型和 5 个长上下文基准，结果显示该方法稳定优于强基线，且能生成更充分、基于证据的推理过程。"}
+/>
+
+<PaperCard
+  title={"GrepSeek: Training Search Agents for Direct Corpus Interaction"}
+  arxivUrl={"https://arxiv.org/abs/2605.29307"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.29307"}
+  summary={"这篇论文提出 GrepSeek，一种直接与语料库交互的搜索代理。它不依赖传统检索器，而是让代理通过可执行 shell 命令在原始语料中查找、过滤并组合证据。训练上先用 answer-aware Tutor 和 answer-blind Planner 构造冷启动数据，再用 GRPO 做强化学习精调，并配套分片并行执行引擎提升检索速度。实验在 7 个开放域问答基准上显示，GrepSeek 在 token-level F1 和 Exact Match 上取得整体最强表现，但作者也指出其对表面形式变化很大的查询仍有局限。"}
+/>
+</div>
