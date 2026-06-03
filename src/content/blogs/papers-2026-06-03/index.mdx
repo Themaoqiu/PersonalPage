@@ -1,0 +1,73 @@
+---
+title: Papers - 2026-06-03
+description: "吾能观之数千而面色如故"
+publishDate: 2026-06-03
+updatedDate: 2026-06-03
+tags: ['paper reading', 'agent', 'multimodal world model']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## Spatial Intelligence (Image/Video)
+
+<div class="space-y-4">
+<PaperCard
+  title={"VLMs are Good Teachers for Video Reasoning via Adaptive Test-Time Optimization"}
+  arxivUrl={"https://arxiv.org/abs/2606.02564"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.02564"}
+  summary={"这篇工作把 VLM 的角色从“解题器”转成“教师”，用于指导视频推理。方法上，VLM 先抽取任务规则并构造成可微奖励，再通过测试时在线优化轻量 LoRA 模块来驱动视频生成模型完成推理。作者在符号类和通用视频推理基准上评测，平均性能提升 16.7 分，明显超过把 VLM 当 solver 或做 Best-of-N 的方案。"}
+/>
+
+<PaperCard
+  title={"X-Stream: Exploring MLLMs as Multiplexers for Multi-Stream Understanding"}
+  arxivUrl={"https://arxiv.org/abs/2606.02482"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.02482"}
+  summary={"这篇工作提出 X-Stream，用来评估多流视频场景下的多模态大模型理解能力。作者构建了包含 4,220 个问答、覆盖 932 个视频的基准，并通过双重验证流程减少模型对单一路流的依赖。实验显示，现有先进 MLLM 在并发多流任务上表现明显不足，总体只有约 50% 的得分，且主动推理能力较弱。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"A Matter of TASTE: Improving Coverage and Difficulty of Agent Benchmarks"}
+  arxivUrl={"https://arxiv.org/abs/2605.28556"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.28556"}
+  summary={"这篇工作提出 TASTE，用“从工具序列演化生成任务”的方式自动构造更难、覆盖更广的智能体基准。方法上先用带 LLM 质量信号的自适应对比 n-gram 模型采样有效工具序列，再通过聚类挑选代表序列，实例化成完整任务，并迭代提升难度。作者据此构建了 τ^c-Bench 作为 τ^2-Bench 的扩展，在三个领域上评测 11 组 agent/LLM 配对。结果显示，原本接近饱和的模型在新任务上性能明显下滑，例如 Gemini-3-Flash 从 0.82-0.94 降到 0.28-0.61，同时任务中的独特工具组合数翻倍以上。"}
+/>
+
+<PaperCard
+  title={"K-BrowseComp: A Web Browsing Agent Benchmark Grounded in Korean Contexts"}
+  arxivUrl={"https://arxiv.org/abs/2606.02404"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.02404"}
+  summary={"这篇工作提出 K-BrowseComp，一个面向韩国语境的网页浏览智能体基准，包含 400 道题，其中 300 道为人工构造并由韩语母语者验证。方法上还构建了 100 道合成诊断集，利用 hard few-shot exemplars 和针对失败模式的生成来提高对抗性。作者在该基准上评测多种前沿模型与韩国本土模型，发现前者在 Verified 子集上也仅有 30.00%-45.67%，而韩国本土模型仅有 0.00%-10.33%。对抗过滤后的合成诊断集上，最强模型也只有 26.00%，说明该基准对网页浏览与推理能力有较强压力测试作用。"}
+/>
+
+<PaperCard
+  title={"Harness-1: Reinforcement Learning for Search Agents with State-Externalizing Harnesses"}
+  arxivUrl={"https://arxiv.org/abs/2606.02373"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.02373"}
+  summary={"这篇工作提出 Harness-1，一个在状态外置的搜索 harness 中通过强化学习训练的 20B 搜索智能体。方法上，harness 负责维护候选池、重要性标注的精炼集合、证据链接、验证记录以及压缩后的观察历史，把策略模型从繁重的状态管理中解放出来，让其专注于搜索、筛选、验证和停止等语义决策。作者在 8 个覆盖网页、金融、专利和多跳问答的检索基准上进行评测。结果显示，Harness-1 的平均 curated recall 达到 0.730，比下一个最强开源搜索子代理高出 11.4 个百分点，并且在未见过的迁移基准上也表现稳定。"}
+/>
+
+<PaperCard
+  title={"SkillAdaptor: Self-Adapting Skills for LLM Agents from Trajectories"}
+  arxivUrl={"https://arxiv.org/abs/2606.01311"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.01311"}
+  summary={"这篇工作提出 SkillAdaptor，一个无需训练的 LLM Agent 技能自适应框架，专门针对失败轨迹做逐步归因和定点修复。方法上，它先定位第一个可行动的故障步骤，再将责任链接到候选技能，并在保持骨干模型冻结的前提下通过显式接受检查更新技能。作者在 WebShop、PinchBench 和 Claw-Eval 上用 Kimi-K2.5、GLM-5 和 GPT-5.2 评测，结果相较无技能和已有技能自适应基线都有提升，最高分别带来 PinchBench +1.5、Claw-Eval +1.8 和 WebShop +1.7 的指标增益。"}
+/>
+</div>
+
+## Multimodal World Model
+
+<div class="space-y-4">
+<PaperCard
+  title={"VideoMLA: Low-Rank Latent KV Cache for Minute-Scale Autoregressive Video Diffusion"}
+  arxivUrl={"https://arxiv.org/abs/2605.30351"}
+  hjfyUrl={"https://hjfy.top/arxiv/2605.30351"}
+  summary={"这篇工作提出 VideoMLA，用多头潜变量注意力替换视频扩散中的逐头 KV 缓存，以显著降低分钟级自回归视频生成的显存和延迟。方法上，它使用共享的低秩内容潜变量和解耦的 3D-RoPE 位置键，将每层缓存的 token 级 KV 内存压缩 92.7%，并分析了为何这种压缩在视频扩散中仍能保持质量。实验在 VBench 上表明，VideoMLA 在短时长流式视频扩散上与基线相当，在长时长评测中取得最佳总体分数，同时在单张 B200 上将吞吐提升 1.23 倍。"}
+/>
+</div>
