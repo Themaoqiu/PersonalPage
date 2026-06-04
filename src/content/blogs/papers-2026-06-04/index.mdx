@@ -1,0 +1,67 @@
+---
+title: Papers - 2026-06-04
+description: "吾能观之数千而面色如故"
+publishDate: 2026-06-04
+updatedDate: 2026-06-04
+tags: ['paper reading', 'agent', 'visual reasoning', 'multimodal world model']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## Grounding-driven Visual Reasoning
+
+<div class="space-y-4">
+<PaperCard
+  title={"TRON: Targeted Rule-Verifiable Online Environments for Visual Reasoning RL"}
+  arxivUrl={"https://arxiv.org/abs/2606.01599"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.01599"}
+  summary={"这篇工作提出 TRON，一个面向视觉推理强化学习的在线、可规则验证环境基座。它通过可控生成器-验证器程序按需采样新的潜在视觉状态、渲染图像并自动精确验答案，从而提供可无限扩展的训练数据流。作者构建了包含 520 个环境的套件，覆盖空间、数学、图表、模式逻辑和计数等能力，并支持统一模型和分能力专家模型训练。实验显示，基于该基座的 RL 后训练能在 Qwen3-VL-4B、Qwen2.5-VL-7B 和 MiMo-VL-7B-SFT 上稳定提升 10 个外部多模态推理基准的表现。"}
+/>
+</div>
+
+## Embodied Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"Humanoid-GPT: Scaling Data and Structure for Zero-Shot Motion Tracking"}
+  arxivUrl={"https://arxiv.org/abs/2606.03985"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.03985"}
+  summary={"这篇工作提出 Humanoid-GPT，一个用于全身控制的 GPT 风格 Transformer。作者将超过 20 亿帧的动作数据重定向并统一成大规模预训练语料，用因果注意力建模运动序列，从而兼顾高动态动作跟踪和泛化能力。实验与尺度分析表明，随着数据和模型规模扩大，单一生成式 Transformer 能在未见过的动作与控制任务上实现更强的零样本泛化，并在复杂动态运动跟踪上达到新的性能上限。"}
+/>
+</div>
+
+## Spatial Intelligence (Image/Video)
+
+<div class="space-y-4">
+<PaperCard
+  title={"Benchmarking Visual State Tracking in Multimodal Video Understanding"}
+  arxivUrl={"https://arxiv.org/abs/2606.03920"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.03920"}
+  summary={"这篇工作提出 VSTAT，用于评测多模态视频理解中的视觉状态跟踪能力。基准包含 834 段来自合成和真实场景的视频，以及 1500 个无法由单帧或短片段回答的问题，要求模型跨整段视频持续感知和整合事件。作者分析了模型的思维轨迹与视频流的对应关系，发现当前 MLLM 往往在文本推理上看似正确，但在视觉事件感知与跟踪上失败。实验还表明，现有的视频代理和代码代理式方法也难以显著缓解这一问题，整体仍明显落后于人类。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"AutoMedBench: Towards Medical AutoResearch with Agentic AI Models"}
+  arxivUrl={"https://arxiv.org/abs/2606.01961"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.01961"}
+  summary={"这篇工作提出了 AutoMedBench，用来评测医疗场景中的自治研究代理，而不只看最终输出。它把一次医疗 AI 研究流程统一拆成 Plan、Setup、Validate、Inference、Submit 五个阶段，并覆盖分割、图像增强、VQA、报告生成和病灶检测等长程任务。作者在 Lite 和 Standard 两个难度层级上记录了数千次运行，并同时给出最终任务分数和阶段级分数。实验显示 Validate 是最弱环节，Setup 相对最强，说明当前代理更擅长把流程跑通，但验证可靠性仍然不足。错误分析还发现验证和提交失败占主导，且出现一个错误码时总体得分会显著下降。"}
+/>
+</div>
+
+## Multimodal World Model
+
+<div class="space-y-4">
+<PaperCard
+  title={"World Models Meet Language Models: On the Complementarity of Concrete and Abstract Reasoning"}
+  arxivUrl={"https://arxiv.org/abs/2606.03603"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.03603"}
+  summary={"这篇工作讨论了世界模型与多模态大语言模型在静态视觉观察下的互补性。作者将问题形式化为“受控具体推理”，让模型在抽象推理之外，按需调用并验证未来视觉模拟。为此他们构建了 VRQABench 和 OpenWorldQA 两个人工验证基准，并提出 PF-OPSD 训练方法，用真实未来视频作为教师侧特权上下文进行自蒸馏。实验表明，该方法在两个基准上分别比基线提升 10.6% 和 10.9%，并且对噪声或冲突的滚动预测更鲁棒。"}
+/>
+</div>
