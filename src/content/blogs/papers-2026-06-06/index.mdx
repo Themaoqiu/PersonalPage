@@ -1,0 +1,88 @@
+---
+title: Papers - 2026-06-06
+description: "吾能观之数千而面色如故"
+publishDate: 2026-06-06
+updatedDate: 2026-06-06
+tags: ['paper reading', 'agent', 'visual reasoning']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## Multimodal Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"Personal AI Agent for Camera Roll VQA"}
+  arxivUrl={"https://arxiv.org/abs/2606.05275"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.05275"}
+  summary={"这项工作研究了面向个人相册的视觉问答场景，目标是在海量、长时间跨度的私人照片流中找到与问题相关的证据并作答。作者构建了 camroll 数据集，包含 50 名用户、31,476 张图片和 2,500 个问答对，并设计了带层级记忆与少量工具的 camroll-agent 来高效检索和导航个人视觉记忆。实验结果表明，camroll-agent 在多种长上下文理解基线之上取得更好表现，说明私人视觉记忆问题比标准文本长上下文更依赖一致性、细粒度视觉细节和用户特定背景。"}
+/>
+</div>
+
+## Embodied Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"Dream.exe: Can Video Generation Models Dream Executable Robot Manipulation?"}
+  arxivUrl={"https://arxiv.org/abs/2606.04811"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.04811"}
+  summary={"这篇工作提出 Dream.exe，用机器人操作作为检验视频生成模型是否真正内化物理规律的窗口。方法上，框架先根据场景图像和任务描述生成操作视频，再把视频中的运动转换成机器人轨迹，并在物理仿真器中执行，从而得到单纯视觉指标无法提供的落地信号。作者评测了 8 个模型，覆盖闭源前沿模型、开源生成模型和机器人专用模型，并在 101 个手工整理的操作任务上测试三种物理复杂度。结果显示，部分模型已经能产生可执行的轨迹，但视觉质量与可执行性并不强相关，说明常规视觉评测无法完整反映模型能力。"}
+/>
+</div>
+
+## Spatial Intelligence (Image/Video)
+
+<div class="space-y-4">
+<PaperCard
+  title={"VideoKR: Towards Knowledge- and Reasoning-Intensive Video Understanding"}
+  arxivUrl={"https://arxiv.org/abs/2606.05259"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.05259"}
+  summary={"本文提出 VideoKR，一个面向知识密集和推理密集视频理解的大规模训练语料。数据集包含 31.5 万个视频推理样本，来源于 14.5 万个新收集的、带 CC 许可的专家领域视频，并配套构建了 VideoKR-Eval 作为评测基准。作者设计了人类在环、技能导向的样本生成流程，以逐步强化更深层的视频推理能力，并保证样本和 CoT 解释的难度与可靠性。实验表明，在标准 SFT 到 GRPO 流程下，基于 VideoKR 后训练的模型在知识密集型视频推理上优于以往方法，同时在通用视频推理上也保持竞争力。"}
+/>
+</div>
+
+## 4D Understanding and Generation
+
+<div class="space-y-4">
+<PaperCard
+  title={"LoomVideo: Unifying Multimodal Inputs into Video Generation and Editing"}
+  arxivUrl={"https://arxiv.org/abs/2606.06042"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.06042"}
+  summary={"本文提出 LoomVideo，一个统一的视频生成与编辑框架，能够处理交错的多模态输入。方法上，它用 MLLM 替代传统文本编码器，并通过 Deepstack 注入机制对齐多层 MLLM 特征与 DiT；在编辑时采用 Scale-and-Add 条件化，将干净源视频潜变量直接加到噪声目标潜变量上，从而避免 token 拼接带来的额外计算。作者还引入了 Negative Temporal RoPE 以支持多参考图像。实验显示，该 5B 参数模型在多个基准上达到 SOTA 或强竞争力表现，尤其在电商与时尚生成场景中优势明显，推理速度相比同类模型至少提升 5.41 倍。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"TIDE: Proactive Multi-Problem Discovery via Template-Guided Iteration"}
+  arxivUrl={"https://arxiv.org/abs/2606.04743"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.04743"}
+  summary={"本文提出 TIDE，用模板引导的迭代式流程，从文档、工具或代码上下文中主动发现多个隐藏问题。它通过“迭代发现”逐轮补充候选项，并用从历史成功案例中抽取的“思维模板”指导每一轮关注哪些线索、如何把线索连成问题。作者在个人工作空间和软件仓库两类真实场景、四种模型骨干上验证了该方法。实验显示，TIDE 在任务覆盖、问题识别和问题解决上都显著优于单轮预测和并行多智能体基线。"}
+/>
+
+<PaperCard
+  title={"AdaPlanBench: Evaluating Adaptive Planning in Large Language Model Agents under World and User Constraints"}
+  arxivUrl={"https://arxiv.org/abs/2606.05622"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.05622"}
+  summary={"本文提出 AdaPlanBench，用于评测大模型智能体在世界约束和用户约束逐步揭示时的自适应规划能力。基准包含 307 个家务任务，并在运行时通过多轮交互逐步暴露隐藏约束，迫使智能体反复修正计划。作者在 10 个领先模型上进行了实验，结果表明这种双约束下的自适应规划仍然很难，最佳模型准确率只有 67.75%。进一步分析发现，随着约束数量增加，性能会持续下降，且用户约束带来的挑战尤为明显。"}
+/>
+
+<PaperCard
+  title={"RobotValues: Evaluating Household Robots When Human Values Conflict"}
+  arxivUrl={"https://arxiv.org/abs/2606.03312"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.03312"}
+  summary={"这篇工作提出 RobotValues，用于评估家用机器人在任务成功之外如何处理人类价值冲突。作者构建了一个包含 1 万个价值冲突场景的基准，每个样本都由真实家居图像和多种可能动作组成，并通过 LLM 辅助场景生成、价值提取、图像生成和自动质检来完成数据构建。实验表明，现有用于机器人任务的 VLM 往往带有默认价值偏好，例如更偏向安全与照顾，但会低估隐私相关选择。即便被明确要求优先考虑与其默认偏好冲突的价值，模型也经常无法成功切换，错误率高达 80%。"}
+/>
+
+<PaperCard
+  title={"Rethinking Continual Experience Internalization for Self-Evolving LLM Agents"}
+  arxivUrl={"https://arxiv.org/abs/2606.04703"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.04703"}
+  summary={"这篇工作研究了自进化 LLM agent 的经验内化问题，目标是把交互中获得的上下文经验沉淀成可复用的参数能力。作者系统分析了多轮经验学习中的失效模式，发现现有方法不是持续增强，而是会出现逐步的能力塌缩。实验表明，原则级经验比实例级经验更稳定，分步注入优于全局注入，而离策略的高质量教师轨迹蒸馏比在策略蒸馏更稳健。基于这些结论，论文给出了一套更适合持续学习和自我演化 agent 的训练配方。"}
+/>
+</div>
