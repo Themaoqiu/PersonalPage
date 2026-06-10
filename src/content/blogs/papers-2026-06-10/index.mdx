@@ -1,0 +1,73 @@
+---
+title: Papers - 2026-06-10
+description: "吾能观之数千而面色如故"
+publishDate: 2026-06-10
+updatedDate: 2026-06-10
+tags: ['paper reading', 'agent', 'multimodal world model']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## Spatial Intelligence (Image/Video)
+
+<div class="space-y-4">
+<PaperCard
+  title={"SpatialWorld: Benchmarking Interactive Spatial Reasoning of Multimodal Agents in Real-World Tasks"}
+  arxivUrl={"https://arxiv.org/abs/2606.09669"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.09669"}
+  summary={"这篇工作提出了 SpatialWorld，用于评测多模态智能体在真实世界任务中的交互式空间理解能力。作者把 8 种异构模拟后端统一到一个与模拟器无关的协议下，构建了 760 个人工标注任务，并要求智能体在视觉部分可观测条件下主动探索、通过文本动作接口完成任务。每个任务都配有人工验证的初始状态、参考轨迹和终止状态验证器，便于稳定评估。对 15 个先进智能体的实验表明，空间任务仍然很难，最强的 GPT-5 平均任务成功率只有 17.4%，开源最佳 Qwen-3.5 也只有 14.1%。结果还显示任务成功率与执行效率之间存在明显错配，不同领域之间的性能差异也很大。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"SWE-Explore: Benchmarking How Coding Agents Explore Repositories"}
+  arxivUrl={"https://arxiv.org/abs/2606.07297"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.07297"}
+  summary={"这篇工作提出 SWE-Explore，用来专门评测编码代理在仓库探索阶段的能力，而不是只看最终修复是否成功。作者将任务设为：给定仓库和 issue，输出受线数预算约束的相关代码区域排序，并从成功修复同类问题的代理轨迹中抽取行级真值。数据集覆盖 10 种编程语言、203 个开源仓库和 848 个问题。实验表明，覆盖率、排序质量和上下文效率与下游修复行为高度相关，且 agentic explorer 整体明显强于传统检索方法。"}
+/>
+
+<PaperCard
+  title={"Agents' Last Exam"}
+  arxivUrl={"https://arxiv.org/abs/2606.05405"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.05405"}
+  summary={"这篇论文提出 Agents' Last Exam（ALE），用于评测 AI 代理在长链路、真实且有经济价值任务上的表现。作者与 250 多位行业专家合作，围绕 O*NET / SOC 2018 构建了 13 个行业簇、55 个子领域、1000 多个任务的层级 taxonomy。ALE 强调可验证结果，并作为持续扩展的活体基准来追踪新工作流。实验显示，当前主流 harness 与 backbone 组合的平均 full pass rate 只有 2.6%，说明最难任务仍远未饱和。"}
+/>
+
+<PaperCard
+  title={"LatentSkill: From In-Context Textual Skills to In-Weight Latent Skills for LLM Agents"}
+  arxivUrl={"https://arxiv.org/abs/2606.06087"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.06087"}
+  summary={"这篇工作提出 LatentSkill，把原本以文本形式注入上下文的可复用技能，转换为通过预训练超网络生成的 LoRA 权重适配器。这样做把技能知识从上下文空间迁移到权重空间，减少了每步都要拼接技能提示的开销，也降低了明文暴露风险。作者在 ALFWorld 和 Search-QA 上验证了方法有效性，在 seen/unseen split 上分别提升 21.4 和 13.4 个百分点，并减少 64.1% 的 prefill tokens，同时在 Search-QA 上 exact match 提升 3.0 个百分点。进一步分析显示，这些技能 LoRA 具有结构化语义几何，且可通过缩放系数和参数空间组合进行控制。"}
+/>
+
+<PaperCard
+  title={"OmniGameArena: A Unified UE5 Benchmark for VLM Game Agents with Improvement Dynamics"}
+  arxivUrl={"https://arxiv.org/abs/2606.09826"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.09826"}
+  summary={"本文提出 OmniGameArena，一个面向 VLM 游戏智能体的统一 UE5 基准，覆盖 12 个新构建的实时游戏，包含 Solo、PvP 和 Coop 三种场景。作者还提出 Improvement Dynamics Curve（IDC），通过一个可调用工具的反思器 LLM 在多轮中自动改写受限技能提示，从而观察智能体在冷启动之后的能力提升轨迹。该基准不仅报告 (agent, game) 对的首轮成绩，还评估多轮反思后的分数变化，以及学到的技能在未见任务变体上的泛化表现。实验在 12 个 VLM 智能体上给出了冷启动榜单，并对 4 个顶尖智能体进行了 IDC 评测，展示了不同模型在可改进性和泛化性上的差异。"}
+/>
+</div>
+
+## Multimodal World Model
+
+<div class="space-y-4">
+<PaperCard
+  title={"Latent Spatial Memory for Video World Models"}
+  arxivUrl={"https://arxiv.org/abs/2606.09828"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.09828"}
+  summary={"这篇论文提出 latent spatial memory，用于视频 world model 的 3D 一致性建模，直接在扩散模型的 latent 空间维护持久化空间记忆。作者用 depth-guided back-projection 将 latent token 提升到 3D，再通过直接的 latent-space warping 查询新视角，从而避免了传统 RGB 点云记忆的重复渲染与 VAE 编码。实验表明，该设计相较显式 3D 基线可带来最高 10.57 倍的端到端生成加速和 55 倍的显存占用下降。与此同时，Mirage 在 WorldScore 上达到 state-of-the-art，并在 RealEstate10K 上取得很强的重建质量。"}
+/>
+
+<PaperCard
+  title={"Echo-Memory: A Controlled Study of Memory in Action World Models"}
+  arxivUrl={"https://arxiv.org/abs/2606.09803"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.09803"}
+  summary={"这篇论文系统研究了动作条件世界模型中的记忆机制，聚焦于镜头离开再返回场景时对象或状态被悄然改变的问题。作者在固定视频扩散骨干、优化器、动作表示、采样器和评测管线的前提下，只比较历史信息的存储与读取方式，从而将容量、压缩、读出和递归四个因素拆开分析。实验采用重放质量、域内循环回访和开放域返回三条评测分支，发现这些指标经常并不一致，说明仅看重放并不能代表真正的记忆能力。结果表明，原始上下文是很强的容量基线，但压缩并非免费的替代方案，过强压缩会丢失返回所需的关键信息。最终，块级状态空间递归在开放域返回任务上表现最好，说明记忆结构本身和是否使用记忆同样重要。"}
+/>
+</div>
