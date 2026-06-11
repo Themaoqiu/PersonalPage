@@ -1,0 +1,95 @@
+---
+title: Papers - 2026-06-11
+description: "吾能观之数千而面色如故"
+publishDate: 2026-06-11
+updatedDate: 2026-06-11
+tags: ['paper reading', 'agent', 'visual reasoning', 'multimodal world model']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## Multimodal Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"Kwai Keye-VL-2.0 Technical Report"}
+  arxivUrl={"https://arxiv.org/abs/2606.10651"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.10651"}
+  summary={"这篇技术报告介绍了 Kwai Keye-VL-2.0-30B-A3B，一个面向长视频理解与 agentic intelligence 的开源多模态基础模型。方法上，模型将 DeepSeek Sparse Attention 适配到基于 GQA 的多模态架构中，以支持无损 256K 上下文处理，并结合高效的视频 I/O、ViT-LM 异构并行和自定义稀疏注意力内核来提升吞吐。为缓解多任务对齐中的灾难性遗忘，作者提出 Cross-Modal Multi-Teacher On-Policy Distillation，并配合 Context-RL 和 Video-RL 将在线 rollout 的教师反馈蒸馏回 MoE 主干。实验表明，该模型在视频理解、时间定位、推理和 agent 基准上达到同规模最优，尤其在 TimeLens、Video-MME-v2 和 LongVideoBench 上表现突出。"}
+/>
+
+<PaperCard
+  title={"MemDreamer: Decoupling Perception and Reasoning for Long Video Understanding via Hierarchical Graph Memory and Agentic Retrieval Mechanism"}
+  arxivUrl={"https://arxiv.org/abs/2606.07512"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.07512"}
+  summary={"这篇论文提出 MemDreamer，用层级图记忆和 agentic retrieval 来解决超长视频理解中的 token 爆炸与注意力稀释问题。方法上，它把视频流式输入并增量构建三层 Hierarchical Graph Memory，再在推理阶段通过观察-推理-行动循环进行节点搜索、层级导航和逻辑边遍历，从而将感知与推理解耦。实验表明，该方法在四个主流基准上取得 SOTA，且只需保留约 2% 的完整上下文窗口就能带来 12.5 个百分点的绝对准确率提升。作者还发现，模型在逻辑推理基准上的表现与长视频理解能力呈显著正相关，提示 agentic 能力扩展是多模态理解的新范式。"}
+/>
+</div>
+
+## 3D/Space Reasoning
+
+<div class="space-y-4">
+<PaperCard
+  title={"ABot-Earth 0.5: Generative 3D Earth Model"}
+  arxivUrl={"https://arxiv.org/abs/2606.09967"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.09967"}
+  summary={"这篇工作提出 ABot-Earth 0.5，一个面向卫星影像的生成式 3D 地球建模框架，用于高效合成大范围、连续的真实世界三维环境。方法上，作者直接以 3D Gaussian Splatting 作为生成表示，并在真实城市重建数据上训练模型，使其能够仅根据地理配准的卫星图像生成新的 3D 场景，同时支持分层 LOD 以便网页端实时交互。实验显示，该系统能够在每平方公里 10 分钟以内完成生成，并在几何与纹理真实感上表现出较强效果。该框架还可作为高保真仿真沙箱，面向无人机导航等具身 AI 场景降低 sim-to-real 差距。"}
+/>
+</div>
+
+## 4D Understanding and Generation
+
+<div class="space-y-4">
+<PaperCard
+  title={"SCAIL-2: Unifying Controlled Character Animation with End-to-end In-Context Conditioning"}
+  arxivUrl={"https://arxiv.org/abs/2606.10804"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.10804"}
+  summary={"提出 SCAIL-2，用端到端的 in-context conditioning 统一受控角色动画，不再依赖姿态骨架或背景掩码等中间表示。作者还构建了 MotionPair-60K，覆盖多种角色动画子任务，并引入 in-context mask conditioning、mode-specific RoPE 和 Bias-Aware DPO 来缓解合成数据偏差和细节错误。实验表明，该方法在多个角色动画任务上显著优于现有最先进方法。"}
+/>
+
+<PaperCard
+  title={"Lip Forcing: Few-Step Autoregressive Diffusion for Real-time Lip Synchronization"}
+  arxivUrl={"https://arxiv.org/abs/2606.11180"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.11180"}
+  summary={"提出 Lip Forcing，这是首个面向视频到视频口型同步的自回归扩散方法，将一个 14B 的双向音频条件视频扩散教师蒸馏为因果学生。作者基于教师轨迹分析设计了 Sync-Window DMD、两步推理调度和基于 SyncNet 的奖励，使模型在推理时每个片段只需两次去噪且无需 CFG。实验中，1.3B 学生达到 31 FPS 的实时流式速度，并比同尺度双向模型快 17.6 倍；14B 学生在相近参考保真下也比教师快 39.8 倍。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"Retrospective Harness Optimization: Improving LLM Agents via Self-Preference over Trajectory Rollouts"}
+  arxivUrl={"https://arxiv.org/abs/2606.05922"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.05922"}
+  summary={"这篇论文提出 Retrospective Harness Optimization（RHO），用自监督方式优化 LLM agent 的 harness，而不依赖人工标注的验证集。方法上，它从历史轨迹中挑选具有代表性的困难任务，重新并行求解这些任务，再通过 self-validation、self-consistency 和 pairwise self-preference 选择最优的 harness 更新方案。作者在软件工程、技术工作和知识工作三类场景上验证了方法有效性。实验中，单轮优化就将 SWE-Bench Pro 的通过率从 59% 提升到 78%，并且能持续改善长程会话中的行为模式。"}
+/>
+
+<PaperCard
+  title={"SearchSwarm: Towards Delegation Intelligence in Agentic LLMs for Long-Horizon Deep Research"}
+  arxivUrl={"https://arxiv.org/abs/2606.09730"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.09730"}
+  summary={"这篇工作聚焦长程深度研究中的“delegation intelligence”，即主 agent 如何分解任务、委派子任务并整合结果。作者设计了一个 harness 来引导高质量的任务分解与委派，同时约束子 agent 返回适合主流程使用的结果，再把这些轨迹转化为监督微调数据以将委派能力内化到模型参数中。实验显示，训练后的 SearchSwarm-30B-A3B 在 BrowseComp 上取得 68.1、在 BrowseComp-ZH 上取得 73.3，达到同规模模型中的最佳结果。论文还释放了 harness、模型权重与训练数据，便于后续研究。"}
+/>
+
+<PaperCard
+  title={"Role-Agent: Bootstrapping LLM Agents via Dual-Role Evolution"}
+  arxivUrl={"https://arxiv.org/abs/2606.10917"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.10917"}
+  summary={"这篇工作提出 Role-Agent，把同一个 LLM 同时作为智能体和环境，进行自举式的双角色协同进化。WIA 分支让模型预测动作后的未来状态，并用预测与真实状态的一致性构造过程奖励，强化环境感知推理；AIW 分支则从失败轨迹中归纳失误模式并检索相似任务，重塑训练数据分布。多项基准实验显示，该框架相较强基线平均提升超过 4%。"}
+/>
+</div>
+
+## Multimodal World Model
+
+<div class="space-y-4">
+<PaperCard
+  title={"WorldOlympiad: Can Your World Model Survive a Triathlon?"}
+  arxivUrl={"https://arxiv.org/abs/2606.11129"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.11129"}
+  summary={"提出 WorldOlympiad，一个用于诊断视频世界模型的基准，把评测拆成物理一致性、几何一致性和交互 fidelity 三个维度。物理轨道结合目标分割与 MLLM-as-judge 检查力学、热现象和材料属性；几何轨道用 Gaussian splatting 重建生成视频，评估结构一致性、跨视角一致性和相机轨迹对齐；交互轨道则考察动作指令跟随和跨片段平滑过渡。作者还覆盖游戏、机器人和真实世界视频三类场景，实验显示当前 SOTA 模型在物理推理、3D 一致性和长时交互上仍有明显短板。"}
+/>
+</div>
