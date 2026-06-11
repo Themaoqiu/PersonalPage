@@ -11,57 +11,42 @@ heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
 
 import PaperCard from '@/components/papers/PaperCard.astro'
 
-## Spatial Intelligence (Image/Video)
+## 3D LLM
 
 <div class="space-y-4">
+<PaperCard
+  title={"ABot-Earth 0.5: Generative 3D Earth Model"}
+  arxivUrl={"https://arxiv.org/abs/2606.09967"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.09967"}
+  summary={"We present ABot-Earth 0.5, a generative 3D framework designed to synthesize vast, seamless 3D environments from ubiquitous, geospatially referenced satellite imagery. To achieve this, we propose a novel generative model formulated directly with the 3D Gaussian Splatting (3DGS) representation. The model is trained on a diverse corpus of existing real-world urban reconstructions, learning to generate realistic geometry and textures. At inference, it synthesizes novel 3D scenes conditioned solely on satellite imagery at a scalable rate of under 10 minutes per square kilometer, while demonstrating exceptional realism. The framework is designed for accessibility, with integrated hierarchical level-of-detail (LOD) structures that permit real-time, interactive visualization on web-based map engines. This high-fidelity simulation sandbox effectively mitigates the sim-to-real domain gap, enabling critical downstream Embodied AI applications like closed-loop UAV navigation. By providing an ultra-low-cost and high-efficiency solution, ABot-Earth 0.5 significantly lowers the technical and financial barriers to large-scale 3D reconstruction and empowers the future of global digital earth visualization."}
+/>
+
 <PaperCard
   title={"Kwai Keye-VL-2.0 Technical Report"}
   arxivUrl={"https://arxiv.org/abs/2606.10651"}
   hjfyUrl={"https://hjfy.top/arxiv/2606.10651"}
-  summary={"论文提出 Keye-VL-2.0-30B-A3B，一个面向长视频理解与智能体协作的开源多模态 MoE 基础模型。它将 DeepSeek Sparse Attention 适配到 GQA 式多模态架构，并结合高效视频 I/O、ViT-LM 并行和定制 DSA kernel，实现了 256K 上下文的无损长上下文处理。训练阶段又引入 Cross-Modal Multi-Teacher On-Policy Distillation，配合 Context-RL 和 Video-RL，把在线 rollout 的密集教师反馈蒸馏回稀疏激活的 MoE 主干。实验表明，该模型在视频理解、时间定位、推理和 agent 基准上达到同规模最优，尤其在 TimeLens、Video-MME-v2 和 LongVideoBench 上表现突出。"}
+  summary={"We introduce Kwai Keye-VL-2.0-30B-A3B, an open-source Mixture-of-Experts (MoE) multimodal foundation model designed to advance long-video understanding and agentic intelligence. To address the challenges of ultra-long contexts, information redundancy, and prohibitive computational costs inherent in hour-level videos, Keye-VL-2.0 is the first to adapt DeepSeek Sparse Attention (DSA) to GQA-based multimodal architectures, enabling lossless 256K context processing while capturing critical frames and long-range temporal dependencies. This architecture is underpinned by a highly optimized training and inference infrastructure, including scalable video I/O, heterogeneous ViT-LM parallelism, and custom DSA kernels that significantly maximize throughput and minimize computational overhead. Furthermore, to overcome the algorithmic dilemma of catastrophic forgetting during multi-task alignment, we introduce Cross-Modal Multi-Teacher On-Policy Distillation (MOPD) paired with Context-RL and Video-RL. By distilling dense token-level teacher feedback from on-policy rollouts back into the MoE backbone, which activates only 3B parameters, Keye-VL-2.0 natively empowers advanced agent collaboration across Code, Tool, and Search scenarios with multimodal self-correction. Extensive evaluations across video understanding, temporal grounding, reasoning, STEM, and agent benchmarks demonstrate that Keye-VL-2.0-30B-A3B achieves state-of-the-art performance among models of similar scale, particularly excelling in fine-grained temporal localization on TimeLens and long-video comprehension on Video-MME-v2 and LongVideoBench. We release our model checkpoints to accelerate community progress toward scalable and robust multimodal agentic applications."}
 />
 
-<PaperCard
-  title={"MemDreamer: Decoupling Perception and Reasoning for Long Video Understanding via Hierarchical Graph Memory and Agentic Retrieval Mechanism"}
-  arxivUrl={"https://arxiv.org/abs/2606.07512"}
-  hjfyUrl={"https://hjfy.top/arxiv/2606.07512"}
-  summary={"论文提出 MemDreamer，把长视频理解拆成感知与推理两阶段，以缓解全量视频输入带来的 token 爆炸和注意力稀释。它一边流式构建三层 Hierarchical Graph Memory，一边在推理时用工具增强的 agentic retrieval 在层级、节点和逻辑边之间搜索。实验表明，该框架在四个主流基准上取得 SOTA，且只需约 2% 的完整上下文即可获得 12.5 个点的绝对准确率提升。作者还发现视觉语言模型的逻辑推理能力与长视频理解能力呈显著正相关，支持以 agentic 能力扩展作为新的多模态理解范式。"}
-/>
-</div>
-
-## 4D Understanding and Generation
-
-<div class="space-y-4">
-<PaperCard
-  title={"SCAIL-2: Unifying Controlled Character Animation with End-to-end In-Context Conditioning"}
-  arxivUrl={"https://arxiv.org/abs/2606.10804"}
-  hjfyUrl={"https://hjfy.top/arxiv/2606.10804"}
-  summary={"该工作提出 SCAIL-2，用端到端的方式统一可控人物动画，避免依赖姿态骨架和背景掩码等中间表示造成的信息损失。方法直接将驱动视频拼接进输入序列，并通过 in-context mask conditioning、mode-specific RoPE 和 Bias-Aware DPO 提升统一建模与细节质量，同时构建了 MotionPair-60K 合成数据集。实验表明该方法在多种人物动画任务上显著优于现有最先进方法。"}
-/>
-</div>
-
-## Agent Training and Evaluation
-
-<div class="space-y-4">
 <PaperCard
   title={"Retrospective Harness Optimization: Improving LLM Agents via Self-Preference over Trajectory Rollouts"}
   arxivUrl={"https://arxiv.org/abs/2606.05922"}
   hjfyUrl={"https://hjfy.top/arxiv/2606.05922"}
-  summary={"论文提出 Retrospective Harness Optimization（RHO），用历史轨迹自监督优化 LLM agent 的 harness，而不依赖新的标注验证集。方法先从过去轨迹中选取困难任务子集并并行重解，再结合自验证与自一致性生成候选 harness 更新，最后通过模型自身的 pairwise self-preference 选择最优方案。作者在软件工程、技术工作和知识工作三类场景评测该方法。单轮优化就把 SWE-Bench Pro 的通过率从 59% 提升到 78%，并且分析显示它能持续针对既有失败模式改进长程会话表现。"}
+  summary={"No summary available."}
 />
 
 <PaperCard
   title={"SearchSwarm: Towards Delegation Intelligence in Agentic LLMs for Long-Horizon Deep Research"}
   arxivUrl={"https://arxiv.org/abs/2606.09730"}
   hjfyUrl={"https://hjfy.top/arxiv/2606.09730"}
-  summary={"论文研究长程深度检索场景中的 delegation intelligence，提出 SearchSwarm 用于训练 agent 学会任务分解、何时委派以及如何整合子代理结果。作者设计了一个 harness 来引导高质量分解与委派，并让子代理按约束返回摘要结果，从而把真实委派轨迹转成监督微调数据。基于此训练出的 SearchSwarm-30B-A3B 在 BrowseComp 上取得 68.1、在 BrowseComp-ZH 上取得 73.3，达到同规模模型最佳。作者同时释放了 harness、模型权重和训练数据。"}
+  summary={"No summary available."}
 />
 
 <PaperCard
   title={"Role-Agent: Bootstrapping LLM Agents via Dual-Role Evolution"}
   arxivUrl={"https://arxiv.org/abs/2606.10917"}
   hjfyUrl={"https://hjfy.top/arxiv/2606.10917"}
-  summary={"该工作提出 Role-Agent，让单个 LLM 同时扮演智能体和环境，实现双角色共进化的训练框架。WIA 模块让模型预测动作后的未来状态，并用预测与真实状态的一致性作为过程奖励，增强环境感知推理；AIW 模块则分析失败轨迹并检索相似失败任务，重塑训练分布以做针对性练习。作者在多个基准上验证了方法有效性，平均较强基线提升超过 4%。"}
+  summary={"No summary available."}
 />
 </div>
 
@@ -69,9 +54,37 @@ import PaperCard from '@/components/papers/PaperCard.astro'
 
 <div class="space-y-4">
 <PaperCard
+  title={"MemDreamer: Decoupling Perception and Reasoning for Long Video Understanding via Hierarchical Graph Memory and Agentic Retrieval Mechanism"}
+  arxivUrl={"https://arxiv.org/abs/2606.07512"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.07512"}
+  summary={"No summary available."}
+/>
+
+<PaperCard
+  title={"Flow-DPPO: Divergence Proximal Policy Optimization for Flow Matching Models"}
+  arxivUrl={"https://arxiv.org/abs/2606.11025"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.11025"}
+  summary={"No summary available."}
+/>
+
+<PaperCard
+  title={"SCAIL-2: Unifying Controlled Character Animation with End-to-end In-Context Conditioning"}
+  arxivUrl={"https://arxiv.org/abs/2606.10804"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.10804"}
+  summary={"No summary available."}
+/>
+
+<PaperCard
+  title={"Lip Forcing: Few-Step Autoregressive Diffusion for Real-time Lip Synchronization"}
+  arxivUrl={"https://arxiv.org/abs/2606.11180"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.11180"}
+  summary={"No summary available."}
+/>
+
+<PaperCard
   title={"WorldOlympiad: Can Your World Model Survive a Triathlon?"}
   arxivUrl={"https://arxiv.org/abs/2606.11129"}
   hjfyUrl={"https://hjfy.top/arxiv/2606.11129"}
-  summary={"该论文提出 WorldOlympiad，一个用于诊断视频世界模型的基准，系统评估物理可信性、几何一致性和交互保真度。它分别用目标分割与 MLLM 评判检查物理规律，用 Gaussian splatting 重建生成视频以衡量结构与跨视角一致性，并通过动作提示下的长时滚动测试交互能力。实验显示当前最先进模型在物理推理、3D 一致性和长时交互上仍存在明显缺口。"}
+  summary={"No summary available."}
 />
 </div>
