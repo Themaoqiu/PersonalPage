@@ -1,0 +1,59 @@
+---
+title: Papers - 2026-06-12
+description: "吾能观之数千而面色如故"
+publishDate: 2026-06-12
+updatedDate: 2026-06-12
+tags: ['paper reading', 'agent', 'visual reasoning']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## Multimodal Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"InternVideo3: Agentify Foundation Models with Multimodal Contextual Reasoning"}
+  arxivUrl={"https://arxiv.org/abs/2606.12195"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.12195"}
+  summary={"这篇工作提出 InternVideo3，目标是把基础视频模型增强为具备多轮推理和工具使用能力的多模态智能体。作者用 Multimodal Contextual Reasoning 将理解过程定义为围绕共享上下文的闭环循环，把观察、指令、推理、工具动作和记忆统一到同一框架中。为提升长视频处理效率，论文设计了 Multimodal Multi-head Latent Attention，在保留完整 token 流的同时压缩 KV cache。实验显示，InternVideo3 在 Video-MME、MLVU 和 EgoSchema 等基准上表现很强，并且在带检索工具的视频智能体设定中展现出稳定的证据驱动行为。"}
+/>
+</div>
+
+## 3D/Space Reasoning
+
+<div class="space-y-4">
+<PaperCard
+  title={"Reason, Then Re-reason: Cross-view Revisiting Improves Spatial Reasoning"}
+  arxivUrl={"https://arxiv.org/abs/2606.11683"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.11683"}
+  summary={"这篇工作提出 ReRe，用于提升具身/视频中的空间推理能力，核心思想是先基于原始视频做一次推理，再在补充的 novel-view 视频上重新核验和修正结论。作者设计了 Geometry-to-Video 流程，从预测的三维几何中渲染更有覆盖性的互补视角，并保持模型仍然通过原生视频接口输入，不需要改架构。方法是训练无关、推理时两阶段的 cross-view revisiting 机制。实验在 VSI-Bench 和 STI-Bench 上表明，该方法能显著提升开源多模态大模型的表现，达到接近或匹配最强闭源系统的水平。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"Toward Generalist Autonomous Research via Hypothesis-Tree Refinement"}
+  arxivUrl={"https://arxiv.org/abs/2606.11926"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.11926"}
+  summary={"这篇论文提出 Arbor，用于长程自主研究，把研究过程组织成“协调器 + 短生命周期执行器 + 假设树细化（HTR）”的框架。它用持久化的假设树把假设、实验产物、证据和结论连接起来，并在每轮实验后更新树、传播可复用经验、收敛搜索方向。作者在 6 个真实研究任务上评估了该方法，涵盖模型训练、harness 工程和数据合成，Arbor 在所有任务上都取得了最优的保留集结果。它在 MLE-Bench Lite 上使用 GPT-5.5 达到 86.36% Any Medal，显示出较强的自主研究能力。"}
+/>
+
+<PaperCard
+  title={"Claw-SWE-Bench: A Benchmark for Evaluating OpenClaw-style Agent Harnesses on Coding Tasks"}
+  arxivUrl={"https://arxiv.org/abs/2606.12344"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.12344"}
+  summary={"这篇论文提出 Claw-SWE-Bench，用于公平评测 OpenClaw 风格的通用代理 harness 在编码任务上的能力。作者设计了一个多语言 SWE-bench 风格基准和 adapter 协议，统一固定提示、运行预算、工作区契约、补丁提取和评测流程，共包含 350 个来自 8 种语言、43 个仓库的实例。实验显示，OpenClaw 在最小直接 diff adapter 下只有 19.1% Pass@1，但使用完整 adapter 后在相同 GLM 5.1 backbone 上可达 73.4%，说明 adapter 设计对结果影响极大。跨模型和跨 harness 的 sweep 还表明，模型选择与 harness 选择都会显著改变 Pass@1 和总 API 成本。"}
+/>
+
+<PaperCard
+  title={"DeNovoSWE: Scaling Long-Horizon Environments for Generating Entire Repositories from Scratch"}
+  arxivUrl={"https://arxiv.org/abs/2606.10728"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.10728"}
+  summary={"这篇工作提出 DeNovoSWE，用于构建从零生成整个软件仓库的长时程环境和训练数据。作者自动化生成了 4,818 个高质量样本，每个样本都要求模型根据文档创建完整仓库，并通过 sandboxed agentic workflow 结合 divide-and-conquer 与 critic-repair 策略完成数据构造。为了兼顾质量和多样性，论文还引入了 difficulty-aware trajectory filtering。实验表明，用 DeNovoSWE 微调 Qwen3-30B-A3B 后，在 BeyondSWE-Doc2Repo 上的成绩从 5.8% 提升到 47.2%，说明该数据集能显著增强长时程软件工程能力。"}
+/>
+</div>
