@@ -11,25 +11,14 @@ heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
 
 import PaperCard from '@/components/papers/PaperCard.astro'
 
-## Multimodal Agent
+## Thinking with Images
 
 <div class="space-y-4">
 <PaperCard
-  title={"InterleaveThinker: Reinforcing Agentic Interleaved Generation"}
-  arxivUrl={"https://arxiv.org/abs/2606.13679"}
-  hjfyUrl={"https://hjfy.top/arxiv/2606.13679"}
-  summary={"论文提出 InterleaveThinker，这是一个多 agent 流水线，目标是让现有图像生成器具备文本-图像交错生成能力。方法上，它先用 planner agent 组织图文输入序列，再用 critic agent 检查生成结果、定位偏离计划的样本，并修正指令后重新生成。作者还构建了对应的监督数据集，并用 GRPO 强化学习提升逐步纠错能力，同时用 accuracy reward 和 step-wise reward 近似优化长轨迹。实验表明，该方法能显著提升多种图像生成器在 interleaved generation 基准上的表现，效果接近 Nano Banana 和 GPT-5。它还在 4-step FLUX.2-klein 上对 WISE 和 RISE 等推理型基准带来明显增益。"}
-/>
-</div>
-
-## 3D/Space Reasoning
-
-<div class="space-y-4">
-<PaperCard
-  title={"SpatialClaw: Rethinking Action Interface for Agentic Spatial Reasoning"}
-  arxivUrl={"https://arxiv.org/abs/2606.13673"}
-  hjfyUrl={"https://hjfy.top/arxiv/2606.13673"}
-  summary={"论文提出 SpatialClaw，用代码作为空间推理 agent 的动作接口，重新设计 VLM 调用感知与几何工具的方式。系统在状态化 Python kernel 中预加载输入帧和感知、几何原语，让 agent 能够每一步基于前一步输出写可执行代码，从而更灵活地组合操作并适应 3D/4D 空间问题。作者在 20 个覆盖静态与动态 3D/4D 空间推理的基准上进行评测，SpatialClaw 平均准确率达到 59.9%。它比近期空间 agent 高出 11.2 个百分点，并且在来自两个模型家族的 6 个 VLM backbone 上都带来稳定收益，无需针对具体基准或模型做额外适配。"}
+  title={"Robust-U1: Can MLLMs Self-Recover Corrupted Visual Content for Robust Understanding?"}
+  arxivUrl={"https://arxiv.org/abs/2606.08063"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.08063"}
+  summary={"Robust-U1 研究 MLLM 能否自己恢复被破坏的视觉内容，以提升鲁棒视觉理解能力。方法上，模型先通过监督微调学习初步重建，再用同时优化 SSIM 和 CLIP 相似度的强化学习提升恢复质量，最后结合原始受损输入与恢复后的图像进行多模态推理。实验表明，该框架在真实视觉腐蚀基准上达到最优鲁棒性，并在一般 VQA 基准的对抗腐蚀场景中也保持领先。作者进一步分析发现，高质量的视觉恢复能直接改善后续推理表现，说明 self-recovery 是鲁棒视觉理解的重要机制。"}
 />
 </div>
 
@@ -40,7 +29,25 @@ import PaperCard from '@/components/papers/PaperCard.astro'
   title={"LabVLA: Grounding Vision-Language-Action Models in Scientific Laboratories"}
   arxivUrl={"https://arxiv.org/abs/2606.13578"}
   hjfyUrl={"https://hjfy.top/arxiv/2606.13578"}
-  summary={"这篇工作聚焦科学实验室中的具身执行问题，提出将视觉语言动作模型用于实验室机器人控制。作者先构建 RoboGenesis，一个基于模拟的工作流与数据引擎，用原子技能组合出实验室流程、过滤 rollout，并导出结构化演示数据以支持不同机器人形态。随后提出 LabVLA，两阶段训练包括先用 FAST 动作 token 预训练让 Qwen3-VL-4B-Instruct 具备动作感知能力，再用 flow matching 后训练挂接 DiT 动作专家。实验在 LabUtopia 基准上表明，LabVLA 在分布内和分布外设置下都取得了所有基线中的最高平均成功率。"}
+  summary={"这篇论文研究如何将视觉-语言-动作模型落地到科学实验室场景中，解决机器人执行实验流程时的数据和具身形态瓶颈。作者提出 RoboGenesis，用仿真工作流和数据引擎把原子技能组合成实验流程，经过验证筛选后导出结构化示范数据。基于此，他们训练了 LabVLA，采用两阶段方案：先用 FAST 动作 token 预训练让 Qwen3-VL-4B-Instruct 具备动作感知，再用 flow matching 后训练接入 DiT 动作专家。实验结果显示，LabVLA 在 LabUtopia 基准上无论是分布内还是分布外设置，都取得了所有评测基线中的最高平均成功率。"}
+/>
+</div>
+
+## Spatial Intelligence (Image/Video)
+
+<div class="space-y-4">
+<PaperCard
+  title={"SpatialClaw: Rethinking Action Interface for Agentic Spatial Reasoning"}
+  arxivUrl={"https://arxiv.org/abs/2606.13673"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.13673"}
+  summary={"SpatialClaw 提出一种训练自由的空间推理框架，把代码作为 agent 的 action interface。系统在状态化 Python kernel 中预加载输入帧和感知、几何原语，让 VLM-backed agent 能逐步编写可执行 cell，并结合前一步输出继续分析。这样相比单次代码执行或固定工具调用更灵活，更适合开放式的 3D/4D 空间推理任务。作者在 20 个空间推理基准上评测，平均准确率达到 59.9%，比最近的空间 agent 高 11.2 个百分点，并且在两个模型家族的 6 个 VLM backbone 上都带来稳定提升。"}
+/>
+
+<PaperCard
+  title={"HYDRA-X: Native Unified Multimodal Models with Holistic Visual Tokenizers"}
+  arxivUrl={"https://arxiv.org/abs/2606.13289"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.13289"}
+  summary={"这篇论文提出 HYDRA-X，一个把图像和视频 tokenization 统一到单一 Vision Transformer 中的原生统一多模态模型。作者围绕时空重建能力和图像/视频语义一致性两个问题设计了整体视觉 tokenizer，并通过分层时间压缩与轻量解压器来构建紧凑而共享的潜在空间。论文还指出，编辑流程中更好的做法是在 tokenizer 的潜空间内完成源目标交互，而不是在 LLM 语义层中交互，这能显著提升编辑一致性并加快收敛。实验表明，7B dense 版本在图像和视频理解、生成等任务上表现强劲，说明该统一 tokenizer 路线具有较好的可扩展性。"}
 />
 </div>
 
@@ -51,27 +58,27 @@ import PaperCard from '@/components/papers/PaperCard.astro'
   title={"EvoArena: Tracking Memory Evolution for Robust LLM Agents in Dynamic Environments"}
   arxivUrl={"https://arxiv.org/abs/2606.13681"}
   hjfyUrl={"https://hjfy.top/arxiv/2606.13681"}
-  summary={"论文提出 EvoArena，用于评测 LLM agent 在动态环境中的记忆与行为适应能力。它将环境变化建模为 terminal、software 和 social 三个领域中的连续更新序列，并提出 EvoMem 这种基于补丁的记忆范式，把记忆演化过程结构化记录下来，帮助 agent 根据历史变化推理当前状态。实验显示，现有 agent 在 EvoArena 上平均准确率只有 39.6%，说明面对演化任务时表现明显不足。EvoMem 在 EvoArena 上平均提升 1.5%，并在 GAIA 和 LoCoMo 上分别提升 6.1% 和 4.8%。在需要连续完成相关子任务的 chain-level 评测中，它还带来 3.7% 的提升，机制分析表明其主要改善了证据捕获和完整状态保留。"}
+  summary={"本文提出 EvoArena 基准，用渐进式环境更新来评测 LLM agent 在 terminal、software 和 social 三类动态场景中的适应与记忆能力。作者还提出 EvoMem，一种基于 patch 的记忆范式，把记忆演化过程记录成结构化更新历史，帮助 agent 依据环境变化进行推理。实验显示现有 agent 在 EvoArena 上平均准确率只有 39.6%，而 EvoMem 在该基准上平均提升 1.5%。此外，EvoMem 还在 GAIA 和 LoCoMo 上分别提升 6.1% 和 4.8%，在需要连续完成演化子任务的 chain-level 评测中也提升 3.7%。"}
 />
 
 <PaperCard
   title={"FORT-Searcher: Synthesizing Shortcut-Resistant Search Tasks for Training Deep Search Agents"}
   arxivUrl={"https://arxiv.org/abs/2606.12087"}
   hjfyUrl={"https://hjfy.top/arxiv/2606.12087"}
-  summary={"这篇工作提出了面向深度搜索智能体训练的数据合成框架 FORT，核心目标是生成更难被捷径破解、且答案必须依赖充分检索证据的问题。作者先形式化了“捷径”风险，包括证据共覆盖、单线索选择性、显式常量和先验知识绑定，并据此设计 entity 选择、证据图构造、问题表述和对抗式精炼等环节来控制这些风险。基于 FORT 合成的轨迹，他们仅用监督微调训练 FORT-Searcher。实验表明，FORT 能显著拉长答案前搜索过程、减少捷径模式，且 FORT-Searcher 在同规模开源搜索智能体中取得了最优整体表现。"}
+  summary={"这篇论文提出了面向深度搜索智能体训练的 FORT-Searcher，核心目标是生成更难被“走捷径”解决的可验证搜索任务。作者先形式化了搜索难度与真实搜索难度之间的差距，并总结出证据共覆盖、单线索选择性、显式常量和先验知识绑定四类捷径风险。基于此，他们设计了 FORT 框架，在实体选择、证据图构建、问题表述和对抗式精炼等环节抑制捷径。实验显示，FORT 生成的数据能带来更长的答案前搜索过程和更少的捷径模式，仅用监督微调训练出的 FORT-Searcher 在同规模开源搜索智能体中取得了最佳整体表现。"}
 />
 
 <PaperCard
   title={"WeaveBench: A Long-Horizon, Real-World Benchmark for Computer-Use Agents with Hybrid Interfaces"}
   arxivUrl={"https://arxiv.org/abs/2606.09426"}
   hjfyUrl={"https://hjfy.top/arxiv/2606.09426"}
-  summary={"这篇论文提出 WeaveBench，用于评测需要在 GUI、命令行、代码编辑器和浏览器之间长程协同的 computer-use agents。基准包含 114 个来自真实用户需求的任务，覆盖 8 个现实工作领域，每个任务都要求在单条轨迹中混合桌面视觉操作与 CLI/代码操作。作者还设计了一个轨迹感知的判分器，检查产物、文件、截图、日志和动作轨迹，并识别伪造视觉证据或硬编码指标等作弊行为。实验显示，最强组合的 PassRate 也只有 41.2%，说明该基准仍未饱和，而且仅看最终结果会明显高估智能体性能。"}
+  summary={"这篇工作提出了 WeaveBench，一个面向 computer-use agent 的长程真实世界基准，用来评估跨 GUI、CLI、代码编辑器和浏览器等混合接口的协同能力。作者构建了 114 个任务，覆盖 8 个真实工作域，任务均来源于真实用户需求且带有可公开验证的产物。评测时在真实 Ubuntu 桌面上运行，并配套一个轨迹感知的裁判，能够检查文件、截图、日志和操作轨迹，同时识别伪造视觉证据或硬编码指标等捷径行为。实验表明，最好的模型-运行时组合 PassRate 只有 41.2%，且仅看最终结果的评分会明显高估智能体能力。"}
 />
 
 <PaperCard
   title={"EurekAgent: Agent Environment Engineering is All You Need For Autonomous Scientific Discovery"}
   arxivUrl={"https://arxiv.org/abs/2606.13662"}
   hjfyUrl={"https://hjfy.top/arxiv/2606.13662"}
-  summary={"本文提出 EurekAgent，认为自主科学发现的瓶颈已从“设计智能体工作流”转向“设计智能体环境”。作者从权限、工件、预算和人类介入四个维度改造环境，使智能体能在受限执行、文件与 Git 协作、预算感知探索和便捷监督下更稳定地进行科研搜索。该方法强调通过环境工程放大有效行为、抑制 reward hacking 和高摩擦人工干预，而不是单纯改进模型本身。实验表明，EurekAgent 在多个数学、内核工程和机器学习任务上取得新的 SOTA，并以不到 11 美元的总 API 成本发现了新的 26-circle packing 最优结果。"}
+  summary={"这篇工作提出 EurekAgent，认为自主科学发现的瓶颈正在从“设计智能体流程”转向“设计智能体环境”。作者从权限、工件管理、预算控制和人机协作四个维度构建环境工程框架，以促进开放式探索、系统化产物管理和多智能体协作，同时抑制奖励投机和高摩擦人工干预。基于该框架，EurekAgent 能在可执行环境中进行提出、验证和迭代式搜索，用于数学、内核工程和机器学习等任务。实验结果显示，它在多个任务上刷新了最优结果，包括在 26-circle packing 问题上以不到 11 美元的总 API 成本取得新 SOTA。"}
 />
 </div>
