@@ -1,0 +1,102 @@
+---
+title: Papers - 2026-06-17
+description: "吾能观之数千而面色如故"
+publishDate: 2026-06-17
+updatedDate: 2026-06-17
+tags: ['paper reading', 'agent', 'visual reasoning', 'multimodal world model']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## Grounding-driven Visual Reasoning
+
+<div class="space-y-4">
+<PaperCard
+  title={"Geometric Action Model for Robot Policy Learning"}
+  arxivUrl={"https://arxiv.org/abs/2606.17046"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.17046"}
+  summary={"Generalist robot policies must follow user instructions while reasoning about how objects, cameras, and robot actions interact in the 3D physical world. Recent vision-language-action models (VLAs) and video world-action models (WAMs) inherit strong semantic or temporal priors from large-scale foundation models, but they still operate primarily on 2D image frames or 2D-derived latent spaces, leaving implicit the 3D geometry required for contact-rich manipulation. We propose the Geometric Action Model (GAM), a language-conditioned manipulation policy that directly repurposes a pretrained geometric foundation model (GFM) as a shared substrate for perception, temporal prediction, and action decoding. GAM splits the GFM at an intermediate layer: the shallow layers serve as an observation encoder, and a causal future predictor inserted at the split layer forecasts future latent tokens conditioned on language, proprioception, and action history. The predicted future tokens are then routed through the remaining GFM blocks for feature propagation and decoding, allowing a single backbone to produce both future geometry and actions. This design equips the GFM with language-conditioned temporal world modeling through minimal architectural modification while preserving its rich geometric priors. Across a broad suite of simulation and real-robot manipulation benchmarks, GAM is more accurate, more robust, faster, and lighter than current foundation-model-scale baselines."}
+/>
+</div>
+
+## Multimodal Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"VisualClaw: A Real-Time, Personalized Agent for the Physical World"}
+  arxivUrl={"https://arxiv.org/abs/2606.16295"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.16295"}
+  summary={"VisualClaw 提出一个面向真实物理世界的自进化多模态智能体，目标是降低视频推理成本并提升部署后持续学习能力。它通过级联门控过滤不重要的流式帧、用热冷 top-k 注入压缩文本技能库，并利用失败样本驱动的 evolver 更新技能库，实现按需演化。实验显示，在 4 个视频问答基准上，该方法相较全帧上传平均减少约 98% 的 API 成本，同时在多数设置下提升准确率，在 EgoSchema 上最高提升 15.80%。作者还构建了 VisualClawArena，并在该基准上验证了带演化机制的框架对 Codex 和 Claude Code 后端也能带来准确率提升与成本下降。"}
+/>
+</div>
+
+## 3D/Space Reasoning
+
+<div class="space-y-4">
+<PaperCard
+  title={"BRDFusion: Physics Meets Generation for Urban Scene Inverse Rendering"}
+  arxivUrl={"https://arxiv.org/abs/2606.17049"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.17049"}
+  summary={"这篇工作提出 BRDFusion，用于城市场景的逆渲染与前向渲染统一建模。方法上，它把物理渲染的显式场景属性恢复和生成模型的先验融合起来，既缓解优化歧义，又在前向渲染中用生成模型修复伪影并提升真实感。实验表明，该方法在真实与合成场景上都优于基线，并支持新视角重光照、夜景模拟以及动态物体插入和编辑等能力。"}
+/>
+</div>
+
+## 3D LLM
+
+<div class="space-y-4">
+<PaperCard
+  title={"JoyAI-VL-Interaction: Real-Time Vision-Language Interaction Intelligence"}
+  arxivUrl={"https://arxiv.org/abs/2606.14777"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.14777"}
+  summary={"Many moments in the real world do not wait for a user to ask. A fire starts on a security monitor, an expression flickers across a video call, or a product a viewer wants flashes by in a livestream. Yet today's large models remain mostly turn-based by design: they answer only when addressed, and even video-call apps that appear interactive still operate as question-answer systems, reacting only when polled or prompted. We argue for a different paradigm: a model that is present in the world like a person. It continuously watches what is happening now, decides on its own whether to speak or stay silent, interacts in real time, and delegates to a background model when the problem is hard. To advance interaction models and their adoption across domains, we make two fully open-sourced contributions. First, we release JoyAI-VL-Interaction, an 8B-scale, vision-first VL-interaction model. The model makes the response decision internally, choosing each second to stay silent, respond, or delegate to a background model, and it excels at vision-triggered responsiveness and time awareness. We pair it with a transferable training recipe, from which capabilities we never trained for emerge, such as guiding a shopper through changing app screens or improvising a lecture from a slide deck. Second, we release a complete, deployable system built around that model. The system streams any ongoing video into the model, making it genuinely present in the world. All other components are pluggable, including ASR/TTS modules, memory, visualization UI, and a background brain that can connect to any API or agent. Across six real-world scenarios, human raters prefer JoyAI-VL-Interaction over the in-app video-call assistants of Doubao and Gemini by a wide margin. To our knowledge, this is the first open, vision-driven interaction model released together with its training recipe, data, and complete deployable system."}
+/>
+
+<PaperCard
+  title={"FastContext: Training Efficient Repository Explorer for Coding Agents"}
+  arxivUrl={"https://arxiv.org/abs/2606.14066"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.14066"}
+  summary={"Large Language Model (LLM) coding agents have achieved strong results on software engineering tasks, yet repository exploration remains a major bottleneck: locating relevant code consumes substantial token budget and pollutes the agent's context with irrelevant snippets. In most agents, the same model explores the repository and solves the task, leaving exploratory reads and searches in the solver's history. We present FastContext, a dedicated exploration subagent that separates repository exploration from solving. Invoked on demand, FastContext issues parallel tool calls and returns concise file paths and line ranges as focused context. FastContext is powered by specialized exploration models spanning 4B--30B parameters. We bootstrap them from strong reference-model trajectories and refine them with task-grounded rewards for broad first-turn search, multi-turn evidence gathering, and precise citation generation. Across SWE-bench Multilingual, SWE-bench Pro, and SWE-QA, integrating FastContext into Mini-SWE-Agent improves end-to-end resolution rates up to 5.5\\% while reducing coding-agent token consumption up to 60\\%, with marginal overhead. These results show that repository exploration can be separated from solving and handled effectively by specialized models. Code and data: https://github.com/microsoft/fastcontext"}
+/>
+
+<PaperCard
+  title={"Data Journalist Agent: Transforming Data into Verifiable Multimodal Stories"}
+  arxivUrl={"https://arxiv.org/abs/2606.11176"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.11176"}
+  summary={"Data tells stories that shape society; the data journalist's job is to turn raw information into stories non-experts can trust. A high-quality news feature takes a newsroom team weeks: hunting for context, running statistics, choosing an angle, and designing visuals. Recent agents handle individual steps well: data-science agents close the analysis loop, while design agents synthesize beautiful websites. But can an agent serve as a data journalist end to end? We introduce Data Journalist Agent (Data2Story), a multi-agent framework that orchestrates specialized roles into a single virtual newsroom. Data2Story contributes two innovations. (i) Claims are evidence-grounded: an Inspector links every number, angle, and asset back to data, code, or an external reference. (ii) Articles are multimodally generative: rather than defaulting to plain text and static charts, Data2Story reasons about what readers will want to see, then deploys multimodal tools, such as interactive maps for geography and audio for music. We evaluate Data2Story on 18 articles, each paired with the originally published expert piece, along four axes: (a) human-agent angle coverage; (b) rubric evaluation with 53 participants across five dimensions; (c) computer-use agents as judges, a cost-saving proxy for how readers navigate interactive articles; and (d) verifiability, where a coding verifier re-executes statements against the data and checks claims against references. Data2Story produces competitive, evidence-traceable multimedia stories, with particular strength in transparency and auditability. Human articles retain an edge in editorial angle, creative design, and presentation. We position Data2Story as a collaborator for journalists, enabling more evidence-based, transparent, and verifiable reporting. Code and demos are available at https://data2story.github.io."}
+/>
+</div>
+
+## Multimodal World Model
+
+<div class="space-y-4">
+<PaperCard
+  title={"VibeThinker-3B: Exploring the Frontier of Verifiable Reasoning in Small Language Models"}
+  arxivUrl={"https://arxiv.org/abs/2606.16140"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.16140"}
+  summary={"This technical report introduces VibeThinker-3B, a compact dense model with 3B parameters developed to investigate how far verifiable reasoning can be pushed within a strictly small-model regime. Building upon the Spectrum-to-Signal post-training paradigm, we systematically enhance the model through an optimized pipeline that includes curriculum-based supervised fine-tuning, multi-domain reinforcement learning, and offline self-distillation. Experimental evaluations demonstrate that VibeThinker-3B achieves frontier-level performance on highly demanding verifiable tasks. Specifically, it attains a score of 94.3 on AIME26 (improving to 97.1 with claim-level test-time scaling), an 80.2 Pass@1 on LiveCodeBench v6, and exhibits strong out-of-distribution generalization with a 96.1\\% acceptance rate on recent unseen LeetCode contests. This effectively places it in the performance band of first-tier reasoning systems, matching or exceeding flagship models that are orders of magnitude larger, such as DeepSeek V3.2, GLM-5, and Gemini 3 Pro. Furthermore, a score of 93.4 on IFEval confirms that this extreme reasoning enhancement does not compromise strict instruction controllability. Extending our previous 1.5B work, these findings motivate the Parametric Compression-Coverage Hypothesis, which views verifiable reasoning as compressible into compact reasoning cores, while open-domain knowledge and general-purpose competence require broad parameter coverage over facts, concepts, and long-tail scenarios. This perspective suggests that compact models are not merely deployment-efficient substitutes, but a complementary path toward frontier-level performance in parameter-dense capability regimes."}
+/>
+
+<PaperCard
+  title={"DreamX-World 1.0: A General-Purpose Interactive World Model"}
+  arxivUrl={"https://arxiv.org/abs/2606.16993"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.16993"}
+  summary={"DreamX-World 1.0 是一个通用交互式文本/图像到视频世界模型，支持长时程可控生成、镜头导航、回访已观察区域以及可提示事件。方法上，作者用 Unreal 渲染、游戏录屏和真实视频构建数据引擎，并通过 E-PRoPE、因果 forcing、DMD 式蒸馏、长滚动训练、记忆条件场景保持和残差复用来提升镜头控制、长程一致性与内容稳定性。实验结果显示，该模型在 5 秒评测中取得 73.75 的镜头控制分数和 84.76 的总分，整体优于 HY-WorldPlay 1.5 和 LingBot-World，同时在多项工程优化下可在 8 张 RTX 5090 上达到最高 16 FPS。"}
+/>
+
+<PaperCard
+  title={"Qwen-RobotWorld Technical Report: Unifying Embodied World Modeling through Language-Conditioned Video Generation"}
+  arxivUrl={"https://arxiv.org/abs/2606.17030"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.17030"}
+  summary={"Qwen-RobotWorld 提出一种语言条件的视频世界模型，用统一的自然语言接口来预测机器人操控、自动驾驶、室内导航和人机迁移中的未来视觉轨迹。方法上，它结合了双流 MMDiT 与 MLLM 动作编码、包含 860 万视频文本样本的 Embodied World Knowledge 数据集，以及先学习通用视觉先验、再注入具身专长的渐进式训练策略。实验表明，该模型在 EWMBench 和 DreamGen Bench 上排名第一，并在 WorldModelBench 与 PBench 上优于所有开源模型。进一步的零样本分析也显示，它在 RoboTwin-IF 上具有较强的泛化能力和多视角一致性。"}
+/>
+
+<PaperCard
+  title={"BadWorld: Adversarial Attacks on World Models"}
+  arxivUrl={"https://arxiv.org/abs/2606.16519"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.16519"}
+  summary={"这篇工作研究了视觉世界模型对对抗扰动的鲁棒性，提出了专门针对自回归世界模型的无标签攻击框架 BadWorld。作者用自监督的速度攻击来破坏早期去噪过程，并通过轨迹自适应的双层优化主动搜索困难控制序列，从而构造对用户动作更不敏感的扰动。实验在具有连续和离散控制的代表性视觉世界模型上表明，几乎不可见的对抗图像就能稳定引发未来滚动预测的严重退化。结果显示模型会出现去噪不完整、结构崩塌和控制不一致，说明这类世界模型在安全关键场景中存在明显脆弱性。"}
+/>
+</div>
