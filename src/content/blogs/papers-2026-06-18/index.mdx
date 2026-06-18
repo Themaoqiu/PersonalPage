@@ -1,0 +1,73 @@
+---
+title: Papers - 2026-06-18
+description: "吾能观之数千而面色如故"
+publishDate: 2026-06-18
+updatedDate: 2026-06-18
+tags: ['paper reading', 'agent', 'visual reasoning']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## Multimodal Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"Self-Evolving Visual Questioner"}
+  arxivUrl={"https://arxiv.org/abs/2606.13929"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.13929"}
+  summary={"这篇工作研究视觉语言模型如何从被动答题者转向主动提问的多模态智能体。作者提出一个自进化框架，让同一个VLM同时充当提案器和过滤器，自动生成更难、更信息密集且更具视觉指向的问题，并通过保持探索多样性避免训练坍塌。生成的问题同时用于训练模型的提问与回答两种模式。为了评估提问能力，论文还设计了一个agentic评测协议，从感知、推理和多样性三个维度衡量问题质量。实验表明，该方法能显著提升自主问题生成质量，扩大难度边界，并且在相同预算下优于静态源数据训练，同时生成器本身也能保持有竞争力甚至更强的回答能力。"}
+/>
+</div>
+
+## Embodied Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"ACE-Ego-0: Unifying Egocentric Human and Robotic Data for VLA Pretraining"}
+  arxivUrl={"https://arxiv.org/abs/2606.17200"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.17200"}
+  summary={"这篇工作提出 ACE-Ego-0，用统一的预训练框架联合利用第一视角人类视频和机器人数据来训练 VLA 模型。方法上，作者先把大规模人类第一视角视频转换成机器人格式的伪动作轨迹，再用统一动作表示、形态条件化和时间对齐的动作分块来对齐人类与机器人数据。为了缓解伪标签噪声，模型还引入了可靠性感知的训练目标和人类辅助损失，把监督聚焦在更可靠的信号上。实验表明，加入大规模人类监督后，联合预训练和监督微调都能持续提升，且在 RoboCasa GR1 TableTop 和 RoboTwin 2.0 上达到当前最优，并对真实世界双臂操作展现出较强迁移能力。"}
+/>
+
+<PaperCard
+  title={"LectūraAgents: A Multi-Agent Framework for Adaptive Personalized AI-Assisted Learning and Embodied Teaching"}
+  arxivUrl={"https://arxiv.org/abs/2606.16428"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.16428"}
+  summary={"这篇工作提出 LectūraAgents，一个面向个性化 AI 辅助学习的多智能体框架，并将教学过程扩展到可见的具身教学动作。系统采用层级式架构，由 ProfessorAgent 统筹研究、规划、审阅和生成，多个子代理协同产出适配学习者需求的讲义与教学内容。为了让教学更像真实教师，框架引入 Teaching Action-Speech Alignment，结合显著性启发式和时间语义分割，生成与内容同步的手写、标注、下划线等教学动作。实验在高中、本科和研究生课程上进行，并由专家教师评估，结果显示该方法在讲义质量、具身教学质量、测评表现和个性化程度上都优于现有方法。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"LoopCoder-v2: Only Loop Once for Efficient Test-Time Computation Scaling"}
+  arxivUrl={"https://arxiv.org/abs/2606.18023"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.18023"}
+  summary={"这篇工作研究了并行循环 Transformer 在代码模型中的测试时计算扩展，并提出用增益-成本视角来选择循环次数。作者训练了一个基于并行循环 Transformer 的 7B 代码模型族 LoopCoder-v2，在 18T token 上从头训练后再做对齐与评测。实验发现，两轮循环相较于不循环基线带来稳定收益，尤其在代码生成、代码推理、软件工程和工具使用任务上表现更好。具体来说，SWE-bench Verified 从 43.0 提升到 64.4，Multi-SWE 从 14.0 提升到 31.0，而三轮及以上则出现退化，说明该架构存在明显的非单调循环数效应。"}
+/>
+
+<PaperCard
+  title={"Zone of Proximal Policy Optimization: Teacher in Prompts, Not Gradients"}
+  arxivUrl={"https://arxiv.org/abs/2606.18216"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.18216"}
+  summary={"这篇工作提出 ZPPO，用“把教师放进提示词而不是梯度”来改进小模型的后训练。它针对传统蒸馏在小学生模型上容易过拟合教师尖锐分布、以及强化学习中零优势样本会被静默丢弃的问题，设计了两类重写提示：BCQ 用教师正确答案和学生错误答案做对比，NCQ 则把学生失败轨迹聚合成一个负例提示。作者还加入了提示回放缓存，让困难样本在学生能力边界内反复出现，直到达标或被淘汰。实验在 Qwen3.5 系列 0.8B 到 9B 学生模型、27B 教师以及 31 个基准上进行，结果显示 ZPPO 在蒸馏、离策略和 GRPO 等方法上都更强，且小模型收益最大。"}
+/>
+
+<PaperCard
+  title={"GameCraft-Bench: Can Agents Build Playable Games End-to-End in a Real Game Engine?"}
+  arxivUrl={"https://arxiv.org/abs/2606.17861"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.17861"}
+  summary={"这篇工作提出 GameCraft-Bench，用来评估智能体能否在真实游戏引擎中端到端构建可玩的游戏。作者把问题定义为：模型需要根据自然语言规格，在目标环境里生成完整游戏工件，并通过可观察的玩家交互来验证是否真正可玩。方法上，基准强调三点：引擎级对齐、工件完整性和交互式验证，并采用回放演示与多模态裁判相结合的评估框架。GameCraft-Bench 共包含 15 类游戏家族、140 个 Godot 任务，实验显示最强编码智能体也只有 41.46%，大多数模型低于 40%，主要短板是内容不完整、视觉反馈不足和整体呈现不连贯。"}
+/>
+
+<PaperCard
+  title={"OPD-Evolver: Cultivating Holistic Agent Evolver via On-Policy Distillation"}
+  arxivUrl={"https://arxiv.org/abs/2606.17628"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.17628"}
+  summary={"这篇工作提出 OPD-Evolver，用于培养能够持续自我进化的代理模型。方法上，它采用快慢双循环的 on-policy self-distillation 框架：快循环让代理在四层记忆体系中进行读、用、写和维护经验，慢循环则通过结果校准的记忆归因和 privileged hindsight，把这些能力蒸馏进可部署策略。该方法强调的不只是“存储记忆”，而是学会筛选高价值经验并形成可复用知识。实验结果显示，OPD-Evolver 在多域基准上比 ReasoningBank 等记忆系统最高提升 11.5%，也比 Skill0 等训练式方法提升约 5.8%。进一步分析表明，它能内化高价值经验和记忆管理能力，使 9B 级模型接近甚至挑战更大的闭源或超大模型。"}
+/>
+</div>
