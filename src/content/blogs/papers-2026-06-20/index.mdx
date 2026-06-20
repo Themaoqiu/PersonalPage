@@ -3,7 +3,7 @@ title: Papers - 2026-06-20
 description: "吾能观之数千而面色如故"
 publishDate: 2026-06-20
 updatedDate: 2026-06-20
-tags: ['paper reading', 'agent', 'multimodal world model']
+tags: ['paper reading', 'agent', 'visual reasoning']
 category: research
 comment: true
 heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
@@ -11,14 +11,14 @@ heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
 
 import PaperCard from '@/components/papers/PaperCard.astro'
 
-## 3D LLM
+## 3D/Space Reasoning
 
 <div class="space-y-4">
 <PaperCard
-  title={"Beyond Static Leaderboards: Predictive Validity for the Evaluation of LLM Agents"}
-  arxivUrl={"https://arxiv.org/abs/2606.19704"}
-  hjfyUrl={"https://hjfy.top/arxiv/2606.19704"}
-  summary={"Agent benchmarks are growing fast, but no single benchmark touches more than four or five of the dimensions that deployment exposes. This paper aggregates the largest coordinated deep-dive of one MCP-based industrial-agent benchmark to date: fourteen parallel implementation studies covering new asset classes (including a multi-modal visual extension), alternative orchestrations, retrieval strategies, reasoning modes, infrastructure optimizations, and evaluation-methodology probes. Consolidating those studies with seven prior agent benchmarks, we argue that aggregate-score leaderboards systematically underspecify deployed-agent evaluation. Rankings derived from aggregate scores do not transfer to out-of-distribution settings; recent public-to-hidden competition retrospectives provide direct empirical evidence of this rank instability. We propose ranking configurations by predictive validity, the correlation between in-sample and out-of-sample rank, rather than in-sample mean, and report a twelve-tier measurement apparatus that exposes the deployment-relevant dimensions HELM and its agent-era successors collapse. The position is operationalized through three falsifiable out-of-distribution criteria with explicit thresholds; existing evidence partly supports it but is too thin to confirm. We close with a pre-registered pilot design and a field-level vision for what the next generation of agentic benchmarks should report."}
+  title={"JanusMesh: Fast and Zero-Shot 3D Visual Illusion Generation via Cross-Space Denoising"}
+  arxivUrl={"https://arxiv.org/abs/2606.20563"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.20563"}
+  summary={"这篇工作提出了一个无需训练的文本驱动 3D 视觉幻觉生成框架 JanusMesh，目标是让同一个 3D 网格从不同视角呈现出完全不同的语义。方法上，它将生成拆成两阶段：先在体素空间做跨空间双分支去噪，结合 CLIP 引导的方向对齐和 SDF 融合来保证几何连贯；再用视角条件纹理合成模块，把不同视角的 2D 扩散先验投到融合后的几何上。实验显示，该方法只需约 3 到 5 分钟即可生成高真实感、双语义的 3D 幻觉。与现有方法相比，它在几何完整性、语义可辨识度和效率上都更优。"}
 />
 </div>
 
@@ -29,21 +29,21 @@ import PaperCard from '@/components/papers/PaperCard.astro'
   title={"DragMesh-2: Physically Plausible Dexterous Hand-Object Interaction with Articulated Objects"}
   arxivUrl={"https://arxiv.org/abs/2606.15133"}
   hjfyUrl={"https://hjfy.top/arxiv/2606.15133"}
-  summary={"这篇工作提出 DragMesh-2，用于处理可动关节物体上的灵巧手交互与拖拽式操作。它把任务从“生成物体运动”转到“由手与物体接触驱动关节运动”，避免了仅靠几何轨迹回放或开环执行无法建模接触动力学的问题。为提升在不同接触负载下的鲁棒性，作者进一步提出 PICA，在不依赖触觉或力反馈的情况下把物理信号注入策略学习。实验在多种阻尼条件和 GAPartNet 的七个物体上验证，结果显示该方法在保持较高任务成功率的同时，对接触负载变化更稳健。"}
+  summary={"这篇工作提出 DragMesh-2，用于让灵巧机械手在关节式物体上完成物理上可行的交互与拖拽操作。方法上，它把原本偏对象中心的关节运动生成，改造成由手部接触驱动的交互建模，并提出 PICA 机制，在没有触觉或力反馈的情况下把物理信号注入策略学习，以提升对接触载荷变化的鲁棒性。作者还系统评估了不同阻尼条件和多类关节物体，专门考察接触负载变化下的稳定性。实验显示，DragMesh-2 在 7 个 GAPartNet 物体上相较对比方法具有更强的鲁棒性，同时保持较高任务成功率。"}
 />
 
 <PaperCard
   title={"Playful Agentic Robot Learning"}
   arxivUrl={"https://arxiv.org/abs/2606.19419"}
   hjfyUrl={"https://hjfy.top/arxiv/2606.19419"}
-  summary={"这篇工作研究具身编码智能体如何通过“玩耍式”自发探索来学习可复用技能。作者提出 RATs 框架，让机器人在执行下游任务前先进行自我驱动的探索，自动提出可学习的玩耍任务、生成并执行代码策略、检查中间进展、诊断失败并重试，最终把成功经验蒸馏成持久的代码技能库。测试时，智能体从冻结的技能库中检索相关技能来辅助新任务完成。实验在 LIBERO-PRO 和 MolmoSpaces 上表明，相比无玩耍和随机玩耍基线，下游任务分别提升 20.6 和 17.0 个百分点；这些技能还能直接插入其他 Code-as-Policy 智能体，在 RoboSuite 和真实世界迁移上分别带来 8.9 和 8.8 分的提升。"}
+  summary={"这篇工作研究具身代码智能体如何通过“玩耍式”自我探索来持续学习技能。作者提出 RATs，让机器人智能体在下游任务到来前，先主动生成可学习的探索任务、执行 Code-as-Policy 程序、检查中间结果、诊断失败并把成功经验沉淀到持久技能库中。测试时，智能体会从冻结技能库中检索相关技能来辅助新任务求解。实验在 LIBERO-PRO 和 MolmoSpaces 上表明，这种 play-learned 技能相比无玩耍和随机玩耍基线带来显著提升，并且把技能直接注入其他 inference-time Code-as-Policy 智能体后，也能在 RoboSuite 和真实世界迁移上继续提升表现。"}
 />
 
 <PaperCard
   title={"ImageWAM: Do World Action Models Really Need Video Generation, or Just Image Editing?"}
   arxivUrl={"https://arxiv.org/abs/2606.19531"}
   hjfyUrl={"https://hjfy.top/arxiv/2606.19531"}
-  summary={"这篇工作提出 ImageWAM，讨论世界动作模型是否真的需要视频生成。作者把预训练图像编辑模型改造成机器人动作预测器，用编辑去噪过程中的 KV cache 作为紧凑的世界动作上下文，再结合 flow-matching 的动作专家进行推理。这样做避免了在推理时解码目标视频帧，减少了对动作无关细节的建模负担。实验表明，它在不同仿真和真实世界任务上都优于常规 VLA 基线和有竞争力的 WAM 方法。与此同时，计算开销显著下降，FLOPs 降到视频型 WAM 的 1/6，延迟降到 1/4。"}
+  summary={"这篇工作提出 ImageWAM，用图像编辑模型替代传统依赖视频生成的世界动作模型，用于机器人动作预测。作者认为图像编辑更适合建模从当前帧到目标帧的变化，因此能够聚焦与动作相关的视觉差异，并通过编辑预训练更好地对齐任务指令与局部变化。方法上，模型不在推理时解码目标帧，而是利用图像编辑去噪过程产生的 KV cache 作为紧凑的世界-动作上下文，再驱动动作专家进行流匹配预测。实验表明，ImageWAM 在模拟和真实世界任务上都优于常见 VLA 基线和有竞争力的 WAM，并且在不额外做 policy 预训练的情况下取得更好的表现。作者还报告其 FLOPs 约降到视频版 WAM 的 1/6、延迟降到 1/4，注意力分析也显示缓存主要关注任务相关的变化区域。"}
 />
 </div>
 
@@ -54,7 +54,14 @@ import PaperCard from '@/components/papers/PaperCard.astro'
   title={"S-Agent: Spatial Tool-Use Elicits Reasoning for Spatial Intelligence"}
   arxivUrl={"https://arxiv.org/abs/2606.20515"}
   hjfyUrl={"https://hjfy.top/arxiv/2606.20515"}
-  summary={"这篇工作提出 S-Agent，用空间工具调用来触发多视角与视频中的空间推理。它把空间理解表述为跨帧、跨视角的证据累积，而不是对单帧图像做静态预测；VLM 负责决定需要哪些证据，空间工具与专家则完成 2D 定位、3D 几何提升和高层空间知识聚合。作者还设计了 Scene Memory 和 Agent Memory，用于维护场景状态并积累推理上下文。实验显示，S-Agent 以训练免费方式稳定提升开源和闭源 VLM 的空间推理能力；在基于 S-300K 的监督微调后，S-Agent-8B 进一步显著超过同规模基线，并接近 GPT-5.4 和 Gemini 3 等更强闭源模型。"}
+  summary={"这篇论文提出 S-Agent，用空间工具调用来激发视觉语言模型的空间推理能力。方法上，它把空间推理建模为跨多视角与视频的证据累积过程，由 VLM 负责规划需要什么证据，再调用二维定位、三维几何提升和时序记忆等工具，把对象、测量、方向和相对位置等信息汇总成高层空间知识。系统还设计了 Scene Memory 和 Agent Memory，用于维护场景状态并累积推理上下文。实验显示，S-Agent 在多视角和视频空间推理基准上能以训练免费方式持续提升开源和闭源 VLM 的表现，进一步用 S-300K 做监督微调后，紧凑模型 S-Agent-8B 能显著超过同规模基线，并接近更强的闭源模型。"}
+/>
+
+<PaperCard
+  title={"DF3DV-1K: A Large-Scale Dataset and Benchmark for Distractor-Free Novel View Synthesis"}
+  arxivUrl={"https://arxiv.org/abs/2604.13416"}
+  hjfyUrl={"https://hjfy.top/arxiv/2604.13416"}
+  summary={"这篇工作发布了一个用于无干扰新视角合成的大规模真实数据集 DF3DV-1K，并配套构建了基准评测。作者收集了 1,048 个场景、89,924 张图像，显式包含干净图像和含干扰物图像，以评估 radiance field 方法在复杂现实环境中的鲁棒性。论文还设计了 DF3DV-41 这一更具挑战性的子集，用来系统测试模型在困难场景下的表现。基于该数据集，作者评测了 9 种近期方法和 3D Gaussian Splatting，找出了最稳健的方法与最难处理的场景。进一步地，他们用 DF3DV-1K 微调一个扩散式 2D 增强器，在保留集上平均提升了 0.96 dB PSNR 和 0.057 LPIPS。"}
 />
 </div>
 
@@ -62,41 +69,16 @@ import PaperCard from '@/components/papers/PaperCard.astro'
 
 <div class="space-y-4">
 <PaperCard
+  title={"Beyond Static Leaderboards: Predictive Validity for the Evaluation of LLM Agents"}
+  arxivUrl={"https://arxiv.org/abs/2606.19704"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.19704"}
+  summary={"这篇工作讨论了如何评估 LLM 智能体，而不是只看静态榜单分数。作者汇总了一个基于 MCP 的工业智能体基准的多项并行深挖实验，并结合多个既有 agent benchmark，指出聚合分数排名在分布外场景中不稳定，难以真实反映部署表现。方法上，他们提出用“预测有效性”来衡量基准排序在训练内外的一致性，并给出一套覆盖十二个层面的测量框架，还设计了三个可证伪的分布外判据。实验和历史基准回顾表明，传统平均分排名会掩盖关键差异，而该框架更能暴露部署相关的评测维度。"}
+/>
+
+<PaperCard
   title={"ENPIRE: Agentic Robot Policy Self-Improvement in the Real World"}
   arxivUrl={"https://arxiv.org/abs/2606.19980"}
   hjfyUrl={"https://hjfy.top/arxiv/2606.19980"}
-  summary={"这篇工作提出 ENPIRE，一个面向真实机器人操控的代理式自我改进框架，用来让编码代理在物理世界里闭环优化策略。系统由环境重置与验证、策略改进、并行真实机器人 rollout、以及日志分析和代码/训练栈进化四个模块组成，把“执行-检查-修正”变成可重复的优化流程。作者强调该框架能减少人工监督，并让不同训练配方和代理变体的消融更公平可控。实验中，借助 ENPIRE，前沿编码代理可以自主训练出在多个精细操作任务上达到 99% 成功率的策略。使用机器人集群并行执行时，整个改进过程还能进一步加速。"}
-/>
-</div>
-
-## Multimodal World Model
-
-<div class="space-y-4">
-<PaperCard
-  title={"FreeStyle: Free Control of Style-Content Dual-Reference Generation from Community LoRA Mining"}
-  arxivUrl={"https://arxiv.org/abs/2606.20506"}
-  hjfyUrl={"https://hjfy.top/arxiv/2606.20506"}
-  summary={"Style-content dual-reference generation aims to synthesize an image that preserves the structure and semantics of a content reference while adopting the style of a separate style reference.Despite recent progress, this setting remains challenging because models must balance content fidelity, style alignment, and instruction following avoiding semantic leakage from the style reference.A key bottleneck is the lack of large-scale triplet data with clean content-style separation and broad long-tail style coverage.In this work, we propose FreeStyle, a scalable dual-reference generation framework based on community LoRA mining.We treat community LoRAs as compositional anchors for style and content, and design a rigorous generation and filtering pipeline to construct large-scale Style-Reference and Content-Reference triplets across multiple base models.To address content leakage, we adopt a two-stage curriculum with stage-specific disentanglement mechanisms: an attention-level enrichment constraint that suppresses style-reference leakage in the style-transfer stage, and a frequency-aware RoPE modulation strategy that targets positional-correspondence-based leakage in the harder dual-reference stage.We also introduce a benchmark covering both style-reference and dual-reference generation, with evaluations on style similarity, content preservation, aesthetics, instruction following, and leakage rejection. The benchmark incorporates a style-invariant Content Alignment Score (CAS) and introduces a calibrated VLM-based Rejection Score for evaluating generation reliability and leakage suppression.Extensive experiments show that our model achieves a strong balance among style alignment, content preservation, and leakage suppression."}
-/>
-
-<PaperCard
-  title={"JanusMesh: Fast and Zero-Shot 3D Visual Illusion Generation via Cross-Space Denoising"}
-  arxivUrl={"https://arxiv.org/abs/2606.20563"}
-  hjfyUrl={"https://hjfy.top/arxiv/2606.20563"}
-  summary={"Creating 3D visual illusions, a single 3D mesh that reveals entirely different semantics from various viewing angles, is a fascinating but tough challenge. Existing optimization-based methods are slow and can produce oversaturated colors. In contrast, naive stitching approaches fail to produce geometrically coherent objects. This results in visible unnatural seams and semantic leaks. In this paper, we present a fast and training-free framework for generating text-driven 3D visual illusions. Our approach decouples the generation into two stages. First, we propose a cross-space dual-branch denoising process. This process dynamically decodes 3D latents into voxel space for CLIP-guided orientation alignment and Signed Distance Field (SDF) blending, which ensures seamless geometric fusion. Second, we introduce a view-conditioned texture synthesis module that projects and aggregates view-specific 2D diffusion priors onto the fused geometry. Extensive experiments demonstrate that our method generates highly realistic, dual-semantic 3D illusions in just 3-5 minutes. It significantly outperforms existing methods in geometric integrity, semantic recognizability, and efficiency. Project page: https://siang1105.github.io/JanusMesh.github.io/"}
-/>
-
-<PaperCard
-  title={"FlowBender: Feedback-Aware Training for Self-Correcting Conditional Flows"}
-  arxivUrl={"https://arxiv.org/abs/2606.20404"}
-  hjfyUrl={"https://hjfy.top/arxiv/2606.20404"}
-  summary={"Conditional diffusion and flow models routinely fail to satisfy the very constraints that define their task. For instance, a depth-conditioned model often produces images whose re-extracted depth disagrees with the input, even though the forward operator--the depth predictor defining the constraint--is available during both training and inference. Existing approaches generally fall into two categories: supervised models that treat the conditioning signal as a static cue and ignore alignment information at inference, and guidance-based methods that consult it through hand-tuned linear updates, typically trading fidelity to the condition against the plausibility of the generated sample. We argue that the fundamental gap in both paradigms is that the model is never trained to utilize its own alignment error. We introduce FlowBender, a closed-loop framework that treats this error as a first-class input, training the network to learn a correction policy conditioned on inference-time feedback. At each step, an unguided look-ahead pass estimates the clean signal, a task-specific deviation is computed via the forward operator, and a refinement pass consumes this signal to produce a corrected velocity. We propose several variants of FlowBender, including a gradient-based formulation for differentiable operators and a zero-order variant for non-differentiable settings such as JPEG compression. For efficient sampling, we introduce a prior-step shortcut that enables closed-loop correction at a minimal additional computational cost. Across image-to-image translation, restoration, and 3D mesh texturing, FlowBender consistently outperforms standard supervised baselines, alignment-loss-augmented training, and state-of-the-art inference-time guidance, improving fidelity and plausibility simultaneously rather than trading them against each other. Project page: https://flow-bender.github.io/"}
-/>
-
-<PaperCard
-  title={"DF3DV-1K: A Large-Scale Dataset and Benchmark for Distractor-Free Novel View Synthesis"}
-  arxivUrl={"https://arxiv.org/abs/2604.13416"}
-  hjfyUrl={"https://hjfy.top/arxiv/2604.13416"}
-  summary={"Advances in radiance fields have enabled photorealistic novel view synthesis. In several domains, large-scale real-world datasets have been developed to support comprehensive benchmarking and to facilitate progress beyond scene-specific reconstruction. However, for distractor-free radiance fields, a large-scale dataset with clean and cluttered images per scene remains lacking, limiting the development. To address this gap, we introduce DF3DV-1K, a large-scale real-world dataset comprising 1,048 scenes, each providing clean and cluttered image sets for benchmarking. In total, the dataset contains 89,924 images captured using consumer cameras to mimic casual capture, spanning 128 distractor types and 161 scene themes across indoor and outdoor environments. A curated subset of 41 scenes, DF3DV-41, is systematically designed to evaluate the robustness of distractor-free radiance field methods under challenging scenarios. Using DF3DV-1K, we benchmark nine recent distractor-free radiance field methods and 3D Gaussian Splatting, identifying the most robust methods and the most challenging scenarios. Beyond benchmarking, we demonstrate an application of DF3DV-1K by fine-tuning a diffusion-based 2D enhancer to improve radiance field methods, achieving average improvements of 0.96 dB PSNR and 0.057 LPIPS on the held-out set (e.g., DF3DV-41) and the On-the-go dataset. We hope DF3DV-1K facilitates the development of distractor-free vision and promotes progress beyond scene-specific approaches. The dataset and leaderboard are available at https://johnnylu305.github.io/df3dv1k_web/."}
+  summary={"这篇工作提出 ENPIRE，一个面向真实世界机器人策略自我改进的 harness 框架，目标是把策略优化变成可重复、可自动化的闭环流程。它将流程拆成四个模块：环境重置与验证、策略改进、并行实机 rollout 评测，以及由 coding agent 读取日志、查阅文献并修改训练代码和算法代码的演化环节。作者强调该框架把真实机器人学习从高人工依赖转成可控优化过程，并支持不同训练配方和 agent 版本的公平对比。实验中，借助 ENPIRE，前沿 coding agents 能够在整理针盒、系扎带和工具使用等复杂操作任务上把策略训练到 99% 成功率。结果还显示，当在机器人集群上分派 agent 团队时，整个自我改进过程会进一步加速。"}
 />
 </div>
