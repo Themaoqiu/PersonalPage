@@ -3,7 +3,7 @@ title: Papers - 2026-06-23
 description: "吾能观之数千而面色如故"
 publishDate: 2026-06-23
 updatedDate: 2026-06-23
-tags: ['paper reading', 'agent', 'visual reasoning', 'multimodal world model']
+tags: ['paper reading', 'agent', 'visual reasoning']
 category: research
 comment: true
 heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
@@ -18,14 +18,29 @@ import PaperCard from '@/components/papers/PaperCard.astro'
   title={"PerceptionDLM: Parallel Region Perception with Multimodal Diffusion Language Models"}
   arxivUrl={"https://arxiv.org/abs/2606.19534"}
   hjfyUrl={"https://hjfy.top/arxiv/2606.19534"}
-  summary={"这篇工作提出了 PerceptionDLM，用扩散式语言模型来做多区域的并行视觉感知与区域描述。作者在 PerceptionDLM-Base 上加入高效提示方式和结构化注意力掩码，使模型能够同时处理多个被遮挡区域，并在序列级和 token 级并行生成描述。为评测这种并行感知能力，论文构建了 ParaDLC-Bench，把原有细粒度区域描述基准扩展到多区域掩码场景。实验表明，PerceptionDLM 在保持区域描述质量竞争力的同时，显著提升了多区域感知的推理速度。"}
+  summary={"这篇工作提出 PerceptionDLM，用多模态扩散语言模型来做高效的并行区域感知。方法上，它基于 PerceptionDLM-Base，引入高效提示和结构化注意力掩码，使模型能够在序列级和 token 级同时描述多个被遮挡区域。作者还构建了 ParaDLC-Bench，把单图多区域标注扩展为可同时评测多个区域的基准。实验显示，模型在区域描述质量上保持有竞争力，同时在多区域感知场景中获得显著推理加速。"}
 />
+</div>
 
+## Thinking with Images
+
+<div class="space-y-4">
 <PaperCard
-  title={"GeneralVLA-2: Geometry-Aware Reconstruction and Governed Memory for Robot Planning"}
-  arxivUrl={"https://arxiv.org/abs/2606.17480"}
-  hjfyUrl={"https://hjfy.top/arxiv/2606.17480"}
-  summary={"Generalist vision-language-action systems need object-centric 3D evidence and reusable manipulation experience to plan reliable robot trajectories. GeneralVLA provides a hierarchical interface for converting language and RGB-D observations into 3D end-effector paths, but two bottlenecks remain. First, monocular SAM3D-style object reconstruction can hallucinate pose and unseen geometry, while manipulation benefits from stable object shape when calibrated multi-view observations are available. Second, the original KnowledgeBank mainly retrieves semantically similar snippets and appends new knowledge, which makes it difficult to control memory quality, conflicts, confidence, and geometric relevance. To address the first challenge, we introduce GeoFuse-MV3D, a geometry-prior-guided MV-SAM3D reconstruction branch that verifies external geometry cues with input-view masks, applies soft visual-hull support, performs axis-wise refinement, and fuses only geometry while preserving appearance. To address the second challenge, we upgrade KnowledgeBank into a governed long-term memory system with explicit quality, confidence, lifecycle, verifier, and conflict metadata, together with precision-oriented retrieval. Finally, we evaluate the reconstruction branch on GSO-30 and the memory module on Terminal-Bench 2.0 and SWE-Bench Verified; GeoFuse-MV3D improves over the MV-SAM3D baseline by reducing CD and LPIPS by 2.20% and 2.02% while increasing PSNR and SSIM by 2.36% and 1.03%, and KnowledgeBank improves over ReasoningBank by 4.53% on Terminal-Bench SR and 3.73% on SWE-Bench resolve rate, while reducing AS by 4.95% and 5.65%, respectively. Code: https://github.com/AIGeeksGroup/GeneralVLA-2. Website: https://aigeeksgroup.github.io/GeneralVLA-2."}
+  title={"Multi-Turn Reflective Masking Elicits Reasoning in Mask Diffusion Models"}
+  arxivUrl={"https://arxiv.org/abs/2606.16700"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.16700"}
+  summary={"这篇工作提出 Reflective Masking，通过轻量后训练让 Mask Diffusion Models 具备多轮反思式修正能力。方法上，它利用掩码扩散天然支持的局部编辑特性，在测试时反复回看并修订前一轮输出，并加入 History Reference 来复用中间去噪状态中的信息。作者强调该方法不需要改模型结构，可以直接适配现有的 MDM。实验覆盖文本生成、数独和图像编辑等多种任务，结果显示该方法普遍优于标准掩码基线，并能稳定提升多轮修正效果。"}
+/>
+</div>
+
+## Multimodal Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"MemSlides: A Hierarchical Memory Driven Agent Framework for Personalized Slide Generation with Multi-turn Local Revision"}
+  arxivUrl={"https://arxiv.org/abs/2606.17162"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.17162"}
+  summary={"这篇工作提出 MemSlides，用层次化记忆框架支持个性化演示文稿生成和多轮局部修改。方法上，它把长期记忆拆成用户画像记忆和工具记忆，再配合工作记忆来保留会话中的活跃偏好与约束。系统还采用 slide-local revision，让修改尽量作用于最小受影响区域，而不是反复重生成整套幻灯片。实验表明，用户画像记忆能提升多 persona、多意图场景下的匹配度，工具记忆能改善闭环修改行为，定性案例也展示了工作记忆对偏好延续的作用。"}
 />
 </div>
 
@@ -40,45 +55,35 @@ import PaperCard from '@/components/papers/PaperCard.astro'
 />
 </div>
 
-## Agent Training and Evaluation
+## Embodied Agent
 
 <div class="space-y-4">
 <PaperCard
-  title={"MemSlides: A Hierarchical Memory Driven Agent Framework for Personalized Slide Generation with Multi-turn Local Revision"}
-  arxivUrl={"https://arxiv.org/abs/2606.17162"}
-  hjfyUrl={"https://hjfy.top/arxiv/2606.17162"}
-  summary={"这篇论文提出 MemSlides，一个面向个性化幻灯片生成的层次化记忆驱动智能体框架。方法上，它把长期记忆拆成用户画像记忆和工具记忆，并引入工作记忆来承载多轮修订中的临时偏好与约束，同时配合局部、最小影响范围的幻灯片编辑策略。这样设计可以让系统在连续修改过程中更稳定地保留用户偏好，并复用可靠的工具执行经验。实验显示，用户画像记忆能提升 persona 对齐效果，工具记忆能改善闭环修改行为，案例分析也验证了工作记忆对偏好延续的作用。"}
-/>
-
-<PaperCard
-  title={"GateMem: Benchmarking Memory Governance in Multi-Principal Shared-Memory Agents"}
-  arxivUrl={"https://arxiv.org/abs/2606.18829"}
-  hjfyUrl={"https://hjfy.top/arxiv/2606.18829"}
-  summary={"这篇工作提出 GateMem，用来评测多主体系共享记忆智能体中的记忆治理能力。它把评测重点放在三件事上：合法长程请求的有效记忆、跨角色与授权边界的访问控制，以及在显式删除请求后的主动遗忘。基准覆盖医疗、办公、教育和家庭等场景，并包含多轮多方对话、增量记忆注入和隐藏检查点。实验结果表明，没有任何方法能同时在实用性、权限控制和遗忘可靠性上都表现良好，长上下文提示虽然治理分数较高，但代价也更大。"}
+  title={"GeneralVLA-2: Geometry-Aware Reconstruction and Governed Memory for Robot Planning"}
+  arxivUrl={"https://arxiv.org/abs/2606.17480"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.17480"}
+  summary={"这篇工作面向通用视觉-语言-动作系统的机器人规划，目标是同时提升三维几何证据和可复用的长期记忆。作者提出 GeoFuse-MV3D，用几何先验引导的多视图重建分支来验证外部几何线索，并结合软视觉壳约束、轴向细化和几何/外观分离融合，减少单目重建的幻觉问题。与此同时，他们把 KnowledgeBank 升级为带有质量、置信度、生命周期、验证器和冲突元数据的受治理长期记忆系统，以支持更精确的检索与决策。实验在 GSO-30、Terminal-Bench 2.0 和 SWE-Bench Verified 上验证了方法有效性：重建分支在 CD、LPIPS、PSNR、SSIM 上相对基线都有稳定改进，记忆模块也在任务成功率和修复率上优于 ReasoningBank。"}
 />
 </div>
 
-## Multimodal World Model
+## 4D Understanding and Generation
 
 <div class="space-y-4">
-<PaperCard
-  title={"SproutRAG: Attention-Guided Tree Search with Progressive Embeddings for Long-Document RAG"}
-  arxivUrl={"https://arxiv.org/abs/2606.18381"}
-  hjfyUrl={"https://hjfy.top/arxiv/2606.18381"}
-  summary={"Retrieval-augmented generation (RAG) systems must balance retrieval granularity with contextual coherence, a challenge that existing methods address through LLM-guided chunking, single-level context expansion, or hierarchical summarization. These approaches variously depend on costly LLM calls during indexing or retrieval, limit context aggregation to a single granularity level, or introduce information loss through summarization. We present SproutRAG, an attention-guided hierarchical RAG framework that addresses this trade-off by organizing sentence-level chunks into progressively larger but semantically coherent units, using learned inter-sentence attention to construct a binary chunking tree. Unlike prior approaches that rely on external LLMs, fixed context expansion, or lossy summarization, SproutRAG learns which attention heads and layers best capture semantic document structure, enabling multi-granularity retrieval without additional LLM calls or compressed summaries. At retrieval time, SproutRAG uses hierarchical beam search to retrieve candidates at multiple granularities, capturing multi-sentence relevance beyond flat retrieval. The framework is trained end-to-end with a joint objective that improves both embeddings and tree structure. Experiments across four benchmarks spanning scientific, legal, and open-domain settings demonstrate that SproutRAG improves information efficiency (IE) by 6.1% on average over the strongest baseline. Code is available on https://github.com/AmirAbaskohi/SproutRAG."}
-/>
-
-<PaperCard
-  title={"BrainG3N: A Dual-Purpose Tokenizer for Controllable 3D Brain MRI Generation"}
-  arxivUrl={"https://arxiv.org/abs/2606.19651"}
-  hjfyUrl={"https://hjfy.top/arxiv/2606.19651"}
-  summary={"Three-dimensional (3D) brain MRI is central to clinical neurology and neuro-oncology, where generative models could augment under-represented cohorts, simulate disease trajectories, and support privacy-preserving data sharing. Latent diffusion has been the go-to solution for modeling imaging data, but it places two competing demands on the tokenizer: encoder embeddings must retain the clinical information that downstream tasks act on, and the decoder must reconstruct anatomically faithful volumes. Existing reconstruction-driven tokenizers achieve the second at the expense of the first. To address this, we introduce a fully volumetric masked-autoencoder (MAE) based tokenizer for 3D brain MRI latent diffusion, decoupling encoder and decoder: a frozen 3D MAE encoder produces clinically informative embeddings, while a dedicated CNN decoder reconstructs voxels from a linear projection of those embeddings. We pretrain the encoder on 35,309 volumes from 18 public cohorts spanning four modalities, ten disease categories, and 200+ acquisition sites, and demonstrate its dual utility in two settings. First, on a 23-task linear-probing benchmark, the encoder outperforms or matches SOTA models (i.e., BrainIAC, BrainSegFounder, and MedicalNet) on 21 of 23 tasks. Second, a conditional diffusion transformer (DiT) trained on these clinically informative embeddings supports both conditional generation across six variables and patient-specific longitudinal forecasting. Together these results establish a single 3D brain-MRI embedding space capable of both downstream clinical tasks and controllable generation."}
-/>
-
 <PaperCard
   title={"SpatialAvatar-0: High-Quality 4D Head Avatar with Multi-Stage Reconstruction"}
   arxivUrl={"https://arxiv.org/abs/2606.15659"}
   hjfyUrl={"https://hjfy.top/arxiv/2606.15659"}
-  summary={"High-quality 4D head avatars from one or a few source portraits are central to telepresence, AR/VR, and digital-human interaction. 3D Gaussian Splatting (3DGS) has emerged as the dominant representation, with two complementary regimes (generalizable feed-forward predictors and per-subject refiners) maturing in parallel. However, existing feed-forward predictors are trained on a single dataset family with a hard-coded source count, inheriting the corresponding domain bias. Per-subject refiners require 300K--600K iterations and rely on adaptive densification that destroys upstream Gaussian layouts, preventing the two regimes from sharing a representation end-to-end. To bridge both regimes we propose SpatialAvatar-0 on a shared FLAME-mesh-bound Gaussian representation: a feed-forward generator with a parameter-free K-source mean-pool and a monocular-temporal to multi-view-spatial two-phase schedule that anchors against identity-prior collapse onto the smaller multi-view set. We further introduce a 10K-iter layout-preserving per-subject refinement loop that freezes the FLAME-binding and Gaussian count and replaces densification with a three-component anti-spike regularization. On VFHQ/HDTF cross-domain zero-shot we surpass the in-domain leader GAGAvatar by +1.5 dB PSNR despite never training on either test domain, and on the SplattingAvatar monocular benchmark we lead every reported metric, surpassing the 300K-iter GeoAvatar by +1.3 dB PSNR at up to 60x shorter per-subject schedule than common SOTA baselines. Website: https://spatialwalk.github.io/SpatialAvatar-0."}
+  summary={"这篇论文提出 SpatialAvatar-0，用于从一张或少量人像生成高质量的 4D 头部头像。方法以 FLAME 网格绑定的 Gaussian 表示为核心，设计了参数自由的 K 源 mean-pool，以及从单目时序到多视图空间的两阶段训练策略，避免身份先验塌缩；随后又加入 1 万步的布局保持式个体精修流程，冻结绑定与高斯数量，并用三项抗尖峰正则替代传统 densification。作者在 VFHQ/HDTF 跨域零样本测试中，即使未在目标域训练，也比 in-domain 的 GAGAvatar 高出 1.5 dB PSNR。 在 SplattingAvatar 单目基准上，该方法在所有报告指标上都取得最好结果，相比 30 万步的 GeoAvatar 最高快约 60 倍，同时 PSNR 还提升了 1.3 dB。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"GateMem: Benchmarking Memory Governance in Multi-Principal Shared-Memory Agents"}
+  arxivUrl={"https://arxiv.org/abs/2606.18829"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.18829"}
+  summary={"这篇工作提出 GateMem，用于评测多主体共享记忆智能体中的记忆治理能力。论文的重点不是单纯提升记忆容量，而是刻画多个主体共享同一记忆空间时，系统如何控制访问、写入和隔离。作者构建了专门的基准与治理维度，用来比较不同记忆管理策略在共享环境中的表现。实验表明，该基准能够有效区分各类方法，并暴露出记忆污染、越权写入和跨主体干扰等问题。"}
 />
 </div>
