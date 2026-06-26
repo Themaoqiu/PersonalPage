@@ -1,0 +1,59 @@
+---
+title: Papers - 2026-06-26
+description: "吾能观之数千而面色如故"
+publishDate: 2026-06-26
+updatedDate: 2026-06-26
+tags: ['paper reading', 'agent', 'visual reasoning']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## Grounding-driven Visual Reasoning
+
+<div class="space-y-4">
+<PaperCard
+  title={"V-Zero: Answer-Label-Free On-Policy Distillation with Contrastive Evidence Gating for Fine-Grained Visual Reasoning"}
+  arxivUrl={"https://arxiv.org/abs/2606.25319"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.25319"}
+  summary={"这篇工作提出 V-Zero，用于细粒度视觉推理时减少对标注答案的依赖。方法上，它采用无答案标签的 on-policy distillation，并引入对比式证据门控，把与问题相关的局部图像裁剪和负样本视图结合起来，筛选并强化学生采样轨迹中的有效视觉证据。实验显示，该方法在多个视觉推理基准上持续提升性能，同时保持较强泛化能力。作者还报告它比以往有监督微调方法快 5 倍以上，比强化学习基线快 10 倍以上。"}
+/>
+</div>
+
+## Multimodal Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"Wan-Streamer v0.1: End-to-end Real-time Interactive Foundation Models"}
+  arxivUrl={"https://arxiv.org/abs/2606.25041"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.25041"}
+  summary={"这篇工作提出了一个端到端的实时交互式多模态基础模型 Wan-Streamer，用于低延迟的全双工音视频交互。模型把语言、音频和视频统一到单一 Transformer 中，并通过交错的输入输出 token 与 block-causal attention 实现增量式流式生成。作者还重构了整套流式栈，包括因果编码器、因果解码器和低延迟 token 调度，使最短流式单元可达160毫秒。实验显示该模型模型侧响应延迟约200毫秒，结合350毫秒双向网络延迟后，总交互延迟约550毫秒，能够支持亚秒级的音视频双工通信。"}
+/>
+
+<PaperCard
+  title={"ShutterMuse: Capture-Time Photography Guidance with MLLMs"}
+  arxivUrl={"https://arxiv.org/abs/2606.25763"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.25763"}
+  summary={"这篇工作面向拍摄时的摄影指导，构建了一个基准和数据集来评测多模态大模型在构图与姿态建议上的能力。作者提出 CaptureGuide-Bench，分别评估摄影师侧的构图决策与细化，以及被摄者侧的场景条件化姿态推荐，并据此构建了含13万样本的 CaptureGuide-Dataset。基于这些数据，作者训练了统一的 ShutterMuse，并结合监督微调与强化微调来提升拍摄辅助能力。实验表明，ShutterMuse 在摄影师侧总体表现最好，在被摄者侧也能给出有竞争力的姿态建议，同时推理成本明显低于很多基线。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"Are We Ready For An Agent-Native Memory System?"}
+  arxivUrl={"https://arxiv.org/abs/2606.24775"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.24775"}
+  summary={"这篇工作把大语言模型智能体的记忆系统当作数据管理系统来系统评估，而不是只看端到端任务分数。作者将记忆拆成表示与存储、抽取、检索与路由、维护四个核心模块，并在12个代表性记忆系统和2个基线、5个基准工作负载和11个数据集上做了全面实验。结果显示没有单一架构在所有场景下都占优，性能高度依赖记忆结构与具体瓶颈的匹配。进一步的消融分析量化了各模块对表示保真度、检索精度、更新正确性和长程稳定性的影响，同时揭示了局部维护比全局重组更省成本。"}
+/>
+
+<PaperCard
+  title={"EBench: Elemental Diagnosis of Generalist Mobile Manipulation Policies"}
+  arxivUrl={"https://arxiv.org/abs/2606.18239"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.18239"}
+  summary={"这篇工作提出了 EBench，用于对通用移动操作策略做细粒度诊断，而不只是看单一成功率。作者构建了一个包含 26 个任务的仿真基准，并将任务标注到 5 个能力维度和 4 个泛化维度上，以分析模型在不同技能与分布偏移下的表现。实验评测了 π0、π0.5、XVLA 和 InternVLA-A1 等代表性模型，发现它们即使总体成功率接近，能力画像也差异明显。结果表明，EBench 能揭示模型在整体分数之外的优势与短板，并为后续迭代提供更有针对性的诊断信号。"}
+/>
+</div>
