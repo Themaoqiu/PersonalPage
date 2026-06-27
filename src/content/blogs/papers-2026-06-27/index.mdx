@@ -1,0 +1,84 @@
+---
+title: Papers - 2026-06-27
+description: "吾能观之数千而面色如故"
+publishDate: 2026-06-27
+updatedDate: 2026-06-27
+tags: ['paper reading', 'agent', 'visual reasoning', 'multimodal world model']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## Multimodal Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"Confidence-Aware Tool Orchestration for Robust Video Understanding"}
+  arxivUrl={"https://arxiv.org/abs/2606.26904"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.26904"}
+  summary={"这篇工作提出 Robust-TO，用于提升视频理解模型在噪声和退化画面下的可靠性。方法上，它把多种视觉感知工具统一到同一证据接口中，为每个工具输入经过可信度筛选的帧和子问题，并输出带时间定位与校准置信度的结构化证据。推理阶段，系统根据高/中/低可信度分层融合证据，同时用结合正确性、证据可靠性和效率的 GRPO 奖励进行优化。实验显示，在两个覆盖八个任务的视频推理基准上，Robust-TO 在干净输入上达到 56.4% 平均准确率，比最强开源基线高 10.6 个百分点，也超过了 Gemini-2.5-Pro。面对五种真实扰动时，它仍保持 54.3% 的平均准确率，相比最强开源基线提升 5.8 个百分点，并且在干净到退化的性能下降上最小。"}
+/>
+</div>
+
+## 3D LLM
+
+<div class="space-y-4">
+<PaperCard
+  title={"Qwen-Image-Agent: Bridging the Context Gap in Real-World Image Generation"}
+  arxivUrl={"https://arxiv.org/abs/2606.26907"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.26907"}
+  summary={"While text-to-image (T2I) models have achieved remarkable progress, they struggle with real-world requests that are often underspecified, implicit, or dependent on up-to-date knowledge. We identify this challenge as the Context Gap: the mismatch between the user context and the sufficient generation context for T2I models. To bridge this gap, we propose Qwen-Image-Agent, a unified agentic framework that integrates plan, reason, search, memory and feedback in a context-centric manner. Qwen-Image-Agent treats user input as partial context and progressively constructs the generation context through Context-Aware Planning and Context Grounding. Specifically, Context-Aware Planning identifies missing context and plans how it should be acquired and used, while Context Grounding gathers this context from reason, search, memory, and feedback. To evaluate agentic image generation, we further introduce Image Agent Bench (IA-Bench), a benchmark covering four core image agent capabilities: Plan, Reason, Search, and Memory. Experiments on IA-Bench, Mindbench and WISE-Verified show that Qwen-Image-Agent outperforms strong baselines and achieves state-of-the-art performance."}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"OPID: On-Policy Skill Distillation for Agentic Reinforcement Learning"}
+  arxivUrl={"https://arxiv.org/abs/2606.26790"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.26790"}
+  summary={"这篇工作提出 OPID，用于从 on-policy 完成轨迹中直接蒸馏技能监督，缓解仅靠结果奖励带来的稀疏反馈问题。方法上，它把 hindsight 技能分成 episode-level 和 step-level 两层，并用 critical-first routing 在关键决策处优先注入 step-level 技能，随后通过技能增强上下文的重打分构造 token 级自蒸馏优势。作者将该优势与 outcome advantage 结合进行策略优化，在 ALFWorld、WebShop 和 Search-based QA 上实验表明，OPID 相比仅结果驱动的 RL 和现有技能蒸馏基线，通常能提升任务表现、样本效率和鲁棒性。"}
+/>
+
+<PaperCard
+  title={"The Verification Horizon: No Silver Bullet for Coding Agent Rewards"}
+  arxivUrl={"https://arxiv.org/abs/2606.26300"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.26300"}
+  summary={"这篇论文讨论编码智能体奖励设计中的“verification horizon”问题，指出随着模型与工程 harness 变强，真正困难的往往不再是生成解答，而是可靠验证人类意图。作者从可扩展性、忠实性和鲁棒性三个维度分析验证信号，并系统研究了代码测试、前端 rubric、用户作为 verifier 以及长时序自动 agent verifier 等四类奖励构造。实验表明，有针对性的验证设计能够有效抑制 reward hacking、提升任务完成质量，并在多个内部与公开基准上带来显著收益。"}
+/>
+
+<PaperCard
+  title={"GUI vs. CLI: Execution Bottlenecks in Screen-Only and Skill-Mediated Computer-Use Agents"}
+  arxivUrl={"https://arxiv.org/abs/2606.24551"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.24551"}
+  summary={"这篇工作构建了一个匹配式桌面执行基准，用来公平比较纯GUI代理和技能驱动CLI代理的执行瓶颈。作者在440个桌面任务、18个应用和12类工作流上统一了目标、初始状态、验证器与动作约束，避免了以往评测中的混杂因素。结果显示，最强GUI代理的完整通过率为59.1%，优于最强原始技能CLI代理的48.2%。但当对CLI加入验证器引导的技能扩增后，成功率提升到69.3%，说明CLI侧的主要短板更多来自技能覆盖不足，而不完全是模型能力问题。"}
+/>
+
+<PaperCard
+  title={"Why Multi-Step Tool-Use Reinforcement Learning Collapses and How Supervisory Signals Fix It"}
+  arxivUrl={"https://arxiv.org/abs/2606.26027"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.26027"}
+  summary={"这篇工作研究了多步工具使用强化学习为何会崩溃，并提出用监督信号来稳定训练。作者发现，RL失效时会出现特定控制token概率突增，导致结构化工具调用被破坏，但底层工具能力其实仍然存在，只是被格式问题掩盖。为此，他们系统比较了离策略监督、提示引导、错误示例监督等多种监督信号，并分析同步与交错式训练方案。结果显示，将SFT与RL交错进行能明显提升训练稳定性，但在格式和内容分布外评测上仍会退化，说明监督设计对多步工具使用训练至关重要。"}
+/>
+
+<PaperCard
+  title={"Running the Gauntlet: Re-evaluating the Capabilities of Agents Beyond Familiar Environments"}
+  arxivUrl={"https://arxiv.org/abs/2606.14397"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.14397"}
+  summary={"这篇工作提出GauntletBench，用于更严格地评估智能体在陌生环境中的泛化能力。基准覆盖视频编辑、工作流构建、3D建模、飞行分析和电路设计五类较少被关注的专业应用，并重点考察时间感知、图形理解和3D推理三种能力。作者提供了兼容开源与闭源智能体的模块化环境、任务集和自动评测引擎，共包含100个视觉密集任务。实验结果显示，最强智能体在该基准上的成功率只有19.1%，而非专家人工标注者可超过80%，说明当前前沿智能体在这些能力上的差距仍然很大。"}
+/>
+</div>
+
+## Multimodal World Model
+
+<div class="space-y-4">
+<PaperCard
+  title={"Fast LeWorldModel"}
+  arxivUrl={"https://arxiv.org/abs/2606.26217"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.26217"}
+  summary={"这篇工作提出Fast LeWorldModel，用动作前缀预测替代传统LeWM中逐步展开的一步潜变量滚动，以降低规划开销并缓解长时域误差累积。方法上，模型对动作序列的前缀进行编码，并直接预测执行这些前缀后的未来潜变量，从而把不同预测时域的状态变化并行建模。相比逐步递推的规划方式，这种前缀级监督让模型更好地学习状态随动作累积演化的规律。实验表明，Fast-LeWM在多个任务上都优于LeWM，同时显著减少规划时间，并且开放环路潜变量损失随滚动长度增长得更慢。"}
+/>
+</div>

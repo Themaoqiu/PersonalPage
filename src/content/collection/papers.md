@@ -4,6 +4,7 @@ title_en: "Papers"
 description: "每日论文整理与分类"
 description_en: "Daily paper collection with AI classification"
 bloglist:
+  - "papers-2026-06-27"
   - "papers-2026-06-26"
   - "papers-2026-06-25"
   - "papers-2026-06-24"
