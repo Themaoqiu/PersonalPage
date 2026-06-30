@@ -1,0 +1,77 @@
+---
+title: Papers - 2026-06-30
+description: "吾能观之数千而面色如故"
+publishDate: 2026-06-30
+updatedDate: 2026-06-30
+tags: ['paper reading', 'agent', 'visual reasoning', 'multimodal world model']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## Multimodal Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"ProMSA:Progressive Multimodal Search Agents for Knowledge-Based Visual Question Answering"}
+  arxivUrl={"https://arxiv.org/abs/2606.27974"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.27974"}
+  summary={"这篇论文提出 ProMSA，用于知识型视觉问答中的渐进式多模态搜索。方法让智能体在图像搜索、文本搜索和停止之间迭代选择，并在显式工具调用预算下进行去重检索，避免重复信息干扰推理。训练上先用 rejection-sampling SFT 学习合法工具格式，再用 TN-GSPO 按生成长度和工具交互深度归一化更新策略。实验在 E-VQA 和 InfoSeek 上都较强地优于 RAG 和现有 agent 基线，同时提升了检索质量与端到端回答准确率。"}
+/>
+</div>
+
+## Embodied Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"Translation as a Bridging Action: Transferring Manipulation Skills from Humans to Robots"}
+  arxivUrl={"https://arxiv.org/abs/2606.28133"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.28133"}
+  summary={"这篇工作研究如何把人类示范中的操控技能迁移到双臂平行夹爪机器人上。作者没有沿用噪声较大的 6DoF 人类动作，而是提出一种桥接动作表示，只保留初始头部相机坐标系下的相对腕部平移，从而让人和机器人共享同一动作空间。为适配不同实体中可能缺失的动作分量，他们进一步构建了一个类似 $π_0$ 的视觉-语言-动作模型，并使用交错动作 token 和注意力掩码来建模。实验表明，这种桥接表示比直接使用噪声 6DoF 人类动作更有效，并且随着人类数据规模增加还能持续提升迁移效果。"}
+/>
+
+<PaperCard
+  title={"SimFoundry: Modular and Automated Scene Generation for Policy Learning and Evaluation"}
+  arxivUrl={"https://arxiv.org/abs/2606.28276"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.28276"}
+  summary={"这篇工作提出 SimFoundry，用于从视频中自动构建可用于策略学习和评测的仿真场景。系统支持零样本 real-to-sim 场景构建，并能对物体、场景和任务进行编辑，生成保持可供性但具有变化的 digital cousins。作者在 7 个操作任务和 5 种策略架构上验证了该方法，发现仿真评测与真实世界表现高度相关，平均 Pearson 相关系数达到 0.911。用这些 cousins 训练后的策略在真实环境中零样本部署时，任务成功率分别提升了 17%、21% 和 40%。"}
+/>
+
+<PaperCard
+  title={"Vesta: A Generalist Embodied Reasoning Model"}
+  arxivUrl={"https://arxiv.org/abs/2606.20905"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.20905"}
+  summary={"这篇论文提出 Vesta，一个统一的具身推理通用模型，目标是在开放世界机器人场景中同时处理定位、空间推理、导航和长时程规划。作者通过大规模且多样化的人工整理语料增强空间 grounding，并加入一个简单的多模态记忆机制，让模型可以在更长时间跨度上进行推理。实验结果显示，Vesta 在平均意义上比单项 SOTA 基线高出 20% 以上，并且比按类别挑选的最佳基线集成还高出 10% 以上。进一步在真实机器人任务上，它把任务成功率提升了 35% 以上，说明单一通用模型可以成为可扩展且有效的具身方案。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"GBC: Gradient-Based Connections for Optimizing Multi-Agent Systems"}
+  arxivUrl={"https://arxiv.org/abs/2606.28187"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.28187"}
+  summary={"这篇工作提出了 GBC（Gradient-Based Connections），把多智能体系统建模为计算图，并用梯度式连接权重在 token 级别度量一个智能体输出对下游智能体的影响，从而实现细粒度归因与优化。作者进一步给出 AgentChord 这一高效实现，利用基于前缀的梯度计算降低开销。实验在 MultiWOZ 和 τ-bench 上显示，该方法能稳定提升多智能体整体表现，并优于强单智能体和多智能体基线。结果还表明，归因质量越高，后续优化效果越好。"}
+/>
+
+<PaperCard
+  title={"AgentOdyssey: Open-Ended Long-Horizon Text Game Generation for Test-Time Continual Learning Agents"}
+  arxivUrl={"https://arxiv.org/abs/2606.24893"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.24893"}
+  summary={"这篇论文提出了 AgentOdyssey，用程序化生成的开放式长时程文本游戏来评测测试时持续学习智能体。它设计了多维诊断指标，不仅看游戏推进，还评估世界知识获取、情景记忆、探索能力、动作多样性和模型开销。实验覆盖多种智能体范式，结果显示更强的基础模型能带来更好表现，但最强智能体仍远低于人类水平，说明这一方向还有很大改进空间。论文还发现短期记忆对多个智能体范式都有帮助，是测试时训练的重要组件。"}
+/>
+</div>
+
+## Multimodal World Model
+
+<div class="space-y-4">
+<PaperCard
+  title={"PhysisForcing: Physics Reinforced World Simulator for Robotic Manipulation"}
+  arxivUrl={"https://arxiv.org/abs/2606.28128"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.28128"}
+  summary={"这篇工作把视频生成模型推进为更可靠的机器人操作世界模拟器，重点解决生成中常见的物理不连续和机器人-物体交互不一致问题。作者提出 PhysisForcing，通过联合优化像素级轨迹对齐损失和语义级关系对齐损失，分别用参考点轨迹和冻结的视频理解编码器提取的区域关系来强化物理一致性。在 R-Bench、PAI-Bench 和 EZS-Bench 上，它相较强基线稳定提升，尤其在 R-Bench 上将 Wan2.2-I2V-A14B 和 Cosmos3-Nano 的表现分别提升 22.3% 和 9.2%。作为世界模型接入 WorldArena 动作规划协议时，闭环成功率也从 16.0% 提升到 24.0%，说明物理对齐的视频模型能学到更强的机器人操作表征。"}
+/>
+</div>
