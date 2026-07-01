@@ -1,0 +1,66 @@
+---
+title: Papers - 2026-07-01
+description: "吾能观之数千而面色如故"
+publishDate: 2026-07-01
+updatedDate: 2026-07-01
+tags: ['paper reading', 'agent', 'multimodal world model']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## Spatial Intelligence (Image/Video)
+
+<div class="space-y-4">
+<PaperCard
+  title={"Video-MME-Logical: A Controlled Diagnostic Benchmark for Video Temporal-Logical Reasoning"}
+  arxivUrl={"https://arxiv.org/abs/2606.27828"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.27828"}
+  summary={"这篇论文提出 Video-MME-Logical，一个面向视频时间-逻辑推理的受控诊断基准，用来检验多模态大模型是否真正理解随时间演化的视觉证据。基准围绕状态跟踪、顺序计数、时间排序、动态空间关系和结构组合五类操作构建，共覆盖 25 个细粒度任务类别。作者还支持通过控制时间跨度和推理复杂度做难度分级评测，并可检查模型在给出最终答案前是否恢复了正确的中间推理轨迹。实验表明当前最先进的多模态模型与人类差距很大，增加监督微调样本可以提升成绩，但仍无法真正弥合这一推理鸿沟。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"Agentic Abstention: Do Agents Know When to Stop Instead of Act?"}
+  arxivUrl={"https://arxiv.org/abs/2606.28733"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.28733"}
+  summary={"这篇工作研究代理系统在不确定或不可完成任务下何时应该停止行动而不是继续调用工具，提出了“Agentic Abstention”这一序列决策问题。作者在网页购物、终端环境和问答任务上评测了13个 LLM-as-agent 系统和2种 agent scaffold，共覆盖超过2.8万条任务轨迹。结果显示，难点不仅是会不会拒答，更关键是能否在合适时机拒答；不少模型要么该停不停，要么在无谓交互很多轮后才停。论文还提出 CONVOLVE 方法，把完整交互轨迹压缩成可复用的停止规则，在 WebShop 上将 Llama-3.3-70B 的及时召回率从 26.7 提升到 57.4。"}
+/>
+
+<PaperCard
+  title={"Scaling the Horizon, Not the Parameters: Reaching Trillion-Parameter Performance with a 35B Agent"}
+  arxivUrl={"https://arxiv.org/abs/2606.30616"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.30616"}
+  summary={"这篇工作提出 Agents-A1，一种 35B MoE 代理模型，目标是通过扩展 agent horizon 而不是单纯扩参数，达到接近万亿参数模型的长程任务表现。作者构建了连接外部知识、动作、观察和验证结果的长链路轨迹数据，平均长度达到 45K tokens，并据此采用三阶段训练：全域监督微调、按领域训练教师模型、以及带显著词汇对齐的多教师域路由 on-policy 蒸馏。实验表明，Agents-A1 在多个长程代理基准上表现强劲，在 SEAL-0、IFBench、HiPhO、FrontierScience-Olympiad 和 MolBench-Bind 上取得领先结果，并在 SciCode、HLE、BrowseComp 等任务上保持很强竞争力。"}
+/>
+
+<PaperCard
+  title={"TUA-Bench: A Benchmark for General-Purpose Terminal-Use Agents"}
+  arxivUrl={"https://arxiv.org/abs/2606.28480"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.28480"}
+  summary={"这篇论文提出 TUA-Bench，用于评估通用终端使用代理在真实终端环境中的能力，覆盖文档编辑、邮件管理、联网信息检索以及与博士级专家共同设计的科学工程工作流。基准包含120个真实任务，每个任务都有手工设计的确定性环境脚本，并通过执行结果进行评分。作者用该基准测试了 frontier agent，结果显示 Claude Code with Claude Opus 4.8 max reasoning effort 的总体成绩为 65.8%，但不同任务族之间仍存在明显差距。论文说明现有 shell 或 GUI 基准都不足以衡量这类通用 terminal-use agent，TUA-Bench 能更全面地推动其向可靠的通用数字助手演进。"}
+/>
+</div>
+
+## Multimodal World Model
+
+<div class="space-y-4">
+<PaperCard
+  title={"Trimming the Long-Tail of Visual World Modeling Evaluation"}
+  arxivUrl={"https://arxiv.org/abs/2606.24256"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.24256"}
+  summary={"这篇工作提出了 Tailor-Bench，用来专门评测视觉世界模型在不规则物理交互上的模拟能力，补足现有基准偏重常见交互的缺陷。作者设计了 Regular、Unconventional、Impossible 三种场景模式，并统一覆盖 predictive generation 和 descriptive generation 两种评测设置。实验显示，模型在从常规到非常规、再到不可能场景时性能明显下降，说明当前模型对长尾物理规律的泛化有限。失败分析还表明，图像模型常常无法做出正确状态变化，视频模型则进一步暴露出时间一致性问题。"}
+/>
+
+<PaperCard
+  title={"Bridging VideoQA and Video-Guided Agentic Tasks via Generalized Keyframe Extraction"}
+  arxivUrl={"https://arxiv.org/abs/2606.29445"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.29445"}
+  summary={"Video understanding is a fundamental capability for multimodal intelligence, and recent Multimodal Large Language Models (MLLMs) have achieved remarkable performance on Video Question Answering (VideoQA) benchmarks. However, existing benchmarks primarily evaluate whether models can perceive shallow visual cues, while rarely examining whether MLLMs can learn deeper knowledge or procedural skills from video tutorials and generalize them to downstream long-horizon agentic tasks. To address this gap, we introduce VG-GUIBench (Video-Guided GUI Benchmark), a new benchmark designed to evaluate whether MLLM-based GUI agents can follow video tutorials to complete corresponding GUI interactive tasks. Furthermore, we observe that the performance of models on both VideoQA and video-guided agentic tasks critically depends on effective keyframe extraction. Based on this observation, we propose TASKER (Task-driven And Scene-aware Keyframe searchER), a keyframe extraction algorithm that jointly considers task relevance and scene dynamics to identify informative frames. Experimental results demonstrate that TASKER achieves significant performance improvements on both VideoQA and video-guided agentic task benchmarks, outperforming the best baseline by 2.0% on the EgoSchema fullset and 1.8% on the NExT-QA dataset, respectively. These results further highlight the potential of generalized keyframe extraction methods for video understanding tasks. Our code and data are available at https://github.com/VG-GUI-TASKER/VG-GUI-TASKER."}
+/>
+</div>
