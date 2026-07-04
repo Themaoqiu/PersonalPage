@@ -18,35 +18,35 @@ import PaperCard from '@/components/papers/PaperCard.astro'
   title={"AgenticSTS: A Bounded-Memory Testbed for Long-Horizon LLM Agents"}
   arxivUrl={"https://arxiv.org/abs/2607.02255"}
   hjfyUrl={"https://hjfy.top/arxiv/2607.02255"}
-  summary={"这篇工作提出 AgenticSTS，一个面向长程 LLM Agent 的有界记忆评测基准，用来研究“记忆层如何影响后续决策”。作者把每一步决策都构造成新的用户消息，并通过类型化检索组装上下文，从而避免把完整历史对话直接拼进提示词。基准落在 Slay the Spire 2 这类高难度、随机且需要大量连续决策的环境中，并发布了 298 条完整轨迹、冻结的记忆/技能快照和分析脚本，便于复现。实验显示，在该测试框架下，启用策略技能层后胜率从 3/10 提升到 6/10，但样本规模下差异仍偏方向性，未达到统计显著。"}
+  summary={"这篇工作提出了 AgenticSTS，一个面向长时程 LLM 智能体的受限记忆测试平台，用来研究不同记忆层对决策的影响。它采用“按决策重建提示”的方式，通过类型化检索组装每一步输入，不再把原始跨步轨迹直接拼接进上下文，从而让提示长度保持有界，并支持对单个记忆组件做独立消融。作者把该框架落到《Slay the Spire 2》这类高随机性、长回合策略游戏中，构建了可重复的评测流程和条件标注轨迹数据。实验显示，在启用策略技能层后，固定消融设置下胜率从 3/10 提升到 6/10，说明显式记忆层确实会影响长时程决策，但该样本量下统计显著性仍有限。"}
 />
 
 <PaperCard
   title={"EvoPolicyGym: Evaluating Autonomous Policy Evolution in Interactive Environments"}
   arxivUrl={"https://arxiv.org/abs/2607.02440"}
   hjfyUrl={"https://hjfy.top/arxiv/2607.02440"}
-  summary={"这篇工作提出 EvoPolicyGym，用来评测自主 Agent 在交互式环境中如何在固定预算内反复修改可执行策略并逐步变好。作者把“自主策略进化”定义成一个受控评测设置，避免把它和泛化的软件工程进展混在一起。基准由多个紧凑的交互式强化学习环境组成，并提供轨迹级诊断来分析 Agent 如何分配预算、如何把反馈转化为参数调整。实验表明，GPT-5.5 在综合排名上表现最好，并在 16 个环境里都进入前二，说明该任务不仅看单次解题能力，也考验在有限反馈下持续改进策略的能力。"}
+  summary={"这篇论文提出 EvoPolicyGym，用来评估智能体在固定交互预算下对可执行策略系统进行迭代改进的能力。作者将这一问题定义为 Autonomous Policy Evolution，并在一组紧凑的交互式强化学习环境中构建了基准，观察智能体如何根据反馈持续编辑和调优策略。该基准不仅看最终分数，还提供轨迹级诊断，用来分析预算分配、反馈转化和参数调整过程。实验结果显示，GPT-5.5 在该套件上取得了最强的总体排名分数，并在 16 个环境上都进入前两名。"}
 />
 
 <PaperCard
   title={"AgenticDataBench: A Comprehensive Benchmark for Data Agents"}
   arxivUrl={"https://arxiv.org/abs/2607.01647"}
   hjfyUrl={"https://hjfy.top/arxiv/2607.01647"}
-  summary={"这篇工作提出了 AgenticDataBench，一个面向数据智能体的综合评测基准，用于更细粒度地衡量数据科学工作流中的能力。作者从 15 个垂直领域收集真实数据集和任务，并引入基于技能的覆盖度刻画来去除冗余、提升任务质量。对于缺少真实任务的领域，论文还用 LLM 结合技能体系自动生成更贴近真实场景的工作流任务。实验部分对多种先进数据智能体进行了评测，给出了按技能维度拆解的详细分析，能更清楚地暴露不同系统在真实数据科学流程中的短板。"}
+  summary={"这篇工作提出了 AgenticDataBench，用于系统评测数据智能体在真实数据科学工作流中的能力。作者从15个垂直领域收集真实任务，并引入数据科学技能与层级聚类来去重、补全和量化基准覆盖度，同时还为缺少真实任务的领域生成高质量合成任务。基准提供细粒度标注，能够分别分析智能体在技能选择、流程执行和任务组合等环节的表现。实验表明，该基准能更全面地区分不同数据智能体的能力差异，并给出更细的技能级诊断信息。"}
 />
 
 <PaperCard
   title={"Breaking Failure Cascades: Step-Aware Reinforcement Learning for Medical Multimodal Reasoning"}
   arxivUrl={"https://arxiv.org/abs/2606.31825"}
   hjfyUrl={"https://hjfy.top/arxiv/2606.31825"}
-  summary={"这篇工作针对医学多模态推理中的失败级联问题，提出了 Step-Aware Reinforcement Learning 方法 MRPO。它不是只看最终答案，而是引入逐步过程奖励，并在最终答案错误时对更早的无效推理步骤施加指数级更大的惩罚，从而打断错误在推理链中的传播。作者在三个多模态 LLM 骨干上验证了该方法，相比标准 GRPO 和近期 RL 基线都有稳定提升。实验中，Qwen3-VL-8B-Instruct 甚至比更大的 HuatuoGPT-Vision-34B 还高出 2.79 分，同时早期推理失败率从 64.0% 降到 13.0%。"}
+  summary={"这篇工作针对医学多模态推理中的失败级联问题，提出了 MRPO，一种步骤感知的强化学习算法。作者发现很多错误来自早期推理步骤的失误，因此在最终答案错误时，对更早的无效推理 token 施加更强惩罚，以打断错误传播。该方法使用过程级奖励而不是只看最终结果，从而更好地优化临床视觉问答中的推理过程。实验表明，MRPO 在三个多模态骨干上都优于标准 GRPO 和近期 RL 基线，并且显著降低了早期推理失败率。"}
 />
 
 <PaperCard
   title={"SkillCoach: Self-Evolving Rubrics for Evaluating and Enhancing Agentic Skill-Use"}
   arxivUrl={"https://arxiv.org/abs/2607.01874"}
   hjfyUrl={"https://hjfy.top/arxiv/2607.01874"}
-  summary={"这篇论文提出 SkillCoach，用自演化的 rubric 来评估和增强智能体的技能使用能力。方法上，它从真实 rollout 中归纳出与技能相关的过程性评分标准，并从技能选择、技能遵循、技能组合和技能反思四个维度对轨迹进行评价，同时把外部 verifier 作为独立的结果信号保留。作者还把这些演化出来的 rubric 用作训练监督，筛选更高质量的轨迹。实验显示，这种方式能显著提升评测质量，揭示仅看最终准确率无法发现的失败模式，并提供比只做结果过滤更强的训练信号。"}
+  summary={"这篇论文提出 SkillCoach，用自演化的 rubric 来评估和增强智能体的技能使用能力。作者从真实 rollout 中自动归纳出与技能相关的过程评分标准，分别衡量技能选择、技能遵循、技能组合和基于技能的反思，而不是只依赖最终结果是否成功。这样可以把“碰巧做对”和“真正按流程做对”区分开来。实验显示，演化后的 rubric 能更好暴露被最终准确率掩盖的失败，并为训练轨迹筛选提供更强的过程监督信号。"}
 />
 </div>
 
@@ -57,6 +57,6 @@ import PaperCard from '@/components/papers/PaperCard.astro'
   title={"WorldDirector: Building Controllable World Simulators with Persistent Dynamic Memory"}
   arxivUrl={"https://arxiv.org/abs/2607.02517"}
   hjfyUrl={"https://hjfy.top/arxiv/2607.02517"}
-  summary={"这篇论文提出 WorldDirector，用于构建具备持久动态记忆和可控视角探索能力的视频世界模型。方法上，它把语义层面的运动编排与视觉生成解耦，先用 LLM 协调 3D 轨迹和相机运动，再把这些轨迹作为控制信号驱动视频生成。这样可以在角色长时间离开画面后再次回到场景时，仍保持精确的身份一致性和外观稳定性。实验表明，该框架能够合成更复杂、更长程的事件，并显著提升生成过程的可控性与动态对象记忆能力。"}
+  summary={"这篇论文提出 WorldDirector，一个强调可控性和持久动态记忆的视频世界模型框架。方法上，它将语义级运动编排与像素级视频生成解耦，先用LLM协调3D轨迹与相机运动，再把这些轨迹作为生成控制信号，从而维持物体身份稳定并支持长时间离开视野后的再次出现。作者还借助这种编排机制实现了更自由的视角探索和更长、更复杂事件的合成。实验结果显示，该方法在控制性、外观一致性和动态对象记忆方面优于现有世界模型。"}
 />
 </div>
