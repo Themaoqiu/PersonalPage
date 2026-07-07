@@ -1,0 +1,88 @@
+---
+title: Papers - 2026-07-07
+description: "吾能观之数千而面色如故"
+publishDate: 2026-07-07
+updatedDate: 2026-07-07
+tags: ['paper reading', 'agent', 'visual reasoning', 'multimodal world model']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## Grounding-driven Visual Reasoning
+
+<div class="space-y-4">
+<PaperCard
+  title={"Interpretation-Oriented Cloud Removal via Observation-Anchored Residual Flow with Geo-Contextual Alignment"}
+  arxivUrl={"https://arxiv.org/abs/2607.02471"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.02471"}
+  summary={"Cloud removal (CR) is essential for optical remote sensing, serving as a prerequisite for reliable downstream interpretation, such as semantic segmentation and change detection. However, existing CR approaches often prioritize visual realism while overlooking their impact on subsequent analytical tasks, leading to semantic drift and degraded downstream performance. To address this issue, we propose Geo-Anchored Cloud Removal (GACR), a unified framework that jointly ensures faithful reconstruction and robust interpretability. At its core, GACR incorporates Observation-Anchored Residual Flow (OAR-Flow), which reformulates CR as a physically grounded residual inversion process. By anchoring the generative trajectory to the cloudy observation rather than pure noise, OAR-Flow enables fast, stable, and faithful reconstruction. To further preserve semantic structures critical for downstream interpretation, GACR integrates Geo-Contextual Prior Alignment (GCPA) to constrain the reconstruction within a semantic manifold induced by a Vision Foundation Model (VFM). Consequently, GACR strictly maintains the spatial-semantic integrity of complex landscapes. Extensive experiments across six CR datasets and twelve downstream tasks demonstrate that GACR produces superior reconstruction quality while consistently improving downstream task accuracy. The code is available at https://github.com/wzy6055/GACR."}
+/>
+</div>
+
+## 3D LLM
+
+<div class="space-y-4">
+<PaperCard
+  title={"Securing the AI Agent: A Unified Framework for Multi-Layer Agent Red Teaming"}
+  arxivUrl={"https://arxiv.org/abs/2606.31227"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.31227"}
+  summary={"The fast growth of open-source AI infrastructure, from model serving engines and agent platforms to the Model Context Protocol (MCP) ecosystem and the language models themselves, has outpaced the security tooling available to defend it. We present AI-Infra-Guard, an open-source framework that organizes AI red teaming around a single observation: the attack surface of an AI agent is stratified across layers (infrastructure, protocol/tool, agent behavior, and model), and no single detection paradigm fits all of them. The framework therefore matches a paradigm to each layer, from deterministic rule matching over 75+ AI components and 1{,}400+ vulnerability rules, through LLM-driven agentic auditing of MCP servers and agent-skill packages and multi-turn black-box agent red teaming, to a jailbreak harness with 26+ attack operators over sixteen datasets. To our knowledge it is the only open-source framework to span all of these, including supply-chain auditing of the agent skills that increasingly extend AI agents. We release AI-Infra-Guard as open source so that \\emph{layer-paradigm matching} can serve as a practical foundation for agent security and a shared base for the community to build on."}
+/>
+</div>
+
+## Embodied Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"Embodied.cpp: A Portable Inference Runtime of Embodied AI Models on Heterogeneous Robots"}
+  arxivUrl={"https://arxiv.org/abs/2607.02501"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.02501"}
+  summary={"这篇工作提出 Embodied.cpp，一个面向异构机器人平台的可移植具身 AI 推理运行时。作者分析了典型 VLA 和 WAM 模型的共同执行路径，将系统拆成输入适配、序列构建、骨干执行、head 插件和部署适配五层，以支持闭环控制中的多速率执行、低延迟 batch-1 推理和可扩展 I/O。该运行时使用 C++ 与统一后端抽象，减少了模型专用 Python 栈和机器人侧胶水代码的碎片化问题。实验在 HY-VLA、pi0.5 和一个初步 WAM 基准上验证了其部署效果，VLA 闭环任务成功率分别达到 100.0% 和 91.0%，WAM 的 block memory 从 312.2 MiB 降到 88.1 MiB。"}
+/>
+
+<PaperCard
+  title={"VLA-Corrector: Lightweight Detect-and-Correct Inference for Adaptive Action Horizon"}
+  arxivUrl={"https://arxiv.org/abs/2607.01804"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.01804"}
+  summary={"这篇工作针对动作 chunk 式 VLA 策略在长时序接触任务中“先预测、后盲执行”导致的误差累积问题，提出 VLA-Corrector。方法在不改动 backbone 权重的前提下，引入轻量的 Latent-space Vision Monitor，持续比较预测视觉特征与真实视觉演化，一旦检测到持续偏差就截断剩余动作并触发在线梯度引导的纠错重规划。这样系统可以在执行稳定时保持较长的 action horizon，在开始漂移时自动切换到更短的纠正式重规划。实验表明，该方法能在多种 VLA 模型上直接插入并提升长时程、接触丰富操作任务的鲁棒性，同时保留动作分块带来的效率优势。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"The Mirage of Optimizing Training Policies: Monotonic Inference Policies as the Real Objective for LLM Reinforcement Learning"}
+  arxivUrl={"https://arxiv.org/abs/2606.29526"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.29526"}
+  summary={"这篇工作指出，LLM 强化学习中的核心问题不只是训练端的 off-policy 偏差，还包括训练引擎与推理引擎之间的目标不一致。作者提出 Monotonic Inference Policy Improvement（MIPI）作为新的优化目标，并进一步给出 Monotonic Inference Policy Update（MIPU）两阶段框架：先构造采样器参考的候选更新，再用推理侧的 gap 代理选择性接受同步后的候选。该方法不直接追求训练损失下降，而是强调推理策略的单调改进。实验在两个模型规模和高 mismatch 设置下表明，MIPU 能提升平均推理性能并显著增强训练稳定性。"}
+/>
+</div>
+
+## Multimodal World Model
+
+<div class="space-y-4">
+<PaperCard
+  title={"Measuring the Gap Between Human and LLM Research Ideas"}
+  arxivUrl={"https://arxiv.org/abs/2607.01233"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.01233"}
+  summary={"LLMs are increasingly used to brainstorm research ideas, but existing evaluations mostly judge individual ideas by novelty, feasibility, or expert preference. We instead ask: how far are current LLM-generated ideas from human researchers? To characterize this gap, we build a large-scale evaluation framework for ideation from high-quality human research papers. For each paper, we reverse-engineer a small set of closely related prior works that likely inspired its core idea. LLMs are then prompted to generate a new idea from the set of paper titles and summaries. We introduce a two-axis research-taste taxonomy to profile each idea by its opportunity pattern and research paradigm, and use it to quantify the divergence between human and LLM ideas. Across idea sets generated by different LLMs, we observe a consistent distributional gap: LLM ideas are disproportionately concentrated around bridge-like opportunities and synthesis methods, whereas the human paper reference distribution spreads more broadly across ways of framing gaps and constructing contributions. This result suggests that strong LLMs can produce a range of reasonable ideas, but that range remains narrower than, and systematically shifted relative to, human research taste."}
+/>
+
+<PaperCard
+  title={"MultAttnAttrib: Training-Free Multimodal Attribution in Long Document Question Answering"}
+  arxivUrl={"https://arxiv.org/abs/2607.01420"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.01420"}
+  summary={"As grounded QA systems are increasingly deployed in AI assistants, accurately attributing generated answers to evidence is critical for user trust and model safety. While unimodal attributions have been explored in depth, the multimodal setting remains relatively under-researched. As a result, we introduce MultAttnAttrib, a training-free attribution-generation method that leverages a model's prefill pass, selected attention heads, and calibrated thresholds to locate source evidence within a document. To establish baseline results for the method, we introduce MultAttrEval, a complementary benchmark dataset annotated with fine-grained, ground-truth attributions for answer components grounded in multimodal source documents. To our knowledge, this is the first evaluation dataset designed specifically for multimodal attribution in long-form documents. Experimental results show that MultAttnAttrib consistently outperforms a variety of attribution-generation methods, including several strong prompting-based approaches and matches the latest frontier models such as GPT 5.4. Our method not only substantially improves attribution accuracy for both unimodal and multimodal attribution types, but also produces attributions at up to one-seventh of the direct inference latency compared to prompting on the same base model."}
+/>
+
+<PaperCard
+  title={"AnyBokeh: Physics-Guided Any-to-Any Bokeh Editing with Optical Fingerprint Transfer"}
+  arxivUrl={"https://arxiv.org/abs/2606.31959"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.31959"}
+  summary={"Depth-of-field control is a fundamental tool in photography, yet post-capture bokeh editing from a single image remains challenging. A practical editor should handle images captured under arbitrary focus and aperture settings. Existing methods typically assume an all-in-focus input, or first recover an all-in-focus image before rendering new bokeh. Such pipelines can discard useful blur cues from the source image and propagate reconstruction artifacts into the final edit. We introduce AnyBokeh, a physics-guided framework for any-to-any bokeh editing. Instead of treating source blur merely as a degradation to be removed, AnyBokeh estimates the source blur state with a signed circle-of-confusion map and a disparity map. By modeling the linear relation between signed circle of confusion and disparity difference, AnyBokeh estimates a source-specific optical fingerprint and transfers the source optical characteristics to the desired focus and aperture setting. A generative editor conditioned on both source and target circle-of-confusion maps then performs relative blur synthesis, enabling spatially adaptive deblurring, preservation, and defocus rendering. To support physically supervised learning, we further construct a high-fidelity synthetic dataset with accurate depth, focus distance, and full EXIF metadata. Experiments on real-world benchmarks show that AnyBokeh achieves faithful and controllable editing across any-to-any bokeh editing, all-in-focus-to-bokeh rendering, and defocus deblurring, while avoiding all-in-focus reconstruction and test-time bokeh-level calibration commonly required by existing approaches. The code and dataset will be available at https://github.com/itsmag11/AnyBokeh."}
+/>
+</div>
