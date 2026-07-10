@@ -1,0 +1,113 @@
+---
+title: Papers - 2026-07-10
+description: "吾能观之数千而面色如故"
+publishDate: 2026-07-10
+updatedDate: 2026-07-10
+tags: ['paper reading', 'agent', 'visual reasoning', 'multimodal world model']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## Grounding-driven Visual Reasoning
+
+<div class="space-y-4">
+<PaperCard
+  title={"Dual Latent Memory in Vision-Language-Action Models for Robotic Manipulation"}
+  arxivUrl={"https://arxiv.org/abs/2607.07608"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.07608"}
+  summary={"Mainstream Vision-Language-Action (VLA) models predict actions primarily from the current observation under a Markovian assumption, thus struggling with long-horizon, temporally dependent tasks. Existing memory-augmented VLAs either expand the observation window or retrieve history from the memory bank as auxiliary policy-side context. However, they leave memory outside the native latent embedding space of VLA reasoning, preventing historical experience from being fluidly interleaved with multimodal reasoning and action formation. To this end, we introduce LaMem-VLA, a latent-memory-native framework that reconstructs historical experience into latent memory tokens and directly interweaves them with VLA reasoning. At its core, LaMem-VLA introduces four coordinated components: (i) a curator that organizes historical experience into two complementary short-term and long-term memory vaults; (ii) a seeker that queries both vaults using the multimodal cognition to retrieve context-relevant evidence; (iii) a condenser that reconstructs the retrieved evidence into compact short-term and long-term latent memory tokens; and (iv) a weaver that injects these memory tokens with the current observation and instruction into one continuous embedding sequence. By representing, retrieving, and consuming historical experience entirely in the same continuous latent space, LaMem-VLA enables memory to directly participate in VLA reasoning and guide action generation under a bounded context. Extensive experiments on SimplerEnv and LIBERO demonstrate the superiority of our LaMem-VLA."}
+/>
+</div>
+
+## 3D LLM
+
+<div class="space-y-4">
+<PaperCard
+  title={"Accurate, Interdisciplinary and Transparent Structure-property Understanding with Deep Native Structural Reasoning"}
+  arxivUrl={"https://arxiv.org/abs/2607.07708"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.07708"}
+  summary={"Structure-property relationships are foundational to biology, chemistry and materials science, where function, reactivity and physical response emerge from spatial, chemical and periodic organization. Mechanistically explaining these relationships requires interpreting structural evidence through scientific principles and physical constraints, from stereochemistry and bonding to symmetry, energetics and periodic order. However, applying artificial intelligence to this process presents a joint challenge of representation and reasoning: models must preserve domain-native structural information while showing how specific evidence supports predictions under these constraints. Here we introduce SciReasoner, a multimodal scientific foundation model for native structural reasoning across proteins, small molecules and inorganic crystals. SciReasoner discretizes coordinates, topologies and periodic connectivities into a unified structure-aware vocabulary, treating structural tokens as addressable evidence units during reasoning. In homology-controlled Gene Ontology prediction, SciReasoner improves Cellular Component annotation for low-homology and orphan-like proteins, increasing $F_{\\max}$ from 0.42 to 0.55. In chemistry, it raises single-step retrosynthesis accuracy from 0.63 to 0.72 while generating fragment-level disconnection and precursor-verification traces. In materials science, its representations separate elemental and compound phases and resolve high- and low-band-gap regimes. Across 86 benchmarks, SciReasoner achieves state-of-the-art performance on 67 tasks. Double-blind expert evaluation rates its reasoning traces as preferred or at least comparable to those of a frontier large language model in 98% of cases. By making structure an inspectable substrate for reasoning under scientific constraints, SciReasoner connects accurate prediction with interpretable scientific inference."}
+/>
+
+<PaperCard
+  title={"Scaling Mixture-of-Experts Video Pretraining for Embodied Intelligence"}
+  arxivUrl={"https://arxiv.org/abs/2607.07675"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.07675"}
+  summary={"Despite the recent promise in robot control, video generative models suffer from a domain mismatch due to their primary focus on content creation. For example, their design inherently prioritizes visual fidelity and creativity over computational efficiency and physical realism. In this work, we present LingBot-Video, a DiT-based video pretraining paradigm specifically tailored for embodied intelligence. From the architecture perspective, we adopt the Mixture-of-Experts (MoE), instead of dense, framework to achieve a better trade-off between modeling capacity and inference efficiency, and manage to scale it up from scratch. From the data perspective, we construct a data profiling engine that augments standard internet videos with extensive robot-oriented footage, encompassing manipulation, navigation, and egocentric perspectives, to equip the base model with an intrinsic understanding of actions and world dynamics. From the training perspective, we develop a multi-dimensional reward system to enforce the alignment regarding physical rationality and task completion, going beyond standard criteria such as aesthetics, prompt-following, and motion consistency. Comprehensive evaluations validate its performance and efficiency as a video foundation model. We contribute LingBot-Video as the inaugural large-scale, open-source MoE video foundation model to the community, in a pioneering effort to bridge digital creativity and physical actuation."}
+/>
+
+<PaperCard
+  title={"Infinite Worlds with Versatile Interactions"}
+  arxivUrl={"https://arxiv.org/abs/2607.07534"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.07534"}
+  summary={"We present LingBot-World 2.0 (also known as LingBot-World-Infinity), an advanced iteration of LingBot-World featuring four distinct upgrades. (1) Our model achieves an unbounded interaction horizon while maintaining consistent output quality, benefiting from a carefully crafted causal pretraining paradigm. (2) Through distilling a real-time variant from the base model, our system guarantees rapid response time, sufficient to drive 720p video streams at 60 fps. (3) Compared to the previous version, this update introduces highly diverse interactive elements, comprising a broader spectrum of actions (e.g., attacking, archery, spell-casting, and shooting) alongside a richer variety of text-driven events. (4) We pioneer the integration of an agentic harness within the domain of world modeling, wherein a pilot agent is tasked with planning and executing character behaviors, while a director agent is responsible for synthesizing novel environmental elements as the scene progresses. Additionally, to facilitate a shared experience, we develop an interface that permits multiple players to simultaneously immerse themselves in this vivid world simulator. We pair our primary 14B model with a lightweight 1.3B counterpart, which supports effortless deployment on a single GPU."}
+/>
+</div>
+
+## Embodied Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"Automating the Design of Embodied Agent Architectures"}
+  arxivUrl={"https://arxiv.org/abs/2606.30111"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.30111"}
+  summary={"这篇工作研究如何自动化设计 embodied agent 的架构，而不是继续依赖研究者手工拼装感知、记忆、规划和动作模块。作者提出了 AgentCanvas 这种 typed-graph 运行时，以及 KDLoop 这种在提案、批判、实验和蒸馏之间循环的搜索流程，并在视觉语言导航、具身问答和语言控制操作等 4 类执行器上进行评测。实验结果表明，架构级搜索可以带来可部署、方向明确的成功率提升。与此同时，论文也指出了具身场景里搜索信号容易被 rollout 噪声掩盖、搜索会陷入局部编辑盆地，以及细粒度信用分配仍然不充分等限制。"}
+/>
+
+<PaperCard
+  title={"OmniTacTune: Policy-Agnostic Real-World RL for Tactile Residual Adaptation of Visual Policies"}
+  arxivUrl={"https://arxiv.org/abs/2607.03723"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.03723"}
+  summary={"这篇工作提出 OmniTacTune，用触觉残差适配来增强预训练视觉策略在真实接触式操作中的表现。方法上采用两阶段流程：先用自主基础策略 rollout 进行触觉感知学习的预热，再通过在线交互训练轻量级触觉残差策略，对原有视觉策略做补偿。实验覆盖 4 个真实世界的接触丰富任务，结果显示它能将基础视觉策略的成功率从 5-40% 提升到 85-100%，并且在不同任务、基础策略和触觉表示之间具有较好的泛化性。"}
+/>
+
+<PaperCard
+  title={"RoboTALES: Learning Reasoning-Guided Robot Policies via Task-Aligned Simulated Futures"}
+  arxivUrl={"https://arxiv.org/abs/2607.06018"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.06018"}
+  summary={"这篇工作提出 RoboTALES，用任务对齐的模拟未来来学习 reasoning-guided 机器人策略。方法上，它用层级 LLM 规划器把复杂任务拆成子目标来引导视频生成想象，再用 VLM critic 对想象出的未来进行评估，并通过基于奖励的反馈让内部表示保持与任务目标一致。这样可以得到更稳定的时序 rollout 和更连贯的动作决策。作者在 RoboCasa 和 LIBERO10 的多种操作任务上验证，结果显示该方法整体优于现有方法，尤其在长时程任务中提升更明显。"}
+/>
+</div>
+
+## Spatial Intelligence (Image/Video)
+
+<div class="space-y-4">
+<PaperCard
+  title={"WildCity: A Real-World City-Scale Testbed for Rendering, Simulation, and Spatial Intelligence"}
+  arxivUrl={"https://arxiv.org/abs/2607.06838"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.06838"}
+  summary={"这篇工作提出了 WildCity，一个面向真实城市尺度的多模态测试床，用于渲染、仿真和空间智能研究。作者通过自动化车队采集了 18 条城市轨迹，平均每条 83.7 公里，覆盖动态目标、光照变化和相机位姿不完美等真实环境难点。基于这些数据，论文构建了城市定制的重建基线，并将重建结果转换为闭环模拟器。实验与分析表明，城市级数字孪生仍面临可扩展性、外推和不确定性三方面关键挑战。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"Single-Rollout Asynchronous Optimization for Agentic Reinforcement Learning"}
+  arxivUrl={"https://arxiv.org/abs/2607.07508"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.07508"}
+  summary={"这篇工作提出了面向 agentic 强化学习的 Single-rollout Asynchronous Optimization（SAO），用单轨迹采样替代 GRPO 常用的组内采样，以降低异步训练中的 off-policy 偏差。方法上还结合了实用的 value model 训练设计，以及严格的双侧 token-level clipping 来提升优化稳定性。实验显示，SAO 可以稳定训练上千步，并在 SWE-Bench Verified、BeyondAIME 和 IMOAnswerBench 等基准上持续优于 GRPO 及其变体。作者还将其部署到 GLM-5.2 的 agentic RL 训练流水线中，验证了在线自适应场景下的有效性。"}
+/>
+
+<PaperCard
+  title={"AgentLens: Production-Assessed Trajectory Reviews for Coding Agent Evaluation"}
+  arxivUrl={"https://arxiv.org/abs/2607.06624"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.06624"}
+  summary={"这篇工作提出 AgentLens，用于评估 coding agent 的完整交互轨迹，而不是只看任务是否最终通过。它把形式化验证、LLM 轨迹评审和成对比较结合起来，让每次运行都能得到可读的过程性解释，从而评估指令遵循、工具使用、自检、纠错和交互表现。作者将其作为开源基准发布，并用于分析模型行为、比较自家 agent 的不同版本，以及在 nightly 评测流水线中捕捉产品回归。"}
+/>
+</div>
+
+## Multimodal World Model
+
+<div class="space-y-4">
+<PaperCard
+  title={"RoboDojo: A Unified Sim-and-Real Benchmark for Comprehensive Evaluation of Generalist Robot Manipulation Policies"}
+  arxivUrl={"https://arxiv.org/abs/2607.04434"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.04434"}
+  summary={"Generalist robot manipulation policies have advanced rapidly, yet existing benchmarks remain limited in systematically evaluating their capabilities. Many rely on simple, short-horizon, or skill-narrow tasks with limited capability coverage, and are often conducted only in simulation or only in the real world. Simulation enables scalable feedback but misses physical deployment challenges, while real-world evaluation is costly, time-consuming, and difficult to reproduce. We introduce RoboDojo, a unified sim-and-real benchmark for comprehensive evaluation of generalist robot manipulation policies. RoboDojo includes 42 simulation tasks and 18 real-world tasks covering diverse and complementary manipulation capabilities. The simulation benchmark evaluates five dimensions: generalization, memory, precision, long-horizon execution, and open-vocabulary instruction following, while the real-world benchmark exposes policies to challenging physical-world deployment conditions. RoboDojo supports scalable evaluation through heterogeneous parallel simulation in Isaac Sim and provides RoboDojo-RealEval, a reproducible real-world evaluation system with remote cloud access, standardized hardware, scene reset, evaluation protocol, and deployment interface. Together with XPolicyLab, policies can be integrated once and evaluated across simulation and real-world settings with minimal adaptation. We integrate 30 policies into XPolicyLab and evaluate them on RoboDojo, establishing a public leaderboard and systematic analysis of current policy performance. The website is available at http://robodojo-benchmark.com/."}
+/>
+</div>
