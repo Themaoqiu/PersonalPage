@@ -1,0 +1,59 @@
+---
+title: Papers - 2026-07-11
+description: "吾能观之数千而面色如故"
+publishDate: 2026-07-11
+updatedDate: 2026-07-11
+tags: ['paper reading', 'agent', 'multimodal world model']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## Spatial Intelligence (Image/Video)
+
+<div class="space-y-4">
+<PaperCard
+  title={"Video-Oasis: Rethinking Evaluation of Video Understanding"}
+  arxivUrl={"https://arxiv.org/abs/2603.29616"}
+  hjfyUrl={"https://hjfy.top/arxiv/2603.29616"}
+  summary={"Video-Oasis 提出了一套面向视频理解的诊断式评测框架，用来区分模型到底是在做视觉感知、语言推理还是依赖知识先验。作者没有再造一个新榜单，而是系统审计现有基准，发现其中 55% 的样本即使不看视频或不使用时序信息也能作答。去掉这些捷径后，剩余真正依赖视频的题目显示出明显能力缺口，当前最强模型的表现也只是略高于随机猜测。基于这些被筛选出的挑战样本，论文进一步分析了哪些算法设计更有助于稳健的视频理解。"}
+/>
+
+<PaperCard
+  title={"Why Can't I Open My Drawer? Mitigating Object-Driven Shortcuts in Zero-Shot Compositional Action Recognition"}
+  arxivUrl={"https://arxiv.org/abs/2601.16211"}
+  hjfyUrl={"https://hjfy.top/arxiv/2601.16211"}
+  summary={"这篇工作研究零样本组合动作识别中的对象驱动捷径问题，即模型往往依赖物体类别来猜测动词，而不是利用时序证据。作者提出 RCORE，包含组合共现先验正则化和时序顺序正则化两部分，分别用于抑制训练共现偏置并增强对动作时序的敏感性。实验在 Sth-com 和 EK100-com 上表明，该方法能够显著降低捷径相关指标，并提升对未见组合的泛化性能。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"UniClawBench: A Universal Benchmark for Proactive Agents on Real-World Tasks"}
+  arxivUrl={"https://arxiv.org/abs/2607.08768"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.08768"}
+  summary={"UniClawBench 提出一个面向真实世界任务的通用主动式代理基准，用来评测模型在动态环境中使用工具和完成任务的能力。作者围绕五项基础能力构建了 400 个中英双语任务，并在真实 Docker 容器里通过逐步检查点进行细粒度评测，同时设计闭环评估流程模拟多轮人类反馈。实验显示，基座模型能力与代理框架设计都会显著影响任务表现，不同模型在该基准上的排序也会因框架变化而重新洗牌。"}
+/>
+</div>
+
+## Multimodal World Model
+
+<div class="space-y-4">
+<PaperCard
+  title={"LongE2V: Long-Horizon Event-based Video Reconstruction, Prediction, and Frame Interpolation with Video Diffusion Models"}
+  arxivUrl={"https://arxiv.org/abs/2607.08770"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.08770"}
+  summary={"这篇工作提出 LongE2V，用预训练视频扩散模型统一处理基于事件流的视频重建、未来预测和插帧三个任务。方法上，它通过微调基础视频模型，并设计了自回归展开与自适应上下文切换来缓解超长序列中的时间漂移，同时用重编码对齐和跨残差校正提升双向插帧一致性。作者还引入事件体素密度增强，以适应不同传感器分辨率带来的分布变化。实验表明，LongE2V 在真实世界基准上整体优于现有方法，具有更好的感知质量、时间连贯性和零样本泛化能力。"}
+/>
+
+<PaperCard
+  title={"OpenCoF: Learning to Reason Through Video Generation"}
+  arxivUrl={"https://arxiv.org/abs/2607.08763"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.08763"}
+  summary={"这篇工作提出 OpenCoF，用视频生成来承载推理过程，试图把推理从文本链式思考扩展到时序连续的 Chain-of-Frame 推理。作者构建了包含 11 类任务的 OpenCoF-17K 叙事/推理视频数据集，并基于 Wan2.2-I2V-A14B 微调得到 Wan-CoF。实验在 4 个视频推理基准上显示，Wan-CoF 相比基线取得了明显提升。进一步地，论文还引入视觉与文本推理 token 来分别建模低层视觉线索和高层语义先验，并通过性能对比与注意力分析验证这些中间状态设计对时空推理有帮助。"}
+/>
+</div>
