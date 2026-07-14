@@ -1,0 +1,45 @@
+---
+title: Papers - 2026-07-14
+description: "吾能观之数千而面色如故"
+publishDate: 2026-07-14
+updatedDate: 2026-07-14
+tags: ['paper reading', 'agent', 'multimodal world model']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## Spatial Intelligence (Image/Video)
+
+<div class="space-y-4">
+<PaperCard
+  title={"Video Generation Models are General-Purpose Vision Learners"}
+  arxivUrl={"https://arxiv.org/abs/2607.09024"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.09024"}
+  summary={"这篇论文提出 GenCeption，主张大规模文本到视频生成可以作为通用视觉学习器的预训练范式。作者利用预训练的视频生成扩散骨干，构建了一个由文本指令驱动的前馈感知模型，用于深度、法向、相机姿态、指代表达分割和 3D 关键点预测等任务。实验表明，GenCeption 在多项任务上达到或超过 DepthAnything3、SAM3、D4RT、VGGT-Omega、Sapiens、David、Genmo 和 Lotus-2 等专用模型，并优于 V-JEPA 和 Video MAE 等替代预训练方案。它还表现出很强的数据效率，只用领先模型 7 到 500 倍更少的数据就能达到相近效果，并能从合成人体视频泛化到真实场景和动物、机器人等分布外类别。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"Long-Horizon-Terminal-Bench: Testing the Limits of Agents on Long-Horizon Terminal Tasks with Dense Reward-Based Grading"}
+  arxivUrl={"https://arxiv.org/abs/2607.08964"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.08964"}
+  summary={"这篇工作提出了 Long-Horizon-Terminal-Bench，用于评测长时程终端任务上的智能体能力。它把 46 个跨 9 类任务拆成细粒度可评分子任务，并通过密集中间奖励与部分得分来衡量推进过程，而不只看最终成败。作者用 15 个前沿模型做了基准测试，发现平均每个任务要消耗约 990 万 tokens、231 个 episode 和 85.3 分钟运行时间。结果显示即便最强模型，在部分奖励阈值 0.95 下的 pass@1 也只有 15.2%，在满分阈值 1.0 下为 10.9%，说明长程规划和迭代调试仍有很大提升空间。"}
+/>
+</div>
+
+## Multimodal World Model
+
+<div class="space-y-4">
+<PaperCard
+  title={"PanoWorld: Real-World Panoramic Generation"}
+  arxivUrl={"https://arxiv.org/abs/2607.09661"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.09661"}
+  summary={"这篇工作提出了面向全景世界建模的 PanoWorld，目标是缓解全景生成中的长程记忆与物理一致性问题。方法上，它利用全向表示的旋转等变性，将相机轨迹简化为固定朝向下的平移建模，并结合 Dense Panoramic Ray-Conditioning 和 Geometry-aware Memory Augmentation 来同时处理当前动作与长期记忆。作者还构建了 World360 数据集，包含真实无人机全景视频和 AirSim360 高质量仿真片段。实验表明，PanoWorld 在 World360 上相较于替代方法有明显优势，整体性能提升显著。"}
+/>
+</div>
