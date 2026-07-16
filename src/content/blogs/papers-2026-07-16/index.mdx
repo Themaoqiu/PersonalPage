@@ -1,0 +1,70 @@
+---
+title: Papers - 2026-07-16
+description: "吾能观之数千而面色如故"
+publishDate: 2026-07-16
+updatedDate: 2026-07-16
+tags: ['paper reading', 'agent', 'visual reasoning']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## Grounding-driven Visual Reasoning
+
+<div class="space-y-4">
+<PaperCard
+  title={"Navigating the Mirage: A Dual-Path Agentic Framework for Robust Misleading Chart Question Answering"}
+  arxivUrl={"https://arxiv.org/abs/2603.28583"}
+  hjfyUrl={"https://hjfy.top/arxiv/2603.28583"}
+  summary={"Despite the success of Vision-Language Models (VLMs), misleading charts remain a significant challenge due to their deceptive visual structures and distorted data representations. We present ChartCynics, an agentic dual-path framework designed to unmask visual deception via a \"skeptical\" reasoning paradigm. Unlike holistic models, ChartCynics decouples perception from verification: a Diagnostic Vision Path captures structural anomalies (e.g., inverted axes) through strategic ROI cropping, while an OCR-Driven Data Path ensures numerical grounding. To resolve cross-modal conflicts, we introduce an Agentic Summarizer optimized via a two-stage protocol: Oracle-Informed SFT for reasoning distillation and Deception-Aware GRPO for adversarial alignment. This pipeline effectively penalizes visual traps and enforces logical consistency. Evaluations on two benchmarks show that ChartCynics achieves 74.43% and 64.55% accuracy, providing an absolute performance boost of ~29% over the Qwen3-VL-8B backbone, outperforming state-of-the-art proprietary models. Our results demonstrate that specialized agentic workflows can grant smaller open-source models superior robustness, establishing a new foundation for trustworthy chart interpretation."}
+/>
+</div>
+
+## 3D LLM
+
+<div class="space-y-4">
+<PaperCard
+  title={"Search Beyond What Can Be Taught: Evolving the Knowledge Boundary in Agentic Visual Generation"}
+  arxivUrl={"https://arxiv.org/abs/2607.05382"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.05382"}
+  summary={"Visual generators excel at rendering, but they confidently fabricate what they do not know. User requests are unbounded, evolving, and deeply long-tailed: new characters, trending entities, post-cutoff events, and more. This world-knowledge bottleneck is structural: generators are trained on fixed corpora, but the visual world is open-ended. We construct SearchGen-20K and SearchGen-Bench, with 20,839 prompts spanning twelve failure categories and twenty-two domains, paired with a pre-executed multimodal SearchGen-Corpus-1M to support offline, reproducible research. On SearchGen-Bench, frontier open generators score only 21 to 28 out of 100, a 40-point collapse invisible to existing benchmarks. The natural remedy is to employ search tools, enabling agentic visual generation. However, we find that naive search fails: it retrieves indiscriminately, injecting noise into prompts the generator already handles. We trace the root cause to a generator-specific, evolving knowledge boundary: the divide between what a generator can internalize through training and what must remain in external context. Although this boundary is hard to specify in advance, we show that it is discoverable through a teach-then-search co-training framework. Even a minimal version of this co-training recipe produces monotonic improvement, laying the foundation for recursive self-improvement in visual generation that can meet world-knowledge-grounded requests. We release the full dataset, co-training corpus, and search corpus as a replayable harness for tool-augmented, world-knowledge-grounded visual generation."}
+/>
+</div>
+
+## Spatial Intelligence (Image/Video)
+
+<div class="space-y-4">
+<PaperCard
+  title={"Let RGB Be the Language of Vision"}
+  arxivUrl={"https://arxiv.org/abs/2607.12450"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.12450"}
+  summary={"这篇工作提出 RINO（RGB In and RGB Out）统一视觉任务表示，把分割、深度、姿态到图像生成等不同视觉信息都转写为 RGB 形式。方法上，它复用同一个通用图像编辑骨干和共享编码解码参数，把多种视觉任务统一成 RGB-to-RGB 的图像编辑问题，从而实现跨任务迁移。作者在不做任务特定微调的前提下，验证了该框架在零样本设置下也能取得稳健且有竞争力的表现。实验覆盖稠密理解任务和稠密条件生成任务，结果显示这种统一接口具有较强泛化能力。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"Function-Aware Fill-in-the-Middle as Mid-Training for Coding Agent Foundation Models"}
+  arxivUrl={"https://arxiv.org/abs/2607.12463"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.12463"}
+  summary={"文章提出 function-aware fill-in-the-middle 中训练，把代码中的函数调用结构视为编码智能体的动作-观察-继续链条。作者通过程序依赖图和复杂度/可推断性双条件选择函数进行掩码，在去污染的 2.6B token GitHub 语料上对 Qwen2.5-Coder 和 Qwen3 进行中训练，再接现有 agent 后训练流程。实验表明，该方法在 SWE-Bench-Verified 上带来 2.8 到 3.2 点提升，在 SWE-Bench-Lite 上提升 3.7 到 5.4 点，并且在不同后训练管线和非 Qwen2.5 基座上都保持收益，同时减轻了对非编码任务能力的侵蚀。"}
+/>
+
+<PaperCard
+  title={"Know Before Fix: QA-Driven Repository Knowledge Acquisition for Software Issue Resolution"}
+  arxivUrl={"https://arxiv.org/abs/2607.11111"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.11111"}
+  summary={"这篇工作提出 ACQUIRE，用问答式知识获取来改进软件缺陷修复。它把修复前的仓库理解拆成两阶段：先由 Questioner 和 Answerer 通过自主探索生成带证据的结构化 QA 知识，再由 Resolver 基于这些知识生成补丁。这样做的核心是把隐性的知识缺口显式化，减少事实性错误并提升修复上下文质量。作者在 SWE-bench Verified 上验证了方法有效性，相比代表性预修复方法，Pass@1 最多提升 4.4 个百分点，同时增加的成本和时间较小。"}
+/>
+
+<PaperCard
+  title={"Towards Autonomous and Auditable Medical Imaging Model Development"}
+  arxivUrl={"https://arxiv.org/abs/2607.10522"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.10522"}
+  summary={"这篇工作提出 AMID，用自治多智能体框架自动开发医学影像模型，并强调过程可审计。方法上，它先做 Data-Conditioned Method Planning，把任务级搜索空间细化成可执行、可并行的方法分支，再用 Verification-Guided Two-Stage Optimization 从广泛探索逐步转向选择性利用，同时严格检查验证协议、指标计算和预测产物。作者将其用于 20 个覆盖不同模态和预测类型的医学影像挑战任务。实验显示，AMID 优于评测的通用 MLE 系统，在若干任务上接近或达到强人工设计方案，说明医学影像建模可以被转化为高性能且可审计的 agentic 工作流。"}
+/>
+</div>
