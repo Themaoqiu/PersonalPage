@@ -1,0 +1,70 @@
+---
+title: Papers - 2026-07-17
+description: "吾能观之数千而面色如故"
+publishDate: 2026-07-17
+updatedDate: 2026-07-17
+tags: ['paper reading', 'agent', 'visual reasoning']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## Multimodal Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"Vinci2: Providing Proactive Assistance in Continuous Egocentric Videos"}
+  arxivUrl={"https://arxiv.org/abs/2607.11523"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.11523"}
+  summary={"这篇工作提出 Vinci2，目标是在连续第一视角视频中实现主动式助手，而不是只在用户提问后被动响应。方法上定义了一个上下文相关的主动协助决策问题，并提出无需训练的记忆增强代理 EgoMemo，用多尺度时间摘要、语义知识图和视觉嵌入档案三种记忆形式做检索增强推理，判断何时介入以及如何回复。作者同时构建了 EgoServe 基准，包含 3000 多个服务实例，覆盖 4 种时间记忆跨度和 10 类服务场景，用于评测主动协助能力。实验结果显示，EgoMemo 在 EgoServe 上建立了强基线，并且在现有第一视角基准上也保持了有竞争力的表现。"}
+/>
+</div>
+
+## 3D/Space Reasoning
+
+<div class="space-y-4">
+<PaperCard
+  title={"MetaView: Monocular Novel View Synthesis with Scale-Aware Implicit Geometry Priors"}
+  arxivUrl={"https://arxiv.org/abs/2607.12000"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.12000"}
+  summary={"这篇工作面向单目新视角合成，目标是在仅有单张图像的情况下恢复更可靠的三维几何并渲染出新的观察视角。方法上引入了尺度感知的隐式几何先验，把几何约束注入到视图生成过程中，以缓解单目条件下深度和尺度歧义。实验表明，该方法在新视角合成质量上优于基线，生成结果在结构一致性和几何稳定性上更好。整体上，它把单目重建与新视角生成更紧密地结合起来。"}
+/>
+</div>
+
+## 4D Understanding and Generation
+
+<div class="space-y-4">
+<PaperCard
+  title={"Hallo4D: Multi-Modal Hallucination Mitigation for Consistent Spatio-Temporal Generation"}
+  arxivUrl={"https://arxiv.org/abs/2607.12752"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.12752"}
+  summary={"这篇工作提出 Hallo4D，用于缓解三维和四维生成中的空间与时间幻觉问题，例如重复结构、几何错位、抖动和身份闪烁。方法上采用生成-检测-修正范式，借助多模态大模型从多视角和多帧渲染中识别并概括不一致，再通过一致性优化与多模型投票选择修正结果，且不需要重新训练或改网络结构。它还加入了运动感知关键帧采样、LMM 引导初始化、外观对齐、曝光感知优化和可见性剪枝来提升稳定性与效率。实验表明，该方法在多种 3D 和 4D 生成设置上都优于强基线，具有较强的通用性。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"Harness Handbook: Making Evolving Agent Harnesses Readable,Navigable, and Editable"}
+  arxivUrl={"https://arxiv.org/abs/2607.13285"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.13285"}
+  summary={"这篇工作聚焦于现代 AI agent harness 的演化维护问题，提出了 Harness Handbook 来把代码库中的行为与具体实现位置自动对应起来，帮助开发者更快定位需要修改的代码。方法上，它结合静态分析与 LLM 辅助结构化，生成以行为为中心的可导航表示，并提出 BGPD 流程，把 agent 从高层行为逐步引导到相关实现并验证候选位置。实验在两个开源 harness 的多种修改需求上表明，该方法能提升行为定位和编辑计划质量，同时减少规划阶段 token 消耗。尤其在分散实现、低频路径和跨模块交互场景中收益最明显。"}
+/>
+
+<PaperCard
+  title={"KnowAct-GUIClaw: Know Deeply, Act Perfectly, Personal GUI Assistant with Self-Evolving Memory and Skill"}
+  arxivUrl={"https://arxiv.org/abs/2607.12625"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.12625"}
+  summary={"这篇论文提出 KnowAct-GUIClaw，用于构建具备自我演化记忆和技能库的个人 GUI 助手，目标是提升跨平台任务执行能力与长程任务成功率。方法上采用 Know-Route-Act-Reflect 框架，将历史交互经验、任务知识、可插拔 GUI 子代理和可扩展技能库结合起来，用于任务分解、工具调用和执行后的反思更新。作者在 Android、iOS、HarmonyOS 和 Windows 上进行了大量实验，结果显示该框架在效率、准确率和跨平台适应性上都优于现有方法。其中文件中提到的 Open-source Kimi-2.6 版本在 MobileWorld 长程基准上达到 64.1%，取得最佳成绩，并且记忆与技能机制还能迁移到不同底座模型上带来约 8.5% 的提升。"}
+/>
+
+<PaperCard
+  title={"Self-Improvements in Modern Agentic Systems: A Survey"}
+  arxivUrl={"https://arxiv.org/abs/2607.13104"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.13104"}
+  summary={"这是一篇关于现代自改进智能体系统的综述，重点讨论智能体如何从经验中持续获得能力增益。文章提出了一个系统级框架，把智能体表示为基础模型与提示、记忆、工具和控制逻辑组成的运行栈，并将自改进形式化为对模型参数或脚手架组件的自驱动更新。作者按更新目标和驱动信号梳理了相关研究，并总结了应用场景与评测问题。实验部分不是单一基准实验，而是对现有方法证据和评价方式的系统归纳，并进一步指出了后续研究的开放问题。"}
+/>
+</div>
