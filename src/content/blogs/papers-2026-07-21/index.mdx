@@ -1,0 +1,52 @@
+---
+title: Papers - 2026-07-21
+description: "吾能观之数千而面色如故"
+publishDate: 2026-07-21
+updatedDate: 2026-07-21
+tags: ['paper reading', 'agent', 'visual reasoning']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## Multimodal Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"RESOURCE2SKILL: Distilling Executable Agent Skills from Human-Created Multimodal Resources"}
+  arxivUrl={"https://arxiv.org/abs/2606.29538"}
+  hjfyUrl={"https://hjfy.top/arxiv/2606.29538"}
+  summary={"这篇论文提出 RESOURCE2SKILL，用来把教程视频、代码仓库、文章和参考素材等人类创建的多模态资源，蒸馏成软件代理可执行的技能。方法上，它把技能组织成分层的 Skill Wiki，每个条目同时包含结构化文本、代码、视觉示例、元数据和来源信息，并在推理时通过检索与组合来调用相关技能。若现有技能覆盖不足，系统还可以在线获取新技能并补充到知识库中。作者在 7 个实际创作领域上验证，平均总体分数比不使用技能的代理提升 11.9 个百分点，并在 28 个主模型-领域组合中的 26 个上优于强基线。"}
+/>
+</div>
+
+## Embodied Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"Xiaomi-Robotics-1: Scaling Vision-Language-Action Models with over 100K Hours of Real-World Trajectories"}
+  arxivUrl={"https://arxiv.org/abs/2607.15330"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.15330"}
+  summary={"这篇论文提出 Xiaomi-Robotics-1，一个面向真实世界移动操作任务的视觉-语言-动作模型。作者采用两阶段训练：先用超过 10 万小时的真实操作轨迹进行预训练，并通过自动标注流水线为轨迹片段生成描述场景状态转移的自然语言，再在后训练阶段把能力对齐到机器人本体和更符合人类习惯的指令表达。实验显示模型在数据规模和模型规模上都呈现稳定的缩放收益，而且更强的预训练模型能带来更好的零样本真实机器人表现。它在多个模拟基准上达到领先结果，其中 RoboCasa365 的成功率达到 57.6%，超过此前最优的 46.6%，RoboDojo 的平均分也达到 20.07，显著高于 13.07。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"From Human-Centric to Agentic Code Review: The Impact of Different Generations of Generative AI Technology on Review Quality"}
+  arxivUrl={"https://arxiv.org/abs/2607.13196"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.13196"}
+  summary={"这篇论文研究生成式 AI 从人类主导、LLM 辅助到 agentic code review 三个阶段对代码评审质量与效率的影响。作者分析了 207 个 GitHub 项目中的 102 万个 pull request，构建审查讨论序列来刻画人类、LLM 和 AI agent 的协作模式，并识别出渐进式采用、快速 LLM 采用和快速 agent 采用三类实践。实验结果表明，AI agent 参与、尤其是由 agent 发起或多 agent 协作的审查，通常能加快评审决策。"}
+/>
+
+<PaperCard
+  title={"Recursive Harness Self-Improvement"}
+  arxivUrl={"https://arxiv.org/abs/2607.15524"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.15524"}
+  summary={"这篇工作提出了 Recursive Harness Self-Improvement（RHI），把 agent harness 视为可迭代优化的提示级执行框架，而不仅是固定的推理脚手架。方法上，它通过对自身历史版本进行成对反馈，递归地改进 harness 设计，从而提升执行轨迹质量和后续模型训练价值。作者在 30 个合成机器学习研究任务上验证了该方法，任务覆盖量化金融、机器人和药学等方向。实验显示，少量迭代就能显著提高低推理成本 agent 的性能上限，甚至超过高推理成本设置，同时推理开销最高可降低 60%。结果还表明，收益主要来自更好的任务上下文管理和代理间信息流，而不是更长的思维链。"}
+/>
+</div>
