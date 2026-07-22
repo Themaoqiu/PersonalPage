@@ -1,0 +1,84 @@
+---
+title: Papers - 2026-07-22
+description: "吾能观之数千而面色如故"
+publishDate: 2026-07-22
+updatedDate: 2026-07-22
+tags: ['paper reading', 'agent', 'visual reasoning', 'multimodal world model']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## Grounding-driven Visual Reasoning
+
+<div class="space-y-4">
+<PaperCard
+  title={"TimeLens2: Generalist Video Temporal Grounding with Multimodal LLMs"}
+  arxivUrl={"https://arxiv.org/abs/2607.17423"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.17423"}
+  summary={"TimeLens2 面向视频时间定位任务，目标是在长视频中找出与查询相关的多个证据时间片段，而不是只输出单一片段。它提出 TimeLens2-93K 监督数据构建流程，通过 caption 生成候选、独立定位、跨智能体一致性验证、语义核验和边界细化来获得更可靠的多段标注；同时设计 temporal Wasserstein reward 和 temporal IoU 作为无匹配、可处理不等卡片数的优化信号。实验覆盖 7 个基准，2B 版本在所有同规模基线中均取得最佳结果，4B 和 8B 版本达到新的 SOTA。相较于对应的 Qwen3-VL backbone，三种规模分别提升 14.2、13.0 和 18.1 个 mIoU 点。"}
+/>
+</div>
+
+## Embodied Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"RynnBrain 1.1: Towards More Capable and Generalizable Embodied Foundation Model"}
+  arxivUrl={"https://arxiv.org/abs/2607.17977"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.17977"}
+  summary={"这篇工作提出了 RynnBrain 1.1，一组面向具身智能的基础模型，覆盖 2B、9B 和 122B-A10B 三种规模。模型采用统一的时空与物理约束训练框架，支持具身感知、空间推理、定位和规划，并进一步加入接触点预测以及原生 3D grounding，使输出更贴近机器人操作需求。作者还构建了 RynnBrain-VLA，通过统一跨具身体动作空间与具身特定 masking 来适配不同机器人平台。实验上，122B-A10B 在 VSI-Bench、MMSI 和 RefSpatial-Bench 上优于所评测的闭源与开源模型，真实机器人实验也显示其初始化策略优于基于 Qwen 的方案和代表性通用 VLA。"}
+/>
+
+<PaperCard
+  title={"Open-AoE: An Open Egocentric Manipulation Dataset and Toolchain for Embodied Learning"}
+  arxivUrl={"https://arxiv.org/abs/2607.14183"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.14183"}
+  summary={"这篇工作发布了 Open-AoE，一个面向具身学习的开放式第一人称操作数据集和工具链。数据集首发规模约 2000 小时，由 500 多名贡献者、400 多部手机在自然环境中采集，包含文本标注、基于 MANO 的手部姿态、相机轨迹和时间对齐的原子动作。作者还提供了从原始视频到结构化样本的处理流水线，覆盖动作分割、语义标注、手部重建和轨迹重建，并配套下游工具链支持可视化、跨具身重定向、数据转换和训练。整体上，这项工作降低了具身数据采集与复用门槛，为 VLA 策略、WAM 和世界模型训练提供了实用基础设施。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"EvolvingWorld: An Open-Schema Framework for Co-Evolving Role-Play Agents and World Model in Interactive Literary World"}
+  arxivUrl={"https://arxiv.org/abs/2607.17250"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.17250"}
+  summary={"EvolvingWorld 提出一个用于互动文学世界的开放式框架，研究角色与世界如何在长时程交互中共同演化。方法上，它由 Character Agent 和基于 LLM 的 World Model 组成，前者负责多角色扮演与持久人物档案更新，后者维护全局及局部状态并推进场景发展，同时把任务拆成场景初始化、交互生成和状态更新等 7 个可训练子任务。作者基于 57 本书构建了 138,596 条训练样本和 222 个测试快照，并设计了覆盖 10 个维度、20 个指标的轨迹级评测协议。实验表明，该框架能更好维持人物与世界状态的长期一致性，提升长时程模拟质量。"}
+/>
+
+<PaperCard
+  title={"DeepSearch-World: Self-Distillation for Deep Search Agents in a Verifiable Environment"}
+  arxivUrl={"https://arxiv.org/abs/2607.07820"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.07820"}
+  summary={"DeepSearch-World 面向可验证环境中的深度搜索智能体训练，重点解决工具使用智能体难以从自身经验中稳定进化的问题。它构建了一个确定性、可复现的搜索与读页环境，包含 42 万条多跳问答任务，并支持进度验证、 grounded reflection 和失败恢复等关键能力。基于该环境，DeepSearch-Evolve 通过轨迹生成、过滤、混合和再训练的自蒸馏流程不断提升模型能力。实验显示，DeepSearch-World-9B 在没有更强模型蒸馏的情况下即可取得有竞争力的成绩，在 BrowseComp、GAIA 和 HotpotQA 上分别达到 31.2%、61.5% 和 93.4%。"}
+/>
+
+<PaperCard
+  title={"SWE-Pruner Pro: The Coder LLM Already Knows What to Prune"}
+  arxivUrl={"https://arxiv.org/abs/2607.18213"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.18213"}
+  summary={"SWE-Pruner Pro 研究编码智能体在阅读工具输出时如何更高效地裁剪上下文，核心目标是减少无关 token 而尽量不损失任务性能。它不再依赖独立的代码分类器，而是直接利用智能体内部表征，通过一个轻量头为每一行输出预测保留或丢弃标签，并加入与工具输出长度相关的长度感知嵌入。作者在两个开源骨干和四个多轮基准上验证了方法有效性，最多可节省 39% 的提示和生成 token，同时保持任务质量。进一步地，在 MiMo-V2-Flash 上它还将 SWE-Bench Verified 的解决率提升 3.8%，并让长上下文 Oolong 准确率提升 2.2 个点。"}
+/>
+
+<PaperCard
+  title={"Group Entropy-Controlled Policy Optimization"}
+  arxivUrl={"https://arxiv.org/abs/2607.16850"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.16850"}
+  summary={"这篇工作提出 GEPO，用于解决 GRPO 在混合异质任务上因熵分布不同而带来的探索失衡和优势信号不可比问题。方法上，它利用同组样本估计组熵，并据此做熵条件化的非对称优势重整形：低熵组压低正优势以避免过度利用，高熵组保留负优势以维持探索，同时阈值由历史熵统计自适应确定。作者在两个基座模型、十三个覆盖数学、物理、科学、代码生成和指令跟随的基准上进行了系统实验。结果显示，GEPO 相比 GRPO 和近期熵控制方法都取得了更稳定的跨任务提升，并在训练过程中更好地保持了任务特定的探索水平。"}
+/>
+</div>
+
+## Multimodal World Model
+
+<div class="space-y-4">
+<PaperCard
+  title={"Apple-$π$: Benchmarking Thinking with Video Towards Law-Grounded Physical Intelligence"}
+  arxivUrl={"https://arxiv.org/abs/2607.16401"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.16401"}
+  summary={"这篇论文提出 Apple-PI，一个面向“基于物理定律的思考”视频模型评测基准，用来检验视频模型是否真正遵循物理规律而不仅是输出看起来合理的结果。作者构建了 Orchard 数据集，包含 400 个视频和 10 类经典力学任务，并将单定律任务与多定律任务分开，以便更细粒度地诊断模型能力。评测协议采用三阶段科学推理流程，包括感知、表述和演绎，并通过首帧信息图引导的 chain-of-frames 提示把生成视频视作可见推理轨迹。实验评测了 11 个模型，结果最好模型得分仅为 0.473，说明当前视频模型距离可靠的定律驱动世界模拟器仍有明显差距，主要瓶颈集中在感知到表述、再到演绎的转换以及多定律状态迁移和 sim-to-real 鸿沟。"}
+/>
+</div>
