@@ -1,0 +1,62 @@
+---
+title: Papers - 2026-07-28
+description: "吾能观之数千而面色如故"
+publishDate: 2026-07-28
+updatedDate: 2026-07-28
+tags: ['paper reading', 'agent']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## 3D Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"SceneActBench: Can Agents Act on the 3D Scenes They See?"}
+  arxivUrl={"https://arxiv.org/abs/2607.22393"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.22393"}
+  summary={"这篇论文提出 SceneActBench，用来评估视觉语言模型代理是否真的能对其看到的 3D 场景执行操作，而不仅是做文本回答。作者设计了一个统一的 agent-environment 循环，覆盖 5 个 3D 任务，输入可以是 PNG 图像、采样视频帧以及可用的 3D 资产，最终输出用任务特定的几何指标和隐藏真值进行评分。基准共包含 210 个源实例，扩展为 520 个任务案例，并保证所有方法在同一固定循环下比较。对 11 个闭源 VLM 配置的评测显示，总分仅在 38.6 到 50.2 之间，且没有模型能在所有任务上稳定表现良好，说明当前 3D 场景行动能力仍明显不足。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"Molt: A Scalable PyTorch-Native Training Framework for Agentic Reinforcement Learning"}
+  arxivUrl={"https://arxiv.org/abs/2607.21653"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.21653"}
+  summary={"这篇工作提出了 Molt，一个面向 agentic reinforcement learning 的 PyTorch 原生训练框架。它把训练流程做得足够紧凑和清晰，便于研究者和代码助手端到端理解、修改算法与分布式执行逻辑。框架支持单个异步循环训练多模态与 MoE 策略，并保证只用模型自己生成的 token 进行训练，维持 token、policy 版本和模型语义的一致性。实验表明，在匹配的完全异步协议下，Molt 的表现与一套最先进的 Megatron 训练栈统计上相当，同时代码和容器已开源。"}
+/>
+
+<PaperCard
+  title={"Agentic Context Management: Solving Agent Memory and Cost by Treating Them as Lifecycle and Architecture Problems"}
+  arxivUrl={"https://arxiv.org/abs/2607.21503"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.21503"}
+  summary={"这篇论文把 agent 的记忆与成本问题重新定义为生命周期和系统架构问题，而不只是检索问题。作者提出 Agentic Context Management（ACM），拆分为 architecting、ingesting、scoping、anticipating 以及 compacting & consolidation 五个原语，用来决定该记什么、如何结构化、如何选择存储、如何预测后续需求，并在预算内压缩上下文。文中还给出参考实现 Maximem Synap，强调多租户、保留 provenance 的遗忘与整合机制，以及面向组织范围的上下文管理。实验报告在 LongMemEval 上达到 92%，在 LoCoMo 上达到 93.2%，说明这种做法能在保持效果的同时控制 token 成本。"}
+/>
+
+<PaperCard
+  title={"Interactive Training 2: Auditable Control Plane for Live Model Training"}
+  arxivUrl={"https://arxiv.org/abs/2607.18314"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.18314"}
+  summary={"Interactive Training 2 提出一个用于在线训练的可审计控制平面，让训练过程中的参数修改和动作干预不再依赖各自定制的 trainer 代码。系统通过统一协议暴露可控设置与动作，由人类或自动控制器提交请求，训练循环在安全控制点校验并应用这些请求。作者还定制了 Aim 工作区，把实时指标、控制入口和请求结果的时间线记录整合在一起。论文在五个 NLP 与强化学习工作流上展示了该系统，说明它可以作为可复用的、支持人机共同调度的训练基础设施。"}
+/>
+
+<PaperCard
+  title={"Multi-Head Latent Control: A Unified Interface for LLM Agent Decision Making"}
+  arxivUrl={"https://arxiv.org/abs/2607.14277"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.14277"}
+  summary={"这篇工作提出了 Multi-Head Latent Control，用冻结的 LLM 或 VLM 隐状态轨迹来直接预测智能体的部署时控制信号。方法上，它包含两个轻量头：Capability Head 判断当前模型是否足以完成任务，Resolution Head 决定继续生成、请求澄清、调用工具、交给更强模型或直接回答。两个头只在同一冻结骨干的 latent traces 上训练，因此可以在不改动模型本体的情况下后验接入。实验显示，它在语言和视觉语言设置下都能更好地平衡效果与成本，在 AndroidWorld 上最多减少 90.7% 的大模型调用，在多个基准上平均减少 27-53%。同时，工具使用决策质量也明显提升，最高带来 158% 的相对分数提升，并减少 65.5% 的漏调用必需工具。"}
+/>
+
+<PaperCard
+  title={"IDEAgent: Agentic Quality-Diversity Search for Research Idea Generation"}
+  arxivUrl={"https://arxiv.org/abs/2607.22375"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.22375"}
+  summary={"这篇工作把科研创意生成重新定义为同时追求质量与多样性的联合搜索问题，而不是只优化单一目标。作者提出 IDEAgent，一个多智能体框架，通过线性演化、质量反馈驱动的修复与精炼，以及对已完成想法、祖先和被拒绝提案的显式比较来维持多样性。为评估这种联合目标，他们还提出了 Yield 指标，用于衡量在质量阈值下能保留的互相多样的想法集合。实验覆盖 8 个计算机科学领域的 32 个主题，IDEAgent 在 Yield 上比最强基线提升 3.89 倍，并且在 8 倍更多主题上取得了非零 Yield。"}
+/>
+</div>
