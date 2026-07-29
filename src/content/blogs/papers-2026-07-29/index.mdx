@@ -15,10 +15,10 @@ import PaperCard from '@/components/papers/PaperCard.astro'
 
 <div class="space-y-4">
 <PaperCard
-  title={"StateAct: Program State, before Pixels, for Long-Horizon Computer-Use Agents"}
-  arxivUrl={"https://arxiv.org/abs/2607.22798"}
-  hjfyUrl={"https://hjfy.top/arxiv/2607.22798"}
-  summary={"这篇工作提出了 StateAct，把程序状态而不是截图像素作为长程 computer-use agent 的主要操作对象。方法上，主代理通过代码直接读写文件、后端状态和 DOM，只有少量需要可视化交互的子目标才交给专门的 GUI 子代理处理，同时再加一个独立的 finish gate 做结构性校验，避免结果缺失、未保存或写到错误路径。作者还用分解子任务到新子代理的方式控制长链路任务中的上下文长度。实验在 OSWorld 2.0 上把 Claude Opus 4.8 的 binary success 从 20.6% 提升到 26.9%，partial success 从 54.8% 提升到 61.6%，并且每个任务成本约低 9 倍。"}
+  title={"JarvisHub: An Open Harness for Canvas-Native Multimodal Creative Agents"}
+  arxivUrl={"https://arxiv.org/abs/2607.23588"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.23588"}
+  summary={"这篇论文提出 JarvisHub，一个面向画布式多模态创作任务的开放式 agent harness。它把可编辑画布作为用户工作区、外部记忆、行动空间和共享项目状态，并用类型化节点与链接表示素材、依赖、版本和反馈。系统通过画布状态、协议桥和 agent runtime 三层架构，让 agent 能在可检查、可编辑的创作状态中持续规划、生成、修订和组织内容。作者强调该设计比传统单轮提示或线性对话更适合长时程创作协作，并支持人类随时介入。"}
 />
 </div>
 
@@ -26,10 +26,10 @@ import PaperCard from '@/components/papers/PaperCard.astro'
 
 <div class="space-y-4">
 <PaperCard
-  title={"JarvisHub: An Open Harness for Canvas-Native Multimodal Creative Agents"}
-  arxivUrl={"https://arxiv.org/abs/2607.23588"}
-  hjfyUrl={"https://hjfy.top/arxiv/2607.23588"}
-  summary={"Creative AI is moving from single-step asset generation toward long-horizon multimodal production. Although recent generative models can synthesize high-quality images, videos, audio clips, UI elements, storyboards, slides, and other creative assets, real-world creative work requires more than isolated prompt-output interactions. It involves references, drafts, alternatives, edits, failed attempts, version relations, tool actions, evaluation signals, and human feedback, which together form an evolving project state. Existing prompt-based, chat-based, and node-based generation systems only partially support this state, as they often discard intermediate context, rely on linear conversations, or require manually specified workflows. Recent commercial systems indicate a shift toward agent-assisted creative production, but their closed architectures make it difficult to study how agents represent context, choose tools, revise artifacts, recover from failures, and maintain consistency over time. To address this gap, we introduce JarvisHub, a canvas-native creative agent harness for long-horizon multimodal creation. JarvisHub treats an editable canvas as the user workspace, the agent's external memory, action space, and shared project state, representing multimodal artifacts, dependencies, versions, and feedback as typed canvas nodes and links. Through a three-layer architecture of canvas state, protocol bridge, and agent runtime, JarvisHub enables agents to act within an inspectable and editable creative state. This design moves creative agents beyond isolated tool use toward sustained, human-steerable creative automation, where agents can progressively plan, generate, revise, and organize multimodal projects while users remain able to inspect, guide, and intervene throughout the process."}
+  title={"StateAct: Program State, before Pixels, for Long-Horizon Computer-Use Agents"}
+  arxivUrl={"https://arxiv.org/abs/2607.22798"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.22798"}
+  summary={"Computer-use agents are usually improved by strengthening perception: better models for reading a screenshot and choosing where to click. Yet a screenshot is only a lossy rendering of the underlying program state, e.g., the files, application backends, and DOM that hold the task data. Different states can produce the same pixels, while code can inspect and modify that state directly. StateAct is a code-first, multi-agent harness built around this distinction. Its main agent works directly with program state by using code, while a dedicated GUI subagent handles screenshot-and-click interaction on the few subgoals that need it, just 28 of 108 tasks and 1.1% of main-agent steps. The same direct access to program state also supports verification: an independent finish gate double-checks the saved result for structural failures, e.g., output that is missing, unsaved, or written to the wrong path. To stay on track over hundreds of steps, the main agent hands subgoals to fresh subagents, keeping its own context focused. On OSWorld 2.0, StateAct lifts Claude Opus 4.8 from 20.6% to 26.9% on binary success, and from 54.8% to 61.6% on partial success, at ~ 9x lower cost per task than the same model driven by screenshots alone; a code-only variant with no GUI subagent reaches only 45.9% partial, below that screenshot-based baseline's 54.8%. In general, grounding action, verification, and memory in state, what we call state-grounding, shifts the main bottleneck from perception toward reasoning: failures depend more on what the agent thinks than on what it sees."}
 />
 </div>
 
@@ -40,14 +40,14 @@ import PaperCard from '@/components/papers/PaperCard.astro'
   title={"Progress Reward Modeling for Robotic Learning: A Comprehensive Survey"}
   arxivUrl={"https://arxiv.org/abs/2607.21655"}
   hjfyUrl={"https://hjfy.top/arxiv/2607.21655"}
-  summary={"这篇文章是关于机器人学习中的进展奖励建模的综合性综述。作者指出，终局成功信号只能说明任务是否完成，不能反映过程中是否在推进，因此进展奖励更适合动态环境中的机器人训练。论文从模型接口、方法构造和数据与基准三个层面统一梳理了现有研究，比较了不同观测输入、目标定义、监督来源和评测协议。综述总结了该方向的主要局限，包括定义不统一、可比性不足和评测难以解释，并讨论了未来研究方向。"}
+  summary={"这是一篇关于机器人学习中 progress reward modeling 的综述，核心目标是为任务执行过程提供比终止成功信号更细粒度的进展反馈。作者系统梳理了 progress 模型的输入接口、输出形式、内部建模方法，以及监督数据和评测基准，试图统一不同方法的比较框架。文章指出现有研究在观测、目标定义、监督来源和评测协议上差异很大，导致结果难以横向比较。综述最后总结了当前方法的局限，并讨论了面向机器人学习的后续研究方向。"}
 />
 
 <PaperCard
   title={"Data Pyramid for Embodied Manipulation"}
   arxivUrl={"https://arxiv.org/abs/2607.24744"}
   hjfyUrl={"https://hjfy.top/arxiv/2607.24744"}
-  summary={"这篇工作系统梳理了具身操作模型的数据生态，提出一个从真实机器人数据到通用视觉语言数据的“金字塔”框架。作者从可扩展性与机器人对齐的张力出发，将数据源分为真实机器人、UMI 风格、第一/第三视角、仿真以及通用视觉语言五类，并分析它们在质量、多样性、可复用性和物理保真度上的差异。论文进一步从数据配方角度回顾了近期具身基础模型，讨论不同数据如何影响感知、推理、规划、动作生成和世界预测能力。实验/分析部分主要是对现有方法和数据配方的系统比较，而不是提出单一模型指标提升，最后总结了触觉数据、失败恢复数据、跨 embodiment 对齐等六个开放问题。"}
+  summary={"这篇论文把具身操作数据系统性地整理为一个“五层金字塔”，覆盖真实机器人数据、UMI 风格数据、第一/第三视角数据、仿真数据以及通用视觉语言数据。作者围绕可扩展性与机器人对齐之间的权衡，分析了各类数据在质量、多样性、可复用性和物理保真度上的差异，并进一步梳理近期具身基础模型的数据配方。论文还从数据混合方式出发，讨论数据组成如何影响感知、推理、规划、动作生成和世界预测等能力。实验部分主要是对现有模型与数据策略的系统分析，而不是提出单一模型指标刷新。"}
 />
 </div>
 
@@ -58,20 +58,20 @@ import PaperCard from '@/components/papers/PaperCard.astro'
   title={"Kimi K3: Open Frontier Intelligence"}
   arxivUrl={"https://arxiv.org/abs/2607.24653"}
   hjfyUrl={"https://hjfy.top/arxiv/2607.24653"}
-  summary={"这篇工作提出了 Kimi K3，一个具备原生视觉能力、超长上下文和大规模 MoE 架构的开放模型。作者结合 Kimi Delta Attention、Attention Residuals 和 Stable LatentMoE 改善长序列信息流与专家激活效率，并通过面向通用、智能体和代码任务的后训练强化学习进一步提升能力。实验显示，相比 Kimi K2，其整体扩展效率约提升 2.5 倍。大规模评测表明，Kimi K3 在长程代码、智能体、知识、推理和视觉任务上都达到很强的开放模型水平，并在作者给出的对比集中普遍优于其他开源与部分闭源模型。"}
+  summary={"这篇工作提出了 Kimi K3，一个 2.8T 参数的 MoE 前沿模型，支持原生视觉能力和 100 万 token 的上下文窗口。作者结合 Kimi Delta Attention、Attention Residuals 和 Stable LatentMoE 等结构改进，并配合更精细的训练与数据配方，提升了长序列信息流动和专家激活效率。后训练阶段进一步用覆盖通用、agent 和代码任务的强化学习，以及多种推理强度设置，增强了组合泛化和长程执行能力。实验显示，Kimi K3 在长程代码、agent、知识、推理和视觉任务上达到前沿水平，并整体优于多种开源与部分闭源对比模型。"}
 />
 
 <PaperCard
   title={"From Proprietary to Open-Source: Bridging the Distribution Gap via Multi-Agent Protocol Distillation in Agentic Search"}
   arxivUrl={"https://arxiv.org/abs/2607.24280"}
   hjfyUrl={"https://hjfy.top/arxiv/2607.24280"}
-  summary={"这篇工作提出 MAPD，用于把闭源教师模型的能力蒸馏到开源学生模型中，目标是缓解 agentic search 中监督稀疏和分布不匹配的问题。方法先由离线多智能体系统分解查询、检索证据、修复失败搜索，并将探索轨迹整理成结构化 JSON 协议，再把该协议作为中间表示提供给学生策略的特权分支，结合密集蒸馏信号与强化学习目标共同优化。作者认为这种协议化表示能减轻直接轨迹模仿带来的风格漂移和冗长问题。实验在 7 个问答基准上验证了方法有效性，Qwen3-1.7B 平均成功率达到 39.4%，Qwen3-4B 达到 44.4%，并且对不同闭源教师具有较好泛化性。"}
+  summary={"这篇工作提出 Multi-Agent Protocol Distillation，用于把闭源教师模型的能力迁移到开源学生模型，重点面向 agentic search 场景。作者先用离线多智能体系统拆解查询、检索证据、修复失败搜索，并将探索轨迹整理成标准化 JSON 协议，再把该协议作为中间表示做蒸馏与强化学习联合训练。该设计绕开了无法直接匹配 logits 和原始轨迹风格漂移的问题，同时为学生策略提供更密集的监督信号。实验表明，MAPD 在 7 个问答基准上持续优于竞争性的蒸馏和 RL 方法，在 Qwen3-1.7B 与 Qwen3-4B 上分别达到 39.4% 和 44.4% 的平均成功率。"}
 />
 
 <PaperCard
   title={"The Physics of Multi-Turn Long-Horizon Planning: From Pre-training to Post-training via Single- and Multi-Teacher On-Policy Agentic Distillation"}
   arxivUrl={"https://arxiv.org/abs/2607.24720"}
   hjfyUrl={"https://hjfy.top/arxiv/2607.24720"}
-  summary={"这篇论文研究了多轮、长视野规划能力是如何在基础模型代理中获得、塑形并整合的。作者构建了一个可控的多轮环境，把规划能力拆成预训练、后训练和多教师整合三个阶段系统分析，并用 CoT 状态转移建模来显式构造世界模型。实验表明，少量长视野数据比单纯原子技能更有助于组合泛化，而低质量轨迹会因为误差累积显著伤害性能。后训练阶段中，OPD 在低质量和长视野场景下比 GRPO 更稳定有效，多教师 on-policy distillation 还能通过对齐共享规划模式来实现跨环境泛化与持续学习。"}
+  summary={"这篇论文研究了多轮长程规划能力从预训练到后训练的形成机制，并提出了一个可控的多轮环境来系统分析 agent 的规划学习过程。作者分别考察了预训练阶段的数据格式、分布和质量，以及后训练阶段的 GRPO、OPD 和多教师在策略蒸馏中的作用。实验表明，显式的世界模型式 CoT 状态转移建模能显著提升长程泛化，而低质量或自相矛盾轨迹会在长链路上放大误差并明显伤害性能。进一步结果显示，OPD 在低质量和长程设置下比 GRPO 更稳定，多教师在线蒸馏能够通过共享规划模式提升跨环境泛化与持续学习能力。"}
 />
 </div>
