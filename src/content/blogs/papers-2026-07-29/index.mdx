@@ -1,0 +1,77 @@
+---
+title: Papers - 2026-07-29
+description: "吾能观之数千而面色如故"
+publishDate: 2026-07-29
+updatedDate: 2026-07-29
+tags: ['paper reading', 'agent', 'visual reasoning']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## Multimodal Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"StateAct: Program State, before Pixels, for Long-Horizon Computer-Use Agents"}
+  arxivUrl={"https://arxiv.org/abs/2607.22798"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.22798"}
+  summary={"这篇工作提出了 StateAct，把程序状态而不是截图像素作为长程 computer-use agent 的主要操作对象。方法上，主代理通过代码直接读写文件、后端状态和 DOM，只有少量需要可视化交互的子目标才交给专门的 GUI 子代理处理，同时再加一个独立的 finish gate 做结构性校验，避免结果缺失、未保存或写到错误路径。作者还用分解子任务到新子代理的方式控制长链路任务中的上下文长度。实验在 OSWorld 2.0 上把 Claude Opus 4.8 的 binary success 从 20.6% 提升到 26.9%，partial success 从 54.8% 提升到 61.6%，并且每个任务成本约低 9 倍。"}
+/>
+</div>
+
+## 3D LLM
+
+<div class="space-y-4">
+<PaperCard
+  title={"JarvisHub: An Open Harness for Canvas-Native Multimodal Creative Agents"}
+  arxivUrl={"https://arxiv.org/abs/2607.23588"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.23588"}
+  summary={"Creative AI is moving from single-step asset generation toward long-horizon multimodal production. Although recent generative models can synthesize high-quality images, videos, audio clips, UI elements, storyboards, slides, and other creative assets, real-world creative work requires more than isolated prompt-output interactions. It involves references, drafts, alternatives, edits, failed attempts, version relations, tool actions, evaluation signals, and human feedback, which together form an evolving project state. Existing prompt-based, chat-based, and node-based generation systems only partially support this state, as they often discard intermediate context, rely on linear conversations, or require manually specified workflows. Recent commercial systems indicate a shift toward agent-assisted creative production, but their closed architectures make it difficult to study how agents represent context, choose tools, revise artifacts, recover from failures, and maintain consistency over time. To address this gap, we introduce JarvisHub, a canvas-native creative agent harness for long-horizon multimodal creation. JarvisHub treats an editable canvas as the user workspace, the agent's external memory, action space, and shared project state, representing multimodal artifacts, dependencies, versions, and feedback as typed canvas nodes and links. Through a three-layer architecture of canvas state, protocol bridge, and agent runtime, JarvisHub enables agents to act within an inspectable and editable creative state. This design moves creative agents beyond isolated tool use toward sustained, human-steerable creative automation, where agents can progressively plan, generate, revise, and organize multimodal projects while users remain able to inspect, guide, and intervene throughout the process."}
+/>
+</div>
+
+## Embodied Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"Progress Reward Modeling for Robotic Learning: A Comprehensive Survey"}
+  arxivUrl={"https://arxiv.org/abs/2607.21655"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.21655"}
+  summary={"这篇文章是关于机器人学习中的进展奖励建模的综合性综述。作者指出，终局成功信号只能说明任务是否完成，不能反映过程中是否在推进，因此进展奖励更适合动态环境中的机器人训练。论文从模型接口、方法构造和数据与基准三个层面统一梳理了现有研究，比较了不同观测输入、目标定义、监督来源和评测协议。综述总结了该方向的主要局限，包括定义不统一、可比性不足和评测难以解释，并讨论了未来研究方向。"}
+/>
+
+<PaperCard
+  title={"Data Pyramid for Embodied Manipulation"}
+  arxivUrl={"https://arxiv.org/abs/2607.24744"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.24744"}
+  summary={"这篇工作系统梳理了具身操作模型的数据生态，提出一个从真实机器人数据到通用视觉语言数据的“金字塔”框架。作者从可扩展性与机器人对齐的张力出发，将数据源分为真实机器人、UMI 风格、第一/第三视角、仿真以及通用视觉语言五类，并分析它们在质量、多样性、可复用性和物理保真度上的差异。论文进一步从数据配方角度回顾了近期具身基础模型，讨论不同数据如何影响感知、推理、规划、动作生成和世界预测能力。实验/分析部分主要是对现有方法和数据配方的系统比较，而不是提出单一模型指标提升，最后总结了触觉数据、失败恢复数据、跨 embodiment 对齐等六个开放问题。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"Kimi K3: Open Frontier Intelligence"}
+  arxivUrl={"https://arxiv.org/abs/2607.24653"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.24653"}
+  summary={"这篇工作提出了 Kimi K3，一个具备原生视觉能力、超长上下文和大规模 MoE 架构的开放模型。作者结合 Kimi Delta Attention、Attention Residuals 和 Stable LatentMoE 改善长序列信息流与专家激活效率，并通过面向通用、智能体和代码任务的后训练强化学习进一步提升能力。实验显示，相比 Kimi K2，其整体扩展效率约提升 2.5 倍。大规模评测表明，Kimi K3 在长程代码、智能体、知识、推理和视觉任务上都达到很强的开放模型水平，并在作者给出的对比集中普遍优于其他开源与部分闭源模型。"}
+/>
+
+<PaperCard
+  title={"From Proprietary to Open-Source: Bridging the Distribution Gap via Multi-Agent Protocol Distillation in Agentic Search"}
+  arxivUrl={"https://arxiv.org/abs/2607.24280"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.24280"}
+  summary={"这篇工作提出 MAPD，用于把闭源教师模型的能力蒸馏到开源学生模型中，目标是缓解 agentic search 中监督稀疏和分布不匹配的问题。方法先由离线多智能体系统分解查询、检索证据、修复失败搜索，并将探索轨迹整理成结构化 JSON 协议，再把该协议作为中间表示提供给学生策略的特权分支，结合密集蒸馏信号与强化学习目标共同优化。作者认为这种协议化表示能减轻直接轨迹模仿带来的风格漂移和冗长问题。实验在 7 个问答基准上验证了方法有效性，Qwen3-1.7B 平均成功率达到 39.4%，Qwen3-4B 达到 44.4%，并且对不同闭源教师具有较好泛化性。"}
+/>
+
+<PaperCard
+  title={"The Physics of Multi-Turn Long-Horizon Planning: From Pre-training to Post-training via Single- and Multi-Teacher On-Policy Agentic Distillation"}
+  arxivUrl={"https://arxiv.org/abs/2607.24720"}
+  hjfyUrl={"https://hjfy.top/arxiv/2607.24720"}
+  summary={"这篇论文研究了多轮、长视野规划能力是如何在基础模型代理中获得、塑形并整合的。作者构建了一个可控的多轮环境，把规划能力拆成预训练、后训练和多教师整合三个阶段系统分析，并用 CoT 状态转移建模来显式构造世界模型。实验表明，少量长视野数据比单纯原子技能更有助于组合泛化，而低质量轨迹会因为误差累积显著伤害性能。后训练阶段中，OPD 在低质量和长视野场景下比 GRPO 更稳定有效，多教师 on-policy distillation 还能通过对齐共享规划模式来实现跨环境泛化与持续学习。"}
+/>
+</div>
