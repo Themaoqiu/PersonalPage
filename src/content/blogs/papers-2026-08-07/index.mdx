@@ -1,0 +1,98 @@
+---
+title: Papers - 2026-08-07
+description: "吾能观之数千而面色如故"
+publishDate: 2026-08-07
+updatedDate: 2026-08-07
+tags: ['paper reading', 'agent', 'multimodal world model']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## 3D LLM
+
+<div class="space-y-4">
+<PaperCard
+  title={"ToolArtist: Tool-Using Unified Multimodal Models for Agentic Image Generation"}
+  arxivUrl={"https://arxiv.org/abs/2608.04436"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.04436"}
+  summary={"Text-to-image (T2I) models can produce visually compelling images, yet they remain limited on open-world tasks that require complex semantic understanding, multi-step reasoning, and the integration of external world knowledge. Existing efforts introduce agent capabilities into image generation, but they either prescribe a fixed workflow or place only a subset of the open-world image generation process under agent control. Consequently, reasoning, tool invocation, and image generation are not coordinated by a single policy. We propose ToolArtist, a fully agentic image generation model obtained by post-training a Unified Multimodal Model (UMM). ToolArtist dynamically orchestrates reasoning, external tool use, and native image generation within one unified policy. During Supervised Fine-Tuning (SFT), we equip a teacher agent with search tools alongside an image-generation tool. We then convert the collected trajectories into a UMM compatible format, where the image-generation tool is concealed while the resulting generated images are retained. During Reinforcement Learning (RL), we develop an agentic RL infrastructure for UMMs and introduce Reason-Act-Draw GRPO (RAD-GRPO), which uses complementary intent and quality rewards to jointly optimize the model. Experiments show that placing the entire open-world image-generation process under an agent policy consistently outperforms approaches with fixed pipelines or only partially agent-controlled components. We release the training data and the complete post-training infrastructure."}
+/>
+
+<PaperCard
+  title={"OneDayAgent: Towards a Long-Horizon Harness for Autonomous Agents"}
+  arxivUrl={"https://arxiv.org/abs/2608.05013"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.05013"}
+  summary={"LLM agents are increasingly applied to open-ended everyday requests that span work, study, and life. These tasks are long-horizon, cross-environment, and multimodal, forcing the agent to preserve goals and constraints across many steps while navigating heterogeneous tools and attachments. While prior work has addressed individual failure modes such as goals drift, states loss, and context overflow, whether a single harness can manage them jointly and remain effective across backends has received less study. We present OneDayAgent, a long-horizon harness for autonomous agents. OneDayAgent turns an open-ended request into a managed execution process that decomposes tasks into bounded subtasks, maintains execution memory under context pressure, and verifies and repairs the final deliverable. We evaluate OneDayAgent on AgentIF-OneDay across 104 tasks. With the GLM-5.2 backend, OneDayAgent sets a new state of the art with an overall score of 0.821. The same harness runs across five backend LLMs from three model families, indicating the harness generalizes across backends without tuning, even as different models induce distinct execution styles under the same workflow."}
+/>
+
+<PaperCard
+  title={"ABSeeker: Training Long-Horizon Search Agents via Answer-Backtracked Credit Assignment"}
+  arxivUrl={"https://arxiv.org/abs/2608.05102"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.05102"}
+  summary={"Long-horizon search agents must make multiple sequential actions (steps) to search, retrieve, verify, and integrate evidence to reach a final answer. However, existing methods for training these agents typically treat all steps within a trajectory uniformly during both supervised fine-tuning (SFT) and reinforcement learning (RL), failing to distinguish useful actions from erroneous or redundant ones. In this paper, we propose Answer-Backtracked Credit Assignment (ABC), a fine-grained credit assignment framework for training long-horizon search agents by converting sparse trajectory-level outcomes into dense step-level supervision that rewards useful actions (even in failed trajectories) while suppressing erroneous or redundant actions. Specifically, given a potentially obscure query and its corresponding ground-truth answer, ABC first performs Answer-Backtracked Clue Recovery, which traces back from the answer to recover intermediate clues required to solve the question. It then applies Clue-Anchored Step Scoring to evaluate each search step against these clues, converting sparse binary outcome supervision into dense step-level rewards. Based on these rewards, we develop ABC-SFT, which reweights the loss of each turn, and ABC-GRPO, which uses the step-level scores as rewards in GRPO. Building on this framework, we train ABSeeker based on Qwen3.5-4B with only 8.5k examples. ABSeeker achieves 37.3% on BrowseComp and 39.1% on BrowseComp-ZH. With context management, the scores further improve to 55.3% and 52.9%, respectively, significantly outperforming same-scale (4B) agents and even matching the performance of larger ones (approximately 30B). These results demonstrate the effectiveness of answer-backtracked step-level credit assignment for training long-horizon search agents."}
+/>
+</div>
+
+## Embodied Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"Ego2Robot: Scalable Robot Data Synthesis from Egocentric Human Data"}
+  arxivUrl={"https://arxiv.org/abs/2608.02580"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.02580"}
+  summary={"这篇工作提出 Ego2Robot，一个把第一视角人类操作视频转换为机器人训练数据的可扩展合成管线。方法包括动作重定向、机器人手臂视觉合成以及多级质量筛选，并同时支持精选数据集和野外视频来源。作者最终构建了 18,561 小时、覆盖 15 种机器人形态的大规模数据集，是目前最大的 ego-to-robot 数据资源之一。为了评估泛化能力，论文扩展了 RoboTwin2.0，并在外观、场景布局、身体形态和任务语义等扰动轴上做分解测试。实验表明，将 Ego2Robot 合成数据与真实机器人数据联合预训练，能稳定提升分布外泛化，并在真实机器人部署上得到验证。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"GDPevo: Evaluating Agent Self-Evolution on Real Business Tasks"}
+  arxivUrl={"https://arxiv.org/abs/2608.03764"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.03764"}
+  summary={"这篇工作提出了 GDPevo，一个面向真实企业业务流程的代理自演化评测基准，用来衡量代理是否能利用历史经验改进后续任务表现。作者通过“规则混合”将企业工作流拆成原子业务规则，再把训练与测试任务按规则重组，从而让测试收益尽量可归因于训练经验。基准覆盖 CRM、ERP、财务、医疗、法律和数据密集型流程，V1 包含 120 个任务，V2 可自动扩展到 240 个任务以缓解数据污染问题。实验在四种代理与四类监督设置下表明，自演化可将留出集准确率提升最多 16.44 个百分点，但最优结果仍显著低于 91.6% 的 oracle 上限，说明当前代理的自演化能力仍未充分释放。"}
+/>
+
+<PaperCard
+  title={"Toward Skill-Native LLMs: Skill Entropy for Benchmarking and Training Long-Horizon Reasoning"}
+  arxivUrl={"https://arxiv.org/abs/2608.05139"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.05139"}
+  summary={"这篇工作研究长程推理中跨技能切换的问题，提出用 Skill Entropy 来度量从一种技能切换到另一种技能的难度。作者进一步构建了 Skill^2-Bench，覆盖 558 个技能和 9 个可验证或开放式领域，并按技能熵给任务分级。对 8 个前沿模型和 4 个开源模型的评测显示，技能切换难度越高，准确率越低，说明现有模型在跨技能推理上存在明显短板。为训练侧提供信号后，作者提出 Skill-Entropy RL，让模型同时预测答案和所用技能，并用正确性与技能熵对齐共同构成奖励。实验表明，该方法在 Qwen3-4B-Instruct 和 Qwen3-1.7B 上将 Skill^2-Bench 分数分别从 34.4% 提升到 68.4% 和从 14.6% 提升到 40.1%。"}
+/>
+
+<PaperCard
+  title={"When Teachers Mislead: Spurious-Signal-Aware On-Policy Distillation"}
+  arxivUrl={"https://arxiv.org/abs/2608.03632"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.03632"}
+  summary={"这篇工作指出 On-Policy Distillation 中的教师 token 监督可能被与输入无关的语言先验、格式习惯或模板化推理所误导。作者把这类“优化上有影响但证据上不 grounded”的监督称为 spurious signals，并提出 SA-OPD 来识别和过滤它们。方法先用轻量级输入 groundedness 代理判断 token 级蒸馏信号是否真正依赖输入，再只保留同时满足低 groundedness 和极端蒸馏偏差的 token，从而削弱高影响的错误更新。实验在 LLM 和 VLM 场景中都显示，SA-OPD 稳定优于 Vanilla OPD 和其他选择式方法。结果说明，输入 groundedness 是选择蒸馏监督时的重要维度。"}
+/>
+</div>
+
+## Multimodal World Model
+
+<div class="space-y-4">
+<PaperCard
+  title={"Towards Physics of Multimodal Pretraining: Knowledge Flow, Modality Synergy, Early Unification, and Recipes"}
+  arxivUrl={"https://arxiv.org/abs/2608.05000"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.05000"}
+  summary={"Vision offers a critical axis for advancing foundation models, driving a shift towards natively unified multimodal pretraining. Despite this momentum, the design space and the fundamental mechanisms of how modalities interact during unified training remain underexplored. We provide empirical clarity through a systematic exploration of multimodal pretraining. Our controlled experiments on both synthetic and large-scale real-world datasets yield four key insights into the physics of multimodal pretraining: (i) Knowledge Flow: We disentangle how language, visual understanding, and visual generation transfer knowledge across modalities, revealing distinct patterns of influence and asymmetry; (ii) Synergy vs. Competition: We show that data \"complexity\" largely determines whether modalities are synergistic, identify architectural choices that promote synergy: such as shared attention and normalization with modality-specific feed-forward layers, and find that these behaviors generalize across different visual tokenizer designs; (iii) Early Unification: Unifying modalities from the very early stages and training them jointly is shown to be more effective than late alignment or sequential training. This process uncovers a vision laziness phenomenon, where delayed integration leads models to rely on language priors; (iv) Recipes: We derive efficient pretraining recipes that achieve strong generative performance using only 5% of the compute budget. These core findings are subsequently validated at scale by training multiple 13.5B MoE models on 2T tokens. We hope this study provides a principled foundation for understanding and scaling multimodal pretraining."}
+/>
+
+<PaperCard
+  title={"The Personalization Mirage: How LLMs Fabricate User Profiles, and Why Self-Monitoring Misleads"}
+  arxivUrl={"https://arxiv.org/abs/2608.04570"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.04570"}
+  summary={"Personalized LLMs with persistent memory are increasingly deployed, yet the faithfulness of their user models remains unexamined. We study over-inference (OI): the phenomenon where LLMs fabricate user attributes beyond what evidence supports. We introduce MirageBench, comprising 150 personas balanced across stereotypical, counter-stereotypical, and neutral profiles, 6 personalization tasks spanning an ``imagination gradient'', a four-way faithfulness taxonomy operationalized by an independent judge (validated against a blind human annotator on 400 claims: Cohen's kappa = 0.863 four-class, kappa = 0.900 binary), and a leaderboard of 12 models across 7 families on 143616 judged claims. We find that over-inference is pervasive: every one of the 12 models over-infers 35%--49% of its claims (cross-model mean 41.6%; claim-weighted 41.8%), with no model in this evaluation escaping it. Most strikingly, we surface a Self-Monitoring Inversion: at the model-selection level, models' self-assessed OI is negatively rank-correlated with their judge-measured OI (rho = -0.60, p = 0.044; exploratory, wide bootstrap CI [-0.90, +0.06], n = 12). The models that report the least over-inference tend to be flagged as fabricating the most, so self-reported confidence is a misleading signal for comparing models, even though within a single model self-audit still ranks that model's own claims moderately well (AUROC 0.58--0.83). We further show that OI is task-dependent (27%--59%) and that, in a multi-turn pilot, inferred attributes accumulate approximately linearly with little revision. MirageBench positions external verification, rather than model self-report, as a more reliable foundation for trustworthy personalization."}
+/>
+
+<PaperCard
+  title={"HelloWorld: Enabling Socially Interactive Characters in Video World Models"}
+  arxivUrl={"https://arxiv.org/abs/2608.05070"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.05070"}
+  summary={"这篇工作提出 HelloWorld，用于在视频世界模型中实现与画面内角色的社交互动。方法上，它通过自蒸馏流程微调视频生成模型，利用模型自身合成同时包含社交动作和相机运动的数据，以学习相机位姿条件而不牺牲互动质量。推理时又引入一个无需训练的时序定位模块，在按钮触发后通过调节 DiT 的交叉注意力掩码，让互动文本只作用于触发窗口内的帧，从而把角色响应精确限定在需要的时间段。作者还构建了 HelloWorldBench，包含 400 个样本和三类社交互动指标及三类常规指标。实验表明，HelloWorld 在互动质量上优于多种基线，同时保持了较好的画面美感和相机姿态跟随能力。"}
+/>
+</div>
