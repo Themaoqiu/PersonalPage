@@ -1,0 +1,44 @@
+---
+title: Papers - 2026-08-12
+description: "吾能观之数千而面色如故"
+publishDate: 2026-08-12
+updatedDate: 2026-08-12
+tags: ['paper reading', 'agent']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"Macaron-V1: Towards Open Continual Learning with Self-Improvement and Mixture-of-LoRA"}
+  arxivUrl={"https://arxiv.org/abs/2608.09819"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.09819"}
+  summary={"这篇工作提出了 Macaron-V1，一个面向开放式持续学习与自我改进的代理模型家族，目标是在真实环境中不断从经验中学习并在部署后继续演化。方法上，它把系统设计为可递归改进的模型-评测器对，并用 Mixture-of-LoRA 架构冻结基座模型、组合多个专门 LoRA，按用户轮次选择相应适配器。作者还引入了版本化契约、状态化动作底座、UI4A 原生 GenUI 评测壳以及面向代理强化学习的 MindForge 等组件，形成从架构到训练的协同方案。实验在 Personal Intelligence、GenUI 和通用能力基准上进行，结果表明该系统能够工作并验证了当前设计，但论文也指出持续学习带来的累积收益仍有待进一步验证。"}
+/>
+
+<PaperCard
+  title={"SWE-Bench ProMax: Benchmarking Agents on Large-Scale Multilingual Code Refactoring"}
+  arxivUrl={"https://arxiv.org/abs/2608.09802"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.09802"}
+  summary={"这篇论文提出 SWE-Bench ProMax，一个面向大规模、多语言代码重构的基准，用来评测软件工程智能体在长程、跨文件修改任务上的能力。作者从真实提交中精选了 170 个实例，覆盖 Python、Java、TypeScript、Go、C、C++ 和 Rust，并通过多阶段人工整理重写题面、审查测试，尽量去除过窄或过宽的评测缺陷。基准任务平均涉及 11.4 个被修改文件和 261.6 行代码，明显高于现有基准的规模。实验显示，在两种 agent scaffold 下最强模型的解决率也只有 41.2%，说明该基准仍然具有较强挑战性。"}
+/>
+
+<PaperCard
+  title={"Ouroboros: A Self-Developing Frontier Coding Agent with Reviewed Core Evolution"}
+  arxivUrl={"https://arxiv.org/abs/2608.08311"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.08311"}
+  summary={"这篇工作提出 Ouroboros，一个会通过审查后的提交不断演化自身核心实现的自开发编码智能体。方法上，它让工具、提示词、上下文组装和核心代码都能在“递归自由演化”和“经验驱动核心演化”两种模式下持续改进，并把下一轮演化也纳入工作流。作者还讨论了长周期 live deployment 中的人机交互如何暴露缺陷并推动结构性修改，以及自我修改系统必须面对的安全与治理问题。实验结果显示，Opus 5 版本在 Terminal-Bench 2.1 上达到 86.74%，在 OSWorld-Verified 上达到 90.69%，CL-Bench 五次 rollout 的归一化奖励为 0.2301，均为已报告的强结果。"}
+/>
+
+<PaperCard
+  title={"Agent Memory Distillation: Empowering Small LLM Agents with Hierarchical Teacher Memory"}
+  arxivUrl={"https://arxiv.org/abs/2608.07169"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.07169"}
+  summary={"本文提出 Agent Memory Distillation（AMD），用层次化记忆把大模型教师代理的成功轨迹知识迁移给小模型代理，而且不需要额外训练。它构造了三类记忆：Workflow 记忆描述任务级策略，Subtask 记忆提供中粒度行为示例，Function 记忆总结函数调用约定和常见错误。前两类记忆在任务开始时主动注入，Function 记忆则在工具调用出错时按需检索，以提升工具使用稳定性。作者在 AppWorld、BFCL V3 和 ToolSandbox 上用 4B 到 8B 的学生模型验证，平均分别提升 27.2、11.2 和 3.4 个百分点，并且整体优于已有记忆式基线。"}
+/>
+</div>
