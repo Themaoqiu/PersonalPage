@@ -1,0 +1,66 @@
+---
+title: Papers - 2026-08-13
+description: "吾能观之数千而面色如故"
+publishDate: 2026-08-13
+updatedDate: 2026-08-13
+tags: ['paper reading', 'agent']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## Embodied Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"ComBodied Agents: a New Paradigm of Human-Centric Agentic AI"}
+  arxivUrl={"https://arxiv.org/abs/2608.10915"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.10915"}
+  summary={"这篇工作提出了 ComBodied Agents 范式，目标是把人本身的状态轨迹作为智能体建模与干预的核心对象。作者认为传统数字智能体主要改变软件状态，具身智能体主要改变物理状态，而 ComBodied Agents 通过事件级多模态感知、可修正的纵向记忆和个人世界模型，持续预测个体未来状态并选择合适的支持方式。系统将软件工具、传感器、可穿戴设备、机器人和人工服务都视为行动通道，并在 consent、uncertainty、safety、reversibility 和用户控制约束下做干预决策。论文还给出了围绕人类状态目标、关系场景和角色划分的设计空间，并提出了场景化评测与代理性保持指标等评估方向。"}
+/>
+</div>
+
+## 4D Understanding and Generation
+
+<div class="space-y-4">
+<PaperCard
+  title={"Beyond Pixels: From Video Priors to 4D Worlds"}
+  arxivUrl={"https://arxiv.org/abs/2608.10744"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.10744"}
+  summary={"这篇工作研究如何利用视频模型的潜空间直接生成 4D 世界，而不是先生成 RGB 视频再用独立 4D 模型重建。作者提出 Latent-to-4D，将视频扩散模型最终去噪后的 latent 作为可复用接口，对齐到预训练 4D 解码器的 token grid，并通过帧内与全局时空注意力进行细化。该方法只用约 1K 条重建视频训练一个 checkpoint，就能在同一 VAE 家族内跨多个视频扩散 Transformer 迁移。实验在 Text4D-200 和 I4D-200 上，相比匹配的同 latent Wan+4RC cascade，在投影式 DINO-F1 上分别提升 2.88-3.45 和 5.81 分，并且在人评中在几何、时间稳定性和整体质量上更受偏好。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"Mendel Gödel Machine: Recursive Self-Improving Coding Agents via Comparative Evolution"}
+  arxivUrl={"https://arxiv.org/abs/2608.07645"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.07645"}
+  summary={"这篇工作提出 Mendel Gödel Machine，用于让编码智能体通过比较多条历史尝试来递归自我改写。方法上，作者在传统单轨迹克隆突变之外，加入了基于多任务轨迹的 reaction-norm mutation，以及利用同任务不同谱系轨迹进行交叉杂交的 cross-lineage hybridization。理论分析和受控替代仿真实验表明，这两类新型自修改策略比只看单次失败轨迹的基线收敛更快、效果更好。SWE-bench 和 Polyglot 实验进一步验证了其在性能、效率和泛化性上的一致提升。"}
+/>
+
+<PaperCard
+  title={"VibeLifeBench: Can Your Life Agent Be Proactive and Persistent in a Living World?"}
+  arxivUrl={"https://arxiv.org/abs/2608.10875"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.10875"}
+  summary={"这篇论文提出 VibeLifeBench，用来评测生活类 LLM 智能体在长时间、动态变化环境中的主动性和持续性。基准包含 200 个跨十个日常领域的长时任务，任务在由 22 个模拟服务组成的世界中按多周时间线推进，且许多变化是静默发生的，以考察智能体是否会主动重新检查环境。评测采用细粒度加权规则，分别衡量最终状态、行动时效性以及是否遵守隐含约束。作者用 7 个前沿模型做了测试，结果整体分数都较低，说明当前智能体离真实生活助理还有明显差距。"}
+/>
+
+<PaperCard
+  title={"Not Worth Another Token: Marginal Value Estimation for Efficient Deep Research Agents"}
+  arxivUrl={"https://arxiv.org/abs/2608.08389"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.08389"}
+  summary={"这篇工作研究深度研究智能体在长链路检索与综合过程中，如何估计上下文中新增证据的边际价值以减少无效 token 消耗。作者系统比较了预检索、检索后和综合前三个阶段的剪枝策略，包括轻量启发式方法和学习式价值模型。实验显示，剪枝位置比具体打分规则更关键，越早剪枝带来的端到端节省越大。轻量启发式最多可减少 73% token 使用且质量损失很小，学习式方法在部分权衡点上也保持竞争力，但不存在在质量、效率和忠实性上全面最优的单一方案。"}
+/>
+
+<PaperCard
+  title={"SkillZip: Evaluation-Free Skill Compression for Self-Evolving Agents by Discovering Reusable Structure"}
+  arxivUrl={"https://arxiv.org/abs/2608.11079"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.11079"}
+  summary={"这篇工作提出 SkillZip，用于对自我进化智能体不断积累的技能进行无评测压缩。它把技能表示为带类型约束的结构化契约与残差，基于最小描述长度目标寻找“最短且忠实”的结构解释，并通过覆盖触发条件、工作流边、工具需求和输出字段来保证语义完整。方法支持一次性抽取和持续的 Zip-on-Write 更新，不需要回放任务或依赖压缩时的评测集。实验表明，SkillZip 在压缩效果、泛化能力和成本开销上都优于基线。"}
+/>
+</div>
