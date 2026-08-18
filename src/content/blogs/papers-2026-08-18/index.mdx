@@ -1,0 +1,66 @@
+---
+title: Papers - 2026-08-18
+description: "吾能观之数千而面色如故"
+publishDate: 2026-08-18
+updatedDate: 2026-08-18
+tags: ['paper reading', 'agent', 'multimodal world model']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## Embodied Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"HumanTracker: Towards Comprehensive and Human-Aligned Motion Tracking Benchmark"}
+  arxivUrl={"https://arxiv.org/abs/2608.13555"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.13555"}
+  summary={"这篇工作提出 HumanTracker，一个面向人形运动跟踪的综合基准，重点解决现有指标与人类视觉判断不一致的问题。作者整理了约 153 小时的专业表演者光学运动轨迹，并提出 HumanScore：一个基于 1.2 万对偏好样本训练的人类偏好对齐指标，用来评价跟踪结果的稳定性、接触和物理合理性。实验表明，HumanScore 比传统运动学误差更能预测人类偏好，也更容易暴露脚滑、支撑不稳和接触时机错误等问题。基准覆盖多种动作族，能够更全面地检验面向遥操作和全身模仿的人形跟踪系统。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"Beyond Final Scores: A Systematic Evaluation of Agents for Long-Horizon AI Research and Development"}
+  arxivUrl={"https://arxiv.org/abs/2608.13417"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.13417"}
+  summary={"这篇工作系统评估了面向长期研发任务的自主智能体能力，不再只看最终分数，而是分析任务过程中的关键行为。作者提出一个框架，用规则化指标刻画 Solution Framing、Execution 和 Feedback Control，并比较任务内外的经验复用效果。实验在 7 个前沿模型和 36 个长时程任务上展开，结果显示当前智能体更像工程优化器，而不是成熟的自主研究者。它们虽然能提出并实现实用方案，但跨运行波动很大，方法新颖性仍然少见。研究还发现，经验复用有时会帮助、有时会误导后续决策，而评测基座本身也会显著影响性能稳定性。"}
+/>
+
+<PaperCard
+  title={"Apodex Discovery: Reality Benchmarks and Environments for Evaluating and Building Discoverative Artificial Intelligence"}
+  arxivUrl={"https://arxiv.org/abs/2608.11341"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.11341"}
+  summary={"这篇工作提出 Apodex Discovery，用于评估和构建面向真实世界科学发现的智能体系统。作者将其组织为由 foundation model、工具、控制策略和 harness 组成的 heavy-duty solver，并定义了统一的 environment-task-episode 抽象来支持数据、约束、反馈和轨迹记录。为了衡量过程能力，论文提出 HDS6 指标，分别评估 Tools、Repair、Alternatives、Coherence、Evidence 和 Scope，而不是只看最终成败。实验中，Apodex 在 AAV capsid design 上相较已发表 SOTA 提升 7%，在药物再利用和再制剂任务上也让 GPT-5.5 与 GPT-5.6-sol 的平均归一化分数分别提升 2.5 和 7.6 分。"}
+/>
+
+<PaperCard
+  title={"MobileMem: Learning from a Year of Mobile Experiences"}
+  arxivUrl={"https://arxiv.org/abs/2608.13606"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.13606"}
+  summary={"这篇论文提出 MobileMem，一个面向长期个人助理的移动端长期记忆基准与评测框架，目标是让代理能够从一年尺度的真实移动体验中持续学习。作者通过知识驱动的合成流程，把用户与应用会话整理成时间一致的长跨度轨迹，并构建了文本与多模态两种设置，覆盖多跳与时序推理、知识更新和隐式偏好推断。该基准强调的是经验级记忆而不是孤立事实检索，因此更贴近真实个人助理的使用场景。实验部分表明，MobileMem 能系统检验代理在记住过去、理解现在和适应未来方面的能力差异。"}
+/>
+
+<PaperCard
+  title={"Latent On-Policy Self-Distillation"}
+  arxivUrl={"https://arxiv.org/abs/2608.13040"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.13040"}
+  summary={"这篇工作提出了 Latent On-Policy Self-Distillation（LOPD），旨在让智能体从自身交互经验中持续学习并内化为策略能力。方法上，它不再依赖手工设计的特权监督信息，而是检索相关经验并将其组合成连续潜变量 token，用来条件化自教师，同时对学生在轨迹前缀上的每一步提供密集 token 级监督。作者还引入 privileged-margin 目标，稳定并约束潜变量上下文的学习。实验表明，LOPD 在工具使用和代码生成任务上都优于 RLVR、OPSD、SDPO 和 Skill-SD 等方法，并且在使用不到 30% rollout 预算的情况下仍能超过 GRPO 和 Skill-SD，说明其学习效率更高。消融实验进一步证明，可学习的特权上下文是性能提升的关键来源。"}
+/>
+</div>
+
+## Multimodal World Model
+
+<div class="space-y-4">
+<PaperCard
+  title={"Marionette: Predicting World States, Rendering Geometry, Painting Appearance"}
+  arxivUrl={"https://arxiv.org/abs/2608.14530"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.14530"}
+  summary={"这篇工作提出 Marionette，用显式世界状态来建模交互式游戏中的长时程生成过程，而不是直接在像素或潜空间里滚动预测。方法上，它先用两阶段自回归动力学模型预测 276 维的可解释 3D 世界状态，再通过零参数几何桥接器把状态转换为带遮挡和空间关系的视频控制信号，最后由条件视频扩散模型合成外观。实验表明，强制不匹配的动作流会显著改变关节误差，说明预测到的状态确实可控。进一步加入地形碰撞器和分离约束后，角色穿模减少 66%，长时程交互更稳定，同时画质与录制姿态相近，FVD 为 831，对比录制姿态的 799 没有明显损失。"}
+/>
+</div>
