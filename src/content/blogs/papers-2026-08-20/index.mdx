@@ -1,0 +1,41 @@
+---
+title: Papers - 2026-08-20
+description: "吾能观之数千而面色如故"
+publishDate: 2026-08-20
+updatedDate: 2026-08-20
+tags: ['paper reading', 'agent']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## 4D Understanding and Generation
+
+<div class="space-y-4">
+<PaperCard
+  title={"CoinVE-200K: A Large-Scale High-Quality Dataset for Compositional Instruction-Guided Video Editing"}
+  arxivUrl={"https://arxiv.org/abs/2608.17566"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.17566"}
+  summary={"本文提出了 CoinVE-200K，一个面向组合式指令驱动视频编辑的大规模高质量数据集，用于支持同一视频中多个编辑意图的联合理解与执行。作者构建了包含最多 201 帧、1080p 分辨率的视频编辑对，每个样本覆盖 2 到 5 个原子编辑操作，涉及人物、物体和背景的添加、删除、修改与风格化。数据通过专门设计的生成与过滤流程构建，以保证指令忠实性、视觉质量、时序一致性和组合多样性。论文同时发布了 CoinVE-Bench 作为评测基准，并提出 CoinVE-Edit 这一基于 Wan2.1-T2V-14B 和 Qwen3-VL-8B-Instruct 的 22B 编辑模型。实验表明，CoinVE-Edit 在指令遵循、组合编辑准确性、视觉质量和时序一致性上都取得了较强表现。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"ASI-Bench: At the Dawn of Artificial Superintelligence"}
+  arxivUrl={"https://arxiv.org/abs/2608.17271"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.17271"}
+  summary={"本文提出 ASI-Bench，用于系统评估 AI 在创新探索和自主科研执行上的能力。它把 60 个跨 11 个科学领域的项目级研究任务组织起来，并逐步撤去人类的方法指导，从“给出完整方法”到“只给结果目标”再到“由智能体自行选择方法”，考察系统能否独立完成研究。基准由 40 多位专家构建，并经过专家审查、AI 辅助审计、沙箱执行和评分器验证，保证任务质量与可执行性。实验覆盖 18 组先进的 agent-model 配置，结果显示平均得分从完整方法指导下的 50.91 降到仅给方法时的 29.10，再降到完全自行决定方法时的 26.62，说明当前系统仍高度依赖人类指导，距离端到端自主科研还有明显差距。"}
+/>
+
+<PaperCard
+  title={"Agent Lightning v1.0: Towards Harnessed Agentic RL"}
+  arxivUrl={"https://arxiv.org/abs/2608.17528"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.17528"}
+  summary={"这篇工作提出 Agent Lightning v1.0，用于支撑 harnessed agentic RL，也就是让部署时的 agent harness 直接参与后训练。作者把任意代理通过 LLM endpoint proxy 接入 RL 训练，并专门处理重分词、样本合并、优势估计、loss 归一化和后端调度等工程与算法问题。框架代码量约 3500 行，强调可复现和可迁移到不同的 agent harness。实验覆盖指令遵循、搜索和代码代理；在仅用 6K 训练样本和较少算力下，Qwen3.5-9B 在 SWE-bench Verified 上从 41.8% 提升到 56.4%，绝对提升 14.6 个百分点。"}
+/>
+</div>
