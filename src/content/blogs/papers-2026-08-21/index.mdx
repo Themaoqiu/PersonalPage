@@ -1,0 +1,84 @@
+---
+title: Papers - 2026-08-21
+description: "吾能观之数千而面色如故"
+publishDate: 2026-08-21
+updatedDate: 2026-08-21
+tags: ['paper reading', 'agent', 'multimodal world model']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## 3D LLM
+
+<div class="space-y-4">
+<PaperCard
+  title={"OmniScientist: An Omni-Modal Omni-Discipline AI Scientist"}
+  arxivUrl={"https://arxiv.org/abs/2608.13558"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.13558"}
+  summary={"Recent advances in foundation models have enabled AI scientists to automate increasingly complete research workflows, from hypothesis generation and code execution to manuscript preparation. Yet workflow coverage alone does not provide access to the full evidence on which scientific discovery depends. Existing systems typically reason over text, code, labels, or precomputed summaries, leaving scientifically decisive spatial, temporal, cross-channel, and procedural relations unavailable to the agent. We introduce OmniScientist, an end-to-end, omni-modal AI scientist that conducts multidisciplinary research directly from heterogeneous raw evidence. A perception layer and 3 autonomous agents for ideation, experiment, and writeup operate within a deterministic pipeline, allowing observations to shape research questions, experimental decisions, and final claims throughout the research lifecycle. By running idea, rigour, and claim checks in code, the system enforces novelty screening, statistical validity, execution provenance, and numerical traceability. We evaluate OmniScientist on 36 real-data cases spanning 5 discipline families, 4 families of scientific evidence, and modalities including images, signals, audio, video, 3-D structures, trajectories, tables, formulae, and graphs. The system completes the full path from raw data to a compiled manuscript in all 36 cases and achieves a mean overall paper score of 6.3 with the reference reasoning backbone. In paired comparisons against a blind variant that receives only precomputed scalar features, direct perception improves all 7 evaluation dimensions and wins 85% of head-to-head judgments. These results show that lifecycle-wide perception is essential for evidence-grounded scientific discovery and provides a practical path toward broadly capable AI scientists."}
+/>
+</div>
+
+## Embodied Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"Zetta $ζ$: An Efficient Closed-Loop Embodied Harness for Self-Evolving Physical Intelligence"}
+  arxivUrl={"https://arxiv.org/abs/2608.16590"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.16590"}
+  summary={"这篇论文提出 Zetta，一个面向实体机器人控制的闭环具身执行框架，重点解决现有 harness 多为开环、只能事后反思的问题。方法上，它保持基础策略冻结，在线演化基于代码的运行时 critic 和 recovery skill，并通过三层时间尺度的闭环实现动作频率治理、回合级建议和验证门控更新。作者还配套了 Z-Infra，将 agent 逻辑与异构执行资源解耦；在 LIBERO-Pro 和 RoboCasa 上分别达到 90.8% 和 93.6% 的成功率，并给出 11.1 倍推理加速，说明闭环自进化能显著提升物理智能的可靠性。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"SemaPLC: A Project-Grounded, Verification-Gated Agent Harness for PLC Code Generation"}
+  arxivUrl={"https://arxiv.org/abs/2608.18565"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.18565"}
+  summary={"这篇工作提出 SemaPLC，一个面向 PLC 代码生成的、项目约束感知且带验证门控的 agent harness。其核心思路是把生成过程与项目上下文绑定，并通过验证步骤筛掉不满足工程约束的候选代码，从而提高代码生成的可执行性和落地可靠性。论文聚焦于把代码生成从“能写出来”推进到“能在项目里通过验证”的方向，适合归入 agent 训练与评测范畴。"}
+/>
+
+<PaperCard
+  title={"Co-RL: Unsupervised Reasoning Emerges from Diverse Cohort in Multi-agent RL"}
+  arxivUrl={"https://arxiv.org/abs/2608.17253"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.17253"}
+  summary={"这篇论文研究多智能体强化学习中，异质且多样化的 cohort 如何促成无监督推理能力的涌现。作者从群体构成和交互学习的角度分析 reasoning emergence，而不是依赖显式标注推理数据。工作重点在于证明通过多智能体协作与对抗式学习，推理能力可以在训练过程中自然出现，因此更适合放在 agent 训练与评估方向。"}
+/>
+
+<PaperCard
+  title={"SPADE: Self-Play in Adaptive Synthetic Executable Environments"}
+  arxivUrl={"https://arxiv.org/abs/2608.19197"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.19197"}
+  summary={"这篇工作提出 SPADE，一个通过自博弈持续生成训练环境的强化学习框架，用于提升语言代理的自我改进能力。其核心做法是让同一个 LLM 同时扮演环境设计器和推理代理，前者用可执行代码构造带有状态转移、奖励和验证逻辑的长程环境，后者在其中学习行动。作者还用“有无特权提示”之间的回报差距来估计后悔值，并据此驱动环境设计器生成更贴近模型能力边界的任务。实验表明，关键设计包括从大规模预训练语料中检索文档来约束环境设计，以及为环境设计器提供累积记忆。扩展到 30B 参数后，SPADE 在八个保留的数学、科学、代码与推理基准上平均优于最强固定环境基线 5.3 分，在 BFCL-v4 多轮工具调用上提升 5.7 分，在 ACEBench-Agent 上提升 13.9 分。"}
+/>
+
+<PaperCard
+  title={"Looped Language Models Improve Compositional Tool Calling"}
+  arxivUrl={"https://arxiv.org/abs/2608.18171"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.18171"}
+  summary={"这篇工作研究了循环式语言模型在组合式工具调用中的作用，重点考察其在多步 API 交互中的规划、依赖维护与状态管理能力。作者比较了原生和改造后的 looped language models，并在 API-Bank、BFCL 和 NESTful 上进行评测，同时控制监督微调配方和推理时递归深度。实验结果表明，递归计算通常能提升组合型、依赖感知型的工具使用能力，而对单次 API 调用的收益较小且更依赖模型规模。作者还发现，随着递归深度增加，多步工具调用准确率通常提升，但自适应推理能在性能和计算量之间取得更好的折中。整体结论是，looped language models 是面向可靠 agentic 工具使用的一条有前景的架构路线。"}
+/>
+</div>
+
+## Multimodal World Model
+
+<div class="space-y-4">
+<PaperCard
+  title={"SemComp-Bench: Benchmarking Semantic Task Completion in Video Generation"}
+  arxivUrl={"https://arxiv.org/abs/2608.17426"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.17426"}
+  summary={"这篇工作提出 SemComp-Bench，用于评测视频生成任务中的语义任务完成能力，而不只是外观相似度。作者把问题定义为“结果导向”的视频生成：模型不仅要生成目标结果，还要与参考图像中的任务相关语义保持一致。为此他们构建了覆盖六个领域的 SemComp-Data，并用基于 VLM 的结构化二分类问答协议计算 OA Score 和 GR Score；实验表明，现有代表性视频生成模型在同时满足目标达成与语义对齐方面仍然很有挑战。"}
+/>
+
+<PaperCard
+  title={"Decision-Metric Alignment in Latent World Models: Diagnostics and Action-Conditioned Objectives for MPC Planning"}
+  arxivUrl={"https://arxiv.org/abs/2608.18746"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.18746"}
+  summary={"这篇论文研究潜在世界模型中的决策度量对齐问题，指出仅有良好的任务变量解码并不意味着基于潜在距离的 MPC 能正确排序动作序列。作者提出了 Plan-Real Spearman 和 CEM-stage Spearman 两个诊断指标，用来衡量潜在空间与真实任务进度在随机规划和 CEM 搜索过程中的秩相关一致性。理论分析进一步分解了影响对齐的关键因素，包括编码器扭曲、终止回滚误差和候选动作间隔。基于这些观察，作者提出 DA-LeWM，在 LeWM 上加入逆动力学和示范条件目标-动作头以改善几何结构。实验显示，DA-LeWM 在所有实验中都比 LeWM 收敛更快、在线成功率更高，而探针分数保持相近，说明动作条件化目标能有效改善用于欧氏代价 MPC 的潜在空间。"}
+/>
+</div>
