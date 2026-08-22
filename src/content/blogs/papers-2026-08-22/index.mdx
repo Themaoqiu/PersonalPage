@@ -1,0 +1,66 @@
+---
+title: Papers - 2026-08-22
+description: "吾能观之数千而面色如故"
+publishDate: 2026-08-22
+updatedDate: 2026-08-22
+tags: ['paper reading', 'agent', 'multimodal world model']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## Embodied Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"EXIMO: VLM Guided Exploration of VLA Policies"}
+  arxivUrl={"https://arxiv.org/abs/2608.19891"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.19891"}
+  summary={"这篇工作提出了 EXIMO，用于高效微调视觉-语言-动作（VLA）策略，使机器人能够快速学会新任务。方法上，它把流程分成探索、模仿和优化三阶段：先用视觉语言模型作为规划器，将长时序任务拆成更短的子问题并收集组织化数据，再用这些数据对 VLA 进行监督微调，最后通过残差式离策略强化学习进一步优化。作者在新任务上做了系统消融，验证了三阶段设计各自的作用。实验结果表明，EXIMO 相比现有方法在样本效率和最终性能上都有显著提升。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"EnvHarness: Awakening Static Worlds for Agent Learning"}
+  arxivUrl={"https://arxiv.org/abs/2608.19880"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.19880"}
+  summary={"这篇工作提出 EnvHarness，一个可插拔的环境包装层，用来在不修改底层环境逻辑的前提下重塑静态环境，使其能针对智能体的薄弱点动态变化。作者还提出 EnvRigger，先把目标策略当作黑箱，观察其轨迹诊断缺陷，再自动合成 EnvHarness 组件并用新 rollout 验证。实验覆盖四个领域的五个基准，结果显示它优于原始环境和领域专用环境生成管线，在留出实例上最高提升 9.0 分，同时执行步数减少 9.8%。此外，它还能为强化学习提供更好的优化信号，支持策略与环境的持续协同进化。"}
+/>
+
+<PaperCard
+  title={"FACET: Preserving Source Intent and Executable State in Terminal Task Synthesis"}
+  arxivUrl={"https://arxiv.org/abs/2608.18580"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.18580"}
+  summary={"这篇工作提出 FACET，用于合成可执行的终端任务，并同时解决源意图保留与跨工件一致性问题。方法上，它先把相关 agent 技能重构为信息密集的场景，再构建并修复执行环境，最后在共享的容器状态上生成指令、参考解答和验证器，并通过执行式校验与定向修复减少工件不一致。作者强调这种“环境落地”的共享状态能让任务、解答和验证器更对齐。实验表明，FACET 生成的复杂终端任务能提供密集的可执行监督，利用这些成功轨迹进行微调后，在 Terminal-Bench 2.1 上能稳定提升不同规模模型的表现。"}
+/>
+
+<PaperCard
+  title={"MemTrapBench: Benchmarking Cognitive Traps in LLM Memory Use"}
+  arxivUrl={"https://arxiv.org/abs/2608.20202"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.20202"}
+  summary={"这篇工作提出 MemTrapBench，用来评测 LLM 在使用记忆时是否会陷入认知陷阱，而不只是考察记忆能否被正确检索。作者把失败模式归纳为两类：Reasoning Fixation 和 Belief Distortion，并据此系统测试了两类模型与五种代表性记忆框架。实验显示该基准很难，所有评测的记忆策略都不如不使用记忆的设定，最强方法也会带来超过 10% 的性能下降。为缓解这一问题，论文提出 AdaptiveMem 作为推理时方法，在标准记忆基准上保持或提升性能的同时减轻认知陷阱。"}
+/>
+
+<PaperCard
+  title={"SkillEvo: Self-Renewing Evolution Gradients from Multi-Turn Interaction Feedback"}
+  arxivUrl={"https://arxiv.org/abs/2608.13120"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.13120"}
+  summary={"这篇工作提出 SkillEvo，用多轮交互反馈来驱动 agent skill 的自我演化，解决只靠单轮问答反馈导致改进停滞的问题。方法上，它把多轮用户模拟改造成持续产生进化梯度的反馈器，并加入独立的治理层，对事实退化和结构膨胀进行修复与约束。作者在 6 类云服务、9 个生产级技能和 98 个技能参考文件上进行评测，结果显示 SkillEvo 比自反式演化提升 23.0 分，比单轮 QA 驱动的演化提升 15.4 分。实验还表明，多轮反馈能持续暴露更深层缺陷，从而推动更稳定的技能迭代。"}
+/>
+</div>
+
+## Multimodal World Model
+
+<div class="space-y-4">
+<PaperCard
+  title={"ForgeWM: Progressive Causal Training for Few-Step Action-Conditioned Video World Models"}
+  arxivUrl={"https://arxiv.org/abs/2608.14022"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.14022"}
+  summary={"这篇工作提出 ForgeWM，用渐进式因果训练把双向的动作条件视频生成器转化为少步数的可交互视频世界模型。方法包含领域适配、teacher-forced 因果训练、因果一致性蒸馏，以及基于双向 teacher 的 on-policy 分布匹配，并支持 1、2、4 步的预算化学生模型。作者还设计了双路径部署：低延迟交互和可选的回放时精修，其中一步模型可以对保存的草稿重新加噪并细化。实验在 Minecraft 轨迹和游戏手柄控制的 FPS 场景上表明，ForgeWM 在画质、动作一致性、鼠标控制准确率和参考 LPIPS 上优于对比方法，回放精修也能接近四步模型的质量。"}
+/>
+</div>
