@@ -1,0 +1,77 @@
+---
+title: Papers - 2026-08-25
+description: "吾能观之数千而面色如故"
+publishDate: 2026-08-25
+updatedDate: 2026-08-25
+tags: ['paper reading', 'agent', 'multimodal world model']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## Spatial Intelligence (Image/Video)
+
+<div class="space-y-4">
+<PaperCard
+  title={"UniSpace: Unified Visual Representation and Scalable Multimodal Modeling"}
+  arxivUrl={"https://arxiv.org/abs/2608.08676"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.08676"}
+  summary={"这篇工作提出 UniSpace，目标是在统一的视觉表示空间中同时支持理解、生成和编辑。作者指出，语义 ViT 的最后 token 之所以难以重建细粒度细节，主要是原始 patch 参数化把表示推向了过强的语义抽象。为此，论文提出 Patch Reparameterization，在保留原有语义路径的同时加入面向重建的 patch embedding，把细粒度视觉信息重新注入同一个冻结 ViT。实验表明，这种表示既能保持多模态理解能力，又能实现高保真的图像重建，并在重建与生成之间取得更好的折中。进一步扩展到 8B Mixture-of-Transformer-Experts 后，系统评测显示它可以在不依赖独立 VAE 路径的情况下完成文本生成图像和指令编辑。"}
+/>
+</div>
+
+## 4D Understanding and Generation
+
+<div class="space-y-4">
+<PaperCard
+  title={"InfinityEdit: Infinite Video Editing with a Lightweight Edit-Ignition Adapter"}
+  arxivUrl={"https://arxiv.org/abs/2608.20910"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.20910"}
+  summary={"这篇论文提出了面向开放式视频流的“Infinite Video Editing”问题：模型不再只在固定片段内做局部编辑，而是要在持续到来的新帧上延续视频并应用编辑指令。作者先构建了对应的数据采集流程，再提出轻量级编辑适配器 InfinityEdit，将历史交叉注意力、时间因果自注意力和编辑交叉注意力结合起来，引导流式生成器完成连续编辑。推理时，该适配器只在收到编辑指令的片段激活，后续片段回到原模型并重置锚帧，从而尽量保留原有无限生成能力。实验表明，该方法能在逐次编辑下更忠实地延续视频流，并且在无界编辑序列中保持稳定生成质量。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"OmniAssistBench: Assistant-style Interaction Benchmark for Omni-LLMs"}
+  arxivUrl={"https://arxiv.org/abs/2608.21360"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.21360"}
+  summary={"这篇工作提出了 OmniAssistBench，用于评测 Omni-LLMs 作为实时视频助手的交互能力。作者通过从互联网视频逆向构造多轮交互场景，并为模型提供来自源视频的先验约束，避免同一目标因路径不同而导致评测不一致。该基准重点考察模型能否结合视觉状态、用户目标和历史上下文，在对话过程中给出准确且及时的帮助。实验结果显示，Gemini-3-Pro 得分为 66.4/100，开源的 Qwen3-Omni-Instruct 为 51.2/100，模型普遍会在手势等视觉提示上出错、难以保持多轮历史，并且常常无法在目标事件发生前延迟回复。"}
+/>
+
+<PaperCard
+  title={"Beyond Correctness: Benchmarking and Aligning Response Behaviors in Hybrid-Thinking MLLMs"}
+  arxivUrl={"https://arxiv.org/abs/2608.12781"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.12781"}
+  summary={"这篇论文研究混合思考多模态大模型在“思考”和“非思考”两种接口下的响应行为一致性问题，指出只看准确率不足以刻画用户可见的输出质量。作者构建了 PatternEval，一个覆盖视觉感知、定位、结构化图像理解和多模态知识推理的失败诊断基准，用来检测链式思维泄露、重复回复、逻辑矛盾和表演式推理等四类模式问题。基于该诊断，他们进一步提出 PatternRM 以及引入模式特定惩罚的 PatternRL，用于在强化学习阶段对齐不同推理模式的响应行为。实验在 Qwen3-VL-4B 和 Qwen3-VL-8B 上表明，这种训练方式能缓解跨模式不一致，但会带来轻微的任务性能权衡。"}
+/>
+
+<PaperCard
+  title={"Every Coin Has Two Sides: On the Dual Nature of Generalization in On-Policy Distillation of Large Language Models"}
+  arxivUrl={"https://arxiv.org/abs/2608.16647"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.16647"}
+  summary={"这篇工作系统研究了大语言模型的 on-policy distillation 在不同泛化场景下的行为。作者通过受控实验分别考察了分布偏移、跨域迁移和多教师设置，分析学生模型从教师轨迹中学到的到底是答案还是推理行为。结果表明，OPD 主要迁移的是教师的推理风格而非单题答案，训练难度影响很小，甚至教师原本做不出的题目也能提供有效监督。实验还发现，同源教师与学生在语言、推理长度和跨域任务上都能更好迁移，而异源组合往往只拟合训练分布；多教师时还会出现能力之间的拉扯和此消彼长。"}
+/>
+
+<PaperCard
+  title={"AgentMercury: Your Agent Can Synthesize Verifiable Environments for Business Scenarios at scale"}
+  arxivUrl={"https://arxiv.org/abs/2608.20634"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.20634"}
+  summary={"这篇工作提出 AgentMercury，用高层业务场景自动合成可执行环境，供智能体进行训练和评测。方法上，它先构建包含实体、服务、工具、状态和跨服务不变式的持久世界，再从该世界中自然涌现出多样任务与交互轨迹。作者构建了 4,783 个可执行环境，覆盖 14 个行业和 50 个国家，并用这些环境做强化学习训练。实验显示，在这些业务环境上训练后，Qwen3.5-4B 在 EnterpriseOps-GYM 上从 12.3 提升到 15.7，在 AIME26 上从 45.9 提升到 56.0，且对推理、编码、科学计算和工具使用等域外基准也有提升。进一步实验表明，环境构建过程本身也可学习，Qwen3.5-35B-A3B 微调后在保留业务场景上的可执行世界构建成功率从 3.3% 提升到 83.3%。"}
+/>
+</div>
+
+## Multimodal World Model
+
+<div class="space-y-4">
+<PaperCard
+  title={"Partition the Support, Reconstruct the Residual: Training-Free Sparse Attention for Video Generation and World Models"}
+  arxivUrl={"https://arxiv.org/abs/2608.18484"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.18484"}
+  summary={"这篇工作提出 SparsePR，用于训练免费地加速视频生成和世界模型中的块稀疏注意力。作者指出，仅按行集中注意力质量来做稀疏化并不能直接得到可执行的稀疏算子，因此设计了 Response-Coupled Partitioning 与 Probe-Fitted Residual Reconstruction 两个组件。前者通过采样 query-key 响应来形成更合理的分组路由，后者用少量精确 query 行拟合稀疏输出的残差修正，从而补偿被跳过的注意力交互。四个不同的视频生成和世界模型实验表明，SparsePR 能持续降低注意力重建误差，并在 22.0% 到 26.0% 的实际执行密度下取得 1.48x 到 2.61x 的端到端加速。消融结果显示，残差拟合贡献了主要收益，而响应耦合分区进一步降低了硬丢弃误差并提升了有限 probe 预算下的重建效果。"}
+/>
+</div>
