@@ -1,0 +1,94 @@
+---
+title: Papers - 2026-08-27
+description: "吾能观之数千而面色如故"
+publishDate: 2026-08-27
+updatedDate: 2026-08-27
+tags: ['paper reading', 'agent', 'multimodal world model']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## Embodied Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"GigaBrain-0.7: Scaling Embodied Foundation Models to Emergent Capabilities with a Three-System Architecture"}
+  arxivUrl={"https://arxiv.org/abs/2608.15875"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.15875"}
+  summary={"该工作提出 GigaBrain-0.7，一个面向具身智能的 VLA 基础模型，用三系统架构统一理解、预测和动作控制，目标是提升多机器人本体上的泛化能力。方法上，它用超过 3.7 万小时的异构具身数据做预训练，并采用单阶段对齐训练，同时联合优化视觉语言理解与多本体动作生成。系统设计上，三套系统分别负责控制、规划以及预测与评估，使模型能够在执行前显式评估轨迹和任务进展。实验显示，相比前代 GigaBrain-0 系列和 π0.5，模型在零样本能力、语言指令跟随和后训练任务成功率上都有显著提升，并且在 Maker H01 和主流机器人本体上都表现出更强的家居和工业任务适应性。"}
+/>
+
+<PaperCard
+  title={"From Seeing to Acting: Smart Glasses as First-Person Intelligence Platforms"}
+  arxivUrl={"https://arxiv.org/abs/2608.24877"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.24877"}
+  summary={"这篇论文系统梳理了智能眼镜作为第一人称智能平台的发展，强调其需要在受限硬件下持续完成感知、状态、交互到行动的闭环。方法上，作者提出统一框架来刻画第一人称数据流、硬件能力轴、基础能力层级，以及从采集到受控行动再到具身耦合的 L0-L5 体系，并进一步给出部署框架、声明条件评估协议和证据等级体系。论文主要贡献是综述与框架化整理，而非提出单一模型。文中还横向连接了九类应用场景、对应数据集与系统，并指出当前研究在长期验证、可控性和可审计性方面仍存在明显空白。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"Annotations as Rollouts: Efficient and Scalable Reinforcement Learning for Video MLLMs"}
+  arxivUrl={"https://arxiv.org/abs/2608.20492"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.20492"}
+  summary={"本文提出 OraRL，用于视频多模态大模型的强化学习后训练。方法把标注直接作为 oracle rollout，引入解耦的优势估计器来避免高奖励标注导致的 advantage inversion，并通过 sign-balanced pruning 提升训练效率。实验显示，该方法在不依赖 chain-of-thought 的情况下显著提升样本效率和可扩展性，Video-ORA-9B 的推理速度从 4780 ms 降到 130 ms。它还在多个任务上取得提升，例如 temporal mIoU 从 62.5 提高到 66.0，tracking AO 从 73.0 提高到 78.2，segmentation 从 64.3 提高到 70.4。"}
+/>
+
+<PaperCard
+  title={"AutoSaddler: Automatic Harness Optimization with Durable Updates from Agent Execution Traces"}
+  arxivUrl={"https://arxiv.org/abs/2608.23041"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.23041"}
+  summary={"本文提出 AutoSaddler，用离线学习方式自动优化 LLM agent 的 harness。它结合失败轨迹诊断、把 harness 当作代码进行结构化补丁生成，以及基于验证的更新选择，从而把手工调参式的 harness 设计转化为可迭代优化流程。作者在 GAIA2、SWE-Bench Pro 和 Terminal-Bench 2.0 上验证了方法有效性，相比各自基线 harness 分别提升 9.0、9.6 和 10.0 个百分点。消融实验表明，深度调试、定向修改和泛化感知选择是性能提升的关键来源。"}
+/>
+
+<PaperCard
+  title={"CyberFactory: Scaling Cyber Security Capabilities with Instances from the Wild"}
+  arxivUrl={"https://arxiv.org/abs/2608.23181"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.23181"}
+  summary={"本文提出 CyberFactory，一个把真实漏洞转化为可执行、可验证任务实例的开源框架，用来训练网络安全代理模型 Aegis。该框架连接数据构造、轨迹合成和模型训练，覆盖 PoC 生成、漏洞修补与 CyberQA，并通过可复用的漏洞分析技能生成 agentic 监督数据。实验中，Aegis 在 CyberGym 上以一小时预算达到 52.4% Pass@1，比 Qwen 3.5 基座提升 22.8 个百分点，并优于评测中的通用底座模型。结果说明，来自真实漏洞的实例化训练数据能够有效提升开放权重模型的安全能力。"}
+/>
+
+<PaperCard
+  title={"Recursive Experiential-Working Memory Evolution for Long-Horizon Agent Harnesses"}
+  arxivUrl={"https://arxiv.org/abs/2608.24876"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.24876"}
+  summary={"该工作提出 Recuris，用递归的 Experiential-Working Memory 框架来解决长时程 agent harness 中历史过长、状态被稀释和技能调用错位的问题。方法上，Working Memory 负责跟踪当前进度并从 Experiential Memory 中选择技能，执行过程再被转化为结构化证据，用来定位失败来源。之后固定的 Meta-Agent 会基于这些证据，对 Skill Memory 做带验证门控的局部更新，形成一个受约束的递归记忆进化闭环。在 4 个长时程基准和 10 个模型上，Recuris 在 37 个已完成的模型-基准组合里有 35 个带来提升，并在 tau-bench、SkillFlow 等任务上取得显著增益，最长任务上的优势可扩大到 32.2 分，常见失败模式最多减少 80%。"}
+/>
+
+<PaperCard
+  title={"On-policy Distillation with Verifiable Reward"}
+  arxivUrl={"https://arxiv.org/abs/2608.24696"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.24696"}
+  summary={"该工作提出 OPDVR，把 on-policy distillation 和可验证奖励结合起来，目标是在不增加额外超参数的前提下同时获得密集 token 级监督和任务级正确性信号。方法上，它先把 sampled-token OPD 的隐式奖励按轨迹正确性重写，再用 ReLU gating 让正确轨迹得到非负奖励、错误轨迹得到非正奖励。这样一来，采样式 OPD 被改造成可直接接入任意策略梯度算法的 RLVR 形式。在 6 个推理基准上，OPDVR 持续优于标准 OPD，并且在实验中证明了它比简单的加权组合或启发式切换更稳定、更有效。"}
+/>
+
+<PaperCard
+  title={"Best Practice Critic Optimization"}
+  arxivUrl={"https://arxiv.org/abs/2608.23566"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.23566"}
+  summary={"该工作提出 Best-Practice Critic Optimization（BPCO），目的是稳定且高效地训练 LLM 的 critic，用单次采样替代多样本 group 方法。方法上，它组合了 DPPO、有界价值预测、Monte Carlo 价值目标、未归一化策略优势和长度自适应 GAE，并允许 critic 在训练时使用参考答案或 rubric 等策略不可见的特权信息。作者通过控制实验逐项验证这些设计选择的作用，说明不稳定主要来自 critic 训练配方而不只是算法框架本身。在 1.5B 到 30B-A3B 的模型和数学推理任务上，BPCO 持续改进强 critic baseline，并在每个 prompt 只采样 1 个响应时达到或超过 group-based baseline，同时也提升了 rubric 奖励学习效果。"}
+/>
+
+<PaperCard
+  title={"Meta$^n$: Recursive Self-Improvement through Emergent Depth"}
+  arxivUrl={"https://arxiv.org/abs/2608.24735"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.24735"}
+  summary={"这篇工作提出 Meta^n，用一个固定的元操作 Ω 递归作用于不断增长的输入，从而把自我改进从“改答案”推进到“改过程”。方法上，它保持元操作本身不变，通过读取下层求解轨迹与生成代码来逐层构建更高层的推理与工具辅助，并用进化式档案搜索不同层级链路。实验显示，在两个不同骨干模型上，Meta^n 在 8 个基准族上都超过了先前的自改进智能体。作者还报告它在 ARC-AGI-2 上取得了唯一高于零的分数，说明递归深度对困难任务确有帮助。"}
+/>
+</div>
+
+## Multimodal World Model
+
+<div class="space-y-4">
+<PaperCard
+  title={"Game2World Engine: Unlocking In-the-Wild Gameplay Videos for World Model Training"}
+  arxivUrl={"https://arxiv.org/abs/2608.24680"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.24680"}
+  summary={"该工作提出 Game2World Engine，用于把带 HUD、菜单等屏幕覆盖层的实况游戏视频转成更适合世界模型训练的干净数据。方法上，它先从真实游戏视频中抽取可复用的 UI 资产，再与干净 gameplay 片段合成时序一致的 paired 数据，并据此训练 mask-free 的 GameCleaner 来直接去除界面元素而保留场景与运动。作者同时构建了 Game2World 数据集，包含 96K 对合成视频和 1,079 个 in-the-wild 评测片段，覆盖 303 款游戏和 5,132 个已验证 UI 元素。实验显示，GameCleaner 在合成集上取得 95.36 的 AAR 和 99.00 的背景保留，在真实集上取得 80.05 的 AAR 和 99.80 的背景保留，并且用去 UI 的游戏视频训练世界模型可让 VideoReward 提升 6.83%。"}
+/>
+</div>
