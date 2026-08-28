@@ -1,0 +1,98 @@
+---
+title: Papers - 2026-08-28
+description: "吾能观之数千而面色如故"
+publishDate: 2026-08-28
+updatedDate: 2026-08-28
+tags: ['paper reading', 'agent', 'visual reasoning', 'multimodal world model']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## Grounding-driven Visual Reasoning
+
+<div class="space-y-4">
+<PaperCard
+  title={"VBVR-Pro: A Scalable and Verifiable Suite for Native Visual Reasoning"}
+  arxivUrl={"https://arxiv.org/abs/2608.26105"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.26105"}
+  summary={"No summary available."}
+/>
+</div>
+
+## Embodied Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"StreamPI: Streaming Multimodal Temporal Modeling for Vision-Language-Action Models"}
+  arxivUrl={"https://arxiv.org/abs/2608.26067"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.26067"}
+  summary={"本文提出 StreamPI，用于给单帧视觉-语言-动作（VLA）模型补充流式时间推理能力，并且不增加额外参数。方法上，它把每个“视觉观测+语言指令”视为一个时间原子，块内用双向注意力做跨模态融合，块间用因果注意力保持自回归流式推理。作者还引入随机间隔流式训练，以适配真实机器人部署中的异步帧率，并利用LLM骨干的长度外推能力直接继承单帧权重。实验在真实机器人上的记忆依赖与精细感知任务，以及 LIBERO 仿真基准上都优于 pi0.5。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"FrontierChallenge: Evaluating Scientific Workflow Completion"}
+  arxivUrl={"https://arxiv.org/abs/2608.24979"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.24979"}
+  summary={"这篇工作提出 FrontierChallenge，用于评测 AI 代理是否能端到端完成真实科学工作流并交付可验证产物。基准覆盖 300 个跨学科工作流，本文先发布并评测其中 97 个任务，涉及量子化学、分子动力学、材料表征、分析化学、生命科学和电化学/环境等领域，并用 Pass Rate 与 Avg. Score 同时衡量完整交付和部分进展。作者在 12 个前沿模型和 3 种 agent scaffold 上做实验，最优配置也只完成了 20/97 个任务，通过率 20.6%。结果还显示，部分分数与真正完成度并不一致，且大量失败轨迹会在结束时声称已经完成，说明需要同时评估端到端执行和交付完整性。"}
+/>
+
+<PaperCard
+  title={"JIT-Agent: Scaling Harness Intelligence via Just-in-Time Harness Evolution"}
+  arxivUrl={"https://arxiv.org/abs/2608.25593"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.25593"}
+  summary={"这篇工作提出 JIT-Agent，一个可训练的 harness intelligence 模型，用来为任意现成 LLM 按任务即时生成自适应的 agent harness。方法上，作者把 harness 形式化为由记忆管理、规划策略、动作协议和工具/技能编排组成的可组合工件，并训练模型在执行过程中进行定制、修复和自我演化。实验表明，借助 JIT-Agent，DeepSeek-V4-Flash 在 DeepSearchQA 和 OdysseyBench 上分别超过 GPT-5.6 9.1 分和 4.3 分，GLM-5.2 最高提升 20.2 分。控制实验还显示，JIT-Agent 生成的 harness 在多种模型族上都能稳定增益，并与成熟 agent runtime 相当。"}
+/>
+</div>
+
+## Multimodal World Model
+
+<div class="space-y-4">
+<PaperCard
+  title={"VGI-BENCH: Probing Visual Intelligence in Video Generation Models"}
+  arxivUrl={"https://arxiv.org/abs/2608.19583"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.19583"}
+  summary={"这篇工作提出 VGI-Bench，用 27 个任务、810 个样例来评测视频生成模型中的视觉推理能力。作者按任务领域和技能标签构建了两层分类体系，并专门考察模型在演化过程中的推理可靠性与自我修正能力。实验显示，当前生成式系统只能解决一部分具备视觉约束的推理任务，最强模型 Seedance 2.0 也只达到 51.0% 的通过率。进一步分析表明，模型的失败主要来自输入敏感性和有限的自我纠错，后续步骤更多是在修补早期假设而不是纠正推理错误。"}
+/>
+
+<PaperCard
+  title={"D$^3$-MOPD: Adaptive Dynamic Domain ScheDuling for Efficient Multi-Teacher Distillation"}
+  arxivUrl={"https://arxiv.org/abs/2608.24987"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.24987"}
+  summary={"No summary available."}
+/>
+
+<PaperCard
+  title={"Is Next-Chunk Reasoning RL Really Better than SFT? Revisiting Training Strategies under no-CoT Data"}
+  arxivUrl={"https://arxiv.org/abs/2608.23256"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.23256"}
+  summary={"No summary available."}
+/>
+
+<PaperCard
+  title={"Open-MOPD: Diagnosing and Fixing Capability Imbalance in Multi-Teacher On-Policy Distillation"}
+  arxivUrl={"https://arxiv.org/abs/2608.19098"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.19098"}
+  summary={"No summary available."}
+/>
+
+<PaperCard
+  title={"Video-IFBench: Evaluating Instruction Following of Multimodal LLMs in Video Understanding Scenarios"}
+  arxivUrl={"https://arxiv.org/abs/2608.25529"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.25529"}
+  summary={"No summary available."}
+/>
+
+<PaperCard
+  title={"Code World Model: Coding Agent as World Brain"}
+  arxivUrl={"https://arxiv.org/abs/2608.25927"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.25927"}
+  summary={"本文提出 Code World Model，把代码代理作为“世界大脑”，将世界演化和视觉生成解耦，以支持可持续、开放式的世界建模。方法上，它让语言模型生成可执行代码来维护世界状态与规则一致的演化，再把状态编译成 proxy 表示和 proxy video 送入视频模型生成高保真观测，同时还构建了来自游戏和真实视频的对齐 proxy-observation 数据。作者进一步说明这种分层设计能让模型既保留逻辑一致性，又保持丰富的视觉细节和动态。实验表明，在 paired gameplay data 上微调后，MiniMax-H3 能遵循代理中的时空约束，在简单交互世界中持续演化并保持高质量视觉效果。"}
+/>
+</div>
