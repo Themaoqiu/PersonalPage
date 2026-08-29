@@ -1,0 +1,87 @@
+---
+title: Papers - 2026-08-29
+description: "吾能观之数千而面色如故"
+publishDate: 2026-08-29
+updatedDate: 2026-08-29
+tags: ['paper reading', 'agent', 'multimodal world model']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## Embodied Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"UrbanGround: From Local Perception to Spatial Agency in a Real-Scale City"}
+  arxivUrl={"https://arxiv.org/abs/2608.27456"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.27456"}
+  summary={"本文提出 UrbanGround，一个基于香港真实尺度 3D 地理数据构建的城市沙箱，用来评估多模态大模型代理能否把局部街景感知转化为可靠的城市级行动。系统支持第一人称闭环交互、交互地图和动态城市条件，作者据此设计了从局部理解、长距离导航到路线变化和行人干扰的分层任务。实验表明，当前 MLLM 代理在局部识别和短程空间推理上尚可，但任务一旦拉长或环境变动，错误会累积并导致目标导向行为失稳。"}
+/>
+
+<PaperCard
+  title={"Zero-WAM: In-Context World-Action Modeling from Human Videos for Open-Ended Task Generalization"}
+  arxivUrl={"https://arxiv.org/abs/2608.26103"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.26103"}
+  summary={"Zero-WAM 把机器人跨任务泛化问题转化为 in-context learning，用人类演示视频作为任务提示，让因果 video-action model 在不更新参数的情况下执行未见过的操作。为缓解配对人机数据稀缺，作者构建了 HumanGen 管线，将机器人轨迹自动转成语义匹配的人类视频，得到 74.2K 对、8.6K 任务的数据集，并用 in-context future chunk prediction 抑制依赖历史轨迹的捷径。实验显示它在 RoboTwin 2.0 的 7 个未见任务上平均成功率达到 47.0%，比最强 video-action baseline 高 29.5 个百分点，真实机器人实验也能泛化到多物体、长时序和精细插入场景。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"What Makes Good Agentic Data? An ACE Lens on Data Generation for LLM Agents"}
+  arxivUrl={"https://arxiv.org/abs/2608.27260"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.27260"}
+  summary={"这篇工作把 LLM agent 的数据生成问题抽象为受约束的分布设计，并提出 ACE（Accuracy-Complexity-divErsity）框架来统一分析不同生成范式。作者将 agentic data 表示为由环境、任务、交互和验证器组成的因子化对象，并据此梳理生成、验证、难度校准和覆盖扩展的关系。论文没有新的大规模基准实验，实证结论主要来自对现有工作的系统梳理，显示领域正从单纯扩量转向执行可验证的准确性、与学习者能力匹配的复杂度以及更低冗余的多样性。"}
+/>
+
+<PaperCard
+  title={"PILOT in the Loop: Live Self-Improvement for Long-Horizon Agents"}
+  arxivUrl={"https://arxiv.org/abs/2608.26530"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.26530"}
+  summary={"PILOT 提出一种面向长链路 agent 的 live self-improvement 框架，让监督者在执行中实时干预 worker，并把运行中暴露出的流程和失败模式蒸馏为可复用技能与记忆。它采用 supervisor-worker harness，把 live steering 和 live self-evolution 结合起来，避免传统方法只能在任务结束后再反思和更新。实验中，PILOT 在两种冻结 backbone 和三个基准上有 5/6 组配置取得第一，在 Terminal-Bench 2.0 上最高提升 9.8 个百分点，同时把平均输出 token 降低 42.9% 到 47.4%。"}
+/>
+
+<PaperCard
+  title={"Training Agents to Evolve with Their Harness: TaoLive Digital Avatar Agent Technical Report"}
+  arxivUrl={"https://arxiv.org/abs/2608.15763"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.15763"}
+  summary={"这篇技术报告面向直播电商中的数字人智能体，解决模型权重更新慢但业务规则和工具配置变化快的矛盾。作者提出 Harness-Aware Training（HAT），并通过 Harness-State Augmentation（HSA）在技能标识、工具 schema、提示结构和 Hook 上做任务保持扰动，再结合监督微调、通用 on-policy 蒸馏和强化学习三阶段训练。实验覆盖 4 个评测集、4500+ 个案例，35B 轻量模型在 Live-Stream QA 上达到 94.8 分，在 Harness-Variant QA 上达到 94.6 分，同时 IFEval 保持 83.5 分。系统在单张 NVIDIA H20 GPU 上实现了 3.407 秒 P50 和 8.114 秒 P95 延迟，并在淘宝直播线上 A/B 测试中带来正向业务收益。"}
+/>
+
+<PaperCard
+  title={"WikiSkill: Compiling Agent Experience into Persistent Knowledge for Skill Evolution"}
+  arxivUrl={"https://arxiv.org/abs/2608.27454"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.27454"}
+  summary={"这篇论文提出 WikiSkill，用持续知识库把智能体的执行经验系统化编译成可复用技能。方法上，它把原始执行轨迹、累积知识和可执行技能分离开来，并在迭代过程中不断把经验沉淀进 wiki，再由后续技能更新利用这些知识。作者在多种基准和模型上验证后发现，WikiSkill 持续优于现有 skill-evolution 方法，并在大多数设置下超过无技能基线。结果还表明，技能演化与模型规模扩展是互补的，小模型借助技能可超过更大的无技能模型，而且跨模型和跨家族迁移都有效，消融实验也证明持续知识积累是关键。"}
+/>
+</div>
+
+## Multimodal World Model
+
+<div class="space-y-4">
+<PaperCard
+  title={"Agentic Game Development as a Verifiable Trajectory Data Engine for Scaling World Models"}
+  arxivUrl={"https://arxiv.org/abs/2608.25518"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.25518"}
+  summary={"本文提出 AWoMo 和 RLHEV，把游戏开发过程视为可验证的轨迹数据引擎，用引擎级碰撞、物理、可达性检查和开发者接受/拒绝反馈来后训练空间世界模型。作者把开发轨迹整理成多模态训练数据，并在 UnitySceneBench 的 200 个资产编辑样本上做对照实验。结果显示，Full RLHEV 在 best-of-eight 设置下取得 0.681 的 primary score，准确率、平衡准确率、F1 和 AUC 也都是最优。跨引擎实验中，从 Unity 迁移到 Unreal 和 Godot 都带来正向提升，AWoMo 生成的数据还让 R2R、Gymnasium MuJoCo 和 D4RL Gym-MuJoCo 分别提升 0.79%、9.96% 和 48.43%。"}
+/>
+
+<PaperCard
+  title={"PAWBench: How Far Are We from Probabilistically Aligned World Modeling?"}
+  arxivUrl={"https://arxiv.org/abs/2608.27345"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.27345"}
+  summary={"本文形式化提出 probabilistic alignment，主张世界模型不仅要生成合理视频，还要在相同初始观测和动作下复现未来行为的概率分布。作者构建 PAWBench 和 PAWEval，把重复视频 rollout 转成物理行为的经验分布，并在 50 个场景、11 个视频生成系统上评估。结果表明，没有任何模型能够稳定同时匹配参考概率并覆盖所有有效行为。进一步分析发现，提示词、初始噪声和微调只能局部改变分布，不能可靠恢复场景条件下的真实未来分布。"}
+/>
+
+<PaperCard
+  title={"GameWAM: A World Action Model for Video Games"}
+  arxivUrl={"https://arxiv.org/abs/2608.26200"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.26200"}
+  summary={"GameWAM 提出一个面向原生视频游戏控制的统一世界-动作模型，同时预测未来画面和可执行的键鼠动作。方法上，它用并行的视频和动作生成网络、block-causal conditioning、flow matching 和 block-cycle replanning 来支持长时序闭环交互，并对游戏与 GUI 的异构控制设计了模式路由与分布建模。实验显示它在 Minecraft 和 ViZDoom 上取得有竞争力的任务成功率，而且在 Minecraft 中相比对照方法使用了更少的原生动作，同时还发现了低频动作源印记 LASI 这一新的失效模式。"}
+/>
+</div>
