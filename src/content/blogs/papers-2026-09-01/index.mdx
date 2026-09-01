@@ -1,0 +1,106 @@
+---
+title: Papers - 2026-09-01
+description: "吾能观之数千而面色如故"
+publishDate: 2026-09-01
+updatedDate: 2026-09-01
+tags: ['paper reading', 'agent', 'visual reasoning', 'multimodal world model']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## Grounding-driven Visual Reasoning
+
+<div class="space-y-4">
+<PaperCard
+  title={"Beyond Data Scaling: Representation-Centric Continued Pre-training for Vision-Language-Action Models"}
+  arxivUrl={"https://arxiv.org/abs/2608.27550"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.27550"}
+  summary={"No summary available."}
+/>
+</div>
+
+## 3D/Space Reasoning
+
+<div class="space-y-4">
+<PaperCard
+  title={"Revisiting Local Context for Long-Horizon Streaming 3D Reconstruction"}
+  arxivUrl={"https://arxiv.org/abs/2608.27529"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.27529"}
+  summary={"ABot-Recon 面向超长视频的在线三维重建，目标是在有限显存和计算下稳定估计相机位姿与场景几何。它只缓存前 11 帧的 KV 特征，并在当前相机坐标系下预测点图和相邻帧相对位姿，再通过顺序复合恢复全局轨迹与几何。为减轻长期漂移，方法加入轻量时序细化器和面向位姿复合的一致性损失。实验在长序列基准上表现更稳健，在 Oxford Spires 上将 ATE 降到 4.35m、RPE-R 降到 0.12°，相对最优前作误差约降低 40%。"}
+/>
+</div>
+
+## 3D LLM
+
+<div class="space-y-4">
+<PaperCard
+  title={"DART-SD: Diamond-topology Aware Retrieval and Tuning for Self-Distillation of Multi-Turn Tool-Calling Agents"}
+  arxivUrl={"https://arxiv.org/abs/2608.18524"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.18524"}
+  summary={"No summary available."}
+/>
+
+<PaperCard
+  title={"Agentic Artifact Creation: Systems, Evaluation, Principles, and Opportunities"}
+  arxivUrl={"https://arxiv.org/abs/2608.28122"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.28122"}
+  summary={"Generative models can turn natural-language prompts into images, text, code, and other content, lowering the cost of producing drafts and components. Their practical impact increasingly depends on whether those pieces can become complete, dependable deliverables. This survey examines agentic artifact creation, which we define as stateful construction in which an AI system materially constructs or revises a deliverable and intermediate observations redirect later work. Functionally, the process links an operational representation of the artifact, a construction policy, and runtime verification whose feedback can redirect later actions. We reviewed 259 works available through August 20, 2026: 230 systems meeting this definition and 29 benchmarks of agentic artifact construction. We compare six artifact families, then analyze application settings and evaluation practice as separate dimensions. Across families, construction challenges reflect not only modality but also how tightly decisions are coupled and whether failures become visible while they remain repairable. Decomposition can reduce local complexity while increasing coordination and reassembly costs. Learned judges may add little independent evidence when they share the generator's preferences or blind spots. We formulate principles for keeping commitments and responsibility explicit, turning feedback into targeted repair, and revalidating affected state after change. We also identify opportunities for sustaining coherent, accountable control as artifacts, creator intent, and construction systems evolve. A curated paper list is available at https://github.com/GeminiLight/awesome-agentic-artifact-creation."}
+/>
+
+<PaperCard
+  title={"Code as Worlds: Agentic Discovery of Executable World Representations for Physical Reasoning"}
+  arxivUrl={"https://arxiv.org/abs/2608.27549"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.27549"}
+  summary={"Physical understanding and reasoning depend on forming compact and generalizable representations of the world. While modern vision-language models can recognize and explain diverse physical events, they often lack explicit representations of the underlying mechanisms-such as object states, physical parameters, and governing dynamics-needed for reliably reasoning how the world evolves and responds to interventions. In this work, we introduce Code-as-World, a paradigm that represents physical worlds through executable world representations. By expressing physical composition, dynamic evolution, and visual appearance as executable code, Code-as-World provides a compact, quantitatively grounded, and controllable abstraction of the physical world. To construct such representations from multimodal observations, such as natural-language descriptions or real-world videos, we develop an agentic discovery loop inspired by abductive reasoning, where an agent proposes, executes, renders, verifies, and iteratively refines executable world hypotheses. As a concrete application, we use verified executable worlds to provide scalable physical supervision for training vision-language models on quantitative physical reasoning. Experiments show that Code-as-World-VL achieves state-of-the-art performance on QuantiPhy and surpasses leading proprietary models, highlighting the potential of executable world representations as a scalable foundation for physical intelligence."}
+/>
+</div>
+
+## Embodied Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"Act with Intent: Distilling Behavior Intent for Vision-Language-Action Models"}
+  arxivUrl={"https://arxiv.org/abs/2608.23478"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.23478"}
+  summary={"INDI 面向视觉-语言-动作模型中的动作解码器，提出把“行为意图”显式蒸馏进策略内部，而不仅仅依赖行为克隆。训练时，一个冻结的教师 VLM 结合当前观测、指令、粗粒度动作摘要和执行视频来解释示范片段，部署时模型在解码器中间层恢复这一多模态意图表示，并据此联合组织动作、执行过程和结果三类表征。实验中，GR00T-N1.7 在 SimplerEnv-Bridge 上从 64.3% 提升到 84.7%，在 RoboCasa Kitchen 上从 64.1% 提升到 70.3%，真实机器人任务的平均成功率也从 62.0% 提升到 68.7%。作者还报告了最长时程任务最高可提升 12.0 个百分点，说明显式建模行为目标能显著增强长程操作能力。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"ContextPilot: Teaching Agents for Proactive Context Management via Fine-grained RL"}
+  arxivUrl={"https://arxiv.org/abs/2608.28476"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.28476"}
+  summary={"ContextPilot 研究长时程智能体的主动上下文管理，目标是在多轮交互中保留关键信息，同时控制工作上下文规模。方法上，它扩展了工具集，引入规划、长期记忆和软卸载等能力，并提出一种细粒度 RL：利用上下文与熵变化挑选关键编辑决策，对经过该决策的分支轨迹估计动作级优势。实验在长上下文问答和深度搜索任务上验证了该框架，结果显示它能在更紧凑的上下文中稳定优于现有基线。"}
+/>
+
+<PaperCard
+  title={"StarHarness: Evolving Harnesses with Stratified Search for Enterprise Environments"}
+  arxivUrl={"https://arxiv.org/abs/2608.24804"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.24804"}
+  summary={"本文提出 StarHarness，在保持模型权重不变的前提下，自动演化面向特定企业环境的 agent harness，包括提示词、任务框架、工具接口、技能、MCP 后端、子代理结构和 agent 循环配置。方法上，它通过分层搜索构建紧凑的进化池，将任务按基线失败模式分层，并把可见于提议阶段的搜索任务与隐藏的选择任务分离，同时保留留出任务评估泛化能力。作者在 ITBench SRE、EnterpriseOps-Gym ITSM 和 AutomationBench Finance 上验证，经过 4 到 12 次被接受的修改后，整体 benchmark 性能比默认 harness 提升了 20 到 35 个百分点。结果还显示，这些收益能在未参与演化的任务上保持，并可在 GPT 与 Qwen 模型家族之间迁移。"}
+/>
+</div>
+
+## Multimodal World Model
+
+<div class="space-y-4">
+<PaperCard
+  title={"J-Zero: Unified Challenger--Solver--Judge Co-Evolution from Zero Data"}
+  arxivUrl={"https://arxiv.org/abs/2608.26582"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.26582"}
+  summary={"Self-evolving language models have recently emerged as a promising path toward superintelligence, with the advantage of reducing the cost of human supervision. While considerable progress has been made in verifiable domains, self-evolution in unverifiable domains remains substantially less explored. We propose Judge co-adaptation from Zero data (J-Zero), a unified Challenger--Solver--Judge co-evolution framework that supports self-improvement across both domains. The Challenger and Solver co-evolve through an adversarial interaction: the Challenger generates increasingly difficult tasks, while the Solver learns to produce higher-quality responses to them. In parallel, the Judge co-adapts using preference pairs whose ordering is known in advance from how each response was produced, i.e., the Solver's answer over the Challenger's, and its decomposed-and-recombined answer over its one-shot answer, rather than from the Judge's own scores. J-Zero outperforms the baselines by an average of 4.2 points on verifiable and 8.0 points on unverifiable domains, and continues to improve through at least ten iterations, whereas the baselines degrade after two."}
+/>
+
+<PaperCard
+  title={"LayerRecall: A State-Conditioned Memory Router for Long-Horizon Consistency in Video Generation"}
+  arxivUrl={"https://arxiv.org/abs/2608.28460"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.28460"}
+  summary={"LayerRecall 针对长视频生成中的长期一致性问题，提出一种状态条件化的记忆路由器，用来从历史缓存中检索相关 K/V 并按层注入到对记忆最敏感的网络层。它还提出 CHPM 训练策略，用带长上下文的参考结果在预测空间监督有限记忆路由，从而减少对昂贵长视频标注的依赖。实验显示，该方法在 100 个多镜头提示上于 MemoBench 和 MovieBench 取得最佳总体结果，同时在 VBench-Long 上与骨干模型持平。定性与定量分析表明，它能更好地恢复久远历史信息，而不破坏局部连续性，且推理开销很小。"}
+/>
+</div>
