@@ -1,0 +1,74 @@
+---
+title: Papers - 2026-09-03
+description: "吾能观之数千而面色如故"
+publishDate: 2026-09-03
+updatedDate: 2026-09-03
+tags: ['paper reading', 'agent', 'visual reasoning', 'multimodal world model']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## Multimodal Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"UI-Venus-2 Technical Report"}
+  arxivUrl={"https://arxiv.org/abs/2609.00028"}
+  hjfyUrl={"https://hjfy.top/arxiv/2609.00028"}
+  summary={"UI-Venus-2 是一个面向手机、网页和桌面的通用 GUI 代理，采用统一的闭环推理-行动框架来执行数字任务。它通过扩展到 170 多个多语言移动应用和原生桌面系统、用深度检索流水线生成函数约束任务，并结合轨迹级/样本级评估器、视觉关键点和多模型投票来提供更可靠的 RL 训练信号。作者还加入安全感知机制，控制高风险动作的执行。实验表明，这套方法在真实场景的泛化、可验证性和自我反思能力上都有明显提升。"}
+/>
+</div>
+
+## 3D Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"Qwen-Drive-1.0: An Initial Step towards a Vision-Language Foundation Model for Autonomous Driving"}
+  arxivUrl={"https://arxiv.org/abs/2609.00111"}
+  hjfyUrl={"https://hjfy.top/arxiv/2609.00111"}
+  summary={"Qwen-Drive-1.0 是一个面向自动驾驶的视觉语言基础模型，把 3D 感知、视觉问答和运动规划统一到同一框架中。它保留预训练 VLM 的主体架构，并通过外部 BEV 感知头联合完成 3D 目标检测、语义占用预测和 BEV 地图分割，另用规划专家基于共享表示生成未来轨迹。作者还采用分阶段训练，把驾驶监督和通用视觉语言数据结合起来，以兼顾驾驶能力和通用理解。实验表明，该模型在 3D 感知、场景理解以及开放环、伪闭环和闭环规划评测中都具有很强竞争力，同时较好保留了通用视觉语言能力。"}
+/>
+</div>
+
+## Embodied Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"Evaluating Multimodal LLMs as Generalist Vision-Language-Action Agents for Drone Control: Commanding, Approaching, Tracking and Searching"}
+  arxivUrl={"https://arxiv.org/abs/2609.01404"}
+  hjfyUrl={"https://hjfy.top/arxiv/2609.01404"}
+  summary={"本文提出 DroneCATS-Agent 与 DroneCATS 基准，用来评估多模态大模型作为无人机视觉-语言-动作代理的能力。作者将 MLLM 直接放入控制回路，并通过提示词定义动作空间，使模型无需微调或函数调用即可完成靠近、跟踪、搜索和多机指挥等任务。实验比较了前沿模型与 2B 级开源模型，结果显示小模型常能更稳定地飞入目标成功半径，但经常在到达声明上出错。多机场景进一步暴露出模型会把单一坐标机械复制到不同视角，说明当前瓶颈不在空间感知，而在动作协议和终止控制。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"DiagEvo: Diagnosis-Guided Self-Evolution via Hierarchical Error Memory"}
+  arxivUrl={"https://arxiv.org/abs/2609.00768"}
+  hjfyUrl={"https://hjfy.top/arxiv/2609.00768"}
+  summary={"这篇工作提出 DiagEvo，一种基于诊断历史的自我进化方法，用来提升语言模型在自我对弈式训练中的持续进步能力。方法核心是让诊断器从模型失败记录中抽取重复错误原因，并用层次化错误记忆管理这些原因，再由挑战器据此在“针对性出题”和“自由探索”之间平衡。作者还设计了 double-confidence filtering，只保留最常见答案具有明显票差的中等难度问题。实验显示，DiagEvo 在 Qwen3-4B、Qwen3-8B 和 OctoThinker-8B 三个 solver 上都优于所有基线；在 Qwen3-8B 上，五个数学推理基准的平均准确率达到 72.3%，比 R-Zero 高 4.5 个百分点。它在九个基准上的平均准确率达到 57.4%，比 DARC 高 1.1 个百分点，消融实验也证明层次化错误记忆和 double-confidence filtering 都带来稳定收益。"}
+/>
+</div>
+
+## Multimodal World Model
+
+<div class="space-y-4">
+<PaperCard
+  title={"H3-World: Turning Language Understanding into World Control"}
+  arxivUrl={"https://arxiv.org/abs/2609.01560"}
+  hjfyUrl={"https://hjfy.top/arxiv/2609.01560"}
+  summary={"H3-World 将 33B 的 MiniMax-H3 视频生成器改造成一个可交互的世界模型，让语言成为控制角色和镜头的自然接口。方法上，它把动作表示为角色与摄像机指令的结构化组合，并用 temporal attention routing 将每条指令限制在对应时间片段内，从而减少跨动作的控制泄漏。只用 8,000 条游戏样本、10,000 步 LoRA 微调和 0.199% 可训练参数，模型就能实现有效的角色与镜头控制。实验还表明，它在未见场景中具备良好泛化能力，并能保持较强的生成质量。"}
+/>
+
+<PaperCard
+  title={"ZimaBlue: Evolving Generalizable World Action Models through Scalable Video Pre-training"}
+  arxivUrl={"https://arxiv.org/abs/2609.00188"}
+  hjfyUrl={"https://hjfy.top/arxiv/2609.00188"}
+  summary={"本文提出 ZimaBlue，用大规模视频预训练学习可泛化的 World Action Model，并将其用于机器人操控。方法上采用三阶段课程：先在大规模人类和机器人第一视角视频上做因果式具身视频预训练，再用统一动作表示把视觉动力学与机器人轨迹对齐，最后针对目标机器人进行专项适配。为满足实时控制，作者还设计了 Slow-Fast 双系统架构，让高容量慢分支学习时空表征、轻量快分支实现 30 Hz 动作预测。真实机器人零样本实验显示，从仅用目标机器人数据扩展到超过 12 万小时具身视频后，成功率由 36.1% 提升到 77.8%，并在多个基准尤其是未见任务上取得更强表现。"}
+/>
+</div>
