@@ -1,0 +1,70 @@
+---
+title: Papers - 2026-09-05
+description: "吾能观之数千而面色如故"
+publishDate: 2026-09-05
+updatedDate: 2026-09-05
+tags: ['paper reading', 'agent', 'visual reasoning', 'multimodal world model']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## Thinking with Code/Structure
+
+<div class="space-y-4">
+<PaperCard
+  title={"Editable Visual Design"}
+  arxivUrl={"https://arxiv.org/abs/2609.04034"}
+  hjfyUrl={"https://hjfy.top/arxiv/2609.04034"}
+  summary={"论文提出 Editable Visual Design，把视觉设计从端到端位图生成改造成由 Coding Agent 驱动的可编辑工作流。方法上，它让 VLM 负责需求理解、任务规划和审美判断，再用图像生成模型按需生成独立素材，并在先想象后行动的闭环中持续生成原生 HTML/CSS、结合渲染反馈迭代优化。作者还提出 Agent Design Replay，用来复现类似人类设计师的创作与推理轨迹。在海报、信息图等场景的验证中，该范式同时实现了更精致的视觉效果和生产级可编辑性。"}
+/>
+</div>
+
+## Spatial Intelligence (Image/Video)
+
+<div class="space-y-4">
+<PaperCard
+  title={"Scal3R: Learning Efficient Multi-Relative Pose Query for Scalable Online 3D Reconstruction"}
+  arxivUrl={"https://arxiv.org/abs/2609.04201"}
+  hjfyUrl={"https://hjfy.top/arxiv/2609.04201"}
+  summary={"Scal3R 解决长视频在线 3D 重建中，基于第一帧的位姿回归容易随序列变长而漂移的问题。它将任务改写为多参考相对位姿查询，只用约 1% 参数的可学习 token 通过非对称注意力从冻结骨干中读取多个历史关键帧的位姿信息。作者再结合在线位姿图优化和回环约束，抑制长距离漂移，并指出深度分支相对稳定、主要瓶颈在全局位姿头。实验显示该方法在单卡 8 小时内收敛，在 KITTI 上平均 ATE 比在线基线下降 60% 以上，并在 Virtual KITTI、Sintel、TUM-Dynamic、ScanNet 和 7-Scenes 上取得 SOTA。"}
+/>
+
+<PaperCard
+  title={"Beyond Retrieval: Progressive Latent Memory Evolution for Streaming Video Understanding"}
+  arxivUrl={"https://arxiv.org/abs/2609.04131"}
+  hjfyUrl={"https://hjfy.top/arxiv/2609.04131"}
+  summary={"论文提出 LatentStream，用于流式视频理解，在严格因果约束和有限记忆下，把历史视觉证据从外部检索推进为检索并内化的潜在记忆。方法上，它设计了查询无关的层级流式记忆压缩、分组 latent memory 的层级演化机制，以及基于置信度的潜在记忆优化，以更紧凑的固定长度记忆持续支撑推理。作者在多个在线和离线视频基准上做了广泛实验。结果表明，该方法取得了新的 state-of-the-art。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"Terminal-Universe: Turning Agent Trajectories into Scalable Terminal Environments"}
+  arxivUrl={"https://arxiv.org/abs/2609.04148"}
+  hjfyUrl={"https://hjfy.top/arxiv/2609.04148"}
+  summary={"本文提出 Terminal-Universe，把已有终端智能体轨迹转化为可复用的终端环境。方法上先回放轨迹中的文件操作恢复出部分工作区，再由补全代理补齐缺失文件和依赖，并在此基础上重建原始任务、合成新任务，还沿着宽度和深度两个方向扩展任务规模。作者据此从公开轨迹中构建了 37.3k 个任务充分的环境，用于后续训练与评测。将 Qwen3.5-27B 在该语料上做监督微调后，Terminal-Bench 2.1 单轮性能提升 11.9 分，EvoCode-Bench v2 多轮性能提升 13.8 分。"}
+/>
+
+<PaperCard
+  title={"Knowing When Not to Reuse: Conditional Experience Transfer in Autonomous LLM Post-Training"}
+  arxivUrl={"https://arxiv.org/abs/2608.26730"}
+  hjfyUrl={"https://hjfy.top/arxiv/2608.26730"}
+  summary={"本文研究自治 LLM 后训练中的经验复用问题，指出历史更新证据在模型继续训练后可能失效，直接复用会带来算力浪费甚至引入有害更新。作者提出 BCIT（Boundary-Calibrated Intervention Transfer），在权重更新前为经验绑定来源上下文、检查适用条件、显式拒绝硬冲突候选，并在必要时通过受限训练试验获取当前状态证据。实验覆盖一个 4B 模型在 finance reasoning、text-to-SQL 和 function calling 等任务上的持续适配，显示不同上下文下历史更新的目标和保留效应差异显著。与对比方法相比，BCIT 能授权更少的有害更新，并在相同预算下取得更高的最终模型质量。"}
+/>
+</div>
+
+## Multimodal World Model
+
+<div class="space-y-4">
+<PaperCard
+  title={"Puffin-World: Scaling a Unified Multimodal Model with Native 3D World States"}
+  arxivUrl={"https://arxiv.org/abs/2609.04196"}
+  hjfyUrl={"https://hjfy.top/arxiv/2609.04196"}
+  summary={"该工作提出 Puffin-World，一个统一的多模态 3D 世界模型，把物理、几何和外观三种原生世界状态联合建模，用于世界生成、重建和交互。方法上，它用 Omni-Camera 表征统一相机与运动信息，并设计未来帧物理传播机制来维持物理一致性和视觉稳定性。模型还把外观与几何放在同一生成流程中联合预测，从而支持 mimic、self-calibrated exploration 等闭环任务。作者构建了 Puffin-16M 数据集并公开代码和模型，实验表明该框架能在复杂场景中更稳定地生成并重建 3D 世界。"}
+/>
+</div>
