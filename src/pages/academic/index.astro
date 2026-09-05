@@ -28,7 +28,7 @@ const headings = [
     🎓 I am an undergraduate student majoring in Information Management and Information Systems at <a href="https://www.shiep.edu.cn/">Shanghai University of Electric Power</a>. I am currently interning at the Monash <a href="https://aim-for-health-suzhou-embodied-ai.github.io/">Suzhou Embodied AI Team</a>, <a href="https://www.monash.edu/it/aimh-lab">AIM for Health Lab</a>, carrying out close scientific research cooperation with <a href="https://shijian2001.github.io/">Shijian Wang</a> and <a href="https://tomorrow1sanotherday.github.io/">Runhao Fu</a>, and hope to join the lab under the supervision of <a href="https://xueliancheng.github.io/">Prof. Xuelian Cheng</a> and <a href="https://zongyuange.github.io/">Prof. Zongyuan Ge</a>.
   </p>
   <p>
-    🔍 I'm currently focusing on data-centric approaches to Video Multimodal Large Language Models. I see that Video MLLMs are an essential pathway toward developing World Models, as they empower AI to interpret and understand the physical world through video, much like how humans perceive reality.
+    🔍 I study <strong>reasoning Multimodal Large Language Models</strong> - building AI models/systems that connect perception, language, and physical reality. More broadly, I am interested in how models can develop a correct understanding of the world through perception, reasoning, and interaction. I view this as fundamental to building AI systems capable of completing complex, long-horizon tasks in the real world—and, more generally, to intelligence itself.
   </p>
   <p>
     💪  Although I haven't achieved much advanced academic attainments yet, I am striving to improve myself every day.
@@ -58,8 +58,8 @@ const headings = [
           icon: 'openmined'
         },
         {
-          title: 'Video Understanding',
-          description: 'Video grounding, Video reasoning, and Video dataset constructing',
+          title: 'Agentic AI',
+          description: 'Task planning, tool use, and long-horizon autonomous execution',
           icon: 'bilibili'
         }
       ].map((interest) => (
@@ -96,6 +96,26 @@ const headings = [
   <PublicationSection
     publications={[
       {
+        title: 'Learning Compositional Spatio-Temporal Video Grounding with Synthetic Curriculum',
+        authors: [
+          { name: 'Xingjian Wang', isMe: true, isEqual: true },
+          { name: 'Shijian Wang', isEqual: true },
+          { name: 'Yibo Wang' },
+          { name: 'Zihao Yu' },
+          { name: 'Runhao Fu' },
+          { name: 'Xuelian Cheng' },
+          { name: 'Zongyuan Ge' }
+        ],
+        venue: 'EMNLP\'26 Findings',
+        year: '2026',
+        type: 'conference',
+        abstract: '',
+        links: [
+          { type: 'arxiv', href: 'https://arxiv.org/abs/2608.30584' },
+        ],
+        status: 'accepted'
+      },
+      {
         title: 'Video-Thinker: Sparking "Thinking with Videos" via Reinforcement Learning',
         authors: [
           { name: 'Shijian Wang' },
@@ -108,16 +128,16 @@ const headings = [
           { name: 'Yuan Lu' },
           { name: 'Xuelian Cheng' }
         ],
-        venue: 'ICML',
+        venue: 'Arxiv',
         year: '2026',
         type: 'conference',
         abstract: '',
         links: [
+          { type: 'arxiv', href: 'https://www.arxiv.org/abs/2510.23473' },
           { type: 'github', href: 'https://github.com/shijian2001/Video-Thinker' },
           { type: 'huggingface', href: 'https://huggingface.co/ShijianW01/Video-Thinker-7B' },
-          { type: 'arxiv', href: 'https://www.arxiv.org/abs/2510.23473' }
         ],
-        status: 'under-review'
+        status: 'preprint'
       },
       {
         title: "MuSEAgent: A Multimodal Reasoning Agent with Stateful Experiences",
@@ -137,7 +157,7 @@ const headings = [
           { name: 'Yuan Lu' },
           { name: 'Zongyuan Ge' }
         ],
-        venue: 'ECCV',
+        venue: 'Arxiv',
         year: '2026',
         type: 'conference',
         abstract: '',
@@ -145,7 +165,7 @@ const headings = [
           { type: 'arxiv', href: 'https://arxiv.org/abs/2603.27813' },
           { type: 'github', href: 'https://github.com/DeepExperience/MuSEAgent'},
         ],
-        status: 'under-review',
+        status: 'preprint',
       },
       {
         title: 'Synthetic Curriculum Reinforces Compositional Text-to-Image Generation',
@@ -235,8 +255,8 @@ const headings = [
         type: 'conference',
         abstract: '',
         links: [
-          { type: 'website', href: 'https://razor233.github.io/KORGYM_HomePage/' },
           { type: 'arxiv', href: 'https://arxiv.org/abs/2505.14552' },
+          { type: 'website', href: 'https://razor233.github.io/KORGYM_HomePage/' },
           { type: 'github', href: 'https://github.com/multimodal-art-projection/KORGym'}
         ],
         status: 'accepted'
@@ -269,7 +289,8 @@ const headings = [
         type: 'conference',
         abstract: '',
         links: [
-          { type: 'arxiv', href: 'https://arxiv.org/abs/2505.23922' }
+          { type: 'arxiv', href: 'https://arxiv.org/abs/2505.23922' },
+          { type: 'github', href: 'https://github.com/multimodal-art-projection/ScaleLong'},
         ],
         status: 'accepted'
       }
@@ -280,16 +301,6 @@ const headings = [
   </h2>
   <ResearchProjectSection
     projects={[
-      {
-        title: 'DORO-STVG',
-        description:
-          'Ongoing  Research Project for Video Spatial-Temporal Video Grounding | Monash Medical AI Lab',
-        category: 'Video MLLM',
-        status: 'active',
-        links: [
-          { type: 'github', href: 'https://github.com/Themaoqiu/DORO-STVG', label: 'Code' }
-        ]
-      },
       {
         title: 'Approval-MIS',
         description:
