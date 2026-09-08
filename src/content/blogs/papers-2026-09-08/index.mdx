@@ -1,0 +1,77 @@
+---
+title: Papers - 2026-09-08
+description: "吾能观之数千而面色如故"
+publishDate: 2026-09-08
+updatedDate: 2026-09-08
+tags: ['paper reading', 'agent', 'multimodal world model']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## Embodied Agent
+
+<div class="space-y-4">
+<PaperCard
+  title={"Motion-Omni: End-to-End Joint Speech and Full-Body Motion for Spoken Dialogue"}
+  arxivUrl={"https://arxiv.org/abs/2609.04250"}
+  hjfyUrl={"https://hjfy.top/arxiv/2609.04250"}
+  summary={"本文提出 Motion-Omni，一个端到端的 spoken dialogue 框架，能够在生成语音回复的同时直接输出表情和全身动作。方法上，它从生成语音的 hidden states 直接驱动 motion generator，并通过联合训练同时优化对话能力与动作-语音对齐；数据则来自可替换 motion teacher 的伪标注流水线，共构建 422,856 对高质量样本。基于 Qwen2.5-7B-Instruct 的 Motion-Omni-Q7 在 reference-free motion 指标上与同音频 teacher cascade 相差不超过 2%，响应速度快 5.4 倍，同时在 beat correlation、diversity 和 WER 上也取得了更优或最优表现。"}
+/>
+</div>
+
+## 4D Understanding and Generation
+
+<div class="space-y-4">
+<PaperCard
+  title={"UniMate: One Unified Model to Animate Diverse Skeletons"}
+  arxivUrl={"https://arxiv.org/abs/2609.05415"}
+  hjfyUrl={"https://hjfy.top/arxiv/2609.05415"}
+  summary={"UniMate 提出一个统一基础模型，可根据文本提示为任意带骨架的 3D 资产生成动作动画，且不需要测试时优化或按骨架重新训练。方法上，它采用面向拓扑的 diffusion transformer，并通过图注意力偏置、将 RoPE 推广到任意骨架树的谱位置编码，以及从静止姿态骨架汇聚的全局拓扑条件器来建模不同骨架结构。作者还构建了 UniML3D 数据集，包含 13,006 段统一标准化并配对文本的动作序列，覆盖多种生物和刚体拓扑。实验表明，UniMate 在生成质量、跨拓扑泛化和效率上都优于现有方法，并支持零样本跨拓扑迁移、补间、扩展和文本驱动编辑。"}
+/>
+</div>
+
+## Agent Training and Evaluation
+
+<div class="space-y-4">
+<PaperCard
+  title={"Bilevel Coordinated Reflection: A Game-Theoretic Approach to Multi-Agent LLM Systems"}
+  arxivUrl={"https://arxiv.org/abs/2609.02750"}
+  hjfyUrl={"https://hjfy.top/arxiv/2609.02750"}
+  summary={"本文把多智能体LLM系统建模为双层协调博弈，分析编排器-工作器分解质量与局部更新均衡之间的关系，并从理论上刻画反思在语义记忆状态上的随机演化。作者提出基于环境真实评估风险下降的 Stochastic Reflective Memory Ascent（SRMA），并给出在校准和非退化纠错质量下的收敛与速率保证。实验在 500 个 SWE-bench 实例上验证了协调与漂移分析，完整的 Kimi 系统解决率达到 72.2%，高于公共 mini-SWE-agent 参考的 70.8%。"}
+/>
+
+<PaperCard
+  title={"Iris: Climbing to the Search Frontier"}
+  arxivUrl={"https://arxiv.org/abs/2609.04304"}
+  hjfyUrl={"https://hjfy.top/arxiv/2609.04304"}
+  summary={"本文提出 Iris-mini 和 Iris-pro 两个搜索智能体，并给出围绕网页超链接结构构造训练数据、以及 SFT-RL climbing 的训练流程。作者把多跳问题逆向构造成轨迹，过滤高质量轨迹后先做监督微调，再用在线搜索环境中的强化学习继续优化，训练时还把奖励判别器和摘要器放在集群内。实验在 BrowseComp、BrowseComp-ZH、DeepSearchQA 和 HLE 上取得 82.2/84.8/86.9/52.3 与 88.6/85.1/92.9/56.4 的成绩，在各自参数规模内达到开源搜索智能体中的最强整体表现。"}
+/>
+
+<PaperCard
+  title={"RISE: Recursive Improvement via Self-Extrapolating Policy Distillation"}
+  arxivUrl={"https://arxiv.org/abs/2609.05295"}
+  hjfyUrl={"https://hjfy.top/arxiv/2609.05295"}
+  summary={"这篇工作提出 RISE，通过把当前模型与一个尾随锚点之间的位移递推外推，构造来自自身 RLVR 轨迹的合成教师，从而实现递归式改进。它把参数空间或输出 logit 空间中的外推结果转成 token 级密集监督，结合 RLVR 的结果奖励与 OPD 的逐 token 蒸馏信号。与依赖外部教师或受上下文容量限制的自蒸馏不同，RISE 不需要外部模型或额外的特权条件。实验覆盖数学推理、多领域 STEM、代码生成和多轮 agent 任务，结果显示它在所有设置下都优于仅用 RLVR 训练和在线自蒸馏。"}
+/>
+
+<PaperCard
+  title={"MaxKernel: Agentic Kernel Generation for TPUs"}
+  arxivUrl={"https://arxiv.org/abs/2609.04523"}
+  hjfyUrl={"https://hjfy.top/arxiv/2609.04523"}
+  summary={"这篇工作提出 MaxKernel，一个用于 TPU 内核生成的多智能体系统，目标是在高性能内核设计中把大语言模型与实时编译器反馈结合起来。系统实现了三种范式：人类在回路协作、完全自动化的度量/轨迹驱动优化，以及可扩展全局搜索的图搜索式自动化方案，并通过共享的专门子代理处理规划、实现、自调试、测试和硬件画像。作者在包含 50 个 TPU 内核任务的 JaxBench 以及若干真实开源模型工作负载上进行评测，结果表明该系统能够稳定产出高度优化的实现，达到专家手工调优基线，并带来显著性能提升。"}
+/>
+</div>
+
+## Multimodal World Model
+
+<div class="space-y-4">
+<PaperCard
+  title={"WorldSculpt: Generating Compositional Worlds from Grounded Videos"}
+  arxivUrl={"https://arxiv.org/abs/2609.05416"}
+  hjfyUrl={"https://hjfy.top/arxiv/2609.05416"}
+  summary={"本文提出 WorldSculpt，从 grounded videos 中生成由多个独立物体网格组成的组合式 3D 世界。作者把单物体 3D 生成先验 Pixal3D 扩展为多视角条件生成分支，使其即便只在单物体规范空间上微调，也能泛化到严重遮挡的复杂场景。新建的 UE-MeshyScene 基准包含数百物体的真实感拥挤场景、逐物体标注和真值网格，实验表明该方法在单物体、多物体和 UE-MeshyScene 上都优于现有方法，且场景越复杂、遮挡越严重优势越明显。"}
+/>
+</div>
