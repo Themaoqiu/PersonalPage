@@ -1,0 +1,104 @@
+---
+title: Papers - 2026-09-12
+description: "吾能观之数千而面色如故"
+publishDate: 2026-09-12
+updatedDate: 2026-09-12
+tags: ['paper reading', 'agent', 'multimodal world model']
+category: research
+comment: true
+heroImage: { src: "https://cdn.someacg.top/graph/origin/142795457_p0.jpg" }
+---
+
+import PaperCard from '@/components/papers/PaperCard.astro'
+
+## 3D LLM
+
+<div class="space-y-4">
+<PaperCard
+  title={"EvoSafeHarness: Evolving Model- and Domain-Specific Harnesses for Securing Agents"}
+  arxivUrl={"https://arxiv.org/abs/2609.05903"}
+  hjfyUrl={"https://hjfy.top/arxiv/2609.05903"}
+  summary={"Large Language Model (LLM) agents are turning language into real-world effects, making safety necessary against both indirect prompt injections and direct harmful requests. System-level safety harnesses add an enforcement layer beyond model-level defenses, but existing harnesses are usually designed once by experts and applied across heterogeneous models and domains. Effective protection is deployment-dependent: models differ in how much enforcement they need before utility declines, while domains differ in the effects, state, and action sequences that must be governed. A harness that is strict enough for one model may over-block another, and a policy that transfers across domains may miss application-specific safety relations. We present EvoSafeHarness, a safety-specific optimization framework that synthesizes a deployable harness for a frozen model in a target domain. It jointly searches a natural-language policy and executable code logic, guided by model behavior, domain specifications, and fresh-context adversarial review to reject benchmark-specific rules. Across four agent benchmark families, EvoSafeHarness achieves a stronger safety-utility frontier than fixed expert-designed defenses. On DecodingTrust-Agent, it reduces average attack success rate from 45.6% to 10.0% at a 3.3-point utility cost and achieves the best score in 14 of 15 cells. On AgentDojo, it reaches 82.8% utility at 0.0% ASR, twice CaMeL's utility at the same operating point, and transfers unchanged to unseen AgentDyn suites. It also achieves the best score on Agent-SafetyBench for every victim and keeps mean ASR below 20% under adaptive PAIR attacks with a refinement budget of 16. Analysis shows that domain semantics determine which safety relations and trajectory state are needed, while model and runtime behavior determine how and where those relations should be enforced."}
+/>
+</div>
+
+## Multimodal World Model
+
+<div class="space-y-4">
+<PaperCard
+  title={"NCP-ArchPreview Technical Report: Moving towards Latent Space Language Models through Next Concept Prediction"}
+  arxivUrl={"https://arxiv.org/abs/2609.10715"}
+  hjfyUrl={"https://hjfy.top/arxiv/2609.10715"}
+  summary={"No summary available."}
+/>
+
+<PaperCard
+  title={"SenseNova-U1.5: Towards Native Unified Visual Intelligence"}
+  arxivUrl={"https://arxiv.org/abs/2609.11929"}
+  hjfyUrl={"https://hjfy.top/arxiv/2609.11929"}
+  summary={"No summary available."}
+/>
+
+<PaperCard
+  title={"SpatialBlock: Enhancing Spatial Intelligence in LVLMs via Synthetic Block-Stacking Problem"}
+  arxivUrl={"https://arxiv.org/abs/2609.07064"}
+  hjfyUrl={"https://hjfy.top/arxiv/2609.07064"}
+  summary={"No summary available."}
+/>
+
+<PaperCard
+  title={"Mi-Ripple: Restoring Images Degraded by Iterative AI Editing"}
+  arxivUrl={"https://arxiv.org/abs/2609.11317"}
+  hjfyUrl={"https://hjfy.top/arxiv/2609.11317"}
+  summary={"No summary available."}
+/>
+
+<PaperCard
+  title={"X-AuT: Progressive Audio-Encoder Compression for Speech LLMs with Cross-Scale Distillation"}
+  arxivUrl={"https://arxiv.org/abs/2609.11412"}
+  hjfyUrl={"https://hjfy.top/arxiv/2609.11412"}
+  summary={"No summary available."}
+/>
+
+<PaperCard
+  title={"Memory as Plans: World-Action Modeling with Memory-Grounded Planning"}
+  arxivUrl={"https://arxiv.org/abs/2609.11561"}
+  hjfyUrl={"https://hjfy.top/arxiv/2609.11561"}
+  summary={"No summary available."}
+/>
+
+<PaperCard
+  title={"Recursive Code World Models: Building Complex Worlds through Recursive Scene Programs"}
+  arxivUrl={"https://arxiv.org/abs/2609.11499"}
+  hjfyUrl={"https://hjfy.top/arxiv/2609.11499"}
+  summary={"No summary available."}
+/>
+
+<PaperCard
+  title={"TempCloze: Can Video-LLMs Identify the Missing Middle?"}
+  arxivUrl={"https://arxiv.org/abs/2609.01515"}
+  hjfyUrl={"https://hjfy.top/arxiv/2609.01515"}
+  summary={"No summary available."}
+/>
+
+<PaperCard
+  title={"An Open Recipe for IMO Gold: Training Nemotron for Olympiad Mathematics"}
+  arxivUrl={"https://arxiv.org/abs/2609.10712"}
+  hjfyUrl={"https://hjfy.top/arxiv/2609.10712"}
+  summary={"No summary available."}
+/>
+
+<PaperCard
+  title={"FreeFlow: A Bias-free Hierarchical Transformer for Optical Flow Estimation"}
+  arxivUrl={"https://arxiv.org/abs/2609.11486"}
+  hjfyUrl={"https://hjfy.top/arxiv/2609.11486"}
+  summary={"Optical flow methods typically rely on task-specific inductive biases, such as correlation volumes, feature warping, and iterative refinement, among others, to reach high accuracy. While effective, such biases constrain the model to predefined heuristics, which can limit its expressivity and lead to more complex pipelines and additional computational cost. We present FreeFlow, a hierarchical transformer built without any flow-specific components, using instead a single feed-forward encoder--decoder. FreeFlow combines three attention variants: window attention for local processing, shifted-window attention for cross-window information exchange, and a global attention operating at a reduced resolution. The resulting architecture scales naturally with model capacity, enabling a consistent accuracy gain from small to large variants. Despite the absence of standard inductive biases, FreeFlow achieves state-of-the-art results on major benchmarks, including Sintel (0.68/1.48 EPE on Clean/Final), KITTI-2015 (3.23 Fl-all), and Spring (3.192 1px), while remaining memory efficient at 1080p inference."}
+/>
+
+<PaperCard
+  title={"World in World: Explore the World with World Models"}
+  arxivUrl={"https://arxiv.org/abs/2609.11548"}
+  hjfyUrl={"https://hjfy.top/arxiv/2609.11548"}
+  summary={"No summary available."}
+/>
+</div>
